@@ -10,7 +10,7 @@ import { SportEvent } from '../models/sport-event.model';
 })
 export class OddsService {
   private store = inject(Store);
-  private updateInterval = 2000; // Update every 5 seconds
+  private updateInterval = 5000; // Update every 5 seconds
 
   startOddsSimulation(): Observable<SportEvent[]> {
     return interval(this.updateInterval).pipe(
@@ -31,20 +31,10 @@ export class OddsService {
     draw?: number;
     away: number;
   } {
-    const variation = 0.1; // 10% variation
-
-    const home = this.adjustOdds(currentOdds.home, variation);
-    const away = this.adjustOdds(currentOdds.away, variation);
-    const draw = currentOdds.draw ? this.adjustOdds(currentOdds.draw, variation) : undefined;
+    const home = +(Math.random() * 3 + 1).toFixed(2);
+    const away = +(Math.random() * 2 + 2.5).toFixed(2);
+    const draw = currentOdds.draw ? +(Math.random() * 3 + 1).toFixed(2) : undefined;
 
     return { home, draw, away };
-  }
-
-  private adjustOdds(odds: number, variation: number): number {
-    const change = (Math.random() - 0.5) * 2 * variation;
-    const newOdds = odds * (1 + change);
-
-    // Ensure odds stay within valid range
-    return Math.max(1.01, Math.min(100, Math.round(newOdds * 100) / 100));
   }
 }
