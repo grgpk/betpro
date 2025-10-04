@@ -58,6 +58,20 @@
         font-size: 14px;
         transition: var(--transition);
 
+        &.back-button {
+          margin-left: 1rem;
+          background: linear-gradient(90deg, #1976d2 0%, #42a5f5 100%);
+          color: #fff;
+          font-weight: 500;
+          box-shadow: 0 2px 8px rgba(25, 118, 210, 0.15);
+          border-radius: 24px;
+          padding: 0 20px;
+          min-width: 140px;
+          display: flex;
+          align-items: center;
+          gap: 8px;
+        }
+
         mat-icon {
           margin-right: 6px;
           font-size: 18px;
@@ -147,30 +161,37 @@
         }
       }
 
-      .detail-row {
-        margin-bottom: 28px;
-        padding-bottom: 28px;
-        border-bottom: 1px solid var(--color-border);
+      .event-details-list {
+        margin: 0 0 32px 0;
+        padding: 0;
 
-        &:last-of-type {
-          border-bottom: none;
-        }
-
-        label {
+        dt {
           font-weight: 700;
           color: var(--color-text-secondary);
-          display: block;
-          margin-bottom: 12px;
           font-size: 13px;
           text-transform: uppercase;
           letter-spacing: 1px;
+          margin-bottom: 12px;
+          margin-top: 28px;
+
+          &:first-of-type {
+            margin-top: 0;
+          }
         }
 
-        p {
-          margin: 0;
+        dd {
+          margin: 0 0 28px 0;
+          padding-bottom: 28px;
+          border-bottom: 1px solid var(--color-border);
           font-size: 16px;
           color: var(--color-text-primary);
           line-height: 1.6;
+
+          &:last-of-type {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+          }
         }
       }
 
@@ -193,7 +214,7 @@
           flex: 1;
           text-align: center;
 
-          label {
+          h4 {
             font-size: 13px;
             color: var(--color-text-muted);
             display: block;
@@ -242,6 +263,7 @@
           gap: 16px;
 
           .odd-card {
+            margin: 0;
             padding: 28px;
             background: linear-gradient(
               135deg,
@@ -277,41 +299,44 @@
               }
             }
 
-            label {
+            dt {
               font-size: 13px;
               color: var(--color-text-secondary);
-              display: block;
-              margin-bottom: 16px;
+              margin: 0 0 16px 0;
               text-transform: uppercase;
               letter-spacing: 1px;
               font-weight: 700;
             }
 
-            .odd-value {
-              font-size: 40px;
-              font-weight: 900;
-              color: var(--color-primary);
-              margin-bottom: 20px;
-              text-shadow: 0 0 20px rgba(0, 217, 255, 0.3);
-              letter-spacing: -2px;
-            }
+            dd {
+              margin: 0;
 
-            button {
-              width: 100%;
-              background: linear-gradient(
-                135deg,
-                var(--color-primary) 0%,
-                var(--color-primary-dark) 100%
-              );
-              color: var(--color-bg-darker);
-              font-weight: 700;
-              padding: 12px;
-              border-radius: 8px;
-              transition: var(--transition);
+              &.odd-value {
+                font-size: 40px;
+                font-weight: 900;
+                color: var(--color-primary);
+                margin-bottom: 20px;
+                text-shadow: 0 0 20px rgba(0, 217, 255, 0.3);
+                letter-spacing: -2px;
+              }
 
-              &:hover {
-                transform: translateY(-2px);
-                box-shadow: var(--shadow-glow);
+              button {
+                width: 100%;
+                background: linear-gradient(
+                  135deg,
+                  var(--color-primary) 0%,
+                  var(--color-primary-dark) 100%
+                );
+                color: var(--color-bg-darker);
+                font-weight: 700;
+                padding: 12px;
+                border-radius: 8px;
+                transition: var(--transition);
+
+                &:hover {
+                  transform: translateY(-2px);
+                  box-shadow: var(--shadow-glow);
+                }
               }
             }
           }

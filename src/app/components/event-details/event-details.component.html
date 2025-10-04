@@ -29,7 +29,7 @@
       </button>
       <button mat-button (click)="toggleEditMode()">Cancel</button>
       }
-      <button mat-button routerLink="/events">
+      <button mat-raised-button class="back-button" routerLink="/events">
         <mat-icon>arrow_back</mat-icon>
         Back to Events
       </button>
@@ -42,71 +42,72 @@
     <div class="details-view">
       <div class="status-chips">
         <mat-chip [color]="getStatusColor(event()!.status)">
+          @if (event()!.isLive) {
+          <mat-icon>radio_button_checked</mat-icon>
+          }
           {{ event()!.status | titlecase }}
         </mat-chip>
-        @if (event()!.isLive) {
-        <mat-chip color="warn">
-          <mat-icon>radio_button_checked</mat-icon>
-          LIVE
-        </mat-chip>
-        }
       </div>
 
-      <div class="detail-row">
-        <label>Description:</label>
-        <p>{{ event()!.description }}</p>
-      </div>
+      <dl class="event-details-list">
+        <dt>Description:</dt>
+        <dd>{{ event()!.description }}</dd>
 
-      <div class="detail-row">
-        <label>Sport:</label>
-        <p>{{ event()!.sport | titlecase }}</p>
-      </div>
+        <dt>Sport:</dt>
+        <dd>{{ event()!.sport | titlecase }}</dd>
+      </dl>
 
       <div class="teams-section">
         <div class="team">
-          <label>Home Team</label>
+          <h4>Home Team</h4>
           <h2>{{ event()!.homeTeam }}</h2>
         </div>
         <div class="vs">VS</div>
         <div class="team">
-          <label>Away Team</label>
+          <h4>Away Team</h4>
           <h2>{{ event()!.awayTeam }}</h2>
         </div>
       </div>
 
-      <div class="detail-row">
-        <label>Start Time:</label>
-        <p>{{ event()!.startTime | date : 'full' }}</p>
-      </div>
+      <dl class="event-details-list">
+        <dt>Start Time:</dt>
+        <dd>{{ event()!.startTime | date : 'full' }}</dd>
+      </dl>
 
       <div class="odds-section">
         <h3>Current Odds</h3>
         <div class="odds-display">
-          <div class="odd-card">
-            <label>{{ event()!.homeTeam }}</label>
-            <div class="odd-value">{{ event()!.odds.home }}</div>
-            <button mat-raised-button color="primary" (click)="addToBetslip('home')">
-              Add to Betslip
-            </button>
-          </div>
+          <dl class="odd-card">
+            <dt>{{ event()!.homeTeam }}</dt>
+            <dd class="odd-value">{{ event()!.odds.home }}</dd>
+            <dd>
+              <button mat-raised-button color="primary" (click)="addToBetslip('home')">
+                Add to Betslip
+              </button>
+            </dd>
+          </dl>
 
           @if (event()!.odds.draw) {
-          <div class="odd-card">
-            <label>Draw</label>
-            <div class="odd-value">{{ event()!.odds.draw }}</div>
-            <button mat-raised-button color="primary" (click)="addToBetslip('draw')">
-              Add to Betslip
-            </button>
-          </div>
+          <dl class="odd-card">
+            <dt>Draw</dt>
+            <dd class="odd-value">{{ event()!.odds.draw }}</dd>
+            <dd>
+              <button mat-raised-button color="primary" (click)="addToBetslip('draw')">
+                Add to Betslip
+              </button>
+            </dd>
+          </dl>
           }
 
-          <div class="odd-card">
-            <label>{{ event()!.awayTeam }}</label>
-            <div class="odd-value">{{ event()!.odds.away }}</div>
-            <button mat-raised-button color="primary" (click)="addToBetslip('away')">
-              Add to Betslip
-            </button>
-          </div>
+          <dl class="odd-card">
+            <dt>{{ event()!.awayTeam }}</dt>
+            <dd class="odd-value">{{ event()!.odds.away }}</dd>
+            <dd>
+              <button mat-raised-button color="primary" (click)="addToBetslip('away')">
+                Add to Betslip
+              </button>
+            </dd>
+          </dl>
         </div>
       </div>
     </div>
