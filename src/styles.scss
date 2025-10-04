@@ -1,6 +1,38 @@
 /* You can add global styles to this file, and also import other style files */
 @import '@angular/material/prebuilt-themes/indigo-pink.css';
 
+// Sportsbook Color Palette
+:root {
+  --color-primary: #00d9ff;
+  --color-primary-dark: #00b8d4;
+  --color-secondary: #ffd700;
+  --color-accent: #ff6b35;
+  --color-success: #00e676;
+  --color-danger: #ff1744;
+  --color-warning: #ffb300;
+
+  --color-bg-dark: #0a0e27;
+  --color-bg-darker: #050816;
+  --color-bg-card: #141b3d;
+  --color-bg-hover: #1e2854;
+
+  --color-text-primary: #ffffff;
+  --color-text-secondary: #b0b8d4;
+  --color-text-muted: #6b7299;
+
+  --color-border: #1e2854;
+  --color-border-light: #2a3361;
+
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.5);
+  --shadow-glow: 0 0 20px rgba(0, 217, 255, 0.3);
+
+  --border-radius: 12px;
+  --border-radius-lg: 16px;
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
 * {
   box-sizing: border-box;
 }
@@ -10,5 +42,46 @@ body {
   margin: 0;
   padding: 0;
   height: 100%;
-  font-family: 'Roboto', 'Helvetica Neue', sans-serif;
+  font-family: 'Inter', 'Roboto', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--color-bg-darker);
+  color: var(--color-text-primary);
+}
+
+// Custom scrollbar
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-bg-dark);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-border-light);
+  border-radius: 4px;
+
+  &:hover {
+    background: var(--color-primary-dark);
+  }
+}
+
+// Override Material theme colors
+.mat-mdc-raised-button.mat-primary {
+  --mdc-protected-button-container-color: var(--color-primary);
+  --mdc-protected-button-label-text-color: var(--color-bg-darker);
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.mat-mdc-raised-button.mat-warn {
+  --mdc-protected-button-container-color: var(--color-danger);
+}
+
+.mat-mdc-card {
+  background: var(--color-bg-card);
+  color: var(--color-text-primary);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--color-border);
 }
