@@ -61,6 +61,36 @@
         "away": 2.5
       },
       "isLive": true
+    },
+    {
+      "id": "4",
+      "title": "Super Bowl",
+      "description": "The biggest event in American football",
+      "sport": "football",
+      "homeTeam": "Patriots",
+      "awayTeam": "Eagles",
+      "startTime": "2025-10-12T23:30:00Z",
+      "status": "upcoming",
+      "odds": {
+        "home": 1.9,
+        "away": 2.1
+      },
+      "isLive": false
+    },
+    {
+      "id": "5",
+      "title": "World Series Game 7",
+      "description": "Decisive game of the baseball championship",
+      "sport": "baseball",
+      "homeTeam": "Yankees",
+      "awayTeam": "Dodgers",
+      "startTime": "2025-10-08T00:00:00Z",
+      "status": "live",
+      "odds": {
+        "home": 2.3,
+        "away": 1.7
+      },
+      "isLive": true
     }
   ]
 }
