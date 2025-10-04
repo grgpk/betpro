@@ -1,41 +1,32 @@
-import {
-  Component,
-  inject,
-  OnInit,
-  signal,
-  computed,
-  effect,
-  ChangeDetectionStrategy,
-} from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterLink } from '@angular/router';
+import { ChangeDetectionStrategy, Component, effect, inject, OnInit } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
-import { Store } from '@ngrx/store';
-import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
-import { MatIconModule } from '@angular/material/icon';
+import { MatCardModule } from '@angular/material/card';
+import { MatChipsModule } from '@angular/material/chips';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatSelectModule } from '@angular/material/select';
+import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatPaginatorModule, PageEvent } from '@angular/material/paginator';
-import { MatChipsModule } from '@angular/material/chips';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-import { MatDialogModule, MatDialog } from '@angular/material/dialog';
+import { MatSelectModule } from '@angular/material/select';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
+import { RouterLink } from '@angular/router';
+import { Store } from '@ngrx/store';
 import { debounceTime } from 'rxjs/operators';
-import * as EventsActions from '../../store/events/events.actions';
+import { EventFilters } from '../../models/filters.model';
+import { SportEvent } from '../../models/sport-event.model';
 import * as BetslipActions from '../../store/betslip/betslip.actions';
+import * as EventsActions from '../../store/events/events.actions';
 import {
   selectAllEvents,
-  selectEventsLoading,
   selectEventsError,
-  selectEventsFilters,
-  selectEventsSort,
+  selectEventsLoading,
   selectEventsPagination,
+  selectEventsSort,
   selectEventsTotal,
 } from '../../store/events/events.selectors';
-import { SportEvent } from '../../models/sport-event.model';
-import { EventFilters } from '../../models/filters.model';
 import { AddEventDialogComponent } from '../add-event-dialog/add-event-dialog.component';
 
 @Component({
