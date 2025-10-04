@@ -1,47 +1,79 @@
 .betslip-card {
   position: sticky;
-  top: 24px;
-  max-height: calc(100vh - 48px);
+  top: 116px;
+  max-height: calc(100vh - 140px);
   overflow-y: auto;
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-lg);
 
   mat-card-header {
+    padding: 24px;
+    background: linear-gradient(135deg, rgba(0, 217, 255, 0.1) 0%, rgba(255, 107, 53, 0.05) 100%);
+    border-bottom: 1px solid var(--color-border);
+
     mat-card-title {
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 12px;
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--color-text-primary);
+      letter-spacing: -0.5px;
 
       mat-icon {
-        font-size: 24px;
-        width: 24px;
-        height: 24px;
+        font-size: 28px;
+        width: 28px;
+        height: 28px;
+        color: var(--color-primary);
       }
 
       .bet-count {
-        color: #1976d2;
-        font-size: 16px;
+        background: linear-gradient(
+          135deg,
+          var(--color-primary) 0%,
+          var(--color-primary-dark) 100%
+        );
+        color: var(--color-bg-darker);
+        padding: 4px 12px;
+        border-radius: 12px;
+        font-size: 14px;
+        font-weight: 700;
+        box-shadow: var(--shadow-glow);
       }
     }
   }
 
+  mat-card-content {
+    padding: 0;
+  }
+
   .empty-betslip {
     text-align: center;
-    padding: 48px 24px;
-    color: #999;
+    padding: 60px 32px;
+    color: var(--color-text-muted);
 
     mat-icon {
-      font-size: 64px;
-      width: 64px;
-      height: 64px;
-      margin-bottom: 16px;
+      font-size: 80px;
+      width: 80px;
+      height: 80px;
+      margin-bottom: 20px;
+      opacity: 0.3;
+      color: var(--color-text-secondary);
     }
 
     p {
       margin: 8px 0;
+      font-size: 16px;
+      color: var(--color-text-secondary);
+      font-weight: 600;
     }
 
     .hint {
-      font-size: 14px;
-      color: #bbb;
+      font-size: 13px;
+      color: var(--color-text-muted);
+      margin-top: 12px;
     }
   }
 
@@ -50,13 +82,24 @@
 
     mat-list-item {
       height: auto;
-      padding: 16px 0;
+      padding: 20px 24px;
+      border-bottom: 1px solid var(--color-border);
+      background: transparent;
+      transition: var(--transition);
+
+      &:hover {
+        background: rgba(0, 217, 255, 0.03);
+      }
+
+      &:last-child {
+        border-bottom: none;
+      }
 
       .bet-item {
         width: 100%;
         display: flex;
         flex-direction: column;
-        gap: 12px;
+        gap: 16px;
 
         .bet-header {
           display: flex;
@@ -69,82 +112,197 @@
 
             strong {
               display: block;
-              margin-bottom: 8px;
-              color: #333;
+              margin-bottom: 10px;
+              color: var(--color-text-primary);
+              font-size: 15px;
+              font-weight: 700;
+              line-height: 1.3;
             }
 
             .selection-info {
               display: flex;
-              gap: 8px;
-              font-size: 14px;
+              gap: 10px;
+              font-size: 13px;
+              align-items: center;
 
               .selection {
-                background-color: #e3f2fd;
-                color: #1976d2;
-                padding: 2px 8px;
-                border-radius: 4px;
-                font-weight: 500;
+                background: linear-gradient(
+                  135deg,
+                  rgba(0, 217, 255, 0.2) 0%,
+                  rgba(0, 217, 255, 0.1) 100%
+                );
+                color: var(--color-primary);
+                padding: 4px 12px;
+                border-radius: 6px;
+                font-weight: 700;
+                text-transform: uppercase;
+                letter-spacing: 0.5px;
+                border: 1px solid rgba(0, 217, 255, 0.3);
               }
 
               .odds {
-                color: #666;
-                font-weight: 600;
+                color: var(--color-secondary);
+                font-weight: 800;
+                font-size: 16px;
               }
+            }
+          }
+
+          button {
+            background: rgba(255, 23, 68, 0.1);
+            border: 1px solid rgba(255, 23, 68, 0.3);
+            color: var(--color-danger);
+            transition: var(--transition);
+            border-radius: 8px;
+
+            &:hover {
+              background: rgba(255, 23, 68, 0.2);
+              transform: scale(1.1);
+            }
+
+            mat-icon {
+              color: var(--color-danger);
             }
           }
         }
 
         .stake-input {
           width: 100%;
+
+          ::ng-deep {
+            .mat-mdc-text-field-wrapper {
+              background: var(--color-bg-dark);
+              border-radius: 8px;
+              border: 1px solid var(--color-border-light);
+            }
+
+            input {
+              color: var(--color-text-primary);
+              font-weight: 700;
+              font-size: 16px;
+            }
+
+            .mat-mdc-form-field-label {
+              color: var(--color-text-secondary);
+            }
+
+            .mat-mdc-form-field-prefix {
+              color: var(--color-primary);
+              font-weight: 700;
+            }
+          }
         }
 
         .potential-return {
-          font-size: 14px;
-          color: #4caf50;
-          font-weight: 600;
+          font-size: 13px;
+          color: var(--color-success);
+          font-weight: 700;
           text-align: right;
+          padding: 8px 12px;
+          background: rgba(0, 230, 118, 0.1);
+          border-radius: 6px;
+          border: 1px solid rgba(0, 230, 118, 0.2);
         }
       }
     }
   }
 
   .betslip-summary {
-    margin-top: 16px;
-    padding: 16px;
-    background-color: #f5f5f5;
-    border-radius: 8px;
+    margin: 24px;
+    padding: 20px;
+    background: linear-gradient(135deg, rgba(0, 217, 255, 0.05) 0%, rgba(255, 107, 53, 0.05) 100%);
+    border-radius: var(--border-radius);
+    border: 1px solid var(--color-border);
 
     .summary-row {
       display: flex;
       justify-content: space-between;
-      padding: 8px 0;
+      padding: 10px 0;
+      font-size: 14px;
+      color: var(--color-text-secondary);
+
+      strong {
+        color: var(--color-text-primary);
+        font-weight: 700;
+      }
 
       &.total {
         font-size: 18px;
-        padding-top: 12px;
+        padding-top: 16px;
+        margin-top: 12px;
+        border-top: 2px solid var(--color-border-light);
+        font-weight: 700;
+
+        span {
+          color: var(--color-text-primary);
+          text-transform: uppercase;
+          letter-spacing: 0.5px;
+          font-size: 14px;
+        }
 
         .win-amount {
-          color: #4caf50;
+          color: var(--color-success);
+          font-size: 24px;
+          font-weight: 800;
         }
       }
     }
 
     mat-divider {
-      margin: 8px 0;
+      margin: 12px 0;
+      background-color: var(--color-border-light);
     }
   }
 
   .betslip-actions {
     display: flex;
     flex-direction: column;
-    gap: 8px;
-    margin-top: 16px;
+    gap: 12px;
+    padding: 24px;
+    background: rgba(10, 14, 39, 0.5);
 
     button {
       width: 100%;
+      height: 48px;
+      font-weight: 700;
+      font-size: 15px;
+      letter-spacing: 0.5px;
+      border-radius: var(--border-radius);
+      transition: var(--transition);
 
       mat-icon {
         margin-right: 8px;
+      }
+
+      &.mat-raised-button.mat-primary {
+        background: linear-gradient(
+          135deg,
+          var(--color-primary) 0%,
+          var(--color-primary-dark) 100%
+        );
+        box-shadow: var(--shadow-glow);
+        text-transform: uppercase;
+
+        &:hover:not(:disabled) {
+          transform: translateY(-2px);
+          box-shadow: 0 0 30px rgba(0, 217, 255, 0.5);
+        }
+
+        &:disabled {
+          opacity: 0.4;
+        }
+      }
+
+      &.mat-button {
+        background: transparent;
+        color: var(--color-text-secondary);
+        border: 1px solid var(--color-border-light);
+
+        &:hover {
+          background: rgba(255, 23, 68, 0.1);
+          border-color: var(--color-danger);
+          color: var(--color-danger);
+        }
       }
     }
   }
