@@ -1,33 +1,39 @@
-<div class="event-details-container">
-  @if (loading()) {
+@if (loading()) {
   <div class="loading-container">
     <mat-spinner></mat-spinner>
   </div>
-  } @if (error()) {
+}
+@if (error()) {
   <mat-card class="error-card">
     <mat-icon color="warn">error</mat-icon>
     <p>{{ error() }}</p>
     <button mat-raised-button routerLink="/events">Back to Events</button>
   </mat-card>
-  } @if (!loading() && !error() && event()) {
+}
+@if (!loading() && !error() && event()) {
   <div class="header">
     <h1>{{ event()!.title }}</h1>
     <div class="actions">
       @if (!isEditMode) {
-      <button mat-raised-button color="primary" (click)="toggleEditMode()">
-        <mat-icon>edit</mat-icon>
-        Edit
-      </button>
-      <button mat-raised-button color="warn" (click)="deleteEvent()">
-        <mat-icon>delete</mat-icon>
-        Delete
-      </button>
+        <button mat-raised-button color="primary" (click)="toggleEditMode()">
+          <mat-icon>edit</mat-icon>
+          Edit
+        </button>
+        <button mat-raised-button color="warn" (click)="deleteEvent()">
+          <mat-icon>delete</mat-icon>
+          Delete
+        </button>
       } @else {
-      <button mat-raised-button color="primary" (click)="saveEvent()" [disabled]="!eventForm.valid">
-        <mat-icon>save</mat-icon>
-        Save
-      </button>
-      <button mat-button (click)="toggleEditMode()">Cancel</button>
+        <button
+          mat-raised-button
+          color="primary"
+          (click)="saveEvent()"
+          [disabled]="!eventForm.valid"
+        >
+          <mat-icon>save</mat-icon>
+          Save
+        </button>
+        <button mat-button (click)="toggleEditMode()">Cancel</button>
       }
       <button mat-raised-button class="back-button" routerLink="/events">
         <mat-icon>arrow_back</mat-icon>
@@ -38,200 +44,206 @@
 
   <mat-card class="event-details-card">
     @if (!isEditMode) {
-    <!-- View Mode -->
-    <div class="details-view">
-      <div class="status-chips">
-        <mat-chip [color]="getStatusColor(event()!.status)">
-          @if (event()!.isLive) {
-          <mat-icon>radio_button_checked</mat-icon>
-          }
-          {{ event()!.status | titlecase }}
-        </mat-chip>
-      </div>
-
-      <dl class="event-details-list">
-        <dt>Description:</dt>
-        <dd>{{ event()!.description }}</dd>
-
-        <dt>Sport:</dt>
-        <dd>{{ event()!.sport | titlecase }}</dd>
-      </dl>
-
-      <div class="teams-section">
-        <div class="team">
-          <h4>Home Team</h4>
-          <h2>{{ event()!.homeTeam }}</h2>
+      <!-- View Mode -->
+      <div class="details-view">
+        <div class="status-chips">
+          <mat-chip [color]="getStatusColor(event()!.status)">
+            @if (event()!.isLive) {
+              <mat-icon>radio_button_checked</mat-icon>
+            }
+            {{ event()!.status | titlecase }}
+          </mat-chip>
         </div>
-        <div class="vs">VS</div>
-        <div class="team">
-          <h4>Away Team</h4>
-          <h2>{{ event()!.awayTeam }}</h2>
+
+        <dl class="event-details-list">
+          <dt>Description:</dt>
+          <dd>{{ event()!.description }}</dd>
+
+          <dt>Sport:</dt>
+          <dd>{{ event()!.sport | titlecase }}</dd>
+        </dl>
+
+        <div class="teams-section">
+          <div class="team">
+            <h4>Home Team</h4>
+            <h2>{{ event()!.homeTeam }}</h2>
+          </div>
+          <div class="vs">VS</div>
+          <div class="team">
+            <h4>Away Team</h4>
+            <h2>{{ event()!.awayTeam }}</h2>
+          </div>
+        </div>
+
+        <dl class="event-details-list">
+          <dt>Start Time:</dt>
+          <dd>{{ event()!.startTime | date: 'full' }}</dd>
+        </dl>
+
+        <div class="odds-section">
+          <h3>Current Odds</h3>
+          <div class="odds-display">
+            <dl class="odd-card">
+              <dt>{{ event()!.homeTeam }}</dt>
+              <dd class="odd-value">{{ event()!.odds.home }}</dd>
+              <dd>
+                <button mat-raised-button color="primary" (click)="addToBetslip('home')">
+                  Add to Betslip
+                </button>
+              </dd>
+            </dl>
+
+            @if (event()!.odds.draw) {
+              <dl class="odd-card">
+                <dt>Draw</dt>
+                <dd class="odd-value">{{ event()!.odds.draw }}</dd>
+                <dd>
+                  <button mat-raised-button color="primary" (click)="addToBetslip('draw')">
+                    Add to Betslip
+                  </button>
+                </dd>
+              </dl>
+            }
+
+            <dl class="odd-card">
+              <dt>{{ event()!.awayTeam }}</dt>
+              <dd class="odd-value">{{ event()!.odds.away }}</dd>
+              <dd>
+                <button mat-raised-button color="primary" (click)="addToBetslip('away')">
+                  Add to Betslip
+                </button>
+              </dd>
+            </dl>
+          </div>
         </div>
       </div>
-
-      <dl class="event-details-list">
-        <dt>Start Time:</dt>
-        <dd>{{ event()!.startTime | date : 'full' }}</dd>
-      </dl>
-
-      <div class="odds-section">
-        <h3>Current Odds</h3>
-        <div class="odds-display">
-          <dl class="odd-card">
-            <dt>{{ event()!.homeTeam }}</dt>
-            <dd class="odd-value">{{ event()!.odds.home }}</dd>
-            <dd>
-              <button mat-raised-button color="primary" (click)="addToBetslip('home')">
-                Add to Betslip
-              </button>
-            </dd>
-          </dl>
-
-          @if (event()!.odds.draw) {
-          <dl class="odd-card">
-            <dt>Draw</dt>
-            <dd class="odd-value">{{ event()!.odds.draw }}</dd>
-            <dd>
-              <button mat-raised-button color="primary" (click)="addToBetslip('draw')">
-                Add to Betslip
-              </button>
-            </dd>
-          </dl>
-          }
-
-          <dl class="odd-card">
-            <dt>{{ event()!.awayTeam }}</dt>
-            <dd class="odd-value">{{ event()!.odds.away }}</dd>
-            <dd>
-              <button mat-raised-button color="primary" (click)="addToBetslip('away')">
-                Add to Betslip
-              </button>
-            </dd>
-          </dl>
-        </div>
-      </div>
-    </div>
     } @else {
-    <!-- Edit Mode -->
-    <form [formGroup]="eventForm" class="edit-form">
-      <div class="form-row">
-        <mat-form-field>
-          <mat-label>Title</mat-label>
-          <input matInput formControlName="title" required />
-          @if (eventForm.get('title')?.hasError('required')) {
-          <mat-error>Title is required</mat-error>
-          } @if (eventForm.get('title')?.hasError('minlength')) {
-          <mat-error>Title must be at least 2 characters</mat-error>
-          } @if (eventForm.get('title')?.hasError('maxlength')) {
-          <mat-error>Title cannot exceed 100 characters</mat-error>
-          }
-        </mat-form-field>
-      </div>
-
-      <div class="form-row">
-        <mat-form-field>
-          <mat-label>Description</mat-label>
-          <textarea matInput formControlName="description" rows="3" required></textarea>
-          @if (eventForm.get('description')?.hasError('required')) {
-          <mat-error>Description is required</mat-error>
-          } @if (eventForm.get('description')?.hasError('minlength')) {
-          <mat-error>Description must be at least 2 characters</mat-error>
-          } @if (eventForm.get('description')?.hasError('maxlength')) {
-          <mat-error>Description cannot exceed 200 characters</mat-error>
-          }
-        </mat-form-field>
-      </div>
-
-      <div class="form-row">
-        <mat-form-field>
-          <mat-label>Sport</mat-label>
-          <mat-select formControlName="sport" required>
-            @for (sport of sports; track sport) {
-            <mat-option [value]="sport">{{ sport | titlecase }}</mat-option>
+      <!-- Edit Mode -->
+      <form [formGroup]="eventForm" class="edit-form">
+        <div class="form-row">
+          <mat-form-field>
+            <mat-label>Title</mat-label>
+            <input matInput formControlName="title" required />
+            @if (eventForm.get('title')?.hasError('required')) {
+              <mat-error>Title is required</mat-error>
             }
-          </mat-select>
-        </mat-form-field>
-
-        <mat-form-field>
-          <mat-label>Status</mat-label>
-          <mat-select formControlName="status" required>
-            @for (status of statuses; track status) {
-            <mat-option [value]="status">{{ status | titlecase }}</mat-option>
+            @if (eventForm.get('title')?.hasError('minlength')) {
+              <mat-error>Title must be at least 2 characters</mat-error>
             }
-          </mat-select>
-        </mat-form-field>
-      </div>
+            @if (eventForm.get('title')?.hasError('maxlength')) {
+              <mat-error>Title cannot exceed 100 characters</mat-error>
+            }
+          </mat-form-field>
+        </div>
 
-      <div class="form-row">
-        <mat-form-field>
-          <mat-label>Home Team</mat-label>
-          <input matInput formControlName="homeTeam" required />
-          @if (eventForm.get('homeTeam')?.hasError('required')) {
-          <mat-error>Home team is required</mat-error>
+        <div class="form-row">
+          <mat-form-field>
+            <mat-label>Description</mat-label>
+            <textarea matInput formControlName="description" rows="3" required></textarea>
+            @if (eventForm.get('description')?.hasError('required')) {
+              <mat-error>Description is required</mat-error>
+            }
+            @if (eventForm.get('description')?.hasError('minlength')) {
+              <mat-error>Description must be at least 2 characters</mat-error>
+            }
+            @if (eventForm.get('description')?.hasError('maxlength')) {
+              <mat-error>Description cannot exceed 200 characters</mat-error>
+            }
+          </mat-form-field>
+        </div>
+
+        <div class="form-row">
+          <mat-form-field>
+            <mat-label>Sport</mat-label>
+            <mat-select formControlName="sport" required>
+              @for (sport of sports; track sport) {
+                <mat-option [value]="sport">{{ sport | titlecase }}</mat-option>
+              }
+            </mat-select>
+          </mat-form-field>
+
+          <mat-form-field>
+            <mat-label>Status</mat-label>
+            <mat-select formControlName="status" required>
+              @for (status of statuses; track status) {
+                <mat-option [value]="status">{{ status | titlecase }}</mat-option>
+              }
+            </mat-select>
+          </mat-form-field>
+        </div>
+
+        <div class="form-row">
+          <mat-form-field>
+            <mat-label>Home Team</mat-label>
+            <input matInput formControlName="homeTeam" required />
+            @if (eventForm.get('homeTeam')?.hasError('required')) {
+              <mat-error>Home team is required</mat-error>
+            }
+          </mat-form-field>
+
+          <mat-form-field>
+            <mat-label>Away Team</mat-label>
+            <input matInput formControlName="awayTeam" required />
+            @if (eventForm.get('awayTeam')?.hasError('required')) {
+              <mat-error>Away team is required</mat-error>
+            }
+          </mat-form-field>
+        </div>
+
+        <div class="form-row">
+          <mat-form-field>
+            <mat-label>Start Time</mat-label>
+            <input matInput [matDatepicker]="picker" formControlName="startTime" required />
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+        </div>
+
+        <div class="form-row">
+          <h3>Odds</h3>
+        </div>
+
+        <div class="form-row">
+          <mat-form-field>
+            <mat-label>Home Odds</mat-label>
+            <input matInput type="number" formControlName="homeOdds" step="0.01" required />
+            @if (eventForm.get('homeOdds')?.hasError('min')) {
+              <mat-error>Minimum odds is 1.01</mat-error>
+            }
+            @if (eventForm.get('homeOdds')?.hasError('max')) {
+              <mat-error>Maximum odds is 100</mat-error>
+            }
+          </mat-form-field>
+
+          @if (hasDraw) {
+            <mat-form-field>
+              <mat-label>Draw Odds</mat-label>
+              <input matInput type="number" formControlName="drawOdds" step="0.01" />
+              @if (eventForm.get('drawOdds')?.hasError('min')) {
+                <mat-error>Minimum odds is 1.01</mat-error>
+              }
+              @if (eventForm.get('drawOdds')?.hasError('max')) {
+                <mat-error>Maximum odds is 100</mat-error>
+              }
+            </mat-form-field>
           }
-        </mat-form-field>
 
-        <mat-form-field>
-          <mat-label>Away Team</mat-label>
-          <input matInput formControlName="awayTeam" required />
-          @if (eventForm.get('awayTeam')?.hasError('required')) {
-          <mat-error>Away team is required</mat-error>
-          }
-        </mat-form-field>
-      </div>
+          <mat-form-field>
+            <mat-label>Away Odds</mat-label>
+            <input matInput type="number" formControlName="awayOdds" step="0.01" required />
+            @if (eventForm.get('awayOdds')?.hasError('min')) {
+              <mat-error>Minimum odds is 1.01</mat-error>
+            }
+            @if (eventForm.get('awayOdds')?.hasError('max')) {
+              <mat-error>Maximum odds is 100</mat-error>
+            }
+          </mat-form-field>
+        </div>
 
-      <div class="form-row">
-        <mat-form-field>
-          <mat-label>Start Time</mat-label>
-          <input matInput [matDatepicker]="picker" formControlName="startTime" required />
-          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-          <mat-datepicker #picker></mat-datepicker>
-        </mat-form-field>
-      </div>
-
-      <div class="form-row">
-        <h3>Odds</h3>
-      </div>
-
-      <div class="form-row">
-        <mat-form-field>
-          <mat-label>Home Odds</mat-label>
-          <input matInput type="number" formControlName="homeOdds" step="0.01" required />
-          @if (eventForm.get('homeOdds')?.hasError('min')) {
-          <mat-error>Minimum odds is 1.01</mat-error>
-          } @if (eventForm.get('homeOdds')?.hasError('max')) {
-          <mat-error>Maximum odds is 100</mat-error>
-          }
-        </mat-form-field>
-
-        @if (hasDraw) {
-        <mat-form-field>
-          <mat-label>Draw Odds</mat-label>
-          <input matInput type="number" formControlName="drawOdds" step="0.01" />
-          @if (eventForm.get('drawOdds')?.hasError('min')) {
-          <mat-error>Minimum odds is 1.01</mat-error>
-          } @if (eventForm.get('drawOdds')?.hasError('max')) {
-          <mat-error>Maximum odds is 100</mat-error>
-          }
-        </mat-form-field>
-        }
-
-        <mat-form-field>
-          <mat-label>Away Odds</mat-label>
-          <input matInput type="number" formControlName="awayOdds" step="0.01" required />
-          @if (eventForm.get('awayOdds')?.hasError('min')) {
-          <mat-error>Minimum odds is 1.01</mat-error>
-          } @if (eventForm.get('awayOdds')?.hasError('max')) {
-          <mat-error>Maximum odds is 100</mat-error>
-          }
-        </mat-form-field>
-      </div>
-
-      <div class="form-row">
-        <mat-checkbox formControlName="isLive">Is Live</mat-checkbox>
-      </div>
-    </form>
+        <div class="form-row">
+          <mat-checkbox formControlName="isLive">Is Live</mat-checkbox>
+        </div>
+      </form>
     }
   </mat-card>
-  }
-</div>
+}

@@ -16,7 +16,7 @@
           <mat-select formControlName="sport">
             <mat-option value="">All Sports</mat-option>
             @for (sport of sports; track sport) {
-            <mat-option [value]="sport">{{ sport | titlecase }}</mat-option>
+              <mat-option [value]="sport">{{ sport | titlecase }}</mat-option>
             }
           </mat-select>
         </mat-form-field>
@@ -26,7 +26,7 @@
           <mat-select formControlName="status">
             <mat-option value="">All Statuses</mat-option>
             @for (status of statuses; track status) {
-            <mat-option [value]="status">{{ status | titlecase }}</mat-option>
+              <mat-option [value]="status">{{ status | titlecase }}</mat-option>
             }
           </mat-select>
         </mat-form-field>
@@ -44,108 +44,110 @@
 
   <!-- Loading Spinner -->
   @if (loading()) {
-  <div class="loading-container">
-    <mat-spinner></mat-spinner>
-  </div>
+    <div class="loading-container">
+      <mat-spinner></mat-spinner>
+    </div>
   }
 
   <!-- Error Message -->
   @if (error()) {
-  <mat-card class="error-card">
-    <mat-icon color="warn">error</mat-icon>
-    <p>{{ error() }}</p>
-  </mat-card>
+    <mat-card class="error-card">
+      <mat-icon color="warn">error</mat-icon>
+      <p>{{ error() }}</p>
+    </mat-card>
   }
 
   <!-- Event Cards -->
   @if (!loading() && !error()) {
-  <div class="events-grid">
-    @for (event of events(); track event.id) {
-    <mat-card class="event-card">
-      <mat-card-header>
-        <mat-card-title>{{ event.title }}</mat-card-title>
-        <mat-card-subtitle>
-          <mat-chip [color]="getStatusColor(event.status)">
-            @if (event.isLive) {
-            <mat-icon>radio_button_checked</mat-icon>
-            }
-            {{ event.status | titlecase }}
-          </mat-chip>
-        </mat-card-subtitle>
-      </mat-card-header>
+    <div class="events-grid">
+      @for (event of events(); track event.id) {
+        <mat-card class="event-card">
+          <mat-card-header>
+            <mat-card-title>{{ event.title }}</mat-card-title>
+            <mat-card-subtitle>
+              <mat-chip [color]="getStatusColor(event.status)">
+                @if (event.isLive) {
+                  <mat-icon>radio_button_checked</mat-icon>
+                }
+                {{ event.status | titlecase }}
+              </mat-chip>
+            </mat-card-subtitle>
+          </mat-card-header>
 
-      <mat-card-content>
-        <p class="description">{{ event.description }}</p>
+          <mat-card-content>
+            <p class="description">{{ event.description }}</p>
 
-        <div class="teams">
-          <div class="team">
-            <strong>{{ event.homeTeam }}</strong>
-          </div>
-          <span class="vs">VS</span>
-          <div class="team">
-            <strong>{{ event.awayTeam }}</strong>
-          </div>
-        </div>
+            <div class="teams">
+              <div class="team">
+                <strong>{{ event.homeTeam }}</strong>
+              </div>
+              <span class="vs">VS</span>
+              <div class="team">
+                <strong>{{ event.awayTeam }}</strong>
+              </div>
+            </div>
 
-        <div class="event-info">
-          <div class="info-item">
-            <mat-icon>sports</mat-icon>
-            <span>{{ event.sport | titlecase }}</span>
-          </div>
-          <div class="info-item">
-            <mat-icon>schedule</mat-icon>
-            <span>{{ event.startTime | date : 'short' }}</span>
-          </div>
-        </div>
+            <div class="event-info">
+              <div class="info-item">
+                <mat-icon>sports</mat-icon>
+                <span>{{ event.sport | titlecase }}</span>
+              </div>
+              <div class="info-item">
+                <mat-icon>schedule</mat-icon>
+                <span>{{ event.startTime | date: 'short' }}</span>
+              </div>
+            </div>
 
-        <div class="odds">
-          <h4>Odds</h4>
-          <div class="odds-buttons">
-            <button mat-raised-button color="primary" (click)="addToBetslip(event, 'home')">
-              {{ event.homeTeam }}: {{ event.odds.home }}
+            <div class="odds">
+              <h4>Odds</h4>
+              <div class="odds-buttons">
+                <button mat-raised-button color="primary" (click)="addToBetslip(event, 'home')">
+                  {{ event.homeTeam }}: {{ event.odds.home }}
+                </button>
+
+                @if (event.odds.draw) {
+                  <button mat-raised-button color="primary" (click)="addToBetslip(event, 'draw')">
+                    Draw: {{ event.odds.draw }}
+                  </button>
+                }
+
+                <button mat-raised-button color="primary" (click)="addToBetslip(event, 'away')">
+                  {{ event.awayTeam }}: {{ event.odds.away }}
+                </button>
+              </div>
+            </div>
+          </mat-card-content>
+
+          <mat-card-actions>
+            <button mat-button [routerLink]="['/events', event.id]">
+              <mat-icon>visibility</mat-icon>
+              View Details
             </button>
-
-            @if (event.odds.draw) {
-            <button mat-raised-button color="primary" (click)="addToBetslip(event, 'draw')">
-              Draw: {{ event.odds.draw }}
+            <button mat-button color="warn" (click)="deleteEvent(event)">
+              <mat-icon>delete</mat-icon>
+              Delete
             </button>
-            }
+          </mat-card-actions>
+        </mat-card>
+      }
+    </div>
 
-            <button mat-raised-button color="primary" (click)="addToBetslip(event, 'away')">
-              {{ event.awayTeam }}: {{ event.odds.away }}
-            </button>
-          </div>
-        </div>
-      </mat-card-content>
-
-      <mat-card-actions>
-        <button mat-button [routerLink]="['/events', event.id]">
-          <mat-icon>visibility</mat-icon>
-          View Details
-        </button>
-        <button mat-button color="warn" (click)="deleteEvent(event)">
-          <mat-icon>delete</mat-icon>
-          Delete
-        </button>
-      </mat-card-actions>
-    </mat-card>
+    <!-- Pagination -->
+    @if (total() > 0) {
+      <mat-paginator
+        [length]="total()"
+        [pageSize]="pagination().pageSize"
+        [pageIndex]="pagination().page - 1"
+        [pageSizeOptions]="[5, 10, 25, 50]"
+        (page)="onPageChange($event)"
+      >
+      </mat-paginator>
     }
-  </div>
-
-  <!-- Pagination -->
-  @if (total() > 0) {
-  <mat-paginator
-    [length]="total()"
-    [pageSize]="pagination().pageSize"
-    [pageIndex]="pagination().page - 1"
-    [pageSizeOptions]="[5, 10, 25, 50]"
-    (page)="onPageChange($event)"
-  >
-  </mat-paginator>
-  } @if (events().length === 0) {
-  <mat-card class="no-events">
-    <mat-icon>event_busy</mat-icon>
-    <p>No events found</p>
-  </mat-card>
-  } }
+    @if (events().length === 0) {
+      <mat-card class="no-events">
+        <mat-icon>event_busy</mat-icon>
+        <p>No events found</p>
+      </mat-card>
+    }
+  }
 </div>

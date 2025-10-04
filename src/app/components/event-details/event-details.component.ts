@@ -171,8 +171,8 @@ export class EventDetailsComponent implements OnInit {
       selection === 'home'
         ? currentEvent.odds.home
         : selection === 'draw'
-        ? currentEvent.odds.draw!
-        : currentEvent.odds.away;
+          ? currentEvent.odds.draw!
+          : currentEvent.odds.away;
 
     this.store.dispatch(
       BetslipActions.addToBetslip({
@@ -183,7 +183,7 @@ export class EventDetailsComponent implements OnInit {
           selection,
           odds,
         },
-      })
+      }),
     );
 
     this.snackBar.open('Added to betslip', 'Close', { duration: 2000 });

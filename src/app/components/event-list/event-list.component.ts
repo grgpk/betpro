@@ -73,13 +73,10 @@ export class EventListComponent implements OnInit {
   statuses = ['upcoming', 'live', 'finished'];
 
   constructor() {
-    // Load betslip from storage on init
     this.store.dispatch(BetslipActions.loadBetslipFromStorage());
 
-    // Load filters from URL params
     this.loadFiltersFromUrl();
 
-    // Watch for filter changes
     effect(() => {
       this.filterForm.valueChanges.pipe(debounceTime(300)).subscribe((values) => {
         const filters: EventFilters = {};

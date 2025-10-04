@@ -78,6 +78,12 @@ body {
   --mdc-protected-button-container-color: var(--color-danger);
 }
 
+// Material Chip overrides
+.mat-mdc-chip {
+  --mat-chip-label-text-color: #e0e6ff;
+  --mdc-chip-label-text-color: #e0e6ff;
+}
+
 .mat-mdc-card {
   background: var(--color-bg-card);
   color: var(--color-text-primary);
