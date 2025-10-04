@@ -1,0 +1,174 @@
+.event-details-container {
+  padding: 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+
+  .loading-container {
+    display: flex;
+    justify-content: center;
+    padding: 48px;
+  }
+
+  .error-card {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    background-color: #ffebee;
+    color: #c62828;
+  }
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+    gap: 16px;
+
+    h1 {
+      margin: 0;
+    }
+
+    .actions {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+  }
+
+  .event-details-card {
+    padding: 32px;
+
+    .details-view {
+      .status-chips {
+        display: flex;
+        gap: 8px;
+        margin-bottom: 24px;
+
+        mat-chip {
+          mat-icon {
+            font-size: 16px;
+            width: 16px;
+            height: 16px;
+            margin-right: 4px;
+          }
+        }
+      }
+
+      .detail-row {
+        margin-bottom: 24px;
+
+        label {
+          font-weight: 600;
+          color: #666;
+          display: block;
+          margin-bottom: 8px;
+        }
+
+        p {
+          margin: 0;
+          font-size: 16px;
+          color: #333;
+        }
+      }
+
+      .teams-section {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 24px;
+        background-color: #f5f5f5;
+        border-radius: 8px;
+        margin: 32px 0;
+
+        .team {
+          flex: 1;
+          text-align: center;
+
+          label {
+            font-size: 14px;
+            color: #666;
+            display: block;
+            margin-bottom: 8px;
+          }
+
+          h2 {
+            margin: 0;
+            font-size: 24px;
+            color: #333;
+          }
+        }
+
+        .vs {
+          color: #999;
+          font-weight: bold;
+          font-size: 20px;
+          padding: 0 24px;
+        }
+      }
+
+      .odds-section {
+        margin-top: 32px;
+
+        h3 {
+          margin: 0 0 16px 0;
+          color: #333;
+        }
+
+        .odds-display {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+          gap: 16px;
+
+          .odd-card {
+            padding: 24px;
+            background-color: #f5f5f5;
+            border-radius: 8px;
+            text-align: center;
+
+            label {
+              font-size: 14px;
+              color: #666;
+              display: block;
+              margin-bottom: 12px;
+            }
+
+            .odd-value {
+              font-size: 32px;
+              font-weight: bold;
+              color: #1976d2;
+              margin-bottom: 16px;
+            }
+
+            button {
+              width: 100%;
+            }
+          }
+        }
+      }
+    }
+
+    .edit-form {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+
+      .form-row {
+        display: flex;
+        gap: 16px;
+
+        mat-form-field {
+          flex: 1;
+        }
+
+        h3 {
+          margin: 8px 0;
+          color: #333;
+          width: 100%;
+        }
+      }
+    }
+  }
+}
