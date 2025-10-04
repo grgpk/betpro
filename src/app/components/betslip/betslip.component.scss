@@ -36,11 +36,16 @@
           var(--color-primary-dark) 100%
         );
         color: var(--color-bg-darker);
-        padding: 4px 12px;
-        border-radius: 12px;
-        font-size: 14px;
-        font-weight: 700;
+        min-width: 28px;
+        height: 28px;
+        padding: 0 8px;
+        border-radius: 50%;
+        font-size: 13px;
+        font-weight: 800;
         box-shadow: var(--shadow-glow);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
       }
     }
   }
