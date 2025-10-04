@@ -1,0 +1,66 @@
+{
+  "events": [
+    {
+      "id": "1",
+      "title": "Champions League Final",
+      "description": "The ultimate showdown in European club football",
+      "sport": "football",
+      "homeTeam": "Real Madrid",
+      "awayTeam": "Barcelona",
+      "startTime": "2025-10-15T20:00:00Z",
+      "status": "upcoming",
+      "odds": {
+        "home": 2.1,
+        "draw": 3.2,
+        "away": 3.5
+      },
+      "isLive": false
+    },
+    {
+      "id": "2",
+      "title": "NBA Finals Game 7",
+      "description": "Championship deciding game",
+      "sport": "basketball",
+      "homeTeam": "Lakers",
+      "awayTeam": "Celtics",
+      "startTime": "2025-10-05T01:00:00Z",
+      "status": "live",
+      "odds": {
+        "home": 1.85,
+        "away": 2.05
+      },
+      "isLive": true
+    },
+    {
+      "id": "3",
+      "title": "Wimbledon Final",
+      "description": "Grass court championship final",
+      "sport": "tennis",
+      "homeTeam": "Djokovic",
+      "awayTeam": "Alcaraz",
+      "startTime": "2025-10-06T14:00:00Z",
+      "status": "upcoming",
+      "odds": {
+        "home": 1.95,
+        "away": 1.9
+      },
+      "isLive": false
+    },
+    {
+      "id": "43d7",
+      "title": "some event",
+      "description": "test",
+      "sport": "football",
+      "homeTeam": "Liverpool",
+      "awayTeam": "Manchester united",
+      "startTime": "2025-10-04T11:40:19.545Z",
+      "status": "live",
+      "odds": {
+        "home": 2,
+        "draw": 3,
+        "away": 2.5
+      },
+      "isLive": true
+    }
+  ]
+}
