@@ -186,9 +186,6 @@
         text-transform: uppercase;
         letter-spacing: 0.5px;
 
-        display: flex;
-        align-items: center;
-
         &.mat-primary {
           background: rgba(0, 217, 255, 0.15);
           color: var(--color-primary);

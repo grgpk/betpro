@@ -66,9 +66,6 @@
             <mat-card-title>{{ event.title }}</mat-card-title>
             <mat-card-subtitle>
               <mat-chip [color]="getStatusColor(event.status)">
-                @if (event.isLive) {
-                  <mat-icon>radio_button_checked</mat-icon>
-                }
                 {{ event.status | titlecase }}
               </mat-chip>
             </mat-card-subtitle>
