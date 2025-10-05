@@ -16,7 +16,7 @@ export class EventsService {
   getEvents(
     filters?: EventFilters,
     sort?: EventSort,
-    pagination?: PaginationParams
+    pagination?: PaginationParams,
   ): Observable<{ events: SportEvent[]; total: number }> {
     let params = new HttpParams();
 
@@ -45,18 +45,24 @@ export class EventsService {
 
     return this.http
       .get<{
-        data: SportEvent[];
-        items?: SportEvent[];
-        first: number;
-        last: number;
-        pages: number;
-        total?: number;
-      }>(this.apiUrl, { params })
+        data?: SportEvent[];
+        items?: SportEvent[] | number;
+        first?: number;
+        last?: number;
+        pages?: number;
+      }>(this.apiUrl, { params, observe: 'response' })
       .pipe(
         map((response) => {
-          // json-server v1 returns { data, pages, items, first, last }
-          const events = response.data || response.items || [];
-          const total = response.total || events.length;
+          const body = response.body!;
+          const events = body.data || (Array.isArray(body.items) ? body.items : []);
+
+          const totalHeader = response.headers.get('X-Total-Count');
+          const total = totalHeader
+            ? parseInt(totalHeader, 10)
+            : typeof body.items === 'number'
+              ? body.items
+              : events.length;
+
           return {
             events: events.map((e) => ({
               ...e,
@@ -64,7 +70,7 @@ export class EventsService {
             })),
             total,
           };
-        })
+        }),
       );
   }
 
@@ -73,7 +79,7 @@ export class EventsService {
       map((event) => ({
         ...event,
         startTime: new Date(event.startTime),
-      }))
+      })),
     );
   }
 
@@ -85,7 +91,7 @@ export class EventsService {
       map((createdEvent) => ({
         ...createdEvent,
         startTime: new Date(createdEvent.startTime),
-      }))
+      })),
     );
   }
 
@@ -97,7 +103,7 @@ export class EventsService {
       map((updatedEvent) => ({
         ...updatedEvent,
         startTime: new Date(updatedEvent.startTime),
-      }))
+      })),
     );
   }
 
