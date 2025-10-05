@@ -46,12 +46,6 @@
     display: flex;
     justify-content: center;
     padding: 80px;
-
-    mat-spinner {
-      ::ng-deep circle {
-        stroke: var(--color-primary);
-      }
-    }
   }
 
   .error-card {
@@ -368,21 +362,6 @@
     border: 1px solid var(--color-border);
     border-radius: var(--border-radius);
     margin-top: 32px;
-    color: var(--color-text-primary);
-
-    ::ng-deep {
-      .mat-mdc-paginator-container {
-        color: var(--color-text-primary);
-      }
-
-      .mat-mdc-icon-button {
-        color: var(--color-text-secondary);
-
-        &:hover {
-          background: var(--color-bg-hover);
-        }
-      }
-    }
   }
 }
 

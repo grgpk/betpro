@@ -6,12 +6,6 @@
     display: flex;
     justify-content: center;
     padding: 80px;
-
-    mat-spinner {
-      ::ng-deep circle {
-        stroke: var(--color-primary);
-      }
-    }
   }
 
   .error-card {
