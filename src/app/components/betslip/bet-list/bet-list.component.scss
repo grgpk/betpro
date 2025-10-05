@@ -93,29 +93,6 @@ mat-list {
 
       .stake-input {
         width: 100%;
-
-        ::ng-deep {
-          .mat-mdc-text-field-wrapper {
-            background: var(--color-bg-dark) !important;
-            border-radius: 8px;
-            border: 1px solid var(--color-border-light);
-          }
-
-          input {
-            color: var(--color-text-primary) !important;
-            font-weight: 700;
-            font-size: 16px;
-          }
-
-          .mat-mdc-form-field-label {
-            color: var(--color-text-secondary) !important;
-          }
-
-          .mat-mdc-form-field-prefix {
-            color: var(--color-primary) !important;
-            font-weight: 700;
-          }
-        }
       }
 
       .potential-return {

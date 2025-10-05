@@ -19,35 +19,6 @@
     mat-form-field {
       flex: 1;
       min-width: 200px;
-
-      ::ng-deep {
-        .mat-mdc-text-field-wrapper {
-          background: var(--color-bg-dark) !important;
-          border-radius: 8px;
-        }
-
-        .mat-mdc-form-field-flex {
-          background: transparent;
-        }
-
-        input,
-        .mat-mdc-select-value {
-          color: var(--color-text-primary) !important;
-        }
-
-        .mat-mdc-form-field-label,
-        label {
-          color: var(--color-text-secondary) !important;
-        }
-
-        .mat-mdc-select-arrow {
-          color: var(--color-text-secondary);
-        }
-
-        .mat-mdc-form-field-icon-suffix {
-          color: var(--color-text-secondary);
-        }
-      }
     }
 
     button {
