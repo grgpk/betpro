@@ -48,9 +48,6 @@
       <div class="details-view">
         <div class="status-chips">
           <mat-chip [color]="getStatusColor(event()!.status)">
-            @if (event()!.isLive) {
-              <mat-icon>radio_button_checked</mat-icon>
-            }
             {{ event()!.status | titlecase }}
           </mat-chip>
         </div>
