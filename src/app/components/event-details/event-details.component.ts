@@ -1,47 +1,36 @@
-import { Component, inject, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ActivatedRoute, Router, RouterLink } from '@angular/router';
-import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
-import { Store } from '@ngrx/store';
-import { MatCardModule } from '@angular/material/card';
+import { ChangeDetectionStrategy, Component, inject, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
-import { MatSelectModule } from '@angular/material/select';
-import { MatDatepickerModule } from '@angular/material/datepicker';
-import { MatNativeDateModule } from '@angular/material/core';
-import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
-import { MatChipsModule } from '@angular/material/chips';
-import * as EventsActions from '../../store/events/events.actions';
-import * as BetslipActions from '../../store/betslip/betslip.actions';
-import {
-  selectSelectedEvent,
-  selectEventsLoading,
-  selectEventsError,
-} from '../../store/events/events.selectors';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
+import { Store } from '@ngrx/store';
 import { SportEvent } from '../../models/sport-event.model';
+import * as BetslipActions from '../../store/betslip/betslip.actions';
+import * as EventsActions from '../../store/events/events.actions';
+import {
+  selectEventsError,
+  selectEventsLoading,
+  selectSelectedEvent,
+} from '../../store/events/events.selectors';
+import { EventEditComponent } from './event-edit/event-edit.component';
+import { EventViewComponent } from './event-view/event-view.component';
 
 @Component({
   selector: 'sb-event-details',
   imports: [
     CommonModule,
     RouterLink,
-    ReactiveFormsModule,
     MatCardModule,
     MatButtonModule,
     MatIconModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatSelectModule,
-    MatDatepickerModule,
-    MatNativeDateModule,
-    MatCheckboxModule,
     MatProgressSpinnerModule,
     MatSnackBarModule,
-    MatChipsModule,
+    EventViewComponent,
+    EventEditComponent,
   ],
   templateUrl: './event-details.component.html',
   styleUrl: './event-details.component.scss',
