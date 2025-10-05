@@ -42,9 +42,15 @@ body {
   margin: 0;
   padding: 0;
   height: 100%;
-  font-family: 'Inter', 'Roboto', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family:
+    'Inter',
+    'Roboto',
+    -apple-system,
+    BlinkMacSystemFont,
+    sans-serif;
   background: var(--color-bg-darker);
   color: var(--color-text-primary);
+  overflow: auto;
 }
 
 // Custom scrollbar
