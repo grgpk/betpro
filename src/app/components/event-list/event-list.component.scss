@@ -1,3 +1,7 @@
+:host {
+  display: block;
+}
+
 .event-list-container {
   .header {
     display: flex;
@@ -34,64 +38,6 @@
 
       mat-icon {
         margin-right: 8px;
-      }
-    }
-  }
-
-  .filters-card {
-    background: var(--color-bg-card);
-    border: 1px solid var(--color-border);
-    border-radius: var(--border-radius-lg);
-    padding: 24px;
-    margin-bottom: 32px;
-    box-shadow: var(--shadow-md);
-
-    .filters-row {
-      display: flex;
-      gap: 16px;
-      align-items: center;
-      flex-wrap: wrap;
-
-      mat-form-field {
-        flex: 1;
-        min-width: 200px;
-
-        ::ng-deep {
-          .mat-mdc-text-field-wrapper {
-            background: var(--color-bg-dark);
-            border-radius: 8px;
-          }
-
-          .mat-mdc-form-field-flex {
-            background: transparent;
-          }
-
-          input,
-          .mat-mdc-select-value {
-            color: var(--color-text-primary);
-          }
-
-          .mat-mdc-form-field-label,
-          label {
-            color: var(--color-text-secondary);
-          }
-        }
-      }
-
-      button {
-        background: transparent;
-        color: var(--color-text-secondary);
-        border: 1px solid var(--color-border-light);
-        padding: 10px 20px;
-        border-radius: 8px;
-        transition: var(--transition);
-        font-weight: 600;
-
-        &:hover {
-          background: var(--color-bg-hover);
-          border-color: var(--color-primary);
-          color: var(--color-primary);
-        }
       }
     }
   }

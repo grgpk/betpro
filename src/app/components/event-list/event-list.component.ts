@@ -1,20 +1,15 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component, effect, inject, OnInit } from '@angular/core';
-import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { ChangeDetectionStrategy, Component, inject, OnInit } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
-import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
-import { MatInputModule } from '@angular/material/input';
 import { MatPaginatorModule, PageEvent } from '@angular/material/paginator';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-import { MatSelectModule } from '@angular/material/select';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 import { RouterLink } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { debounceTime } from 'rxjs/operators';
 import { EventFilters } from '../../models/filters.model';
 import { SportEvent } from '../../models/sport-event.model';
 import * as BetslipActions from '../../store/betslip/betslip.actions';
@@ -28,24 +23,22 @@ import {
   selectEventsTotal,
 } from '../../store/events/events.selectors';
 import { AddEventDialogComponent } from '../add-event-dialog/add-event-dialog.component';
+import { EventFiltersComponent, FilterValues } from './event-filters/event-filters.component';
 
 @Component({
   selector: 'sb-event-list',
   imports: [
     CommonModule,
     RouterLink,
-    ReactiveFormsModule,
     MatCardModule,
     MatButtonModule,
     MatIconModule,
-    MatFormFieldModule,
-    MatSelectModule,
-    MatInputModule,
     MatPaginatorModule,
     MatChipsModule,
     MatProgressSpinnerModule,
     MatDialogModule,
     MatSnackBarModule,
+    EventFiltersComponent,
   ],
   templateUrl: './event-list.component.html',
   styleUrl: './event-list.component.scss',
@@ -63,40 +56,40 @@ export class EventListComponent implements OnInit {
   pagination = this.store.selectSignal(selectEventsPagination);
   sort = this.store.selectSignal(selectEventsSort);
 
-  filterForm = new FormGroup({
-    sport: new FormControl<string>(''),
-    status: new FormControl<string>(''),
-    search: new FormControl<string>(''),
-  });
-
   sports = ['football', 'basketball', 'tennis', 'volleyball'];
   statuses = ['upcoming', 'live', 'finished'];
+  currentFilterValues: FilterValues = { sport: '', status: '', search: '' };
 
   constructor() {
     this.store.dispatch(BetslipActions.loadBetslipFromStorage());
-
     this.loadFiltersFromUrl();
-
-    effect(() => {
-      this.filterForm.valueChanges.pipe(debounceTime(300)).subscribe((values) => {
-        const filters: EventFilters = {};
-        if (values.sport) filters.sport = values.sport as any;
-        if (values.status) filters.status = values.status as any;
-        if (values.search) filters.search = values.search;
-
-        this.store.dispatch(EventsActions.setFilters({ filters }));
-        this.saveFiltersToUrl();
-        this.loadEvents();
-      });
-    });
   }
 
   ngOnInit(): void {
     this.loadEvents();
   }
 
+  onFiltersChanged(values: FilterValues): void {
+    this.currentFilterValues = values;
+    const filters: EventFilters = {};
+    if (values.sport) filters.sport = values.sport as any;
+    if (values.status) filters.status = values.status as any;
+    if (values.search) filters.search = values.search;
+
+    this.store.dispatch(EventsActions.setFilters({ filters }));
+    this.saveFiltersToUrl();
+    this.loadEvents();
+  }
+
+  onClearFilters(): void {
+    this.currentFilterValues = { sport: '', status: '', search: '' };
+    this.store.dispatch(EventsActions.setFilters({ filters: {} }));
+    this.saveFiltersToUrl();
+    this.loadEvents();
+  }
+
   loadEvents(): void {
-    const filters = this.getFiltersFromForm();
+    const filters = this.getFiltersFromValues();
     const sortValue = this.sort();
     const paginationValue = this.pagination();
 
@@ -105,7 +98,7 @@ export class EventListComponent implements OnInit {
         filters,
         sort: sortValue,
         pagination: paginationValue,
-      })
+      }),
     );
   }
 
@@ -113,7 +106,7 @@ export class EventListComponent implements OnInit {
     this.store.dispatch(
       EventsActions.setPagination({
         pagination: { page: event.pageIndex + 1, pageSize: event.pageSize },
-      })
+      }),
     );
     this.saveFiltersToUrl();
     this.loadEvents();
@@ -127,7 +120,7 @@ export class EventListComponent implements OnInit {
     this.store.dispatch(
       EventsActions.setSort({
         sort: { field, direction },
-      })
+      }),
     );
     this.saveFiltersToUrl();
     this.loadEvents();
@@ -138,8 +131,8 @@ export class EventListComponent implements OnInit {
       selection === 'home'
         ? event.odds.home
         : selection === 'draw'
-        ? event.odds.draw!
-        : event.odds.away;
+          ? event.odds.draw!
+          : event.odds.away;
 
     this.store.dispatch(
       BetslipActions.addToBetslip({
@@ -150,7 +143,7 @@ export class EventListComponent implements OnInit {
           selection,
           odds,
         },
-      })
+      }),
     );
 
     this.snackBar.open('Added to betslip', 'Close', { duration: 2000 });
@@ -176,20 +169,12 @@ export class EventListComponent implements OnInit {
     });
   }
 
-  clearFilters(): void {
-    this.filterForm.reset();
-    this.store.dispatch(EventsActions.setFilters({ filters: {} }));
-    this.saveFiltersToUrl();
-    this.loadEvents();
-  }
-
-  private getFiltersFromForm(): EventFilters {
-    const values = this.filterForm.value;
+  private getFiltersFromValues(): EventFilters {
     const filters: EventFilters = {};
 
-    if (values.sport) filters.sport = values.sport as any;
-    if (values.status) filters.status = values.status as any;
-    if (values.search) filters.search = values.search;
+    if (this.currentFilterValues.sport) filters.sport = this.currentFilterValues.sport as any;
+    if (this.currentFilterValues.status) filters.status = this.currentFilterValues.status as any;
+    if (this.currentFilterValues.search) filters.search = this.currentFilterValues.search;
 
     return filters;
   }
@@ -197,23 +182,21 @@ export class EventListComponent implements OnInit {
   private loadFiltersFromUrl(): void {
     const params = new URLSearchParams(window.location.search);
 
-    const sport = params.get('sport');
-    const status = params.get('status');
-    const search = params.get('search');
+    const sport = params.get('sport') || '';
+    const status = params.get('status') || '';
+    const search = params.get('search') || '';
     const page = params.get('page');
     const pageSize = params.get('pageSize');
     const sortField = params.get('sortField');
     const sortDirection = params.get('sortDirection');
 
-    if (sport) this.filterForm.patchValue({ sport });
-    if (status) this.filterForm.patchValue({ status });
-    if (search) this.filterForm.patchValue({ search });
+    this.currentFilterValues = { sport, status, search };
 
     if (page && pageSize) {
       this.store.dispatch(
         EventsActions.setPagination({
           pagination: { page: parseInt(page), pageSize: parseInt(pageSize) },
-        })
+        }),
       );
     }
 
@@ -221,13 +204,13 @@ export class EventListComponent implements OnInit {
       this.store.dispatch(
         EventsActions.setSort({
           sort: { field: sortField as any, direction: sortDirection as any },
-        })
+        }),
       );
     }
   }
 
   private saveFiltersToUrl(): void {
-    const filters = this.getFiltersFromForm();
+    const filters = this.getFiltersFromValues();
     const paginationValue = this.pagination();
     const sortValue = this.sort();
 

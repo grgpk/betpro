@@ -8,39 +8,13 @@
   </div>
 
   <!-- Filters -->
-  <mat-card class="filters-card">
-    <form [formGroup]="filterForm">
-      <div class="filters-row">
-        <mat-form-field>
-          <mat-label>Sport</mat-label>
-          <mat-select formControlName="sport">
-            <mat-option value="">All Sports</mat-option>
-            @for (sport of sports; track sport) {
-              <mat-option [value]="sport">{{ sport | titlecase }}</mat-option>
-            }
-          </mat-select>
-        </mat-form-field>
-
-        <mat-form-field>
-          <mat-label>Status</mat-label>
-          <mat-select formControlName="status">
-            <mat-option value="">All Statuses</mat-option>
-            @for (status of statuses; track status) {
-              <mat-option [value]="status">{{ status | titlecase }}</mat-option>
-            }
-          </mat-select>
-        </mat-form-field>
-
-        <mat-form-field>
-          <mat-label>Search</mat-label>
-          <input matInput formControlName="search" placeholder="Search events..." />
-          <mat-icon matSuffix>search</mat-icon>
-        </mat-form-field>
-
-        <button mat-button (click)="clearFilters()">Clear Filters</button>
-      </div>
-    </form>
-  </mat-card>
+  <sb-event-filters
+    [sports]="sports"
+    [statuses]="statuses"
+    [initialValues]="currentFilterValues"
+    (filtersChanged)="onFiltersChanged($event)"
+    (clearFiltersClicked)="onClearFilters()"
+  />
 
   <!-- Loading Spinner -->
   @if (loading()) {
