@@ -146,13 +146,19 @@ export class EventListComponent implements OnInit {
       }),
     );
 
-    this.snackBar.open('Added to betslip', 'Close', { duration: 2000 });
+    this.snackBar.open('Added to betslip', 'Close', {
+      duration: 2000,
+      panelClass: ['success-snackbar'],
+    });
   }
 
   deleteEvent(event: SportEvent): void {
     if (confirm(`Are you sure you want to delete "${event.title}"?`)) {
       this.store.dispatch(EventsActions.deleteEvent({ id: event.id }));
-      this.snackBar.open('Event deleted', 'Close', { duration: 2000 });
+      this.snackBar.open('Event deleted', 'Close', {
+        duration: 2000,
+        panelClass: ['info-snackbar'],
+      });
     }
   }
 
@@ -164,7 +170,10 @@ export class EventListComponent implements OnInit {
     dialogRef.afterClosed().subscribe((result) => {
       if (result) {
         this.store.dispatch(EventsActions.addEvent({ event: result }));
-        this.snackBar.open('Event added successfully', 'Close', { duration: 2000 });
+        this.snackBar.open('Event added successfully', 'Close', {
+          duration: 2000,
+          panelClass: ['success-snackbar'],
+        });
       }
     });
   }

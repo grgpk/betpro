@@ -47,13 +47,19 @@ export class BetslipComponent {
 
   onBetRemoved(betId: string): void {
     this.store.dispatch(BetslipActions.removeFromBetslip({ betId }));
-    this.snackBar.open('Removed from betslip', 'Close', { duration: 2000 });
+    this.snackBar.open('Removed from betslip', 'Close', {
+      duration: 2000,
+      panelClass: ['info-snackbar'],
+    });
   }
 
   onClearBetslip(): void {
     if (confirm('Are you sure you want to clear the betslip?')) {
       this.store.dispatch(BetslipActions.clearBetslip());
-      this.snackBar.open('Betslip cleared', 'Close', { duration: 2000 });
+      this.snackBar.open('Betslip cleared', 'Close', {
+        duration: 2000,
+        panelClass: ['info-snackbar'],
+      });
     }
   }
 
@@ -61,13 +67,19 @@ export class BetslipComponent {
     const hasStakes = this.bets().every((bet) => bet.stake && bet.stake > 0);
 
     if (!hasStakes) {
-      this.snackBar.open('Please enter stake amounts for all bets', 'Close', { duration: 3000 });
+      this.snackBar.open('Please enter stake amounts for all bets', 'Close', {
+        duration: 3000,
+        panelClass: ['warning-snackbar'],
+      });
       return;
     }
 
     if (confirm('Place this bet?')) {
       this.store.dispatch(BetslipActions.placeBet());
-      this.snackBar.open('Bet placed successfully!', 'Close', { duration: 3000 });
+      this.snackBar.open('Bet placed successfully!', 'Close', {
+        duration: 3000,
+        panelClass: ['success-snackbar'],
+      });
     }
   }
 }

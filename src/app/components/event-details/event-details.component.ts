@@ -139,7 +139,10 @@ export class EventDetailsComponent implements OnInit {
 
       this.store.dispatch(EventsActions.updateEvent({ event: updatedEvent }));
       this.isEditMode = false;
-      this.snackBar.open('Event updated successfully', 'Close', { duration: 2000 });
+      this.snackBar.open('Event updated successfully', 'Close', {
+        duration: 2000,
+        panelClass: ['success-snackbar'],
+      });
     }
   }
 
@@ -148,7 +151,10 @@ export class EventDetailsComponent implements OnInit {
     if (currentEvent && confirm(`Are you sure you want to delete "${currentEvent.title}"?`)) {
       this.store.dispatch(EventsActions.deleteEvent({ id: currentEvent.id }));
       this.router.navigate(['/events']);
-      this.snackBar.open('Event deleted', 'Close', { duration: 2000 });
+      this.snackBar.open('Event deleted', 'Close', {
+        duration: 2000,
+        panelClass: ['info-snackbar'],
+      });
     }
   }
 
@@ -175,7 +181,10 @@ export class EventDetailsComponent implements OnInit {
       }),
     );
 
-    this.snackBar.open('Added to betslip', 'Close', { duration: 2000 });
+    this.snackBar.open('Added to betslip', 'Close', {
+      duration: 2000,
+      panelClass: ['success-snackbar'],
+    });
   }
 
   get hasDraw(): boolean {
