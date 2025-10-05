@@ -1,0 +1,169 @@
+@use '@angular/material' as mat;
+
+// Include the common styles for Angular Material
+@include mat.core();
+
+// Create the dark theme using the new Material 3 theming API
+// This uses the built-in color system with custom overrides
+$sportsbook-theme: mat.define-theme(
+  (
+    color: (
+      theme-type: dark,
+      primary: mat.$cyan-palette,
+      tertiary: mat.$yellow-palette,
+      use-system-variables: true,
+    ),
+    typography: (
+      use-system-variables: true,
+    ),
+    density: (
+      scale: 0,
+    ),
+  )
+);
+
+// Apply the theme
+:root {
+  @include mat.all-component-themes($sportsbook-theme);
+
+  // Override background colors using CSS variables
+  --mat-app-background-color: #050816;
+  --mat-app-text-color: #ffffff;
+  --mat-app-surface-color: #141b3d;
+
+  // Form field colors
+  --mat-form-field-container-text-color: #ffffff;
+  --mat-form-field-disabled-container-text-color: rgba(255, 255, 255, 0.5);
+  --mat-form-field-label-text-color: #b0b8d4;
+  --mat-form-field-disabled-label-text-color: rgba(255, 255, 255, 0.38);
+  --mat-form-field-error-text-color: #ff1744;
+  --mat-form-field-enabled-select-arrow-color: #b0b8d4;
+  --mat-form-field-disabled-select-arrow-color: rgba(255, 255, 255, 0.38);
+  --mat-form-field-hover-state-layer-opacity: 0.08;
+  --mat-form-field-focus-state-layer-opacity: 0.24;
+
+  // Select colors
+  --mat-select-panel-background-color: #141b3d;
+  --mat-select-enabled-trigger-text-color: #ffffff;
+  --mat-select-disabled-trigger-text-color: rgba(255, 255, 255, 0.5);
+  --mat-select-placeholder-text-color: #b0b8d4;
+  --mat-select-enabled-arrow-color: #b0b8d4;
+  --mat-select-disabled-arrow-color: rgba(255, 255, 255, 0.38);
+  --mat-select-focused-arrow-color: #00d9ff;
+
+  // Option colors
+  --mat-option-label-text-color: #ffffff;
+  --mat-option-hover-state-layer-color: #1e2854;
+  --mat-option-focus-state-layer-color: #1e2854;
+  --mat-option-selected-state-label-text-color: #00d9ff;
+  --mat-option-selected-state-layer-color: rgba(0, 217, 255, 0.15);
+
+  // Dialog colors
+  --mat-dialog-container-background-color: #141b3d;
+  --mat-dialog-container-text-color: #ffffff;
+
+  // Datepicker colors
+  --mat-datepicker-calendar-container-background-color: #141b3d;
+  --mat-datepicker-calendar-container-text-color: #ffffff;
+  --mat-datepicker-calendar-date-text-color: #ffffff;
+  --mat-datepicker-calendar-date-disabled-state-text-color: rgba(255, 255, 255, 0.38);
+  --mat-datepicker-calendar-date-selected-state-text-color: #0a0e27;
+  --mat-datepicker-calendar-date-selected-state-background-color: #00d9ff;
+  --mat-datepicker-calendar-date-today-outline-color: #00d9ff;
+  --mat-datepicker-calendar-date-hover-state-background-color: #1e2854;
+
+  // Checkbox colors
+  --mat-checkbox-label-text-color: #ffffff;
+  --mat-checkbox-disabled-label-color: rgba(255, 255, 255, 0.5);
+
+  // Paginator colors
+  --mat-paginator-container-background-color: #141b3d;
+  --mat-paginator-container-text-color: #ffffff;
+  --mat-paginator-enabled-icon-color: #b0b8d4;
+  --mat-paginator-disabled-icon-color: rgba(255, 255, 255, 0.38);
+
+  // Card colors
+  --mat-card-container-color: #141b3d;
+
+  // Chip colors
+  --mat-chip-label-text-color: #e0e6ff;
+
+  // Button colors
+  --mat-text-button-state-layer-color: #00d9ff;
+  --mat-text-button-ripple-color: rgba(0, 217, 255, 0.1);
+
+  // Progress spinner
+  --mat-progress-spinner-color: #00d9ff;
+}
+
+// Additional custom styling for specific components
+.mat-mdc-form-field {
+  .mat-mdc-text-field-wrapper {
+    background-color: #0a0e27;
+    border-radius: 8px;
+  }
+
+  .mat-mdc-text-field-wrapper:hover {
+    background-color: #1e2854;
+  }
+
+  &.mat-focused .mat-mdc-text-field-wrapper {
+    .mat-mdc-floating-label {
+      color: #00d9ff;
+    }
+  }
+}
+
+.mat-mdc-text-field-wrapper.mdc-text-field--filled {
+  background-color: #0a0e27;
+}
+
+.mat-mdc-select-panel {
+  border: 1px solid #1e2854;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+}
+
+.mat-mdc-dialog-container {
+  border: 1px solid #1e2854;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+  border-radius: 16px;
+}
+
+.mat-datepicker-content {
+  border: 1px solid #1e2854;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+
+  .mat-calendar-body-selected {
+    background: linear-gradient(135deg, #00d9ff 0%, #00b8d4 100%);
+    font-weight: 700;
+  }
+}
+
+mat-paginator {
+  border: 1px solid #1e2854;
+}
+
+// Checkbox gradient effect
+.mat-mdc-checkbox.mat-mdc-checkbox-checked {
+  .mdc-checkbox__background {
+    background: linear-gradient(135deg, #00d9ff 0%, #00b8d4 100%);
+    border-color: #00d9ff;
+  }
+}
+
+// Dialog title styling
+h2[mat-dialog-title] {
+  background: linear-gradient(135deg, #050816 0%, #0a0e27 100%);
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  text-align: center;
+  border-bottom: 1px solid #1e2854;
+  padding: 24px;
+  margin: -24px -24px 24px -24px !important;
+}
+
+mat-dialog-actions {
+  border-top: 1px solid #1e2854;
+  background: linear-gradient(135deg, #050816 0%, #0a0e27 100%);
+}
