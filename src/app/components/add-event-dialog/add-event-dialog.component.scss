@@ -1,7 +1,27 @@
+:host {
+  display: block;
+}
+
+// Dialog title styling
+h2[mat-dialog-title] {
+  color: var(--color-text-primary) !important;
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+}
+
+// Dialog content
 mat-dialog-content {
   padding: 24px !important;
   min-width: 550px;
+  background: var(--color-bg-card);
+  color: var(--color-text-primary) !important;
 
+  mat-form-field {
+    flex: 1;
+  }
+
+  // Form styles matching event-edit
   form {
     display: flex;
     flex-direction: column;
@@ -11,39 +31,24 @@ mat-dialog-content {
       display: flex;
       gap: 16px;
 
-      mat-form-field {
-        flex: 1;
+      &:has(h3) {
+        flex-direction: column;
+        gap: 0;
       }
 
-      &.odds-row {
-        flex-direction: column;
+      h3 {
+        margin: 24px 0 16px 0;
+        color: var(--color-text-secondary);
+        width: 100%;
+        font-size: 14px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-weight: 700;
+        border-bottom: 1px solid var(--color-border);
+        padding-bottom: 12px;
 
-        h3 {
-          margin: 8px 0 16px 0;
-          color: var(--color-text-secondary);
-          font-size: 14px;
-          text-transform: uppercase;
-          letter-spacing: 1px;
-          font-weight: 700;
-          border-bottom: 1px solid var(--color-border);
-          padding-bottom: 12px;
-
-          mat-icon {
-            vertical-align: middle;
-            margin-right: 8px;
-            color: var(--color-primary);
-            font-size: 20px;
-            width: 20px;
-            height: 20px;
-          }
-        }
-
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-        gap: 16px;
-
-        h3 {
-          grid-column: 1 / -1;
+        &:first-child {
+          margin-top: 8px;
         }
       }
     }
@@ -54,9 +59,12 @@ mat-dialog-content {
   }
 }
 
+// Dialog actions styling
 mat-dialog-actions {
   padding: 20px 24px !important;
   margin: 0 !important;
+  border-top: 1px solid var(--color-border);
+  background: linear-gradient(135deg, var(--color-bg-darker) 0%, var(--color-bg-dark) 100%);
   display: flex;
   justify-content: flex-end;
   gap: 12px;
@@ -70,6 +78,14 @@ mat-dialog-actions {
 
     &.mat-mdc-raised-button {
       &[color='primary'] {
+        background: linear-gradient(
+          135deg,
+          var(--color-primary) 0%,
+          var(--color-primary-dark) 100%
+        ) !important;
+        color: var(--color-bg-darker) !important;
+        box-shadow: var(--shadow-glow);
+
         &:hover:not(:disabled) {
           transform: translateY(-2px);
           box-shadow: 0 0 30px rgba(0, 217, 255, 0.5);
@@ -78,11 +94,18 @@ mat-dialog-actions {
         &:disabled {
           opacity: 0.5;
           cursor: not-allowed;
+          background: var(--color-bg-hover) !important;
+          color: var(--color-text-muted) !important;
+          box-shadow: none;
         }
       }
     }
 
     &.mat-mdc-button {
+      background: transparent !important;
+      color: var(--color-text-secondary) !important;
+      border: 1px solid var(--color-border-light);
+
       &:hover {
         background: var(--color-bg-hover) !important;
         border-color: var(--color-primary);
