@@ -17,82 +17,20 @@
         <p class="hint">Add events from the events list</p>
       </div>
     } @else {
-      <mat-list>
-        @for (bet of bets(); track bet.id) {
-          <mat-list-item>
-            <div class="bet-item">
-              <div class="bet-header">
-                <div class="bet-info">
-                  <strong>{{ bet.eventTitle }}</strong>
-                  <div class="selection-info">
-                    <span class="selection">{{ bet.selection | titlecase }}</span>
-                    <span class="odds">{{ bet.odds }}</span>
-                  </div>
-                </div>
-                <button mat-icon-button color="warn" (click)="removeBet(bet.id)">
-                  <mat-icon>close</mat-icon>
-                </button>
-              </div>
+      <sb-bet-list
+        [bets]="bets()"
+        (stakeUpdated)="onStakeUpdated($event)"
+        (betRemoved)="onBetRemoved($event)"
+      />
 
-              <mat-form-field class="stake-input">
-                <mat-label>Stake</mat-label>
-                <input
-                  matInput
-                  type="number"
-                  [formControl]="getStakeControl(bet.id)"
-                  (change)="updateStake(bet.id, getStakeControl(bet.id).value)"
-                  min="0"
-                  step="10"
-                />
-                <span matPrefix>$</span>
-              </mat-form-field>
-
-              @if (bet.stake && bet.stake > 0) {
-                <div class="potential-return">
-                  Potential return: ${{ (bet.stake * bet.odds).toFixed(2) }}
-                </div>
-              }
-            </div>
-          </mat-list-item>
-          <mat-divider></mat-divider>
-        }
-      </mat-list>
-
-      <div class="betslip-summary">
-        <div class="summary-row">
-          <span>Total Stakes:</span>
-          <strong>${{ totalStake().toFixed(2) }}</strong>
-        </div>
-
-        <div class="summary-row">
-          <span>Combined Odds:</span>
-          <strong>{{ totalOdds().toFixed(2) }}</strong>
-        </div>
-
-        <mat-divider></mat-divider>
-
-        <div class="summary-row total">
-          <span>Potential Win:</span>
-          <strong class="win-amount">${{ potentialWin().toFixed(2) }}</strong>
-        </div>
-      </div>
-
-      <div class="betslip-actions">
-        <button
-          mat-raised-button
-          color="primary"
-          (click)="placeBet()"
-          [disabled]="totalStake() === 0"
-        >
-          <mat-icon>check_circle</mat-icon>
-          Place Bet
-        </button>
-
-        <button mat-button (click)="clearBetslip()">
-          <mat-icon>delete_sweep</mat-icon>
-          Clear All
-        </button>
-      </div>
+      <sb-betslip-summary
+        [totalStake]="totalStake()"
+        [totalOdds]="totalOdds()"
+        [potentialWin]="potentialWin()"
+        [isPlaceBetDisabled]="isPlaceBetDisabled()"
+        (placeBet)="onPlaceBet()"
+        (clearBetslip)="onClearBetslip()"
+      />
     }
   </mat-card-content>
 </mat-card>
