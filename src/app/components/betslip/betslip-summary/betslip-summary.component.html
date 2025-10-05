@@ -1,0 +1,35 @@
+<div class="summary-stats">
+  <div class="summary-row">
+    <span>Total Stakes:</span>
+    <strong>${{ totalStake().toFixed(2) }}</strong>
+  </div>
+
+  <div class="summary-row">
+    <span>Combined Odds:</span>
+    <strong>{{ totalOdds().toFixed(2) }}</strong>
+  </div>
+
+  <mat-divider></mat-divider>
+
+  <div class="summary-row total">
+    <span>Potential Win:</span>
+    <strong class="win-amount">${{ potentialWin().toFixed(2) }}</strong>
+  </div>
+</div>
+
+<div class="summary-actions">
+  <button
+    mat-raised-button
+    color="primary"
+    (click)="onPlaceBet()"
+    [disabled]="isPlaceBetDisabled()"
+  >
+    <mat-icon>check_circle</mat-icon>
+    Place Bet
+  </button>
+
+  <button mat-button (click)="onClearBetslip()">
+    <mat-icon>delete_sweep</mat-icon>
+    Clear All
+  </button>
+</div>

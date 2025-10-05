@@ -1,0 +1,40 @@
+<mat-list>
+  @for (bet of bets(); track bet.id) {
+    <mat-list-item>
+      <section class="bet-item">
+        <div class="bet-header">
+          <div class="bet-info">
+            <strong>{{ bet.eventTitle }}</strong>
+            <div class="selection-info">
+              <span class="selection">{{ bet.selection | titlecase }}</span>
+              <span class="odds">{{ bet.odds }}</span>
+            </div>
+          </div>
+          <button mat-icon-button color="warn" (click)="onRemoveBet(bet.id)">
+            <mat-icon>close</mat-icon>
+          </button>
+        </div>
+
+        <mat-form-field class="stake-input">
+          <mat-label>Stake</mat-label>
+          <input
+            matInput
+            type="number"
+            [formControl]="getStakeControl(bet.id)"
+            (change)="onStakeChange(bet.id, getStakeControl(bet.id).value)"
+            min="0"
+            step="10"
+          />
+          <span matPrefix>$</span>
+        </mat-form-field>
+
+        @if (bet.stake && bet.stake > 0) {
+          <div class="potential-return">
+            Potential return: ${{ (bet.stake * bet.odds).toFixed(2) }}
+          </div>
+        }
+      </section>
+    </mat-list-item>
+    <mat-divider></mat-divider>
+  }
+</mat-list>
