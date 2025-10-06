@@ -10,6 +10,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 import { RouterLink } from '@angular/router';
 import { Store } from '@ngrx/store';
+import { ScrollingModule } from '@angular/cdk/scrolling';
 import { EventFilters } from '../../models/filters.model';
 import { SportEvent } from '../../models/sport-event.model';
 import * as BetslipActions from '../../store/betslip/betslip.actions';
@@ -25,22 +26,23 @@ import {
 import { AddEventDialogComponent } from '../add-event-dialog/add-event-dialog.component';
 import { EventFiltersComponent, FilterValues } from './event-filters/event-filters.component';
 import { EventSortingComponent } from './event-sorting/event-sorting.component';
+import { EventCardComponent } from './event-card/event-card.component';
 
 @Component({
   selector: 'sb-event-list',
   imports: [
     CommonModule,
-    RouterLink,
     MatCardModule,
     MatButtonModule,
     MatIconModule,
     MatPaginatorModule,
-    MatChipsModule,
     MatProgressSpinnerModule,
     MatDialogModule,
     MatSnackBarModule,
+    ScrollingModule,
     EventFiltersComponent,
     EventSortingComponent,
+    EventCardComponent,
   ],
   templateUrl: './event-list.component.html',
   styleUrl: './event-list.component.scss',
@@ -67,6 +69,10 @@ export class EventListComponent implements OnInit {
     dateFrom: null,
     dateTo: null,
   };
+
+  // Virtual scrolling settings
+  itemSize = 480; // Approximate height of each event card in pixels
+  useVirtualScroll = true; // Toggle between virtual scroll and pagination
 
   constructor() {
     this.store.dispatch(BetslipActions.loadBetslipFromStorage());
@@ -101,7 +107,13 @@ export class EventListComponent implements OnInit {
   loadEvents(): void {
     const filters = this.getFiltersFromValues();
     const sortValue = this.sort();
-    const paginationValue = this.pagination();
+    let paginationValue = this.pagination();
+
+    // When using virtual scroll, load more items
+    if (this.useVirtualScroll) {
+      paginationValue = { page: 1, pageSize: 1000 };
+      this.store.dispatch(EventsActions.setPagination({ pagination: paginationValue }));
+    }
 
     this.store.dispatch(
       EventsActions.loadEvents({
@@ -266,5 +278,9 @@ export class EventListComponent implements OnInit {
       default:
         return '';
     }
+  }
+
+  trackById(index: number, item: SportEvent): string {
+    return item.id;
   }
 }

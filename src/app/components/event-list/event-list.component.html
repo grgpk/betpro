@@ -1,10 +1,16 @@
 <div class="event-list-container">
   <div class="header">
     <h1>Sports Events</h1>
-    <button mat-raised-button color="primary" (click)="openAddEventDialog()">
-      <mat-icon>add</mat-icon>
-      Add Event
-    </button>
+    <div class="header-actions">
+      <button mat-stroked-button (click)="useVirtualScroll = !useVirtualScroll; loadEvents()">
+        <mat-icon>{{ useVirtualScroll ? 'view_list' : 'view_module' }}</mat-icon>
+        {{ useVirtualScroll ? 'Switch to Pagination' : 'Switch to Virtual Scroll' }}
+      </button>
+      <button mat-raised-button color="primary" (click)="openAddEventDialog()">
+        <mat-icon>add</mat-icon>
+        Add Event
+      </button>
+    </div>
   </div>
 
   <!-- Filters -->
@@ -38,87 +44,43 @@
 
   <!-- Event Cards -->
   @if (!loading() && !error()) {
-    <div class="events-grid">
-      @for (event of events(); track event.id) {
-        <mat-card class="event-card">
-          <mat-card-header>
-            <mat-card-title>{{ event.title }}</mat-card-title>
-            <mat-card-subtitle>
-              <mat-chip [color]="getStatusColor(event.status)">
-                {{ event.status | titlecase }}
-              </mat-chip>
-            </mat-card-subtitle>
-          </mat-card-header>
+    @if (useVirtualScroll) {
+      <!-- Virtual Scrolling View -->
+      <cdk-virtual-scroll-viewport [itemSize]="itemSize" class="virtual-scroll-viewport">
+        <sb-event-card
+          *cdkVirtualFor="let event of events(); trackBy: trackById"
+          [event]="event"
+          [statusColor]="getStatusColor(event.status)"
+          (betslipClicked)="addToBetslip($event.event, $event.selection)"
+          (deleteClicked)="deleteEvent($event)"
+        />
+      </cdk-virtual-scroll-viewport>
+    } @else {
+      <!-- Regular Pagination View -->
+      <div class="events-grid">
+        @for (event of events(); track event.id) {
+          <sb-event-card
+            [event]="event"
+            [statusColor]="getStatusColor(event.status)"
+            (betslipClicked)="addToBetslip($event.event, $event.selection)"
+            (deleteClicked)="deleteEvent($event)"
+          />
+        }
+      </div>
 
-          <mat-card-content>
-            <p class="description">{{ event.description }}</p>
-
-            <div class="teams">
-              <div class="team">
-                <strong>{{ event.homeTeam }}</strong>
-              </div>
-              <span class="vs">VS</span>
-              <div class="team">
-                <strong>{{ event.awayTeam }}</strong>
-              </div>
-            </div>
-
-            <div class="event-info">
-              <div class="info-item">
-                <mat-icon>sports</mat-icon>
-                <span>{{ event.sport | titlecase }}</span>
-              </div>
-              <div class="info-item">
-                <mat-icon>schedule</mat-icon>
-                <span>{{ event.startTime | date: 'short' }}</span>
-              </div>
-            </div>
-
-            <div class="odds">
-              <h4>Odds</h4>
-              <div class="odds-buttons">
-                <button mat-raised-button color="primary" (click)="addToBetslip(event, 'home')">
-                  {{ event.homeTeam }}: {{ event.odds.home }}
-                </button>
-
-                @if (event.odds.draw) {
-                  <button mat-raised-button color="primary" (click)="addToBetslip(event, 'draw')">
-                    Draw: {{ event.odds.draw }}
-                  </button>
-                }
-
-                <button mat-raised-button color="primary" (click)="addToBetslip(event, 'away')">
-                  {{ event.awayTeam }}: {{ event.odds.away }}
-                </button>
-              </div>
-            </div>
-          </mat-card-content>
-
-          <mat-card-actions>
-            <button mat-button [routerLink]="['/events', event.id]">
-              <mat-icon>visibility</mat-icon>
-              View Details
-            </button>
-            <button mat-button color="warn" (click)="deleteEvent(event)">
-              <mat-icon>delete</mat-icon>
-              Delete
-            </button>
-          </mat-card-actions>
-        </mat-card>
+      <!-- Pagination -->
+      @if (total() > 0) {
+        <mat-paginator
+          [length]="total()"
+          [pageSize]="pagination().pageSize"
+          [pageIndex]="pagination().page - 1"
+          [pageSizeOptions]="[5, 10, 25, 50]"
+          (page)="onPageChange($event)"
+        >
+        </mat-paginator>
       }
-    </div>
-
-    <!-- Pagination -->
-    @if (total() > 0) {
-      <mat-paginator
-        [length]="total()"
-        [pageSize]="pagination().pageSize"
-        [pageIndex]="pagination().page - 1"
-        [pageSizeOptions]="[5, 10, 25, 50]"
-        (page)="onPageChange($event)"
-      >
-      </mat-paginator>
     }
+
     @if (events().length === 0) {
       <mat-card class="no-events">
         <mat-icon>event_busy</mat-icon>
