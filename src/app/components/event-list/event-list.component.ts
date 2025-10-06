@@ -73,6 +73,8 @@ export class EventListComponent implements OnInit {
   itemSize = 480; // Approximate height of each event card in pixels
   useVirtualScroll = false; // Toggle between virtual scroll and pagination
 
+  getStatusColor = getEventStatusColor;
+
   ngOnInit(): void {
     this.store.dispatch(BetslipActions.loadBetslipFromStorage());
 
@@ -264,8 +266,6 @@ export class EventListComponent implements OnInit {
     const newUrl = `${window.location.pathname}?${params.toString()}`;
     window.history.replaceState({}, '', newUrl);
   }
-
-  getStatusColor = getEventStatusColor;
 
   trackById(index: number, item: SportEvent): string {
     return item.id;
