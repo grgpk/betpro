@@ -16,6 +16,11 @@
     (clearFiltersClicked)="onClearFilters()"
   />
 
+  <!-- Sorting Controls -->
+  @if (!loading() && !error() && events().length > 0) {
+    <sb-event-sorting [currentSort]="sort()" (sortChanged)="onSortChange($event)" />
+  }
+
   <!-- Loading Spinner -->
   @if (loading()) {
     <div class="loading-container">

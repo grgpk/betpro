@@ -11,29 +11,38 @@
   box-shadow: var(--shadow-md);
 
   .filters-row {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
     gap: 16px;
     align-items: center;
-    flex-wrap: wrap;
 
     mat-form-field {
-      flex: 1;
-      min-width: 200px;
+      width: 100%;
     }
 
     button {
-      background: transparent;
-      color: var(--color-text-secondary);
-      border: 1px solid var(--color-border-light);
-      padding: 10px 20px;
+      height: 56px;
+      background: linear-gradient(135deg, rgba(0, 217, 255, 0.1) 0%, rgba(0, 217, 255, 0.05) 100%);
+      color: var(--color-primary);
+      border: 1px solid var(--color-primary);
       border-radius: 8px;
       transition: var(--transition);
-      font-weight: 600;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+
+      mat-icon {
+        font-size: 20px;
+        width: 20px;
+        height: 20px;
+      }
 
       &:hover {
-        background: var(--color-bg-hover);
-        border-color: var(--color-primary);
-        color: var(--color-primary);
+        background: linear-gradient(135deg, rgba(0, 217, 255, 0.2) 0%, rgba(0, 217, 255, 0.1) 100%);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0, 217, 255, 0.3);
       }
     }
   }

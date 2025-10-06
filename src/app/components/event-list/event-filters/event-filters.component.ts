@@ -6,6 +6,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 import { TitleCasePipe } from '@angular/common';
 import { debounceTime } from 'rxjs/operators';
 
@@ -13,6 +15,8 @@ export interface FilterValues {
   sport: string;
   status: string;
   search: string;
+  dateFrom?: Date | null;
+  dateTo?: Date | null;
 }
 
 @Component({
@@ -25,6 +29,8 @@ export interface FilterValues {
     MatInputModule,
     MatIconModule,
     MatButtonModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
     TitleCasePipe,
   ],
   templateUrl: './event-filters.component.html',
@@ -34,7 +40,13 @@ export interface FilterValues {
 export class EventFiltersComponent {
   sports = input.required<string[]>();
   statuses = input.required<string[]>();
-  initialValues = input<FilterValues>({ sport: '', status: '', search: '' });
+  initialValues = input<FilterValues>({
+    sport: '',
+    status: '',
+    search: '',
+    dateFrom: null,
+    dateTo: null,
+  });
 
   filtersChanged = output<FilterValues>();
   clearFiltersClicked = output<void>();
@@ -43,6 +55,8 @@ export class EventFiltersComponent {
     sport: new FormControl<string>(''),
     status: new FormControl<string>(''),
     search: new FormControl<string>(''),
+    dateFrom: new FormControl<Date | null>(null),
+    dateTo: new FormControl<Date | null>(null),
   });
 
   constructor() {
@@ -58,6 +72,8 @@ export class EventFiltersComponent {
         sport: values.sport || '',
         status: values.status || '',
         search: values.search || '',
+        dateFrom: values.dateFrom,
+        dateTo: values.dateTo,
       });
     });
   }

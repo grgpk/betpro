@@ -24,6 +24,7 @@ import {
 } from '../../store/events/events.selectors';
 import { AddEventDialogComponent } from '../add-event-dialog/add-event-dialog.component';
 import { EventFiltersComponent, FilterValues } from './event-filters/event-filters.component';
+import { EventSortingComponent } from './event-sorting/event-sorting.component';
 
 @Component({
   selector: 'sb-event-list',
@@ -39,6 +40,7 @@ import { EventFiltersComponent, FilterValues } from './event-filters/event-filte
     MatDialogModule,
     MatSnackBarModule,
     EventFiltersComponent,
+    EventSortingComponent,
   ],
   templateUrl: './event-list.component.html',
   styleUrl: './event-list.component.scss',
@@ -58,7 +60,13 @@ export class EventListComponent implements OnInit {
 
   sports = ['football', 'basketball', 'tennis', 'volleyball'];
   statuses = ['upcoming', 'live', 'finished'];
-  currentFilterValues: FilterValues = { sport: '', status: '', search: '' };
+  currentFilterValues: FilterValues = {
+    sport: '',
+    status: '',
+    search: '',
+    dateFrom: null,
+    dateTo: null,
+  };
 
   constructor() {
     this.store.dispatch(BetslipActions.loadBetslipFromStorage());
@@ -75,6 +83,8 @@ export class EventListComponent implements OnInit {
     if (values.sport) filters.sport = values.sport as any;
     if (values.status) filters.status = values.status as any;
     if (values.search) filters.search = values.search;
+    if (values.dateFrom) filters.dateFrom = values.dateFrom.toISOString();
+    if (values.dateTo) filters.dateTo = values.dateTo.toISOString();
 
     this.store.dispatch(EventsActions.setFilters({ filters }));
     this.saveFiltersToUrl();
@@ -82,7 +92,7 @@ export class EventListComponent implements OnInit {
   }
 
   onClearFilters(): void {
-    this.currentFilterValues = { sport: '', status: '', search: '' };
+    this.currentFilterValues = { sport: '', status: '', search: '', dateFrom: null, dateTo: null };
     this.store.dispatch(EventsActions.setFilters({ filters: {} }));
     this.saveFiltersToUrl();
     this.loadEvents();
@@ -184,6 +194,10 @@ export class EventListComponent implements OnInit {
     if (this.currentFilterValues.sport) filters.sport = this.currentFilterValues.sport as any;
     if (this.currentFilterValues.status) filters.status = this.currentFilterValues.status as any;
     if (this.currentFilterValues.search) filters.search = this.currentFilterValues.search;
+    if (this.currentFilterValues.dateFrom)
+      filters.dateFrom = this.currentFilterValues.dateFrom.toISOString();
+    if (this.currentFilterValues.dateTo)
+      filters.dateTo = this.currentFilterValues.dateTo.toISOString();
 
     return filters;
   }
@@ -194,12 +208,14 @@ export class EventListComponent implements OnInit {
     const sport = params.get('sport') || '';
     const status = params.get('status') || '';
     const search = params.get('search') || '';
+    const dateFrom = params.get('dateFrom') ? new Date(params.get('dateFrom')!) : null;
+    const dateTo = params.get('dateTo') ? new Date(params.get('dateTo')!) : null;
     const page = params.get('page');
     const pageSize = params.get('pageSize');
     const sortField = params.get('sortField');
     const sortDirection = params.get('sortDirection');
 
-    this.currentFilterValues = { sport, status, search };
+    this.currentFilterValues = { sport, status, search, dateFrom, dateTo };
 
     if (page && pageSize) {
       this.store.dispatch(
@@ -228,6 +244,8 @@ export class EventListComponent implements OnInit {
     if (filters.sport) params.set('sport', filters.sport);
     if (filters.status) params.set('status', filters.status);
     if (filters.search) params.set('search', filters.search);
+    if (filters.dateFrom) params.set('dateFrom', filters.dateFrom);
+    if (filters.dateTo) params.set('dateTo', filters.dateTo);
     params.set('page', paginationValue.page.toString());
     params.set('pageSize', paginationValue.pageSize.toString());
     params.set('sortField', sortValue.field);

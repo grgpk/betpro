@@ -30,11 +30,17 @@ export class EventsService {
     if (filters?.search) {
       params = params.set('q', filters.search);
     }
+    if (filters?.dateFrom) {
+      params = params.set('startTime_gte', filters.dateFrom);
+    }
+    if (filters?.dateTo) {
+      params = params.set('startTime_lte', filters.dateTo);
+    }
 
-    // Apply sorting
+    // Apply sorting - json-server 1.x uses _sort with +/- prefix for direction
     if (sort) {
-      params = params.set('_sort', sort.field);
-      params = params.set('_order', sort.direction);
+      const sortPrefix = sort.direction === 'desc' ? '-' : '';
+      params = params.set('_sort', `${sortPrefix}${sort.field}`);
     }
 
     // Apply pagination
