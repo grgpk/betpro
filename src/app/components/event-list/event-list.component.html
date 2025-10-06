@@ -13,7 +13,6 @@
     </div>
   </div>
 
-  <!-- Filters -->
   <sb-event-filters
     [sports]="sports"
     [statuses]="statuses"
@@ -22,19 +21,16 @@
     (clearFiltersClicked)="onClearFilters()"
   />
 
-  <!-- Sorting Controls -->
   @if (!loading() && !error() && events().length > 0) {
     <sb-event-sorting [currentSort]="sort()" (sortChanged)="onSortChange($event)" />
   }
 
-  <!-- Loading Spinner -->
   @if (loading()) {
     <div class="loading-container">
       <mat-spinner></mat-spinner>
     </div>
   }
 
-  <!-- Error Message -->
   @if (error()) {
     <mat-card class="error-card">
       <mat-icon color="warn">error</mat-icon>
@@ -42,10 +38,8 @@
     </mat-card>
   }
 
-  <!-- Event Cards -->
   @if (!loading() && !error()) {
     @if (useVirtualScroll) {
-      <!-- Virtual Scrolling View -->
       <cdk-virtual-scroll-viewport [itemSize]="itemSize" class="virtual-scroll-viewport">
         <sb-event-card
           *cdkVirtualFor="let event of events(); trackBy: trackById"
@@ -56,7 +50,6 @@
         />
       </cdk-virtual-scroll-viewport>
     } @else {
-      <!-- Regular Pagination View -->
       <div class="events-grid">
         @for (event of events(); track event.id) {
           <sb-event-card
@@ -68,7 +61,6 @@
         }
       </div>
 
-      <!-- Pagination -->
       @if (total() > 0) {
         <mat-paginator
           [length]="total()"
