@@ -1,21 +1,27 @@
-<div class="summary-stats">
+<dl class="summary-stats">
   <div class="summary-row">
-    <span>Total Stakes:</span>
-    <strong>${{ totalStake().toFixed(2) }}</strong>
+    <dt>Total Stakes:</dt>
+    <dd>
+      <strong>${{ totalStake().toFixed(2) }}</strong>
+    </dd>
   </div>
 
   <div class="summary-row">
-    <span>Combined Odds:</span>
-    <strong>{{ totalOdds().toFixed(2) }}</strong>
+    <dt>Combined Odds:</dt>
+    <dd>
+      <strong>{{ totalOdds().toFixed(2) }}</strong>
+    </dd>
   </div>
 
   <mat-divider></mat-divider>
 
   <div class="summary-row total">
-    <span>Potential Win:</span>
-    <strong class="win-amount">${{ potentialWin().toFixed(2) }}</strong>
+    <dt>Potential Win:</dt>
+    <dd>
+      <strong class="win-amount">${{ potentialWin().toFixed(2) }}</strong>
+    </dd>
   </div>
-</div>
+</dl>
 
 <div class="summary-actions">
   <button

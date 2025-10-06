@@ -1,126 +1,4661 @@
 {
   "events": [
     {
-      "id": "1",
-      "title": "Champions League Final",
-      "description": "The ultimate showdown in European club football",
-      "sport": "football",
-      "homeTeam": "Real Madrid",
-      "awayTeam": "Barcelona",
-      "startTime": "2025-10-15T20:00:00Z",
+      "id": "gen-1",
+      "title": "NBA Game - Bucks vs Knicks",
+      "description": "Rivalry renewed",
+      "sport": "basketball",
+      "homeTeam": "Bucks",
+      "awayTeam": "Knicks",
+      "startTime": "2025-11-24T21:52:50.215Z",
       "status": "upcoming",
       "odds": {
-        "home": 2.1,
-        "draw": 3.2,
-        "away": 3.5
+        "home": 2.07,
+        "away": 3.15
       },
       "isLive": false
     },
     {
-      "id": "2",
-      "title": "NBA Finals Game 7",
-      "description": "Championship deciding game",
-      "sport": "basketball",
-      "homeTeam": "Lakers",
-      "awayTeam": "Celtics",
-      "startTime": "2025-10-05T01:00:00Z",
+      "id": "gen-2",
+      "title": "World Championship - Netherlands vs China",
+      "description": "International competition",
+      "sport": "volleyball",
+      "homeTeam": "Netherlands",
+      "awayTeam": "China",
+      "startTime": "2025-11-28T13:13:23.543Z",
       "status": "live",
       "odds": {
-        "home": 1.85,
-        "away": 2.05
+        "home": 3.08,
+        "away": 3.49,
+        "draw": 2.55
       },
       "isLive": true
     },
     {
-      "id": "3",
-      "title": "Wimbledon Final",
-      "description": "Grass court championship final. Match is going to be held in London, Great Britain",
-      "sport": "tennis",
-      "homeTeam": "Djokovic",
-      "awayTeam": "Alcaraz",
-      "startTime": "2025-10-06T14:00:00.000Z",
+      "id": "gen-3",
+      "title": "Premier League Match - PSG vs Manchester United",
+      "description": "Exciting football match",
+      "sport": "football",
+      "homeTeam": "PSG",
+      "awayTeam": "Manchester United",
+      "startTime": "2025-12-05T06:51:01.459Z",
+      "status": "finished",
+      "odds": {
+        "home": 3.38,
+        "away": 2.83,
+        "draw": 3.18
+      },
+      "isLive": false
+    },
+    {
+      "id": "gen-4",
+      "title": "Champions League - Bayern Munich vs Barcelona",
+      "description": "Title decider",
+      "sport": "football",
+      "homeTeam": "Bayern Munich",
+      "awayTeam": "Barcelona",
+      "startTime": "2025-10-25T01:07:42.936Z",
       "status": "upcoming",
+      "odds": {
+        "home": 4.07,
+        "away": 2.81,
+        "draw": 3.95
+      },
+      "isLive": false
+    },
+    {
+      "id": "gen-5",
+      "title": "International Friendly - PSG vs Ajax",
+      "description": "Top teams clash",
+      "sport": "football",
+      "homeTeam": "PSG",
+      "awayTeam": "Ajax",
+      "startTime": "2025-11-10T06:38:17.211Z",
+      "status": "finished",
+      "odds": {
+        "home": 3.68,
+        "away": 2.77,
+        "draw": 2.75
+      },
+      "isLive": false
+    },
+    {
+      "id": "gen-6",
+      "title": "NBA Game - Nets vs Warriors",
+      "description": "Championship on the line",
+      "sport": "basketball",
+      "homeTeam": "Nets",
+      "awayTeam": "Warriors",
+      "startTime": "2025-12-30T05:36:26.160Z",
+      "status": "live",
+      "odds": {
+        "home": 1.82,
+        "away": 4.1
+      },
+      "isLive": true
+    },
+    {
+      "id": "gen-7",
+      "title": "Continental Cup - China vs Netherlands",
+      "description": "Friendly tournament",
+      "sport": "volleyball",
+      "homeTeam": "China",
+      "awayTeam": "Netherlands",
+      "startTime": "2025-12-08T10:35:43.460Z",
+      "status": "finished",
+      "odds": {
+        "home": 3.9,
+        "away": 3.1,
+        "draw": 3.61
+      },
+      "isLive": false
+    },
+    {
+      "id": "gen-8",
+      "title": "All-Star Game - Bulls vs Lakers",
+      "description": "High-scoring game expected",
+      "sport": "basketball",
+      "homeTeam": "Bulls",
+      "awayTeam": "Lakers",
+      "startTime": "2025-10-18T07:48:08.014Z",
+      "status": "finished",
+      "odds": {
+        "home": 3.15,
+        "away": 1.88
+      },
+      "isLive": false
+    },
+    {
+      "id": "gen-9",
+      "title": "Masters 1000 - Tsitsipas vs Hurkacz",
+      "description": "Grand slam showdown",
+      "sport": "tennis",
+      "homeTeam": "Tsitsipas",
+      "awayTeam": "Hurkacz",
+      "startTime": "2025-11-21T07:21:07.857Z",
+      "status": "live",
+      "odds": {
+        "home": 3.57,
+        "away": 2.08
+      },
+      "isLive": true
+    },
+    {
+      "id": "gen-10",
+      "title": "FA Cup - Atletico Madrid vs Barcelona",
+      "description": "Top teams clash",
+      "sport": "football",
+      "homeTeam": "Atletico Madrid",
+      "awayTeam": "Barcelona",
+      "startTime": "2025-12-08T23:23:07.831Z",
+      "status": "live",
+      "odds": {
+        "home": 3.14,
+        "away": 2.54,
+        "draw": 3.77
+      },
+      "isLive": true
+    },
+    {
+      "id": "gen-11",
+      "title": "Championship Match - Murray vs Hurkacz",
+      "description": "Court battle",
+      "sport": "tennis",
+      "homeTeam": "Murray",
+      "awayTeam": "Hurkacz",
+      "startTime": "2025-10-30T20:00:00.000Z",
+      "status": "upcoming",
+      "odds": {
+        "home": 3.02,
+        "away": 3.71
+      },
+      "isLive": false
+    },
+    {
+      "id": "gen-12",
+      "title": "League Cup - Juventus vs Bayern Munich",
+      "description": "Derby match",
+      "sport": "football",
+      "homeTeam": "Juventus",
+      "awayTeam": "Bayern Munich",
+      "startTime": "2025-12-17T23:33:15.836Z",
+      "status": "upcoming",
+      "odds": {
+        "home": 3.38,
+        "away": 3.57,
+        "draw": 3.69
+      },
+      "isLive": false
+    },
+    {
+      "id": "gen-13",
+      "title": "Playoff Match - Raptors vs Suns",
+      "description": "Championship on the line",
+      "sport": "basketball",
+      "homeTeam": "Raptors",
+      "awayTeam": "Suns",
+      "startTime": "2025-12-15T23:54:33.934Z",
+      "status": "finished",
+      "odds": {
+        "home": 3.57,
+        "away": 1.67
+      },
+      "isLive": false
+    },
+    {
+      "id": "gen-14",
+      "title": "FA Cup - Manchester United vs Inter Milan",
+      "description": "Exciting football match",
+      "sport": "football",
+      "homeTeam": "Manchester United",
+      "awayTeam": "Inter Milan",
+      "startTime": "2025-10-28T13:17:27.978Z",
+      "status": "upcoming",
+      "odds": {
+        "home": 4.05,
+        "away": 3.54,
+        "draw": 3.24
+      },
+      "isLive": false
+    },
+    {
+      "id": "gen-15",
+      "title": "Grand Slam Match - Sinner vs Zverev",
+      "description": "Court battle",
+      "sport": "tennis",
+      "homeTeam": "Sinner",
+      "awayTeam": "Zverev",
+      "startTime": "2025-12-26T00:16:25.741Z",
+      "status": "finished",
+      "odds": {
+        "home": 2.33,
+        "away": 1.65
+      },
+      "isLive": false
+    },
+    {
+      "id": "gen-16",
+      "title": "All-Star Game - Heat vs Warriors",
+      "description": "Season opener",
+      "sport": "basketball",
+      "homeTeam": "Heat",
+      "awayTeam": "Warriors",
+      "startTime": "2025-11-10T12:06:14.825Z",
+      "status": "upcoming",
+      "odds": {
+        "home": 1.53,
+        "away": 1.51
+      },
+      "isLive": false
+    },
+    {
+      "id": "gen-17",
+      "title": "Grand Slam Match - Hurkacz vs Tsitsipas",
+      "description": "Ranking points at stake",
+      "sport": "tennis",
+      "homeTeam": "Hurkacz",
+      "awayTeam": "Tsitsipas",
+      "startTime": "2025-11-05T22:42:28.123Z",
+      "status": "live",
+      "odds": {
+        "home": 4.38,
+        "away": 1.97
+      },
+      "isLive": true
+    },
+    {
+      "id": "gen-18",
+      "title": "NBA Game - Heat vs Nets",
+      "description": "Rivalry renewed",
+      "sport": "basketball",
+      "homeTeam": "Heat",
+      "awayTeam": "Nets",
+      "startTime": "2025-10-15T17:21:24.995Z",
+      "status": "live",
+      "odds": {
+        "home": 3.31,
+        "away": 3.05
+      },
+      "isLive": true
+    },
+    {
+      "id": "gen-19",
+      "title": "ATP Tour - Ruud vs Tsitsipas",
+      "description": "Grand slam showdown",
+      "sport": "tennis",
+      "homeTeam": "Ruud",
+      "awayTeam": "Tsitsipas",
+      "startTime": "2025-11-25T13:35:26.198Z",
+      "status": "upcoming",
+      "odds": {
+        "home": 4.41,
+        "away": 3.54
+      },
+      "isLive": false
+    },
+    {
+      "id": "gen-20",
+      "title": "Friendly Match - Serbia vs Italy",
+      "description": "Friendly tournament",
+      "sport": "volleyball",
+      "homeTeam": "Serbia",
+      "awayTeam": "Italy",
+      "startTime": "2025-12-30T12:49:39.523Z",
+      "status": "upcoming",
+      "odds": {
+        "home": 4.07,
+        "away": 2.07,
+        "draw": 3.76
+      },
+      "isLive": false
+    },
+    {
+      "id": "gen-21",
+      "title": "Champions League - Borussia Dortmund vs Manchester City",
+      "description": "Top teams clash",
+      "sport": "football",
+      "homeTeam": "Borussia Dortmund",
+      "awayTeam": "Manchester City",
+      "startTime": "2025-10-12T05:12:25.801Z",
+      "status": "live",
+      "odds": {
+        "home": 1.82,
+        "away": 2.08,
+        "draw": 4
+      },
+      "isLive": true
+    },
+    {
+      "id": "gen-22",
+      "title": "NBA Game - Spurs vs Celtics",
+      "description": "Playoff intensity",
+      "sport": "basketball",
+      "homeTeam": "Spurs",
+      "awayTeam": "Celtics",
+      "startTime": "2025-11-06T10:36:16.280Z",
+      "status": "live",
+      "odds": {
+        "home": 3.3,
+        "away": 1.8
+      },
+      "isLive": true
+    },
+    {
+      "id": "gen-23",
+      "title": "Masters 1000 - Tsitsipas vs Norrie",
+      "description": "Grand slam showdown",
+      "sport": "tennis",
+      "homeTeam": "Tsitsipas",
+      "awayTeam": "Norrie",
+      "startTime": "2025-11-26T13:16:49.107Z",
+      "status": "finished",
+      "odds": {
+        "home": 1.68,
+        "away": 3.72
+      },
+      "isLive": false
+    },
+    {
+      "id": "gen-24",
+      "title": "Playoff Match - Warriors vs Lakers",
+      "description": "Playoff intensity",
+      "sport": "basketball",
+      "homeTeam": "Warriors",
+      "awayTeam": "Lakers",
+      "startTime": "2025-10-16T09:22:12.815Z",
+      "status": "finished",
+      "odds": {
+        "home": 4.34,
+        "away": 4.44
+      },
+      "isLive": false
+    },
+    {
+      "id": "gen-25",
+      "title": "Olympic Qualifier - Canada vs Brazil",
+      "description": "Nations compete",
+      "sport": "volleyball",
+      "homeTeam": "Canada",
+      "awayTeam": "Brazil",
+      "startTime": "2025-10-04T05:27:24.423Z",
+      "status": "upcoming",
+      "odds": {
+        "home": 3.15,
+        "away": 3.08,
+        "draw": 3.98
+      },
+      "isLive": false
+    },
+    {
+      "id": "gen-26",
+      "title": "Masters 1000 - Medvedev vs Federer",
+      "description": "Surface specialists meet",
+      "sport": "tennis",
+      "homeTeam": "Medvedev",
+      "awayTeam": "Federer",
+      "startTime": "2025-12-12T20:10:23.795Z",
+      "status": "live",
+      "odds": {
+        "home": 4.36,
+        "away": 2.43
+      },
+      "isLive": true
+    },
+    {
+      "id": "gen-27",
+      "title": "Friendly Match - Serbia vs Brazil",
+      "description": "Nations compete",
+      "sport": "volleyball",
+      "homeTeam": "Serbia",
+      "awayTeam": "Brazil",
+      "startTime": "2025-12-08T03:35:08.460Z",
+      "status": "upcoming",
+      "odds": {
+        "home": 2.52,
+        "away": 2.17,
+        "draw": 3.25
+      },
+      "isLive": false
+    },
+    {
+      "id": "gen-28",
+      "title": "Grand Slam Match - Norrie vs Alcaraz",
+      "description": "Surface specialists meet",
+      "sport": "tennis",
+      "homeTeam": "Norrie",
+      "awayTeam": "Alcaraz",
+      "startTime": "2025-10-22T18:31:50.316Z",
+      "status": "finished",
+      "odds": {
+        "home": 4.08,
+        "away": 1.88
+      },
+      "isLive": false
+    },
+    {
+      "id": "gen-29",
+      "title": "NBA Game - Suns vs 76ers",
+      "description": "Rivalry renewed",
+      "sport": "basketball",
+      "homeTeam": "Suns",
+      "awayTeam": "76ers",
+      "startTime": "2025-11-29T23:50:01.627Z",
+      "status": "finished",
+      "odds": {
+        "home": 3.55,
+        "away": 3.27
+      },
+      "isLive": false
+    },
+    {
+      "id": "gen-30",
+      "title": "Olympic Qualifier - Iran vs Serbia",
+      "description": "International competition",
+      "sport": "volleyball",
+      "homeTeam": "Iran",
+      "awayTeam": "Serbia",
+      "startTime": "2025-11-25T01:26:17.693Z",
+      "status": "live",
+      "odds": {
+        "home": 2.16,
+        "away": 3.9,
+        "draw": 3.82
+      },
+      "isLive": true
+    },
+    {
+      "id": "gen-31",
+      "title": "Olympic Qualifier - Argentina vs Turkey",
+      "description": "Olympic qualification match",
+      "sport": "volleyball",
+      "homeTeam": "Argentina",
+      "awayTeam": "Turkey",
+      "startTime": "2025-11-16T17:02:08.145Z",
+      "status": "finished",
+      "odds": {
+        "home": 3.25,
+        "away": 2.94,
+        "draw": 3.49
+      },
+      "isLive": false
+    },
+    {
+      "id": "gen-32",
+      "title": "League Cup - Tottenham vs Borussia Dortmund",
+      "description": "Top teams clash",
+      "sport": "football",
+      "homeTeam": "Tottenham",
+      "awayTeam": "Borussia Dortmund",
+      "startTime": "2025-11-03T19:29:21.864Z",
+      "status": "upcoming",
+      "odds": {
+        "home": 4.37,
+        "away": 1.7,
+        "draw": 2.59
+      },
+      "isLive": false
+    },
+    {
+      "id": "gen-33",
+      "title": "Olympic Qualifier - Canada vs China",
+      "description": "International competition",
+      "sport": "volleyball",
+      "homeTeam": "Canada",
+      "awayTeam": "China",
+      "startTime": "2025-12-04T04:47:19.529Z",
+      "status": "upcoming",
+      "odds": {
+        "home": 1.67,
+        "away": 3.85,
+        "draw": 3.14
+      },
+      "isLive": false
+    },
+    {
+      "id": "gen-34",
+      "title": "Grand Slam Match - Murray vs Nadal",
+      "description": "Court battle",
+      "sport": "tennis",
+      "homeTeam": "Murray",
+      "awayTeam": "Nadal",
+      "startTime": "2025-11-03T20:09:05.730Z",
+      "status": "finished",
+      "odds": {
+        "home": 1.93,
+        "away": 3.1
+      },
+      "isLive": false
+    },
+    {
+      "id": "gen-35",
+      "title": "NBA Game - Spurs vs Clippers",
+      "description": "Rivalry renewed",
+      "sport": "basketball",
+      "homeTeam": "Spurs",
+      "awayTeam": "Clippers",
+      "startTime": "2025-11-02T00:59:17.866Z",
+      "status": "upcoming",
+      "odds": {
+        "home": 4.23,
+        "away": 2.01
+      },
+      "isLive": false
+    },
+    {
+      "id": "gen-36",
+      "title": "FA Cup - Ajax vs Arsenal",
+      "description": "Relegation battle",
+      "sport": "football",
+      "homeTeam": "Ajax",
+      "awayTeam": "Arsenal",
+      "startTime": "2025-12-14T05:45:04.923Z",
+      "status": "live",
+      "odds": {
+        "home": 3.18,
+        "away": 2.48,
+        "draw": 3.06
+      },
+      "isLive": true
+    },
+    {
+      "id": "gen-37",
+      "title": "Nations League - Russia vs USA",
+      "description": "Continental championship",
+      "sport": "volleyball",
+      "homeTeam": "Russia",
+      "awayTeam": "USA",
+      "startTime": "2025-11-12T02:42:53.747Z",
+      "status": "live",
+      "odds": {
+        "home": 2.75,
+        "away": 3.37,
+        "draw": 3.4
+      },
+      "isLive": true
+    },
+    {
+      "id": "gen-38",
+      "title": "International Friendly - Bayern Munich vs Chelsea",
+      "description": "Exciting football match",
+      "sport": "football",
+      "homeTeam": "Bayern Munich",
+      "awayTeam": "Chelsea",
+      "startTime": "2025-11-20T08:13:33.657Z",
+      "status": "live",
       "odds": {
         "home": 1.95,
-        "away": 1.9
-      },
-      "isLive": false
-    },
-    {
-      "id": "43d7",
-      "title": "some event",
-      "description": "test",
-      "sport": "football",
-      "homeTeam": "Liverpool",
-      "awayTeam": "Manchester united",
-      "startTime": "2025-10-04T11:40:19.545Z",
-      "status": "live",
-      "odds": {
-        "home": 2,
-        "draw": 3,
-        "away": 2.5
+        "away": 1.72,
+        "draw": 2.97
       },
       "isLive": true
     },
     {
-      "id": "4",
-      "title": "Super Bowl",
-      "description": "The biggest event in American football",
-      "sport": "football",
-      "homeTeam": "Patriots",
-      "awayTeam": "Eagles",
-      "startTime": "2025-10-12T23:30:00Z",
+      "id": "gen-39",
+      "title": "Championship Match - Rublev vs Alcaraz",
+      "description": "Historic rivalry",
+      "sport": "tennis",
+      "homeTeam": "Rublev",
+      "awayTeam": "Alcaraz",
+      "startTime": "2025-10-16T16:09:27.842Z",
+      "status": "live",
+      "odds": {
+        "home": 2.57,
+        "away": 2.68
+      },
+      "isLive": true
+    },
+    {
+      "id": "gen-40",
+      "title": "ATP Tour - Alcaraz vs Rune",
+      "description": "Ranking points at stake",
+      "sport": "tennis",
+      "homeTeam": "Alcaraz",
+      "awayTeam": "Rune",
+      "startTime": "2025-12-09T18:26:28.246Z",
+      "status": "finished",
+      "odds": {
+        "home": 2.58,
+        "away": 3.24
+      },
+      "isLive": false
+    },
+    {
+      "id": "gen-41",
+      "title": "ATP Tour - Norrie vs Sinner",
+      "description": "Ranking points at stake",
+      "sport": "tennis",
+      "homeTeam": "Norrie",
+      "awayTeam": "Sinner",
+      "startTime": "2025-11-28T00:12:59.374Z",
       "status": "upcoming",
       "odds": {
-        "home": 1.9,
+        "home": 1.75,
+        "away": 3.93
+      },
+      "isLive": false
+    },
+    {
+      "id": "gen-42",
+      "title": "FA Cup - Ajax vs Arsenal",
+      "description": "Exciting football match",
+      "sport": "football",
+      "homeTeam": "Ajax",
+      "awayTeam": "Arsenal",
+      "startTime": "2025-12-30T11:43:06.256Z",
+      "status": "live",
+      "odds": {
+        "home": 3.65,
+        "away": 3.26,
+        "draw": 3.93
+      },
+      "isLive": true
+    },
+    {
+      "id": "gen-43",
+      "title": "Grand Slam Match - Fritz vs Tsitsipas",
+      "description": "Surface specialists meet",
+      "sport": "tennis",
+      "homeTeam": "Fritz",
+      "awayTeam": "Tsitsipas",
+      "startTime": "2025-10-06T02:34:56.190Z",
+      "status": "upcoming",
+      "odds": {
+        "home": 3.02,
+        "away": 2.86
+      },
+      "isLive": false
+    },
+    {
+      "id": "gen-44",
+      "title": "Championship Match - Sinner vs Nadal",
+      "description": "Grand slam showdown",
+      "sport": "tennis",
+      "homeTeam": "Sinner",
+      "awayTeam": "Nadal",
+      "startTime": "2025-10-09T19:21:04.991Z",
+      "status": "finished",
+      "odds": {
+        "home": 3.73,
+        "away": 3.31
+      },
+      "isLive": false
+    },
+    {
+      "id": "gen-45",
+      "title": "Premier League Match - Ajax vs Manchester United",
+      "description": "Exciting football match",
+      "sport": "football",
+      "homeTeam": "Ajax",
+      "awayTeam": "Manchester United",
+      "startTime": "2025-11-20T07:09:20.069Z",
+      "status": "finished",
+      "odds": {
+        "home": 2.82,
+        "away": 3.2,
+        "draw": 2.88
+      },
+      "isLive": false
+    },
+    {
+      "id": "gen-46",
+      "title": "Regular Season - Lakers vs Rockets",
+      "description": "Season opener",
+      "sport": "basketball",
+      "homeTeam": "Lakers",
+      "awayTeam": "Rockets",
+      "startTime": "2025-11-22T21:22:02.031Z",
+      "status": "finished",
+      "odds": {
+        "home": 1.54,
+        "away": 2.37
+      },
+      "isLive": false
+    },
+    {
+      "id": "gen-47",
+      "title": "Continental Cup - Serbia vs China",
+      "description": "Olympic qualification match",
+      "sport": "volleyball",
+      "homeTeam": "Serbia",
+      "awayTeam": "China",
+      "startTime": "2025-10-23T18:28:27.302Z",
+      "status": "live",
+      "odds": {
+        "home": 2.18,
+        "away": 3.59,
+        "draw": 3.12
+      },
+      "isLive": true
+    },
+    {
+      "id": "gen-48",
+      "title": "Olympic Qualifier - Brazil vs Poland",
+      "description": "Olympic qualification match",
+      "sport": "volleyball",
+      "homeTeam": "Brazil",
+      "awayTeam": "Poland",
+      "startTime": "2025-10-12T16:38:43.153Z",
+      "status": "live",
+      "odds": {
+        "home": 2.64,
+        "away": 2.52,
+        "draw": 3.88
+      },
+      "isLive": true
+    },
+    {
+      "id": "gen-49",
+      "title": "Masters 1000 - Nadal vs Alcaraz",
+      "description": "Surface specialists meet",
+      "sport": "tennis",
+      "homeTeam": "Nadal",
+      "awayTeam": "Alcaraz",
+      "startTime": "2025-11-21T09:33:13.100Z",
+      "status": "live",
+      "odds": {
+        "home": 2.59,
+        "away": 3.1
+      },
+      "isLive": true
+    },
+    {
+      "id": "gen-50",
+      "title": "Olympic Qualifier - Italy vs Serbia",
+      "description": "Continental championship",
+      "sport": "volleyball",
+      "homeTeam": "Italy",
+      "awayTeam": "Serbia",
+      "startTime": "2025-10-02T12:01:58.586Z",
+      "status": "upcoming",
+      "odds": {
+        "home": 1.61,
+        "away": 4.48,
+        "draw": 3.78
+      },
+      "isLive": false
+    },
+    {
+      "id": "gen-51",
+      "title": "Olympic Qualifier - Turkey vs Iran",
+      "description": "Friendly tournament",
+      "sport": "volleyball",
+      "homeTeam": "Turkey",
+      "awayTeam": "Iran",
+      "startTime": "2025-11-26T14:38:51.082Z",
+      "status": "finished",
+      "odds": {
+        "home": 3.07,
+        "away": 2.05,
+        "draw": 3.28
+      },
+      "isLive": false
+    },
+    {
+      "id": "gen-52",
+      "title": "World Championship - Argentina vs Turkey",
+      "description": "International competition",
+      "sport": "volleyball",
+      "homeTeam": "Argentina",
+      "awayTeam": "Turkey",
+      "startTime": "2025-11-28T11:49:05.445Z",
+      "status": "upcoming",
+      "odds": {
+        "home": 1.99,
+        "away": 3.22,
+        "draw": 3.8
+      },
+      "isLive": false
+    },
+    {
+      "id": "gen-53",
+      "title": "International Friendly - Atletico Madrid vs Tottenham",
+      "description": "Derby match",
+      "sport": "football",
+      "homeTeam": "Atletico Madrid",
+      "awayTeam": "Tottenham",
+      "startTime": "2025-12-14T15:18:32.831Z",
+      "status": "live",
+      "odds": {
+        "home": 2.36,
+        "away": 4,
+        "draw": 2.67
+      },
+      "isLive": true
+    },
+    {
+      "id": "gen-54",
+      "title": "League Cup - Barcelona vs AC Milan",
+      "description": "Derby match",
+      "sport": "football",
+      "homeTeam": "Barcelona",
+      "awayTeam": "AC Milan",
+      "startTime": "2025-11-22T23:09:39.435Z",
+      "status": "finished",
+      "odds": {
+        "home": 2.41,
+        "away": 1.71,
+        "draw": 3.99
+      },
+      "isLive": false
+    },
+    {
+      "id": "gen-55",
+      "title": "Olympic Qualifier - Iran vs Germany",
+      "description": "Friendly tournament",
+      "sport": "volleyball",
+      "homeTeam": "Iran",
+      "awayTeam": "Germany",
+      "startTime": "2025-12-07T20:58:11.232Z",
+      "status": "live",
+      "odds": {
+        "home": 2.84,
+        "away": 3.81,
+        "draw": 3.36
+      },
+      "isLive": true
+    },
+    {
+      "id": "gen-56",
+      "title": "League Cup - AC Milan vs Barcelona",
+      "description": "Derby match",
+      "sport": "football",
+      "homeTeam": "AC Milan",
+      "awayTeam": "Barcelona",
+      "startTime": "2025-11-22T14:35:49.618Z",
+      "status": "live",
+      "odds": {
+        "home": 2.14,
+        "away": 3.25,
+        "draw": 3.73
+      },
+      "isLive": true
+    },
+    {
+      "id": "gen-57",
+      "title": "FA Cup - Arsenal vs Barcelona",
+      "description": "Top teams clash",
+      "sport": "football",
+      "homeTeam": "Arsenal",
+      "awayTeam": "Barcelona",
+      "startTime": "2025-12-02T21:16:00.753Z",
+      "status": "live",
+      "odds": {
+        "home": 2.12,
+        "away": 2.27,
+        "draw": 2.83
+      },
+      "isLive": true
+    },
+    {
+      "id": "gen-58",
+      "title": "World Championship - China vs Italy",
+      "description": "Nations compete",
+      "sport": "volleyball",
+      "homeTeam": "China",
+      "awayTeam": "Italy",
+      "startTime": "2025-11-14T23:41:02.905Z",
+      "status": "live",
+      "odds": {
+        "home": 3.54,
+        "away": 3.56,
+        "draw": 3.8
+      },
+      "isLive": true
+    },
+    {
+      "id": "gen-59",
+      "title": "World Championship - Serbia vs Russia",
+      "description": "Continental championship",
+      "sport": "volleyball",
+      "homeTeam": "Serbia",
+      "awayTeam": "Russia",
+      "startTime": "2025-12-02T00:09:39.434Z",
+      "status": "finished",
+      "odds": {
+        "home": 4.19,
+        "away": 1.56,
+        "draw": 2.83
+      },
+      "isLive": false
+    },
+    {
+      "id": "gen-60",
+      "title": "Friendly Match - Russia vs Germany",
+      "description": "International competition",
+      "sport": "volleyball",
+      "homeTeam": "Russia",
+      "awayTeam": "Germany",
+      "startTime": "2025-12-03T21:40:40.309Z",
+      "status": "upcoming",
+      "odds": {
+        "home": 1.89,
+        "away": 4.28,
+        "draw": 3.23
+      },
+      "isLive": false
+    },
+    {
+      "id": "gen-61",
+      "title": "ATP Tour - Fritz vs Murray",
+      "description": "Surface specialists meet",
+      "sport": "tennis",
+      "homeTeam": "Fritz",
+      "awayTeam": "Murray",
+      "startTime": "2025-10-22T03:10:46.685Z",
+      "status": "upcoming",
+      "odds": {
+        "home": 3.91,
+        "away": 2.76
+      },
+      "isLive": false
+    },
+    {
+      "id": "gen-62",
+      "title": "Friendly Match - Canada vs Iran",
+      "description": "Nations compete",
+      "sport": "volleyball",
+      "homeTeam": "Canada",
+      "awayTeam": "Iran",
+      "startTime": "2025-10-28T15:31:14.979Z",
+      "status": "live",
+      "odds": {
+        "home": 2.4,
+        "away": 1.53,
+        "draw": 3.82
+      },
+      "isLive": true
+    },
+    {
+      "id": "gen-63",
+      "title": "Champions League - Juventus vs AC Milan",
+      "description": "Top teams clash",
+      "sport": "football",
+      "homeTeam": "Juventus",
+      "awayTeam": "AC Milan",
+      "startTime": "2025-10-14T12:36:16.665Z",
+      "status": "live",
+      "odds": {
+        "home": 2.51,
+        "away": 2.57,
+        "draw": 3.74
+      },
+      "isLive": true
+    },
+    {
+      "id": "gen-64",
+      "title": "Friendly Match - Russia vs France",
+      "description": "Olympic qualification match",
+      "sport": "volleyball",
+      "homeTeam": "Russia",
+      "awayTeam": "France",
+      "startTime": "2025-10-07T07:38:50.578Z",
+      "status": "upcoming",
+      "odds": {
+        "home": 1.52,
+        "away": 3.85,
+        "draw": 3.81
+      },
+      "isLive": false
+    },
+    {
+      "id": "gen-65",
+      "title": "Grand Slam Match - Fritz vs Murray",
+      "description": "Historic rivalry",
+      "sport": "tennis",
+      "homeTeam": "Fritz",
+      "awayTeam": "Murray",
+      "startTime": "2025-10-19T12:51:50.845Z",
+      "status": "live",
+      "odds": {
+        "home": 4.14,
+        "away": 2
+      },
+      "isLive": true
+    },
+    {
+      "id": "gen-66",
+      "title": "Champions League - Tottenham vs Arsenal",
+      "description": "Exciting football match",
+      "sport": "football",
+      "homeTeam": "Tottenham",
+      "awayTeam": "Arsenal",
+      "startTime": "2025-10-24T23:07:18.199Z",
+      "status": "live",
+      "odds": {
+        "home": 2.28,
+        "away": 1.51,
+        "draw": 2.52
+      },
+      "isLive": true
+    },
+    {
+      "id": "gen-67",
+      "title": "Finals Game - Knicks vs Celtics",
+      "description": "High-scoring game expected",
+      "sport": "basketball",
+      "homeTeam": "Knicks",
+      "awayTeam": "Celtics",
+      "startTime": "2025-10-16T08:44:41.751Z",
+      "status": "finished",
+      "odds": {
+        "home": 2.36,
+        "away": 3.32
+      },
+      "isLive": false
+    },
+    {
+      "id": "gen-68",
+      "title": "FA Cup - Ajax vs AC Milan",
+      "description": "Derby match",
+      "sport": "football",
+      "homeTeam": "Ajax",
+      "awayTeam": "AC Milan",
+      "startTime": "2025-12-24T04:35:05.399Z",
+      "status": "finished",
+      "odds": {
+        "home": 3.29,
+        "away": 2.42,
+        "draw": 3.11
+      },
+      "isLive": false
+    },
+    {
+      "id": "gen-69",
+      "title": "Grand Slam Match - Norrie vs Zverev",
+      "description": "Historic rivalry",
+      "sport": "tennis",
+      "homeTeam": "Norrie",
+      "awayTeam": "Zverev",
+      "startTime": "2025-10-20T18:15:18.566Z",
+      "status": "finished",
+      "odds": {
+        "home": 2.58,
         "away": 2.1
       },
       "isLive": false
     },
     {
-      "id": "5",
-      "title": "World Series Game 7",
-      "description": "Decisive game of the baseball championship",
-      "sport": "baseball",
-      "homeTeam": "Yankees",
-      "awayTeam": "Dodgers",
-      "startTime": "2025-10-08T00:00:00Z",
+      "id": "gen-70",
+      "title": "FA Cup - Ajax vs Bayern Munich",
+      "description": "Relegation battle",
+      "sport": "football",
+      "homeTeam": "Ajax",
+      "awayTeam": "Bayern Munich",
+      "startTime": "2025-10-06T02:17:04.446Z",
+      "status": "finished",
+      "odds": {
+        "home": 4.24,
+        "away": 3.33,
+        "draw": 3.17
+      },
+      "isLive": false
+    },
+    {
+      "id": "gen-71",
+      "title": "Regular Season - Nets vs Suns",
+      "description": "Rivalry renewed",
+      "sport": "basketball",
+      "homeTeam": "Nets",
+      "awayTeam": "Suns",
+      "startTime": "2025-11-05T09:23:40.341Z",
+      "status": "upcoming",
+      "odds": {
+        "home": 3.42,
+        "away": 2.76
+      },
+      "isLive": false
+    },
+    {
+      "id": "gen-72",
+      "title": "Playoff Match - 76ers vs Suns",
+      "description": "High-scoring game expected",
+      "sport": "basketball",
+      "homeTeam": "76ers",
+      "awayTeam": "Suns",
+      "startTime": "2025-12-24T19:40:47.462Z",
       "status": "live",
       "odds": {
-        "home": 2.3,
-        "away": 1.7
+        "home": 2.71,
+        "away": 3.45
       },
       "isLive": true
     },
     {
-      "id": "7734",
-      "title": "fdfdfdf",
-      "description": "dfdfdfdfdf",
+      "id": "gen-73",
+      "title": "Champions League - Inter Milan vs Ajax",
+      "description": "Title decider",
       "sport": "football",
-      "homeTeam": "dd",
-      "awayTeam": "fff",
-      "startTime": "2025-10-04T18:13:29.493Z",
+      "homeTeam": "Inter Milan",
+      "awayTeam": "Ajax",
+      "startTime": "2025-12-02T02:49:14.894Z",
       "status": "live",
+      "odds": {
+        "home": 3.89,
+        "away": 2.02,
+        "draw": 2.85
+      },
+      "isLive": true
+    },
+    {
+      "id": "gen-74",
+      "title": "Finals - Rublev vs Rune",
+      "description": "Grand slam showdown",
+      "sport": "tennis",
+      "homeTeam": "Rublev",
+      "awayTeam": "Rune",
+      "startTime": "2025-11-03T18:38:15.678Z",
+      "status": "upcoming",
+      "odds": {
+        "home": 2.9,
+        "away": 3.79
+      },
+      "isLive": false
+    },
+    {
+      "id": "gen-75",
+      "title": "All-Star Game - Bulls vs Bucks",
+      "description": "Championship on the line",
+      "sport": "basketball",
+      "homeTeam": "Bulls",
+      "awayTeam": "Bucks",
+      "startTime": "2025-10-03T09:04:50.960Z",
+      "status": "live",
+      "odds": {
+        "home": 4.07,
+        "away": 4.31
+      },
+      "isLive": true
+    },
+    {
+      "id": "gen-76",
+      "title": "League Cup - Barcelona vs Chelsea",
+      "description": "Derby match",
+      "sport": "football",
+      "homeTeam": "Barcelona",
+      "awayTeam": "Chelsea",
+      "startTime": "2025-11-13T06:05:48.027Z",
+      "status": "finished",
+      "odds": {
+        "home": 2.58,
+        "away": 3.66,
+        "draw": 3.25
+      },
+      "isLive": false
+    },
+    {
+      "id": "gen-77",
+      "title": "ATP Tour - Rublev vs Rune",
+      "description": "Surface specialists meet",
+      "sport": "tennis",
+      "homeTeam": "Rublev",
+      "awayTeam": "Rune",
+      "startTime": "2025-11-24T21:49:26.821Z",
+      "status": "live",
+      "odds": {
+        "home": 4.42,
+        "away": 4.12
+      },
+      "isLive": true
+    },
+    {
+      "id": "gen-78",
+      "title": "FA Cup - Juventus vs Arsenal",
+      "description": "Top teams clash",
+      "sport": "football",
+      "homeTeam": "Juventus",
+      "awayTeam": "Arsenal",
+      "startTime": "2025-10-23T00:42:46.582Z",
+      "status": "finished",
+      "odds": {
+        "home": 4.27,
+        "away": 3.1,
+        "draw": 2.87
+      },
+      "isLive": false
+    },
+    {
+      "id": "gen-79",
+      "title": "Finals Game - Bucks vs Heat",
+      "description": "High-scoring game expected",
+      "sport": "basketball",
+      "homeTeam": "Bucks",
+      "awayTeam": "Heat",
+      "startTime": "2025-12-23T11:06:39.039Z",
+      "status": "live",
+      "odds": {
+        "home": 1.58,
+        "away": 3.04
+      },
+      "isLive": true
+    },
+    {
+      "id": "gen-80",
+      "title": "Playoff Match - Nets vs Mavericks",
+      "description": "Playoff intensity",
+      "sport": "basketball",
+      "homeTeam": "Nets",
+      "awayTeam": "Mavericks",
+      "startTime": "2025-12-09T00:56:06.050Z",
+      "status": "finished",
+      "odds": {
+        "home": 2.92,
+        "away": 1.7
+      },
+      "isLive": false
+    },
+    {
+      "id": "gen-81",
+      "title": "Nations League - Canada vs USA",
+      "description": "International competition",
+      "sport": "volleyball",
+      "homeTeam": "Canada",
+      "awayTeam": "USA",
+      "startTime": "2025-11-04T11:53:52.073Z",
+      "status": "finished",
+      "odds": {
+        "home": 3.36,
+        "away": 2.6,
+        "draw": 2.91
+      },
+      "isLive": false
+    },
+    {
+      "id": "gen-82",
+      "title": "ATP Tour - Ruud vs Hurkacz",
+      "description": "Ranking points at stake",
+      "sport": "tennis",
+      "homeTeam": "Ruud",
+      "awayTeam": "Hurkacz",
+      "startTime": "2025-10-01T02:17:16.071Z",
+      "status": "upcoming",
+      "odds": {
+        "home": 3.93,
+        "away": 4.04
+      },
+      "isLive": false
+    },
+    {
+      "id": "gen-83",
+      "title": "Finals - Nadal vs Ruud",
+      "description": "Court battle",
+      "sport": "tennis",
+      "homeTeam": "Nadal",
+      "awayTeam": "Ruud",
+      "startTime": "2025-12-03T09:30:23.784Z",
+      "status": "upcoming",
+      "odds": {
+        "home": 2.87,
+        "away": 4.3
+      },
+      "isLive": false
+    },
+    {
+      "id": "gen-84",
+      "title": "Grand Slam Match - Zverev vs Rublev",
+      "description": "Ranking points at stake",
+      "sport": "tennis",
+      "homeTeam": "Zverev",
+      "awayTeam": "Rublev",
+      "startTime": "2025-10-17T15:26:08.810Z",
+      "status": "finished",
+      "odds": {
+        "home": 2.91,
+        "away": 3.29
+      },
+      "isLive": false
+    },
+    {
+      "id": "gen-85",
+      "title": "Playoff Match - Celtics vs Bulls",
+      "description": "Championship on the line",
+      "sport": "basketball",
+      "homeTeam": "Celtics",
+      "awayTeam": "Bulls",
+      "startTime": "2025-12-13T08:44:14.528Z",
+      "status": "live",
+      "odds": {
+        "home": 3.72,
+        "away": 1.81
+      },
+      "isLive": true
+    },
+    {
+      "id": "gen-86",
+      "title": "All-Star Game - 76ers vs Celtics",
+      "description": "Season opener",
+      "sport": "basketball",
+      "homeTeam": "76ers",
+      "awayTeam": "Celtics",
+      "startTime": "2025-11-10T08:19:43.724Z",
+      "status": "finished",
+      "odds": {
+        "home": 3.67,
+        "away": 2.68
+      },
+      "isLive": false
+    },
+    {
+      "id": "gen-87",
+      "title": "All-Star Game - Bucks vs Suns",
+      "description": "Championship on the line",
+      "sport": "basketball",
+      "homeTeam": "Bucks",
+      "awayTeam": "Suns",
+      "startTime": "2025-12-07T07:06:34.784Z",
+      "status": "finished",
+      "odds": {
+        "home": 3.64,
+        "away": 2.6
+      },
+      "isLive": false
+    },
+    {
+      "id": "gen-88",
+      "title": "Premier League Match - PSG vs Tottenham",
+      "description": "Derby match",
+      "sport": "football",
+      "homeTeam": "PSG",
+      "awayTeam": "Tottenham",
+      "startTime": "2025-10-08T23:33:27.290Z",
+      "status": "live",
+      "odds": {
+        "home": 2.36,
+        "away": 1.58,
+        "draw": 3.8
+      },
+      "isLive": true
+    },
+    {
+      "id": "gen-89",
+      "title": "Finals Game - Nets vs Lakers",
+      "description": "Rivalry renewed",
+      "sport": "basketball",
+      "homeTeam": "Nets",
+      "awayTeam": "Lakers",
+      "startTime": "2025-11-16T21:06:31.782Z",
+      "status": "live",
+      "odds": {
+        "home": 2.41,
+        "away": 3.76
+      },
+      "isLive": true
+    },
+    {
+      "id": "gen-90",
+      "title": "ATP Tour - Medvedev vs Tsitsipas",
+      "description": "Historic rivalry",
+      "sport": "tennis",
+      "homeTeam": "Medvedev",
+      "awayTeam": "Tsitsipas",
+      "startTime": "2025-12-15T18:51:30.297Z",
+      "status": "finished",
+      "odds": {
+        "home": 3.73,
+        "away": 1.54
+      },
+      "isLive": false
+    },
+    {
+      "id": "gen-91",
+      "title": "Champions League - Chelsea vs Borussia Dortmund",
+      "description": "Exciting football match",
+      "sport": "football",
+      "homeTeam": "Chelsea",
+      "awayTeam": "Borussia Dortmund",
+      "startTime": "2025-10-11T09:16:26.388Z",
+      "status": "finished",
+      "odds": {
+        "home": 3.53,
+        "away": 3.33,
+        "draw": 3.39
+      },
+      "isLive": false
+    },
+    {
+      "id": "gen-92",
+      "title": "NBA Game - Spurs vs Suns",
+      "description": "High-scoring game expected",
+      "sport": "basketball",
+      "homeTeam": "Spurs",
+      "awayTeam": "Suns",
+      "startTime": "2025-10-15T23:37:22.555Z",
+      "status": "upcoming",
+      "odds": {
+        "home": 3.41,
+        "away": 1.97
+      },
+      "isLive": false
+    },
+    {
+      "id": "gen-93",
+      "title": "Champions League - Ajax vs AC Milan",
+      "description": "Top teams clash",
+      "sport": "football",
+      "homeTeam": "Ajax",
+      "awayTeam": "AC Milan",
+      "startTime": "2025-11-15T14:12:12.945Z",
+      "status": "live",
+      "odds": {
+        "home": 3.42,
+        "away": 2.45,
+        "draw": 2.75
+      },
+      "isLive": true
+    },
+    {
+      "id": "gen-94",
+      "title": "Champions League - PSG vs Borussia Dortmund",
+      "description": "Exciting football match",
+      "sport": "football",
+      "homeTeam": "PSG",
+      "awayTeam": "Borussia Dortmund",
+      "startTime": "2025-11-23T21:59:58.762Z",
+      "status": "live",
+      "odds": {
+        "home": 3.29,
+        "away": 1.99,
+        "draw": 3.13
+      },
+      "isLive": true
+    },
+    {
+      "id": "gen-95",
+      "title": "Grand Slam Match - Ruud vs Djokovic",
+      "description": "Surface specialists meet",
+      "sport": "tennis",
+      "homeTeam": "Ruud",
+      "awayTeam": "Djokovic",
+      "startTime": "2025-10-30T11:51:49.670Z",
+      "status": "live",
+      "odds": {
+        "home": 2,
+        "away": 2.18
+      },
+      "isLive": true
+    },
+    {
+      "id": "gen-96",
+      "title": "Continental Cup - Poland vs Canada",
+      "description": "International competition",
+      "sport": "volleyball",
+      "homeTeam": "Poland",
+      "awayTeam": "Canada",
+      "startTime": "2025-11-07T14:19:11.929Z",
+      "status": "finished",
+      "odds": {
+        "home": 3,
+        "away": 4.27,
+        "draw": 2.56
+      },
+      "isLive": false
+    },
+    {
+      "id": "gen-97",
+      "title": "Playoff Match - Heat vs Celtics",
+      "description": "Season opener",
+      "sport": "basketball",
+      "homeTeam": "Heat",
+      "awayTeam": "Celtics",
+      "startTime": "2025-10-09T06:09:50.029Z",
+      "status": "live",
+      "odds": {
+        "home": 4.47,
+        "away": 3.61
+      },
+      "isLive": true
+    },
+    {
+      "id": "gen-98",
+      "title": "Championship Match - Djokovic vs Ruud",
+      "description": "Surface specialists meet",
+      "sport": "tennis",
+      "homeTeam": "Djokovic",
+      "awayTeam": "Ruud",
+      "startTime": "2025-10-27T07:45:54.727Z",
+      "status": "upcoming",
+      "odds": {
+        "home": 2.45,
+        "away": 4.2
+      },
+      "isLive": false
+    },
+    {
+      "id": "gen-99",
+      "title": "Champions League - Chelsea vs Manchester United",
+      "description": "Top teams clash",
+      "sport": "football",
+      "homeTeam": "Chelsea",
+      "awayTeam": "Manchester United",
+      "startTime": "2025-12-02T09:45:46.946Z",
+      "status": "finished",
+      "odds": {
+        "home": 3.11,
+        "away": 3.31,
+        "draw": 3.59
+      },
+      "isLive": false
+    },
+    {
+      "id": "gen-100",
+      "title": "Regular Season - Nets vs Raptors",
+      "description": "Season opener",
+      "sport": "basketball",
+      "homeTeam": "Nets",
+      "awayTeam": "Raptors",
+      "startTime": "2025-10-08T13:37:36.984Z",
+      "status": "finished",
+      "odds": {
+        "home": 3.53,
+        "away": 2.43
+      },
+      "isLive": false
+    },
+    {
+      "id": "gen-101",
+      "title": "ATP Tour - Zverev vs Sinner",
+      "description": "Surface specialists meet",
+      "sport": "tennis",
+      "homeTeam": "Zverev",
+      "awayTeam": "Sinner",
+      "startTime": "2025-10-23T18:50:15.812Z",
+      "status": "finished",
+      "odds": {
+        "home": 3.79,
+        "away": 3.02
+      },
+      "isLive": false
+    },
+    {
+      "id": "gen-102",
+      "title": "Champions League - Ajax vs Atletico Madrid",
+      "description": "Top teams clash",
+      "sport": "football",
+      "homeTeam": "Ajax",
+      "awayTeam": "Atletico Madrid",
+      "startTime": "2025-11-06T07:17:57.241Z",
+      "status": "finished",
+      "odds": {
+        "home": 1.91,
+        "away": 1.84,
+        "draw": 3.68
+      },
+      "isLive": false
+    },
+    {
+      "id": "gen-103",
+      "title": "World Championship - Germany vs Canada",
+      "description": "Olympic qualification match",
+      "sport": "volleyball",
+      "homeTeam": "Germany",
+      "awayTeam": "Canada",
+      "startTime": "2025-10-17T03:37:27.925Z",
+      "status": "live",
+      "odds": {
+        "home": 1.6,
+        "away": 4.36,
+        "draw": 3.43
+      },
+      "isLive": true
+    },
+    {
+      "id": "gen-104",
+      "title": "Nations League - Brazil vs USA",
+      "description": "International competition",
+      "sport": "volleyball",
+      "homeTeam": "Brazil",
+      "awayTeam": "USA",
+      "startTime": "2025-11-09T15:38:52.453Z",
+      "status": "upcoming",
+      "odds": {
+        "home": 3.39,
+        "away": 2.55,
+        "draw": 2.83
+      },
+      "isLive": false
+    },
+    {
+      "id": "gen-105",
+      "title": "Finals - Hurkacz vs Djokovic",
+      "description": "Surface specialists meet",
+      "sport": "tennis",
+      "homeTeam": "Hurkacz",
+      "awayTeam": "Djokovic",
+      "startTime": "2025-11-09T20:10:28.111Z",
+      "status": "live",
+      "odds": {
+        "home": 2.78,
+        "away": 1.99
+      },
+      "isLive": true
+    },
+    {
+      "id": "gen-106",
+      "title": "Masters 1000 - Nadal vs Fritz",
+      "description": "Court battle",
+      "sport": "tennis",
+      "homeTeam": "Nadal",
+      "awayTeam": "Fritz",
+      "startTime": "2025-11-24T22:06:31.920Z",
+      "status": "live",
+      "odds": {
+        "home": 3.98,
+        "away": 2.7
+      },
+      "isLive": true
+    },
+    {
+      "id": "gen-107",
+      "title": "Friendly Match - Serbia vs Turkey",
+      "description": "Nations compete",
+      "sport": "volleyball",
+      "homeTeam": "Serbia",
+      "awayTeam": "Turkey",
+      "startTime": "2025-10-10T02:02:02.092Z",
+      "status": "upcoming",
+      "odds": {
+        "home": 2.09,
+        "away": 2.61,
+        "draw": 2.64
+      },
+      "isLive": false
+    },
+    {
+      "id": "gen-108",
+      "title": "All-Star Game - Celtics vs Bulls",
+      "description": "Championship on the line",
+      "sport": "basketball",
+      "homeTeam": "Celtics",
+      "awayTeam": "Bulls",
+      "startTime": "2025-11-06T17:25:52.065Z",
+      "status": "finished",
+      "odds": {
+        "home": 3.33,
+        "away": 2.25
+      },
+      "isLive": false
+    },
+    {
+      "id": "gen-109",
+      "title": "Premier League Match - Barcelona vs Atletico Madrid",
+      "description": "Title decider",
+      "sport": "football",
+      "homeTeam": "Barcelona",
+      "awayTeam": "Atletico Madrid",
+      "startTime": "2025-10-13T12:20:56.862Z",
+      "status": "live",
+      "odds": {
+        "home": 2.14,
+        "away": 2.71,
+        "draw": 3.93
+      },
+      "isLive": true
+    },
+    {
+      "id": "gen-110",
+      "title": "Nations League - USA vs Japan",
+      "description": "Nations compete",
+      "sport": "volleyball",
+      "homeTeam": "USA",
+      "awayTeam": "Japan",
+      "startTime": "2025-12-23T00:37:42.928Z",
+      "status": "upcoming",
+      "odds": {
+        "home": 4.27,
+        "away": 3.47,
+        "draw": 3.36
+      },
+      "isLive": false
+    },
+    {
+      "id": "gen-111",
+      "title": "Champions League - Inter Milan vs Borussia Dortmund",
+      "description": "Title decider",
+      "sport": "football",
+      "homeTeam": "Inter Milan",
+      "awayTeam": "Borussia Dortmund",
+      "startTime": "2025-12-26T07:03:02.473Z",
+      "status": "finished",
+      "odds": {
+        "home": 2.46,
+        "away": 3.01,
+        "draw": 2.96
+      },
+      "isLive": false
+    },
+    {
+      "id": "gen-112",
+      "title": "Continental Cup - Japan vs France",
+      "description": "Friendly tournament",
+      "sport": "volleyball",
+      "homeTeam": "Japan",
+      "awayTeam": "France",
+      "startTime": "2025-11-07T03:16:57.930Z",
+      "status": "live",
+      "odds": {
+        "home": 2.4,
+        "away": 3.12,
+        "draw": 3.43
+      },
+      "isLive": true
+    },
+    {
+      "id": "gen-113",
+      "title": "League Cup - Liverpool vs Arsenal",
+      "description": "Exciting football match",
+      "sport": "football",
+      "homeTeam": "Liverpool",
+      "awayTeam": "Arsenal",
+      "startTime": "2025-11-21T16:29:07.959Z",
+      "status": "live",
+      "odds": {
+        "home": 1.53,
+        "away": 2.59,
+        "draw": 2.69
+      },
+      "isLive": true
+    },
+    {
+      "id": "gen-114",
+      "title": "All-Star Game - Bucks vs Knicks",
+      "description": "Rivalry renewed",
+      "sport": "basketball",
+      "homeTeam": "Bucks",
+      "awayTeam": "Knicks",
+      "startTime": "2025-10-22T16:17:22.453Z",
+      "status": "upcoming",
+      "odds": {
+        "home": 2.55,
+        "away": 2.8
+      },
+      "isLive": false
+    },
+    {
+      "id": "gen-115",
+      "title": "Nations League - Italy vs Iran",
+      "description": "Friendly tournament",
+      "sport": "volleyball",
+      "homeTeam": "Italy",
+      "awayTeam": "Iran",
+      "startTime": "2025-11-15T05:52:53.893Z",
+      "status": "upcoming",
+      "odds": {
+        "home": 2.31,
+        "away": 2.72,
+        "draw": 3.62
+      },
+      "isLive": false
+    },
+    {
+      "id": "gen-116",
+      "title": "Champions League - Juventus vs Manchester City",
+      "description": "Exciting football match",
+      "sport": "football",
+      "homeTeam": "Juventus",
+      "awayTeam": "Manchester City",
+      "startTime": "2025-11-12T21:46:57.184Z",
+      "status": "upcoming",
+      "odds": {
+        "home": 2.26,
+        "away": 2.96,
+        "draw": 2.89
+      },
+      "isLive": false
+    },
+    {
+      "id": "gen-117",
+      "title": "All-Star Game - 76ers vs Raptors",
+      "description": "Championship on the line",
+      "sport": "basketball",
+      "homeTeam": "76ers",
+      "awayTeam": "Raptors",
+      "startTime": "2025-10-18T09:53:37.756Z",
+      "status": "finished",
+      "odds": {
+        "home": 4.26,
+        "away": 2.35
+      },
+      "isLive": false
+    },
+    {
+      "id": "gen-118",
+      "title": "Grand Slam Match - Sinner vs Tsitsipas",
+      "description": "Historic rivalry",
+      "sport": "tennis",
+      "homeTeam": "Sinner",
+      "awayTeam": "Tsitsipas",
+      "startTime": "2025-11-24T17:59:03.945Z",
+      "status": "upcoming",
+      "odds": {
+        "home": 2.84,
+        "away": 1.74
+      },
+      "isLive": false
+    },
+    {
+      "id": "gen-119",
+      "title": "Nations League - France vs USA",
+      "description": "Continental championship",
+      "sport": "volleyball",
+      "homeTeam": "France",
+      "awayTeam": "USA",
+      "startTime": "2025-11-16T11:41:27.693Z",
+      "status": "finished",
+      "odds": {
+        "home": 2.22,
+        "away": 1.54,
+        "draw": 2.54
+      },
+      "isLive": false
+    },
+    {
+      "id": "gen-120",
+      "title": "International Friendly - AC Milan vs Juventus",
+      "description": "Relegation battle",
+      "sport": "football",
+      "homeTeam": "AC Milan",
+      "awayTeam": "Juventus",
+      "startTime": "2025-12-09T00:54:00.062Z",
+      "status": "finished",
+      "odds": {
+        "home": 3.84,
+        "away": 2.59,
+        "draw": 3.86
+      },
+      "isLive": false
+    },
+    {
+      "id": "gen-121",
+      "title": "International Friendly - Chelsea vs Tottenham",
+      "description": "Title decider",
+      "sport": "football",
+      "homeTeam": "Chelsea",
+      "awayTeam": "Tottenham",
+      "startTime": "2025-11-25T00:22:49.960Z",
+      "status": "upcoming",
+      "odds": {
+        "home": 1.83,
+        "away": 3.14,
+        "draw": 3.9
+      },
+      "isLive": false
+    },
+    {
+      "id": "gen-122",
+      "title": "Finals - Sinner vs Fritz",
+      "description": "Ranking points at stake",
+      "sport": "tennis",
+      "homeTeam": "Sinner",
+      "awayTeam": "Fritz",
+      "startTime": "2025-12-04T19:27:06.616Z",
+      "status": "finished",
+      "odds": {
+        "home": 3.28,
+        "away": 3.14
+      },
+      "isLive": false
+    },
+    {
+      "id": "gen-123",
+      "title": "Playoff Match - Bulls vs Warriors",
+      "description": "Rivalry renewed",
+      "sport": "basketball",
+      "homeTeam": "Bulls",
+      "awayTeam": "Warriors",
+      "startTime": "2025-12-07T07:25:02.826Z",
+      "status": "live",
+      "odds": {
+        "home": 4.36,
+        "away": 4.03
+      },
+      "isLive": true
+    },
+    {
+      "id": "gen-124",
+      "title": "Friendly Match - Argentina vs Brazil",
+      "description": "Continental championship",
+      "sport": "volleyball",
+      "homeTeam": "Argentina",
+      "awayTeam": "Brazil",
+      "startTime": "2025-11-08T10:54:09.973Z",
+      "status": "live",
+      "odds": {
+        "home": 2.25,
+        "away": 2.58,
+        "draw": 2.67
+      },
+      "isLive": true
+    },
+    {
+      "id": "gen-125",
+      "title": "Playoff Match - Knicks vs Mavericks",
+      "description": "High-scoring game expected",
+      "sport": "basketball",
+      "homeTeam": "Knicks",
+      "awayTeam": "Mavericks",
+      "startTime": "2025-10-22T18:10:34.975Z",
+      "status": "upcoming",
+      "odds": {
+        "home": 2.74,
+        "away": 3.04
+      },
+      "isLive": false
+    },
+    {
+      "id": "gen-126",
+      "title": "World Championship - Netherlands vs Turkey",
+      "description": "Continental championship",
+      "sport": "volleyball",
+      "homeTeam": "Netherlands",
+      "awayTeam": "Turkey",
+      "startTime": "2025-12-29T06:13:44.040Z",
+      "status": "upcoming",
+      "odds": {
+        "home": 2.87,
+        "away": 3.89,
+        "draw": 2.88
+      },
+      "isLive": false
+    },
+    {
+      "id": "gen-127",
+      "title": "Premier League Match - Manchester City vs Arsenal",
+      "description": "Relegation battle",
+      "sport": "football",
+      "homeTeam": "Manchester City",
+      "awayTeam": "Arsenal",
+      "startTime": "2025-10-12T18:13:05.378Z",
+      "status": "upcoming",
+      "odds": {
+        "home": 1.92,
+        "away": 3.34,
+        "draw": 3.53
+      },
+      "isLive": false
+    },
+    {
+      "id": "gen-128",
+      "title": "Continental Cup - Russia vs Italy",
+      "description": "Continental championship",
+      "sport": "volleyball",
+      "homeTeam": "Russia",
+      "awayTeam": "Italy",
+      "startTime": "2025-12-07T05:49:15.372Z",
+      "status": "finished",
+      "odds": {
+        "home": 1.84,
+        "away": 2.09,
+        "draw": 2.95
+      },
+      "isLive": false
+    },
+    {
+      "id": "gen-129",
+      "title": "Continental Cup - France vs Serbia",
+      "description": "Nations compete",
+      "sport": "volleyball",
+      "homeTeam": "France",
+      "awayTeam": "Serbia",
+      "startTime": "2025-11-04T16:33:31.481Z",
+      "status": "finished",
+      "odds": {
+        "home": 3.75,
+        "away": 4.46,
+        "draw": 2.53
+      },
+      "isLive": false
+    },
+    {
+      "id": "gen-130",
+      "title": "Premier League Match - Liverpool vs Manchester City",
+      "description": "Exciting football match",
+      "sport": "football",
+      "homeTeam": "Liverpool",
+      "awayTeam": "Manchester City",
+      "startTime": "2025-10-19T10:14:31.694Z",
+      "status": "finished",
+      "odds": {
+        "home": 3.91,
+        "away": 3.75,
+        "draw": 3.02
+      },
+      "isLive": false
+    },
+    {
+      "id": "gen-131",
+      "title": "Playoff Match - Nets vs Celtics",
+      "description": "Playoff intensity",
+      "sport": "basketball",
+      "homeTeam": "Nets",
+      "awayTeam": "Celtics",
+      "startTime": "2025-11-07T06:57:34.696Z",
+      "status": "finished",
+      "odds": {
+        "home": 4.08,
+        "away": 1.53
+      },
+      "isLive": false
+    },
+    {
+      "id": "gen-132",
+      "title": "Playoff Match - Celtics vs Heat",
+      "description": "Championship on the line",
+      "sport": "basketball",
+      "homeTeam": "Celtics",
+      "awayTeam": "Heat",
+      "startTime": "2025-11-05T08:01:38.409Z",
+      "status": "upcoming",
+      "odds": {
+        "home": 2.69,
+        "away": 4.28
+      },
+      "isLive": false
+    },
+    {
+      "id": "gen-133",
+      "title": "Champions League - Barcelona vs Tottenham",
+      "description": "Derby match",
+      "sport": "football",
+      "homeTeam": "Barcelona",
+      "awayTeam": "Tottenham",
+      "startTime": "2025-10-30T21:48:13.101Z",
+      "status": "live",
+      "odds": {
+        "home": 3.58,
+        "away": 1.78,
+        "draw": 2.93
+      },
+      "isLive": true
+    },
+    {
+      "id": "gen-134",
+      "title": "Masters 1000 - Alcaraz vs Nadal",
+      "description": "Court battle",
+      "sport": "tennis",
+      "homeTeam": "Alcaraz",
+      "awayTeam": "Nadal",
+      "startTime": "2025-11-08T02:44:07.031Z",
+      "status": "live",
+      "odds": {
+        "home": 3.6,
+        "away": 1.86
+      },
+      "isLive": true
+    },
+    {
+      "id": "gen-135",
+      "title": "Finals - Fritz vs Hurkacz",
+      "description": "Surface specialists meet",
+      "sport": "tennis",
+      "homeTeam": "Fritz",
+      "awayTeam": "Hurkacz",
+      "startTime": "2025-10-11T08:32:37.802Z",
+      "status": "upcoming",
+      "odds": {
+        "home": 1.59,
+        "away": 3.61
+      },
+      "isLive": false
+    },
+    {
+      "id": "gen-136",
+      "title": "FA Cup - Borussia Dortmund vs Bayern Munich",
+      "description": "Top teams clash",
+      "sport": "football",
+      "homeTeam": "Borussia Dortmund",
+      "awayTeam": "Bayern Munich",
+      "startTime": "2025-11-27T21:03:37.091Z",
+      "status": "live",
+      "odds": {
+        "home": 3.27,
+        "away": 3.32,
+        "draw": 2.99
+      },
+      "isLive": true
+    },
+    {
+      "id": "gen-137",
+      "title": "League Cup - Chelsea vs Ajax",
+      "description": "Derby match",
+      "sport": "football",
+      "homeTeam": "Chelsea",
+      "awayTeam": "Ajax",
+      "startTime": "2025-11-06T05:18:13.597Z",
+      "status": "upcoming",
+      "odds": {
+        "home": 1.89,
+        "away": 3.27,
+        "draw": 3.43
+      },
+      "isLive": false
+    },
+    {
+      "id": "gen-138",
+      "title": "Friendly Match - Brazil vs Netherlands",
+      "description": "Friendly tournament",
+      "sport": "volleyball",
+      "homeTeam": "Brazil",
+      "awayTeam": "Netherlands",
+      "startTime": "2025-12-17T03:21:31.831Z",
+      "status": "upcoming",
+      "odds": {
+        "home": 3.98,
+        "away": 1.93,
+        "draw": 3.06
+      },
+      "isLive": false
+    },
+    {
+      "id": "gen-139",
+      "title": "Masters 1000 - Medvedev vs Sinner",
+      "description": "Surface specialists meet",
+      "sport": "tennis",
+      "homeTeam": "Medvedev",
+      "awayTeam": "Sinner",
+      "startTime": "2025-12-06T10:58:26.848Z",
+      "status": "finished",
+      "odds": {
+        "home": 3.48,
+        "away": 1.86
+      },
+      "isLive": false
+    },
+    {
+      "id": "gen-140",
+      "title": "All-Star Game - Suns vs Raptors",
+      "description": "Championship on the line",
+      "sport": "basketball",
+      "homeTeam": "Suns",
+      "awayTeam": "Raptors",
+      "startTime": "2025-12-29T15:32:19.751Z",
+      "status": "upcoming",
+      "odds": {
+        "home": 4.09,
+        "away": 2.52
+      },
+      "isLive": false
+    },
+    {
+      "id": "gen-141",
+      "title": "International Friendly - Inter Milan vs Atletico Madrid",
+      "description": "Title decider",
+      "sport": "football",
+      "homeTeam": "Inter Milan",
+      "awayTeam": "Atletico Madrid",
+      "startTime": "2025-12-27T19:35:06.020Z",
+      "status": "upcoming",
+      "odds": {
+        "home": 3.61,
+        "away": 2.61,
+        "draw": 3.29
+      },
+      "isLive": false
+    },
+    {
+      "id": "gen-142",
+      "title": "NBA Game - Mavericks vs Suns",
+      "description": "Season opener",
+      "sport": "basketball",
+      "homeTeam": "Mavericks",
+      "awayTeam": "Suns",
+      "startTime": "2025-11-28T11:05:11.228Z",
+      "status": "finished",
+      "odds": {
+        "home": 3.35,
+        "away": 3.64
+      },
+      "isLive": false
+    },
+    {
+      "id": "gen-143",
+      "title": "FA Cup - PSG vs Liverpool",
+      "description": "Relegation battle",
+      "sport": "football",
+      "homeTeam": "PSG",
+      "awayTeam": "Liverpool",
+      "startTime": "2025-12-02T02:27:48.906Z",
+      "status": "live",
+      "odds": {
+        "home": 3.52,
+        "away": 1.74,
+        "draw": 3.79
+      },
+      "isLive": true
+    },
+    {
+      "id": "gen-144",
+      "title": "Champions League - Manchester City vs PSG",
+      "description": "Top teams clash",
+      "sport": "football",
+      "homeTeam": "Manchester City",
+      "awayTeam": "PSG",
+      "startTime": "2025-11-07T06:56:48.173Z",
+      "status": "upcoming",
+      "odds": {
+        "home": 3.76,
+        "away": 1.73,
+        "draw": 2.52
+      },
+      "isLive": false
+    },
+    {
+      "id": "gen-145",
+      "title": "International Friendly - Manchester City vs Arsenal",
+      "description": "Exciting football match",
+      "sport": "football",
+      "homeTeam": "Manchester City",
+      "awayTeam": "Arsenal",
+      "startTime": "2025-11-14T22:55:57.017Z",
+      "status": "live",
+      "odds": {
+        "home": 3.23,
+        "away": 3.99,
+        "draw": 3.76
+      },
+      "isLive": true
+    },
+    {
+      "id": "gen-146",
+      "title": "World Championship - France vs Serbia",
+      "description": "Continental championship",
+      "sport": "volleyball",
+      "homeTeam": "France",
+      "awayTeam": "Serbia",
+      "startTime": "2025-12-01T09:01:32.163Z",
+      "status": "finished",
+      "odds": {
+        "home": 3.44,
+        "away": 3.62,
+        "draw": 3.01
+      },
+      "isLive": false
+    },
+    {
+      "id": "gen-147",
+      "title": "Friendly Match - China vs USA",
+      "description": "Olympic qualification match",
+      "sport": "volleyball",
+      "homeTeam": "China",
+      "awayTeam": "USA",
+      "startTime": "2025-10-05T00:13:11.074Z",
+      "status": "finished",
+      "odds": {
+        "home": 1.6,
+        "away": 2.62,
+        "draw": 3.98
+      },
+      "isLive": false
+    },
+    {
+      "id": "gen-148",
+      "title": "Friendly Match - Brazil vs China",
+      "description": "Continental championship",
+      "sport": "volleyball",
+      "homeTeam": "Brazil",
+      "awayTeam": "China",
+      "startTime": "2025-11-08T11:10:22.662Z",
+      "status": "upcoming",
+      "odds": {
+        "home": 4.19,
+        "away": 2.54,
+        "draw": 3.76
+      },
+      "isLive": false
+    },
+    {
+      "id": "gen-149",
+      "title": "NBA Game - Bulls vs Lakers",
+      "description": "Season opener",
+      "sport": "basketball",
+      "homeTeam": "Bulls",
+      "awayTeam": "Lakers",
+      "startTime": "2025-11-26T13:32:54.177Z",
+      "status": "live",
+      "odds": {
+        "home": 1.54,
+        "away": 2.62
+      },
+      "isLive": true
+    },
+    {
+      "id": "gen-150",
+      "title": "World Championship - Netherlands vs Argentina",
+      "description": "Olympic qualification match",
+      "sport": "volleyball",
+      "homeTeam": "Netherlands",
+      "awayTeam": "Argentina",
+      "startTime": "2025-10-16T03:35:15.519Z",
+      "status": "finished",
+      "odds": {
+        "home": 2.87,
+        "away": 4.16,
+        "draw": 2.89
+      },
+      "isLive": false
+    },
+    {
+      "id": "gen-151",
+      "title": "Continental Cup - Argentina vs China",
+      "description": "Nations compete",
+      "sport": "volleyball",
+      "homeTeam": "Argentina",
+      "awayTeam": "China",
+      "startTime": "2025-10-01T03:02:20.955Z",
+      "status": "upcoming",
+      "odds": {
+        "home": 2.07,
+        "away": 1.8,
+        "draw": 2.89
+      },
+      "isLive": false
+    },
+    {
+      "id": "gen-152",
+      "title": "Grand Slam Match - Fritz vs Sinner",
+      "description": "Ranking points at stake",
+      "sport": "tennis",
+      "homeTeam": "Fritz",
+      "awayTeam": "Sinner",
+      "startTime": "2025-11-02T18:46:11.872Z",
+      "status": "live",
+      "odds": {
+        "home": 2.33,
+        "away": 3.37
+      },
+      "isLive": true
+    },
+    {
+      "id": "gen-153",
+      "title": "Continental Cup - Argentina vs Italy",
+      "description": "Friendly tournament",
+      "sport": "volleyball",
+      "homeTeam": "Argentina",
+      "awayTeam": "Italy",
+      "startTime": "2025-10-20T16:14:18.005Z",
+      "status": "finished",
+      "odds": {
+        "home": 3.29,
+        "away": 3.07,
+        "draw": 3
+      },
+      "isLive": false
+    },
+    {
+      "id": "gen-154",
+      "title": "FA Cup - Liverpool vs Arsenal",
+      "description": "Derby match",
+      "sport": "football",
+      "homeTeam": "Liverpool",
+      "awayTeam": "Arsenal",
+      "startTime": "2025-12-15T23:31:56.243Z",
+      "status": "finished",
+      "odds": {
+        "home": 4.38,
+        "away": 2.95,
+        "draw": 3.68
+      },
+      "isLive": false
+    },
+    {
+      "id": "gen-155",
+      "title": "Champions League - Atletico Madrid vs Manchester City",
+      "description": "Relegation battle",
+      "sport": "football",
+      "homeTeam": "Atletico Madrid",
+      "awayTeam": "Manchester City",
+      "startTime": "2025-10-23T18:39:48.460Z",
+      "status": "live",
+      "odds": {
+        "home": 3.04,
+        "away": 1.97,
+        "draw": 3.79
+      },
+      "isLive": true
+    },
+    {
+      "id": "gen-156",
+      "title": "Olympic Qualifier - USA vs France",
+      "description": "International competition",
+      "sport": "volleyball",
+      "homeTeam": "USA",
+      "awayTeam": "France",
+      "startTime": "2025-12-02T13:13:16.084Z",
+      "status": "upcoming",
+      "odds": {
+        "home": 2.41,
+        "away": 1.69,
+        "draw": 3.28
+      },
+      "isLive": false
+    },
+    {
+      "id": "gen-157",
+      "title": "International Friendly - Ajax vs Chelsea",
+      "description": "Derby match",
+      "sport": "football",
+      "homeTeam": "Ajax",
+      "awayTeam": "Chelsea",
+      "startTime": "2025-12-07T23:49:50.713Z",
+      "status": "upcoming",
+      "odds": {
+        "home": 4.07,
+        "away": 3.9,
+        "draw": 3.46
+      },
+      "isLive": false
+    },
+    {
+      "id": "gen-158",
+      "title": "Playoff Match - Spurs vs Bulls",
+      "description": "Season opener",
+      "sport": "basketball",
+      "homeTeam": "Spurs",
+      "awayTeam": "Bulls",
+      "startTime": "2025-10-02T15:15:46.742Z",
+      "status": "finished",
+      "odds": {
+        "home": 3.94,
+        "away": 1.82
+      },
+      "isLive": false
+    },
+    {
+      "id": "gen-159",
+      "title": "Premier League Match - Chelsea vs Borussia Dortmund",
+      "description": "Relegation battle",
+      "sport": "football",
+      "homeTeam": "Chelsea",
+      "awayTeam": "Borussia Dortmund",
+      "startTime": "2025-10-08T10:15:01.651Z",
+      "status": "live",
+      "odds": {
+        "home": 3.11,
+        "away": 3.96,
+        "draw": 3.24
+      },
+      "isLive": true
+    },
+    {
+      "id": "gen-160",
+      "title": "Continental Cup - Serbia vs France",
+      "description": "International competition",
+      "sport": "volleyball",
+      "homeTeam": "Serbia",
+      "awayTeam": "France",
+      "startTime": "2025-10-11T19:23:14.042Z",
+      "status": "upcoming",
+      "odds": {
+        "home": 3,
+        "away": 3.47,
+        "draw": 3.78
+      },
+      "isLive": false
+    },
+    {
+      "id": "gen-161",
+      "title": "Regular Season - Mavericks vs Spurs",
+      "description": "Championship on the line",
+      "sport": "basketball",
+      "homeTeam": "Mavericks",
+      "awayTeam": "Spurs",
+      "startTime": "2025-11-14T10:50:25.032Z",
+      "status": "upcoming",
+      "odds": {
+        "home": 3.61,
+        "away": 3.41
+      },
+      "isLive": false
+    },
+    {
+      "id": "gen-162",
+      "title": "Finals - Nadal vs Hurkacz",
+      "description": "Surface specialists meet",
+      "sport": "tennis",
+      "homeTeam": "Nadal",
+      "awayTeam": "Hurkacz",
+      "startTime": "2025-12-21T02:14:15.109Z",
+      "status": "live",
+      "odds": {
+        "home": 1.98,
+        "away": 2.13
+      },
+      "isLive": true
+    },
+    {
+      "id": "gen-163",
+      "title": "Friendly Match - Canada vs Serbia",
+      "description": "Olympic qualification match",
+      "sport": "volleyball",
+      "homeTeam": "Canada",
+      "awayTeam": "Serbia",
+      "startTime": "2025-10-05T10:48:28.820Z",
+      "status": "finished",
+      "odds": {
+        "home": 3.13,
+        "away": 3.95,
+        "draw": 3.79
+      },
+      "isLive": false
+    },
+    {
+      "id": "gen-164",
+      "title": "Finals Game - 76ers vs Heat",
+      "description": "High-scoring game expected",
+      "sport": "basketball",
+      "homeTeam": "76ers",
+      "awayTeam": "Heat",
+      "startTime": "2025-10-29T03:10:26.813Z",
+      "status": "finished",
+      "odds": {
+        "home": 4.08,
+        "away": 2.7
+      },
+      "isLive": false
+    },
+    {
+      "id": "gen-165",
+      "title": "Championship Match - Medvedev vs Federer",
+      "description": "Grand slam showdown",
+      "sport": "tennis",
+      "homeTeam": "Medvedev",
+      "awayTeam": "Federer",
+      "startTime": "2025-11-29T01:16:45.682Z",
+      "status": "finished",
+      "odds": {
+        "home": 2.78,
+        "away": 2.56
+      },
+      "isLive": false
+    },
+    {
+      "id": "gen-166",
+      "title": "All-Star Game - Heat vs 76ers",
+      "description": "Rivalry renewed",
+      "sport": "basketball",
+      "homeTeam": "Heat",
+      "awayTeam": "76ers",
+      "startTime": "2025-10-08T12:31:08.149Z",
+      "status": "finished",
+      "odds": {
+        "home": 2.12,
+        "away": 4.49
+      },
+      "isLive": false
+    },
+    {
+      "id": "gen-167",
+      "title": "All-Star Game - Knicks vs Suns",
+      "description": "Playoff intensity",
+      "sport": "basketball",
+      "homeTeam": "Knicks",
+      "awayTeam": "Suns",
+      "startTime": "2025-11-19T23:27:14.741Z",
+      "status": "finished",
+      "odds": {
+        "home": 2.86,
+        "away": 3.18
+      },
+      "isLive": false
+    },
+    {
+      "id": "gen-168",
+      "title": "Finals - Norrie vs Nadal",
+      "description": "Court battle",
+      "sport": "tennis",
+      "homeTeam": "Norrie",
+      "awayTeam": "Nadal",
+      "startTime": "2025-11-22T00:10:43.985Z",
+      "status": "upcoming",
+      "odds": {
+        "home": 2.59,
+        "away": 3.55
+      },
+      "isLive": false
+    },
+    {
+      "id": "gen-169",
+      "title": "Regular Season - 76ers vs Spurs",
+      "description": "Playoff intensity",
+      "sport": "basketball",
+      "homeTeam": "76ers",
+      "awayTeam": "Spurs",
+      "startTime": "2025-11-24T22:45:04.756Z",
+      "status": "live",
+      "odds": {
+        "home": 2.29,
+        "away": 2.78
+      },
+      "isLive": true
+    },
+    {
+      "id": "gen-170",
+      "title": "Olympic Qualifier - Iran vs Canada",
+      "description": "Nations compete",
+      "sport": "volleyball",
+      "homeTeam": "Iran",
+      "awayTeam": "Canada",
+      "startTime": "2025-11-16T00:06:06.173Z",
+      "status": "live",
+      "odds": {
+        "home": 3.16,
+        "away": 4.31,
+        "draw": 3.99
+      },
+      "isLive": true
+    },
+    {
+      "id": "gen-171",
+      "title": "Champions League - Juventus vs Bayern Munich",
+      "description": "Relegation battle",
+      "sport": "football",
+      "homeTeam": "Juventus",
+      "awayTeam": "Bayern Munich",
+      "startTime": "2025-12-07T01:43:59.107Z",
+      "status": "finished",
+      "odds": {
+        "home": 1.86,
+        "away": 2.32,
+        "draw": 2.57
+      },
+      "isLive": false
+    },
+    {
+      "id": "gen-172",
+      "title": "Masters 1000 - Rune vs Hurkacz",
+      "description": "Grand slam showdown",
+      "sport": "tennis",
+      "homeTeam": "Rune",
+      "awayTeam": "Hurkacz",
+      "startTime": "2025-11-03T21:55:29.077Z",
+      "status": "live",
+      "odds": {
+        "home": 1.61,
+        "away": 3.65
+      },
+      "isLive": true
+    },
+    {
+      "id": "gen-173",
+      "title": "Champions League - Liverpool vs Arsenal",
+      "description": "Derby match",
+      "sport": "football",
+      "homeTeam": "Liverpool",
+      "awayTeam": "Arsenal",
+      "startTime": "2025-12-30T13:26:44.827Z",
+      "status": "upcoming",
+      "odds": {
+        "home": 2.48,
+        "away": 3.6,
+        "draw": 3.7
+      },
+      "isLive": false
+    },
+    {
+      "id": "gen-174",
+      "title": "Grand Slam Match - Murray vs Tsitsipas",
+      "description": "Grand slam showdown",
+      "sport": "tennis",
+      "homeTeam": "Murray",
+      "awayTeam": "Tsitsipas",
+      "startTime": "2025-10-04T18:56:32.142Z",
+      "status": "live",
+      "odds": {
+        "home": 2.81,
+        "away": 2.37
+      },
+      "isLive": true
+    },
+    {
+      "id": "gen-175",
+      "title": "Finals Game - Celtics vs Mavericks",
+      "description": "Championship on the line",
+      "sport": "basketball",
+      "homeTeam": "Celtics",
+      "awayTeam": "Mavericks",
+      "startTime": "2025-10-24T00:13:14.086Z",
+      "status": "live",
+      "odds": {
+        "home": 1.97,
+        "away": 1.61
+      },
+      "isLive": true
+    },
+    {
+      "id": "gen-176",
+      "title": "Grand Slam Match - Sinner vs Tsitsipas",
+      "description": "Grand slam showdown",
+      "sport": "tennis",
+      "homeTeam": "Sinner",
+      "awayTeam": "Tsitsipas",
+      "startTime": "2025-12-08T03:02:17.131Z",
+      "status": "live",
+      "odds": {
+        "home": 1.76,
+        "away": 4.28
+      },
+      "isLive": true
+    },
+    {
+      "id": "gen-177",
+      "title": "Regular Season - Knicks vs Clippers",
+      "description": "Season opener",
+      "sport": "basketball",
+      "homeTeam": "Knicks",
+      "awayTeam": "Clippers",
+      "startTime": "2025-12-01T18:57:54.278Z",
+      "status": "upcoming",
+      "odds": {
+        "home": 1.89,
+        "away": 1.85
+      },
+      "isLive": false
+    },
+    {
+      "id": "gen-178",
+      "title": "All-Star Game - Heat vs Warriors",
+      "description": "Playoff intensity",
+      "sport": "basketball",
+      "homeTeam": "Heat",
+      "awayTeam": "Warriors",
+      "startTime": "2025-10-02T09:11:49.641Z",
+      "status": "upcoming",
+      "odds": {
+        "home": 2.43,
+        "away": 3.44
+      },
+      "isLive": false
+    },
+    {
+      "id": "gen-179",
+      "title": "Finals - Hurkacz vs Tsitsipas",
+      "description": "Surface specialists meet",
+      "sport": "tennis",
+      "homeTeam": "Hurkacz",
+      "awayTeam": "Tsitsipas",
+      "startTime": "2025-11-08T01:25:06.898Z",
+      "status": "live",
+      "odds": {
+        "home": 3.29,
+        "away": 3.13
+      },
+      "isLive": true
+    },
+    {
+      "id": "gen-180",
+      "title": "Finals Game - Celtics vs Warriors",
+      "description": "Playoff intensity",
+      "sport": "basketball",
+      "homeTeam": "Celtics",
+      "awayTeam": "Warriors",
+      "startTime": "2025-10-01T01:47:47.349Z",
+      "status": "live",
+      "odds": {
+        "home": 3.15,
+        "away": 3.15
+      },
+      "isLive": true
+    },
+    {
+      "id": "gen-181",
+      "title": "Championship Match - Rune vs Federer",
+      "description": "Ranking points at stake",
+      "sport": "tennis",
+      "homeTeam": "Rune",
+      "awayTeam": "Federer",
+      "startTime": "2025-12-23T06:37:20.484Z",
+      "status": "finished",
+      "odds": {
+        "home": 2.41,
+        "away": 1.68
+      },
+      "isLive": false
+    },
+    {
+      "id": "gen-182",
+      "title": "Finals - Rublev vs Djokovic",
+      "description": "Ranking points at stake",
+      "sport": "tennis",
+      "homeTeam": "Rublev",
+      "awayTeam": "Djokovic",
+      "startTime": "2025-12-30T13:27:00.360Z",
+      "status": "finished",
+      "odds": {
+        "home": 2.48,
+        "away": 3.6
+      },
+      "isLive": false
+    },
+    {
+      "id": "gen-183",
+      "title": "Regular Season - Suns vs Lakers",
+      "description": "Playoff intensity",
+      "sport": "basketball",
+      "homeTeam": "Suns",
+      "awayTeam": "Lakers",
+      "startTime": "2025-11-18T02:21:10.039Z",
+      "status": "live",
+      "odds": {
+        "home": 4.28,
+        "away": 3.69
+      },
+      "isLive": true
+    },
+    {
+      "id": "gen-184",
+      "title": "Playoff Match - Clippers vs Suns",
+      "description": "Season opener",
+      "sport": "basketball",
+      "homeTeam": "Clippers",
+      "awayTeam": "Suns",
+      "startTime": "2025-12-15T18:24:12.209Z",
+      "status": "upcoming",
+      "odds": {
+        "home": 2.9,
+        "away": 1.74
+      },
+      "isLive": false
+    },
+    {
+      "id": "gen-185",
+      "title": "Regular Season - Bulls vs Mavericks",
+      "description": "Rivalry renewed",
+      "sport": "basketball",
+      "homeTeam": "Bulls",
+      "awayTeam": "Mavericks",
+      "startTime": "2025-11-21T08:23:29.658Z",
+      "status": "finished",
+      "odds": {
+        "home": 2.36,
+        "away": 3.02
+      },
+      "isLive": false
+    },
+    {
+      "id": "gen-186",
+      "title": "Masters 1000 - Murray vs Norrie",
+      "description": "Ranking points at stake",
+      "sport": "tennis",
+      "homeTeam": "Murray",
+      "awayTeam": "Norrie",
+      "startTime": "2025-10-07T10:16:27.730Z",
+      "status": "upcoming",
+      "odds": {
+        "home": 2.71,
+        "away": 4.22
+      },
+      "isLive": false
+    },
+    {
+      "id": "gen-187",
+      "title": "Friendly Match - Netherlands vs Japan",
+      "description": "International competition",
+      "sport": "volleyball",
+      "homeTeam": "Netherlands",
+      "awayTeam": "Japan",
+      "startTime": "2025-12-12T17:56:10.613Z",
+      "status": "finished",
+      "odds": {
+        "home": 2.18,
+        "away": 4.18,
+        "draw": 3.98
+      },
+      "isLive": false
+    },
+    {
+      "id": "gen-188",
+      "title": "Playoff Match - Raptors vs Bucks",
+      "description": "Playoff intensity",
+      "sport": "basketball",
+      "homeTeam": "Raptors",
+      "awayTeam": "Bucks",
+      "startTime": "2025-10-13T02:09:16.189Z",
+      "status": "live",
+      "odds": {
+        "home": 1.64,
+        "away": 2.72
+      },
+      "isLive": true
+    },
+    {
+      "id": "gen-189",
+      "title": "Finals - Rune vs Nadal",
+      "description": "Historic rivalry",
+      "sport": "tennis",
+      "homeTeam": "Rune",
+      "awayTeam": "Nadal",
+      "startTime": "2025-10-02T01:35:13.940Z",
+      "status": "upcoming",
+      "odds": {
+        "home": 4.35,
+        "away": 2.68
+      },
+      "isLive": false
+    },
+    {
+      "id": "gen-190",
+      "title": "Grand Slam Match - Djokovic vs Murray",
+      "description": "Grand slam showdown",
+      "sport": "tennis",
+      "homeTeam": "Djokovic",
+      "awayTeam": "Murray",
+      "startTime": "2025-10-17T13:03:02.346Z",
+      "status": "upcoming",
+      "odds": {
+        "home": 3.22,
+        "away": 2.95
+      },
+      "isLive": false
+    },
+    {
+      "id": "gen-191",
+      "title": "Championship Match - Murray vs Nadal",
+      "description": "Surface specialists meet",
+      "sport": "tennis",
+      "homeTeam": "Murray",
+      "awayTeam": "Nadal",
+      "startTime": "2025-11-19T18:44:24.353Z",
+      "status": "upcoming",
+      "odds": {
+        "home": 2.3,
+        "away": 3.65
+      },
+      "isLive": false
+    },
+    {
+      "id": "gen-192",
+      "title": "Olympic Qualifier - Turkey vs Canada",
+      "description": "Olympic qualification match",
+      "sport": "volleyball",
+      "homeTeam": "Turkey",
+      "awayTeam": "Canada",
+      "startTime": "2025-10-11T11:50:30.173Z",
+      "status": "finished",
+      "odds": {
+        "home": 3.87,
+        "away": 2.46,
+        "draw": 3.93
+      },
+      "isLive": false
+    },
+    {
+      "id": "gen-193",
+      "title": "Regular Season - Clippers vs Lakers",
+      "description": "Championship on the line",
+      "sport": "basketball",
+      "homeTeam": "Clippers",
+      "awayTeam": "Lakers",
+      "startTime": "2025-10-29T08:53:57.851Z",
+      "status": "finished",
+      "odds": {
+        "home": 4.06,
+        "away": 1.8
+      },
+      "isLive": false
+    },
+    {
+      "id": "gen-194",
+      "title": "Nations League - Argentina vs Iran",
+      "description": "Continental championship",
+      "sport": "volleyball",
+      "homeTeam": "Argentina",
+      "awayTeam": "Iran",
+      "startTime": "2025-12-21T22:08:07.228Z",
+      "status": "upcoming",
+      "odds": {
+        "home": 2.56,
+        "away": 2.94,
+        "draw": 3.64
+      },
+      "isLive": false
+    },
+    {
+      "id": "gen-195",
+      "title": "Championship Match - Sinner vs Zverev",
+      "description": "Court battle",
+      "sport": "tennis",
+      "homeTeam": "Sinner",
+      "awayTeam": "Zverev",
+      "startTime": "2025-11-03T08:26:18.713Z",
+      "status": "finished",
+      "odds": {
+        "home": 3.84,
+        "away": 1.65
+      },
+      "isLive": false
+    },
+    {
+      "id": "gen-196",
+      "title": "Championship Match - Fritz vs Medvedev",
+      "description": "Grand slam showdown",
+      "sport": "tennis",
+      "homeTeam": "Fritz",
+      "awayTeam": "Medvedev",
+      "startTime": "2025-10-30T10:47:00.810Z",
+      "status": "finished",
+      "odds": {
+        "home": 3.13,
+        "away": 3.44
+      },
+      "isLive": false
+    },
+    {
+      "id": "gen-197",
+      "title": "NBA Game - Bulls vs Bucks",
+      "description": "Season opener",
+      "sport": "basketball",
+      "homeTeam": "Bulls",
+      "awayTeam": "Bucks",
+      "startTime": "2025-10-19T10:59:12.579Z",
+      "status": "upcoming",
+      "odds": {
+        "home": 1.62,
+        "away": 4.09
+      },
+      "isLive": false
+    },
+    {
+      "id": "gen-198",
+      "title": "FA Cup - Manchester City vs Liverpool",
+      "description": "Exciting football match",
+      "sport": "football",
+      "homeTeam": "Manchester City",
+      "awayTeam": "Liverpool",
+      "startTime": "2025-12-09T19:44:30.034Z",
+      "status": "live",
+      "odds": {
+        "home": 2.28,
+        "away": 3.03,
+        "draw": 3.44
+      },
+      "isLive": true
+    },
+    {
+      "id": "gen-199",
+      "title": "Grand Slam Match - Rublev vs Hurkacz",
+      "description": "Court battle",
+      "sport": "tennis",
+      "homeTeam": "Rublev",
+      "awayTeam": "Hurkacz",
+      "startTime": "2025-12-24T09:34:36.623Z",
+      "status": "live",
+      "odds": {
+        "home": 3.54,
+        "away": 2.15
+      },
+      "isLive": true
+    },
+    {
+      "id": "gen-200",
+      "title": "World Championship - Netherlands vs Poland",
+      "description": "International competition",
+      "sport": "volleyball",
+      "homeTeam": "Netherlands",
+      "awayTeam": "Poland",
+      "startTime": "2025-11-10T05:41:19.851Z",
+      "status": "upcoming",
+      "odds": {
+        "home": 4.05,
+        "away": 2.82,
+        "draw": 3.32
+      },
+      "isLive": false
+    },
+    {
+      "id": "gen-201",
+      "title": "Regular Season - Rockets vs Lakers",
+      "description": "Championship on the line",
+      "sport": "basketball",
+      "homeTeam": "Rockets",
+      "awayTeam": "Lakers",
+      "startTime": "2025-10-31T22:00:27.094Z",
+      "status": "live",
+      "odds": {
+        "home": 3.95,
+        "away": 3.2
+      },
+      "isLive": true
+    },
+    {
+      "id": "gen-202",
+      "title": "FA Cup - Arsenal vs Bayern Munich",
+      "description": "Title decider",
+      "sport": "football",
+      "homeTeam": "Arsenal",
+      "awayTeam": "Bayern Munich",
+      "startTime": "2025-10-20T07:09:36.555Z",
+      "status": "upcoming",
+      "odds": {
+        "home": 1.96,
+        "away": 2.19,
+        "draw": 3.88
+      },
+      "isLive": false
+    },
+    {
+      "id": "gen-203",
+      "title": "ATP Tour - Sinner vs Murray",
+      "description": "Historic rivalry",
+      "sport": "tennis",
+      "homeTeam": "Sinner",
+      "awayTeam": "Murray",
+      "startTime": "2025-12-17T04:39:23.709Z",
+      "status": "live",
+      "odds": {
+        "home": 3.44,
+        "away": 3.83
+      },
+      "isLive": true
+    },
+    {
+      "id": "gen-204",
+      "title": "Playoff Match - Suns vs Heat",
+      "description": "Playoff intensity",
+      "sport": "basketball",
+      "homeTeam": "Suns",
+      "awayTeam": "Heat",
+      "startTime": "2025-10-23T02:30:32.998Z",
+      "status": "upcoming",
+      "odds": {
+        "home": 2.69,
+        "away": 2.15
+      },
+      "isLive": false
+    },
+    {
+      "id": "gen-205",
+      "title": "Championship Match - Medvedev vs Zverev",
+      "description": "Historic rivalry",
+      "sport": "tennis",
+      "homeTeam": "Medvedev",
+      "awayTeam": "Zverev",
+      "startTime": "2025-12-28T05:16:51.110Z",
+      "status": "upcoming",
+      "odds": {
+        "home": 2.26,
+        "away": 3.19
+      },
+      "isLive": false
+    },
+    {
+      "id": "gen-206",
+      "title": "League Cup - Ajax vs Chelsea",
+      "description": "Relegation battle",
+      "sport": "football",
+      "homeTeam": "Ajax",
+      "awayTeam": "Chelsea",
+      "startTime": "2025-11-09T07:02:52.801Z",
+      "status": "live",
+      "odds": {
+        "home": 3.11,
+        "away": 1.83,
+        "draw": 3.24
+      },
+      "isLive": true
+    },
+    {
+      "id": "gen-207",
+      "title": "Nations League - USA vs Poland",
+      "description": "Continental championship",
+      "sport": "volleyball",
+      "homeTeam": "USA",
+      "awayTeam": "Poland",
+      "startTime": "2025-10-11T17:32:40.836Z",
+      "status": "upcoming",
+      "odds": {
+        "home": 3.62,
+        "away": 4.05,
+        "draw": 3.14
+      },
+      "isLive": false
+    },
+    {
+      "id": "gen-208",
+      "title": "FA Cup - AC Milan vs PSG",
+      "description": "Top teams clash",
+      "sport": "football",
+      "homeTeam": "AC Milan",
+      "awayTeam": "PSG",
+      "startTime": "2025-11-06T03:03:33.034Z",
+      "status": "live",
+      "odds": {
+        "home": 2.41,
+        "away": 1.68,
+        "draw": 2.59
+      },
+      "isLive": true
+    },
+    {
+      "id": "gen-209",
+      "title": "Championship Match - Djokovic vs Federer",
+      "description": "Ranking points at stake",
+      "sport": "tennis",
+      "homeTeam": "Djokovic",
+      "awayTeam": "Federer",
+      "startTime": "2025-11-23T10:31:23.453Z",
+      "status": "live",
+      "odds": {
+        "home": 3.2,
+        "away": 3.46
+      },
+      "isLive": true
+    },
+    {
+      "id": "gen-210",
+      "title": "Champions League - Liverpool vs Bayern Munich",
+      "description": "Derby match",
+      "sport": "football",
+      "homeTeam": "Liverpool",
+      "awayTeam": "Bayern Munich",
+      "startTime": "2025-10-05T23:55:01.762Z",
+      "status": "live",
+      "odds": {
+        "home": 3.97,
+        "away": 2.52,
+        "draw": 2.53
+      },
+      "isLive": true
+    },
+    {
+      "id": "gen-211",
+      "title": "ATP Tour - Djokovic vs Rublev",
+      "description": "Ranking points at stake",
+      "sport": "tennis",
+      "homeTeam": "Djokovic",
+      "awayTeam": "Rublev",
+      "startTime": "2025-11-14T14:39:45.048Z",
+      "status": "upcoming",
+      "odds": {
+        "home": 3.07,
+        "away": 1.56
+      },
+      "isLive": false
+    },
+    {
+      "id": "gen-212",
+      "title": "All-Star Game - Mavericks vs Rockets",
+      "description": "Rivalry renewed",
+      "sport": "basketball",
+      "homeTeam": "Mavericks",
+      "awayTeam": "Rockets",
+      "startTime": "2025-12-23T14:22:46.042Z",
+      "status": "finished",
+      "odds": {
+        "home": 3.24,
+        "away": 4.06
+      },
+      "isLive": false
+    },
+    {
+      "id": "gen-213",
+      "title": "Continental Cup - Iran vs Italy",
+      "description": "Olympic qualification match",
+      "sport": "volleyball",
+      "homeTeam": "Iran",
+      "awayTeam": "Italy",
+      "startTime": "2025-12-27T23:24:49.072Z",
+      "status": "upcoming",
+      "odds": {
+        "home": 4.42,
+        "away": 2.41,
+        "draw": 2.59
+      },
+      "isLive": false
+    },
+    {
+      "id": "gen-214",
+      "title": "Continental Cup - Iran vs Turkey",
+      "description": "Nations compete",
+      "sport": "volleyball",
+      "homeTeam": "Iran",
+      "awayTeam": "Turkey",
+      "startTime": "2025-11-27T21:59:41.533Z",
+      "status": "upcoming",
+      "odds": {
+        "home": 4.01,
+        "away": 2.35,
+        "draw": 3.35
+      },
+      "isLive": false
+    },
+    {
+      "id": "gen-215",
+      "title": "FA Cup - Juventus vs Arsenal",
+      "description": "Exciting football match",
+      "sport": "football",
+      "homeTeam": "Juventus",
+      "awayTeam": "Arsenal",
+      "startTime": "2025-10-03T19:20:20.762Z",
+      "status": "finished",
+      "odds": {
+        "home": 3,
+        "away": 4.48,
+        "draw": 2.64
+      },
+      "isLive": false
+    },
+    {
+      "id": "gen-216",
+      "title": "Regular Season - Suns vs 76ers",
+      "description": "Championship on the line",
+      "sport": "basketball",
+      "homeTeam": "Suns",
+      "awayTeam": "76ers",
+      "startTime": "2025-10-31T16:05:30.813Z",
+      "status": "finished",
+      "odds": {
+        "home": 3.61,
+        "away": 3.83
+      },
+      "isLive": false
+    },
+    {
+      "id": "gen-217",
+      "title": "Nations League - Canada vs Iran",
+      "description": "Friendly tournament",
+      "sport": "volleyball",
+      "homeTeam": "Canada",
+      "awayTeam": "Iran",
+      "startTime": "2025-10-13T15:57:29.320Z",
+      "status": "live",
+      "odds": {
+        "home": 3.84,
+        "away": 2.28,
+        "draw": 3.5
+      },
+      "isLive": true
+    },
+    {
+      "id": "gen-218",
+      "title": "Regular Season - Bucks vs Celtics",
+      "description": "Playoff intensity",
+      "sport": "basketball",
+      "homeTeam": "Bucks",
+      "awayTeam": "Celtics",
+      "startTime": "2025-10-06T10:59:47.590Z",
+      "status": "upcoming",
+      "odds": {
+        "home": 3.29,
+        "away": 3.85
+      },
+      "isLive": false
+    },
+    {
+      "id": "gen-219",
+      "title": "All-Star Game - Spurs vs Heat",
+      "description": "Playoff intensity",
+      "sport": "basketball",
+      "homeTeam": "Spurs",
+      "awayTeam": "Heat",
+      "startTime": "2025-11-24T08:11:43.317Z",
+      "status": "upcoming",
+      "odds": {
+        "home": 4.16,
+        "away": 2.07
+      },
+      "isLive": false
+    },
+    {
+      "id": "gen-220",
+      "title": "Playoff Match - Bulls vs Heat",
+      "description": "Season opener",
+      "sport": "basketball",
+      "homeTeam": "Bulls",
+      "awayTeam": "Heat",
+      "startTime": "2025-11-02T20:22:34.747Z",
+      "status": "finished",
+      "odds": {
+        "home": 1.68,
+        "away": 2.14
+      },
+      "isLive": false
+    },
+    {
+      "id": "gen-221",
+      "title": "Nations League - France vs Poland",
+      "description": "Nations compete",
+      "sport": "volleyball",
+      "homeTeam": "France",
+      "awayTeam": "Poland",
+      "startTime": "2025-10-21T20:36:37.950Z",
+      "status": "upcoming",
+      "odds": {
+        "home": 2.64,
+        "away": 2.23,
+        "draw": 2.79
+      },
+      "isLive": false
+    },
+    {
+      "id": "gen-222",
+      "title": "World Championship - Germany vs Japan",
+      "description": "Continental championship",
+      "sport": "volleyball",
+      "homeTeam": "Germany",
+      "awayTeam": "Japan",
+      "startTime": "2025-11-11T11:33:03.454Z",
+      "status": "live",
+      "odds": {
+        "home": 2.17,
+        "away": 2.39,
+        "draw": 3.67
+      },
+      "isLive": true
+    },
+    {
+      "id": "gen-223",
+      "title": "Masters 1000 - Federer vs Norrie",
+      "description": "Historic rivalry",
+      "sport": "tennis",
+      "homeTeam": "Federer",
+      "awayTeam": "Norrie",
+      "startTime": "2025-12-23T11:59:38.261Z",
+      "status": "live",
+      "odds": {
+        "home": 2.06,
+        "away": 4.16
+      },
+      "isLive": true
+    },
+    {
+      "id": "gen-224",
+      "title": "Championship Match - Norrie vs Murray",
+      "description": "Surface specialists meet",
+      "sport": "tennis",
+      "homeTeam": "Norrie",
+      "awayTeam": "Murray",
+      "startTime": "2025-10-09T18:43:04.312Z",
+      "status": "live",
+      "odds": {
+        "home": 2.2,
+        "away": 3.62
+      },
+      "isLive": true
+    },
+    {
+      "id": "gen-225",
+      "title": "Grand Slam Match - Ruud vs Sinner",
+      "description": "Court battle",
+      "sport": "tennis",
+      "homeTeam": "Ruud",
+      "awayTeam": "Sinner",
+      "startTime": "2025-11-12T12:06:44.739Z",
+      "status": "upcoming",
+      "odds": {
+        "home": 2.41,
+        "away": 2.55
+      },
+      "isLive": false
+    },
+    {
+      "id": "gen-226",
+      "title": "Regular Season - Raptors vs Bucks",
+      "description": "Championship on the line",
+      "sport": "basketball",
+      "homeTeam": "Raptors",
+      "awayTeam": "Bucks",
+      "startTime": "2025-12-03T08:14:37.688Z",
+      "status": "finished",
+      "odds": {
+        "home": 3.31,
+        "away": 3.03
+      },
+      "isLive": false
+    },
+    {
+      "id": "gen-227",
+      "title": "FA Cup - Tottenham vs Atletico Madrid",
+      "description": "Title decider",
+      "sport": "football",
+      "homeTeam": "Tottenham",
+      "awayTeam": "Atletico Madrid",
+      "startTime": "2025-10-17T21:16:35.846Z",
+      "status": "live",
+      "odds": {
+        "home": 4.29,
+        "away": 2.05,
+        "draw": 3.8
+      },
+      "isLive": true
+    },
+    {
+      "id": "gen-228",
+      "title": "Friendly Match - Serbia vs Poland",
+      "description": "Olympic qualification match",
+      "sport": "volleyball",
+      "homeTeam": "Serbia",
+      "awayTeam": "Poland",
+      "startTime": "2025-12-14T23:45:39.394Z",
+      "status": "live",
+      "odds": {
+        "home": 4.11,
+        "away": 2.41,
+        "draw": 3.61
+      },
+      "isLive": true
+    },
+    {
+      "id": "gen-229",
+      "title": "FA Cup - AC Milan vs PSG",
+      "description": "Top teams clash",
+      "sport": "football",
+      "homeTeam": "AC Milan",
+      "awayTeam": "PSG",
+      "startTime": "2025-10-06T03:09:33.409Z",
+      "status": "finished",
+      "odds": {
+        "home": 4.35,
+        "away": 1.92,
+        "draw": 3.43
+      },
+      "isLive": false
+    },
+    {
+      "id": "gen-230",
+      "title": "Regular Season - Bucks vs Warriors",
+      "description": "High-scoring game expected",
+      "sport": "basketball",
+      "homeTeam": "Bucks",
+      "awayTeam": "Warriors",
+      "startTime": "2025-11-06T06:52:52.755Z",
+      "status": "finished",
+      "odds": {
+        "home": 2.24,
+        "away": 2.64
+      },
+      "isLive": false
+    },
+    {
+      "id": "gen-231",
+      "title": "All-Star Game - 76ers vs Spurs",
+      "description": "Championship on the line",
+      "sport": "basketball",
+      "homeTeam": "76ers",
+      "awayTeam": "Spurs",
+      "startTime": "2025-11-29T00:29:01.160Z",
+      "status": "live",
+      "odds": {
+        "home": 3.16,
+        "away": 2.49
+      },
+      "isLive": true
+    },
+    {
+      "id": "gen-232",
+      "title": "Regular Season - Nets vs Lakers",
+      "description": "Rivalry renewed",
+      "sport": "basketball",
+      "homeTeam": "Nets",
+      "awayTeam": "Lakers",
+      "startTime": "2025-10-19T06:25:52.627Z",
+      "status": "finished",
+      "odds": {
+        "home": 2.74,
+        "away": 2.04
+      },
+      "isLive": false
+    },
+    {
+      "id": "gen-233",
+      "title": "Regular Season - Suns vs Clippers",
+      "description": "Championship on the line",
+      "sport": "basketball",
+      "homeTeam": "Suns",
+      "awayTeam": "Clippers",
+      "startTime": "2025-11-01T18:23:14.391Z",
+      "status": "upcoming",
+      "odds": {
+        "home": 4.08,
+        "away": 1.92
+      },
+      "isLive": false
+    },
+    {
+      "id": "gen-234",
+      "title": "League Cup - Borussia Dortmund vs Chelsea",
+      "description": "Exciting football match",
+      "sport": "football",
+      "homeTeam": "Borussia Dortmund",
+      "awayTeam": "Chelsea",
+      "startTime": "2025-10-18T17:08:08.543Z",
+      "status": "live",
+      "odds": {
+        "home": 3.84,
+        "away": 3.36,
+        "draw": 3.38
+      },
+      "isLive": true
+    },
+    {
+      "id": "gen-235",
+      "title": "International Friendly - Ajax vs Barcelona",
+      "description": "Derby match",
+      "sport": "football",
+      "homeTeam": "Ajax",
+      "awayTeam": "Barcelona",
+      "startTime": "2025-11-18T17:17:54.466Z",
+      "status": "finished",
+      "odds": {
+        "home": 4,
+        "away": 4.28,
+        "draw": 3.53
+      },
+      "isLive": false
+    },
+    {
+      "id": "gen-236",
+      "title": "Playoff Match - Lakers vs 76ers",
+      "description": "High-scoring game expected",
+      "sport": "basketball",
+      "homeTeam": "Lakers",
+      "awayTeam": "76ers",
+      "startTime": "2025-11-12T18:14:59.381Z",
+      "status": "live",
+      "odds": {
+        "home": 3.18,
+        "away": 3.73
+      },
+      "isLive": true
+    },
+    {
+      "id": "gen-237",
+      "title": "Olympic Qualifier - Turkey vs Russia",
+      "description": "Nations compete",
+      "sport": "volleyball",
+      "homeTeam": "Turkey",
+      "awayTeam": "Russia",
+      "startTime": "2025-10-19T06:11:09.050Z",
+      "status": "live",
+      "odds": {
+        "home": 3.73,
+        "away": 2.54,
+        "draw": 3.13
+      },
+      "isLive": true
+    },
+    {
+      "id": "gen-238",
+      "title": "Regular Season - Warriors vs Rockets",
+      "description": "Season opener",
+      "sport": "basketball",
+      "homeTeam": "Warriors",
+      "awayTeam": "Rockets",
+      "startTime": "2025-12-20T06:59:17.985Z",
+      "status": "finished",
+      "odds": {
+        "home": 3.19,
+        "away": 3.27
+      },
+      "isLive": false
+    },
+    {
+      "id": "gen-239",
+      "title": "Playoff Match - Raptors vs Celtics",
+      "description": "Championship on the line",
+      "sport": "basketball",
+      "homeTeam": "Raptors",
+      "awayTeam": "Celtics",
+      "startTime": "2025-12-23T15:06:26.336Z",
+      "status": "live",
+      "odds": {
+        "home": 2.09,
+        "away": 2.02
+      },
+      "isLive": true
+    },
+    {
+      "id": "gen-240",
+      "title": "Championship Match - Fritz vs Murray",
+      "description": "Surface specialists meet",
+      "sport": "tennis",
+      "homeTeam": "Fritz",
+      "awayTeam": "Murray",
+      "startTime": "2025-10-04T19:46:10.652Z",
+      "status": "upcoming",
+      "odds": {
+        "home": 3.77,
+        "away": 2.84
+      },
+      "isLive": false
+    },
+    {
+      "id": "gen-241",
+      "title": "Nations League - USA vs Russia",
+      "description": "International competition",
+      "sport": "volleyball",
+      "homeTeam": "USA",
+      "awayTeam": "Russia",
+      "startTime": "2025-11-23T17:33:12.812Z",
+      "status": "finished",
+      "odds": {
+        "home": 2.06,
+        "away": 1.99,
+        "draw": 3.83
+      },
+      "isLive": false
+    },
+    {
+      "id": "gen-242",
+      "title": "League Cup - Manchester United vs AC Milan",
+      "description": "Derby match",
+      "sport": "football",
+      "homeTeam": "Manchester United",
+      "awayTeam": "AC Milan",
+      "startTime": "2025-11-20T05:00:03.767Z",
+      "status": "finished",
+      "odds": {
+        "home": 2.88,
+        "away": 3.53,
+        "draw": 3.39
+      },
+      "isLive": false
+    },
+    {
+      "id": "gen-243",
+      "title": "All-Star Game - Nets vs Suns",
+      "description": "Championship on the line",
+      "sport": "basketball",
+      "homeTeam": "Nets",
+      "awayTeam": "Suns",
+      "startTime": "2025-12-11T06:06:10.741Z",
+      "status": "finished",
+      "odds": {
+        "home": 2.45,
+        "away": 3.98
+      },
+      "isLive": false
+    },
+    {
+      "id": "gen-244",
+      "title": "Nations League - Poland vs Brazil",
+      "description": "Friendly tournament",
+      "sport": "volleyball",
+      "homeTeam": "Poland",
+      "awayTeam": "Brazil",
+      "startTime": "2025-10-30T12:55:19.231Z",
+      "status": "live",
+      "odds": {
+        "home": 2.66,
+        "away": 3.77,
+        "draw": 2.82
+      },
+      "isLive": true
+    },
+    {
+      "id": "gen-245",
+      "title": "Nations League - France vs Brazil",
+      "description": "Friendly tournament",
+      "sport": "volleyball",
+      "homeTeam": "France",
+      "awayTeam": "Brazil",
+      "startTime": "2025-11-16T01:09:18.282Z",
+      "status": "live",
+      "odds": {
+        "home": 2.7,
+        "away": 3.9,
+        "draw": 2.81
+      },
+      "isLive": true
+    },
+    {
+      "id": "gen-246",
+      "title": "ATP Tour - Federer vs Medvedev",
+      "description": "Grand slam showdown",
+      "sport": "tennis",
+      "homeTeam": "Federer",
+      "awayTeam": "Medvedev",
+      "startTime": "2025-12-14T02:56:34.291Z",
+      "status": "upcoming",
+      "odds": {
+        "home": 2.18,
+        "away": 4.1
+      },
+      "isLive": false
+    },
+    {
+      "id": "gen-247",
+      "title": "Champions League - Juventus vs Manchester City",
+      "description": "Top teams clash",
+      "sport": "football",
+      "homeTeam": "Juventus",
+      "awayTeam": "Manchester City",
+      "startTime": "2025-11-23T23:06:36.424Z",
+      "status": "finished",
+      "odds": {
+        "home": 4.41,
+        "away": 3.8,
+        "draw": 3.94
+      },
+      "isLive": false
+    },
+    {
+      "id": "gen-248",
+      "title": "Playoff Match - Clippers vs 76ers",
+      "description": "High-scoring game expected",
+      "sport": "basketball",
+      "homeTeam": "Clippers",
+      "awayTeam": "76ers",
+      "startTime": "2025-10-15T01:08:59.430Z",
+      "status": "finished",
+      "odds": {
+        "home": 3.21,
+        "away": 3.87
+      },
+      "isLive": false
+    },
+    {
+      "id": "gen-249",
+      "title": "Friendly Match - Argentina vs Canada",
+      "description": "International competition",
+      "sport": "volleyball",
+      "homeTeam": "Argentina",
+      "awayTeam": "Canada",
+      "startTime": "2025-11-20T14:06:30.773Z",
+      "status": "upcoming",
+      "odds": {
+        "home": 2.86,
+        "away": 2.41,
+        "draw": 2.68
+      },
+      "isLive": false
+    },
+    {
+      "id": "gen-250",
+      "title": "Champions League - AC Milan vs Atletico Madrid",
+      "description": "Exciting football match",
+      "sport": "football",
+      "homeTeam": "AC Milan",
+      "awayTeam": "Atletico Madrid",
+      "startTime": "2025-10-27T03:56:41.084Z",
+      "status": "live",
+      "odds": {
+        "home": 2.77,
+        "away": 3.08,
+        "draw": 2.65
+      },
+      "isLive": true
+    },
+    {
+      "id": "gen-251",
+      "title": "Regular Season - Spurs vs Clippers",
+      "description": "Season opener",
+      "sport": "basketball",
+      "homeTeam": "Spurs",
+      "awayTeam": "Clippers",
+      "startTime": "2025-10-10T03:15:11.217Z",
+      "status": "live",
+      "odds": {
+        "home": 4.46,
+        "away": 3.79
+      },
+      "isLive": true
+    },
+    {
+      "id": "gen-252",
+      "title": "All-Star Game - Bulls vs Clippers",
+      "description": "Rivalry renewed",
+      "sport": "basketball",
+      "homeTeam": "Bulls",
+      "awayTeam": "Clippers",
+      "startTime": "2025-11-13T03:38:24.515Z",
+      "status": "finished",
+      "odds": {
+        "home": 2.66,
+        "away": 3.36
+      },
+      "isLive": false
+    },
+    {
+      "id": "gen-253",
+      "title": "Grand Slam Match - Norrie vs Sinner",
+      "description": "Surface specialists meet",
+      "sport": "tennis",
+      "homeTeam": "Norrie",
+      "awayTeam": "Sinner",
+      "startTime": "2025-10-16T10:48:53.025Z",
+      "status": "finished",
+      "odds": {
+        "home": 1.54,
+        "away": 1.99
+      },
+      "isLive": false
+    },
+    {
+      "id": "gen-254",
+      "title": "League Cup - AC Milan vs Borussia Dortmund",
+      "description": "Relegation battle",
+      "sport": "football",
+      "homeTeam": "AC Milan",
+      "awayTeam": "Borussia Dortmund",
+      "startTime": "2025-12-24T05:35:47.808Z",
+      "status": "finished",
+      "odds": {
+        "home": 1.71,
+        "away": 2.82,
+        "draw": 3.58
+      },
+      "isLive": false
+    },
+    {
+      "id": "gen-255",
+      "title": "Regular Season - Heat vs Rockets",
+      "description": "High-scoring game expected",
+      "sport": "basketball",
+      "homeTeam": "Heat",
+      "awayTeam": "Rockets",
+      "startTime": "2025-11-10T23:23:10.755Z",
+      "status": "live",
+      "odds": {
+        "home": 3.52,
+        "away": 2.86
+      },
+      "isLive": true
+    },
+    {
+      "id": "gen-256",
+      "title": "NBA Game - Knicks vs Bulls",
+      "description": "Championship on the line",
+      "sport": "basketball",
+      "homeTeam": "Knicks",
+      "awayTeam": "Bulls",
+      "startTime": "2025-10-30T15:24:45.160Z",
+      "status": "upcoming",
+      "odds": {
+        "home": 2.79,
+        "away": 3.02
+      },
+      "isLive": false
+    },
+    {
+      "id": "gen-257",
+      "title": "Olympic Qualifier - Japan vs Russia",
+      "description": "Continental championship",
+      "sport": "volleyball",
+      "homeTeam": "Japan",
+      "awayTeam": "Russia",
+      "startTime": "2025-10-22T03:09:08.743Z",
+      "status": "live",
+      "odds": {
+        "home": 1.98,
+        "away": 2.3,
+        "draw": 3.27
+      },
+      "isLive": true
+    },
+    {
+      "id": "gen-258",
+      "title": "Masters 1000 - Tsitsipas vs Hurkacz",
+      "description": "Court battle",
+      "sport": "tennis",
+      "homeTeam": "Tsitsipas",
+      "awayTeam": "Hurkacz",
+      "startTime": "2025-11-21T08:29:26.555Z",
+      "status": "live",
+      "odds": {
+        "home": 3.22,
+        "away": 2.17
+      },
+      "isLive": true
+    },
+    {
+      "id": "gen-259",
+      "title": "Championship Match - Nadal vs Sinner",
+      "description": "Surface specialists meet",
+      "sport": "tennis",
+      "homeTeam": "Nadal",
+      "awayTeam": "Sinner",
+      "startTime": "2025-10-23T21:55:52.698Z",
+      "status": "finished",
+      "odds": {
+        "home": 3.29,
+        "away": 1.52
+      },
+      "isLive": false
+    },
+    {
+      "id": "gen-260",
+      "title": "Continental Cup - Brazil vs France",
+      "description": "Nations compete",
+      "sport": "volleyball",
+      "homeTeam": "Brazil",
+      "awayTeam": "France",
+      "startTime": "2025-10-26T19:57:58.889Z",
+      "status": "live",
+      "odds": {
+        "home": 3.41,
+        "away": 1.9,
+        "draw": 3.07
+      },
+      "isLive": true
+    },
+    {
+      "id": "gen-261",
+      "title": "World Championship - Germany vs Netherlands",
+      "description": "Nations compete",
+      "sport": "volleyball",
+      "homeTeam": "Germany",
+      "awayTeam": "Netherlands",
+      "startTime": "2025-11-02T19:16:21.527Z",
+      "status": "live",
+      "odds": {
+        "home": 3.02,
+        "away": 4.27,
+        "draw": 3.85
+      },
+      "isLive": true
+    },
+    {
+      "id": "gen-262",
+      "title": "NBA Game - Celtics vs Warriors",
+      "description": "Rivalry renewed",
+      "sport": "basketball",
+      "homeTeam": "Celtics",
+      "awayTeam": "Warriors",
+      "startTime": "2025-11-04T19:23:14.062Z",
+      "status": "upcoming",
+      "odds": {
+        "home": 4.23,
+        "away": 1.54
+      },
+      "isLive": false
+    },
+    {
+      "id": "gen-263",
+      "title": "Masters 1000 - Djokovic vs Tsitsipas",
+      "description": "Grand slam showdown",
+      "sport": "tennis",
+      "homeTeam": "Djokovic",
+      "awayTeam": "Tsitsipas",
+      "startTime": "2025-11-27T01:57:31.997Z",
+      "status": "live",
+      "odds": {
+        "home": 2.17,
+        "away": 1.73
+      },
+      "isLive": true
+    },
+    {
+      "id": "gen-264",
+      "title": "Championship Match - Norrie vs Zverev",
+      "description": "Surface specialists meet",
+      "sport": "tennis",
+      "homeTeam": "Norrie",
+      "awayTeam": "Zverev",
+      "startTime": "2025-12-06T01:36:39.705Z",
+      "status": "live",
+      "odds": {
+        "home": 1.63,
+        "away": 2.38
+      },
+      "isLive": true
+    },
+    {
+      "id": "gen-265",
+      "title": "Nations League - Argentina vs Iran",
+      "description": "International competition",
+      "sport": "volleyball",
+      "homeTeam": "Argentina",
+      "awayTeam": "Iran",
+      "startTime": "2025-11-16T03:44:09.585Z",
+      "status": "live",
+      "odds": {
+        "home": 3.39,
+        "away": 3.75,
+        "draw": 2.73
+      },
+      "isLive": true
+    },
+    {
+      "id": "gen-266",
+      "title": "All-Star Game - Bucks vs Clippers",
+      "description": "Rivalry renewed",
+      "sport": "basketball",
+      "homeTeam": "Bucks",
+      "awayTeam": "Clippers",
+      "startTime": "2025-10-03T21:12:56.110Z",
+      "status": "upcoming",
+      "odds": {
+        "home": 3.7,
+        "away": 3.89
+      },
+      "isLive": false
+    },
+    {
+      "id": "gen-267",
+      "title": "Finals Game - 76ers vs Knicks",
+      "description": "Championship on the line",
+      "sport": "basketball",
+      "homeTeam": "76ers",
+      "awayTeam": "Knicks",
+      "startTime": "2025-11-24T12:57:50.234Z",
+      "status": "finished",
+      "odds": {
+        "home": 3.15,
+        "away": 2.7
+      },
+      "isLive": false
+    },
+    {
+      "id": "gen-268",
+      "title": "Finals - Tsitsipas vs Rublev",
+      "description": "Ranking points at stake",
+      "sport": "tennis",
+      "homeTeam": "Tsitsipas",
+      "awayTeam": "Rublev",
+      "startTime": "2025-12-20T07:16:08.265Z",
+      "status": "finished",
+      "odds": {
+        "home": 3.17,
+        "away": 1.75
+      },
+      "isLive": false
+    },
+    {
+      "id": "gen-269",
+      "title": "Finals - Federer vs Nadal",
+      "description": "Surface specialists meet",
+      "sport": "tennis",
+      "homeTeam": "Federer",
+      "awayTeam": "Nadal",
+      "startTime": "2025-11-20T17:20:41.394Z",
+      "status": "finished",
+      "odds": {
+        "home": 2.95,
+        "away": 1.6
+      },
+      "isLive": false
+    },
+    {
+      "id": "gen-270",
+      "title": "ATP Tour - Fritz vs Medvedev",
+      "description": "Grand slam showdown",
+      "sport": "tennis",
+      "homeTeam": "Fritz",
+      "awayTeam": "Medvedev",
+      "startTime": "2025-10-19T15:36:51.679Z",
+      "status": "live",
+      "odds": {
+        "home": 3.91,
+        "away": 1.67
+      },
+      "isLive": true
+    },
+    {
+      "id": "gen-271",
+      "title": "FA Cup - PSG vs Manchester City",
+      "description": "Top teams clash",
+      "sport": "football",
+      "homeTeam": "PSG",
+      "awayTeam": "Manchester City",
+      "startTime": "2025-11-13T13:26:48.119Z",
+      "status": "upcoming",
+      "odds": {
+        "home": 4.01,
+        "away": 3.5,
+        "draw": 3.41
+      },
+      "isLive": false
+    },
+    {
+      "id": "gen-272",
+      "title": "NBA Game - Rockets vs Nets",
+      "description": "High-scoring game expected",
+      "sport": "basketball",
+      "homeTeam": "Rockets",
+      "awayTeam": "Nets",
+      "startTime": "2025-12-07T07:50:32.751Z",
+      "status": "upcoming",
+      "odds": {
+        "home": 3.51,
+        "away": 4.24
+      },
+      "isLive": false
+    },
+    {
+      "id": "gen-273",
+      "title": "Grand Slam Match - Tsitsipas vs Fritz",
+      "description": "Court battle",
+      "sport": "tennis",
+      "homeTeam": "Tsitsipas",
+      "awayTeam": "Fritz",
+      "startTime": "2025-10-30T18:29:48.289Z",
+      "status": "finished",
+      "odds": {
+        "home": 4.35,
+        "away": 2.74
+      },
+      "isLive": false
+    },
+    {
+      "id": "gen-274",
+      "title": "Nations League - Brazil vs Argentina",
+      "description": "Friendly tournament",
+      "sport": "volleyball",
+      "homeTeam": "Brazil",
+      "awayTeam": "Argentina",
+      "startTime": "2025-10-18T20:47:30.574Z",
+      "status": "live",
+      "odds": {
+        "home": 2.45,
+        "away": 3.1,
+        "draw": 2.85
+      },
+      "isLive": true
+    },
+    {
+      "id": "gen-275",
+      "title": "Friendly Match - Netherlands vs France",
+      "description": "International competition",
+      "sport": "volleyball",
+      "homeTeam": "Netherlands",
+      "awayTeam": "France",
+      "startTime": "2025-10-11T10:56:50.019Z",
+      "status": "live",
+      "odds": {
+        "home": 3.17,
+        "away": 2.05,
+        "draw": 2.98
+      },
+      "isLive": true
+    },
+    {
+      "id": "gen-276",
+      "title": "FA Cup - Bayern Munich vs Chelsea",
+      "description": "Derby match",
+      "sport": "football",
+      "homeTeam": "Bayern Munich",
+      "awayTeam": "Chelsea",
+      "startTime": "2025-11-02T05:37:41.030Z",
+      "status": "finished",
+      "odds": {
+        "home": 3.13,
+        "away": 2.13,
+        "draw": 3.45
+      },
+      "isLive": false
+    },
+    {
+      "id": "gen-277",
+      "title": "NBA Game - Lakers vs Bucks",
+      "description": "Season opener",
+      "sport": "basketball",
+      "homeTeam": "Lakers",
+      "awayTeam": "Bucks",
+      "startTime": "2025-10-18T01:10:12.107Z",
+      "status": "finished",
+      "odds": {
+        "home": 2.68,
+        "away": 3.32
+      },
+      "isLive": false
+    },
+    {
+      "id": "gen-278",
+      "title": "Masters 1000 - Norrie vs Rune",
+      "description": "Grand slam showdown",
+      "sport": "tennis",
+      "homeTeam": "Norrie",
+      "awayTeam": "Rune",
+      "startTime": "2025-11-08T22:24:53.655Z",
+      "status": "upcoming",
+      "odds": {
+        "home": 2.32,
+        "away": 1.55
+      },
+      "isLive": false
+    },
+    {
+      "id": "gen-279",
+      "title": "Championship Match - Djokovic vs Hurkacz",
+      "description": "Ranking points at stake",
+      "sport": "tennis",
+      "homeTeam": "Djokovic",
+      "awayTeam": "Hurkacz",
+      "startTime": "2025-12-10T13:51:39.162Z",
+      "status": "upcoming",
+      "odds": {
+        "home": 2.51,
+        "away": 3.36
+      },
+      "isLive": false
+    },
+    {
+      "id": "gen-280",
+      "title": "World Championship - Turkey vs China",
+      "description": "Friendly tournament",
+      "sport": "volleyball",
+      "homeTeam": "Turkey",
+      "awayTeam": "China",
+      "startTime": "2025-10-10T03:20:05.245Z",
+      "status": "live",
+      "odds": {
+        "home": 3.37,
+        "away": 4.13,
+        "draw": 2.6
+      },
+      "isLive": true
+    },
+    {
+      "id": "gen-281",
+      "title": "Champions League - Ajax vs Manchester United",
+      "description": "Title decider",
+      "sport": "football",
+      "homeTeam": "Ajax",
+      "awayTeam": "Manchester United",
+      "startTime": "2025-12-24T06:01:28.990Z",
+      "status": "upcoming",
+      "odds": {
+        "home": 2.36,
+        "away": 4.32,
+        "draw": 3.43
+      },
+      "isLive": false
+    },
+    {
+      "id": "gen-282",
+      "title": "Finals Game - Suns vs Raptors",
+      "description": "Season opener",
+      "sport": "basketball",
+      "homeTeam": "Suns",
+      "awayTeam": "Raptors",
+      "startTime": "2025-11-05T01:34:58.955Z",
+      "status": "live",
+      "odds": {
+        "home": 1.75,
+        "away": 1.95
+      },
+      "isLive": true
+    },
+    {
+      "id": "gen-283",
+      "title": "Nations League - Netherlands vs Poland",
+      "description": "Nations compete",
+      "sport": "volleyball",
+      "homeTeam": "Netherlands",
+      "awayTeam": "Poland",
+      "startTime": "2025-10-26T06:36:00.662Z",
+      "status": "finished",
+      "odds": {
+        "home": 4.07,
+        "away": 3.32,
+        "draw": 3.89
+      },
+      "isLive": false
+    },
+    {
+      "id": "gen-284",
+      "title": "Finals Game - Warriors vs Lakers",
+      "description": "Playoff intensity",
+      "sport": "basketball",
+      "homeTeam": "Warriors",
+      "awayTeam": "Lakers",
+      "startTime": "2025-12-13T11:21:02.242Z",
+      "status": "live",
+      "odds": {
+        "home": 3.78,
+        "away": 1.95
+      },
+      "isLive": true
+    },
+    {
+      "id": "gen-285",
+      "title": "Finals Game - Spurs vs Heat",
+      "description": "Championship on the line",
+      "sport": "basketball",
+      "homeTeam": "Spurs",
+      "awayTeam": "Heat",
+      "startTime": "2025-12-08T10:37:22.196Z",
+      "status": "upcoming",
+      "odds": {
+        "home": 1.89,
+        "away": 4.31
+      },
+      "isLive": false
+    },
+    {
+      "id": "gen-286",
+      "title": "Grand Slam Match - Hurkacz vs Rune",
+      "description": "Ranking points at stake",
+      "sport": "tennis",
+      "homeTeam": "Hurkacz",
+      "awayTeam": "Rune",
+      "startTime": "2025-12-02T11:55:06.597Z",
+      "status": "live",
+      "odds": {
+        "home": 2.9,
+        "away": 4.37
+      },
+      "isLive": true
+    },
+    {
+      "id": "gen-287",
+      "title": "Continental Cup - Serbia vs France",
+      "description": "Continental championship",
+      "sport": "volleyball",
+      "homeTeam": "Serbia",
+      "awayTeam": "France",
+      "startTime": "2025-11-25T21:33:12.837Z",
+      "status": "live",
+      "odds": {
+        "home": 2.77,
+        "away": 3.51,
+        "draw": 3.8
+      },
+      "isLive": true
+    },
+    {
+      "id": "gen-288",
+      "title": "FA Cup - Inter Milan vs Barcelona",
+      "description": "Derby match",
+      "sport": "football",
+      "homeTeam": "Inter Milan",
+      "awayTeam": "Barcelona",
+      "startTime": "2025-11-02T15:56:42.276Z",
+      "status": "finished",
+      "odds": {
+        "home": 4.15,
+        "away": 2.92,
+        "draw": 3.02
+      },
+      "isLive": false
+    },
+    {
+      "id": "gen-289",
+      "title": "League Cup - Juventus vs Liverpool",
+      "description": "Derby match",
+      "sport": "football",
+      "homeTeam": "Juventus",
+      "awayTeam": "Liverpool",
+      "startTime": "2025-11-27T03:49:53.785Z",
+      "status": "upcoming",
+      "odds": {
+        "home": 4.38,
+        "away": 2.65,
+        "draw": 2.92
+      },
+      "isLive": false
+    },
+    {
+      "id": "gen-290",
+      "title": "Playoff Match - Raptors vs Celtics",
+      "description": "High-scoring game expected",
+      "sport": "basketball",
+      "homeTeam": "Raptors",
+      "awayTeam": "Celtics",
+      "startTime": "2025-10-19T18:15:43.756Z",
+      "status": "finished",
+      "odds": {
+        "home": 4.39,
+        "away": 4.01
+      },
+      "isLive": false
+    },
+    {
+      "id": "gen-291",
+      "title": "Regular Season - Nets vs Lakers",
+      "description": "Season opener",
+      "sport": "basketball",
+      "homeTeam": "Nets",
+      "awayTeam": "Lakers",
+      "startTime": "2025-11-08T04:32:44.601Z",
+      "status": "finished",
+      "odds": {
+        "home": 1.6,
+        "away": 2.49
+      },
+      "isLive": false
+    },
+    {
+      "id": "gen-292",
+      "title": "Continental Cup - Iran vs Serbia",
+      "description": "Nations compete",
+      "sport": "volleyball",
+      "homeTeam": "Iran",
+      "awayTeam": "Serbia",
+      "startTime": "2025-11-21T19:23:27.330Z",
+      "status": "live",
+      "odds": {
+        "home": 3.65,
+        "away": 3.3,
+        "draw": 4
+      },
+      "isLive": true
+    },
+    {
+      "id": "gen-293",
+      "title": "Friendly Match - Italy vs Japan",
+      "description": "Continental championship",
+      "sport": "volleyball",
+      "homeTeam": "Italy",
+      "awayTeam": "Japan",
+      "startTime": "2025-12-11T10:20:16.689Z",
+      "status": "upcoming",
+      "odds": {
+        "home": 3.24,
+        "away": 3.02,
+        "draw": 3.65
+      },
+      "isLive": false
+    },
+    {
+      "id": "gen-294",
+      "title": "Premier League Match - Borussia Dortmund vs Juventus",
+      "description": "Exciting football match",
+      "sport": "football",
+      "homeTeam": "Borussia Dortmund",
+      "awayTeam": "Juventus",
+      "startTime": "2025-11-23T04:19:45.322Z",
+      "status": "live",
+      "odds": {
+        "home": 3.7,
+        "away": 3.94,
+        "draw": 2.88
+      },
+      "isLive": true
+    },
+    {
+      "id": "gen-295",
+      "title": "FA Cup - Atletico Madrid vs Chelsea",
+      "description": "Derby match",
+      "sport": "football",
+      "homeTeam": "Atletico Madrid",
+      "awayTeam": "Chelsea",
+      "startTime": "2025-11-02T11:47:52.046Z",
+      "status": "upcoming",
+      "odds": {
+        "home": 1.86,
+        "away": 2.15,
+        "draw": 3.76
+      },
+      "isLive": false
+    },
+    {
+      "id": "gen-296",
+      "title": "Championship Match - Nadal vs Ruud",
+      "description": "Historic rivalry",
+      "sport": "tennis",
+      "homeTeam": "Nadal",
+      "awayTeam": "Ruud",
+      "startTime": "2025-10-24T23:28:17.139Z",
+      "status": "upcoming",
+      "odds": {
+        "home": 2.78,
+        "away": 1.95
+      },
+      "isLive": false
+    },
+    {
+      "id": "gen-297",
+      "title": "Premier League Match - Ajax vs Manchester City",
+      "description": "Exciting football match",
+      "sport": "football",
+      "homeTeam": "Ajax",
+      "awayTeam": "Manchester City",
+      "startTime": "2025-12-29T14:11:32.128Z",
+      "status": "live",
+      "odds": {
+        "home": 1.76,
+        "away": 3.66,
+        "draw": 3.26
+      },
+      "isLive": true
+    },
+    {
+      "id": "gen-298",
+      "title": "Championship Match - Hurkacz vs Alcaraz",
+      "description": "Court battle",
+      "sport": "tennis",
+      "homeTeam": "Hurkacz",
+      "awayTeam": "Alcaraz",
+      "startTime": "2025-12-05T19:59:41.999Z",
+      "status": "live",
+      "odds": {
+        "home": 3.7,
+        "away": 2.13
+      },
+      "isLive": true
+    },
+    {
+      "id": "gen-299",
+      "title": "Finals - Sinner vs Tsitsipas",
+      "description": "Ranking points at stake",
+      "sport": "tennis",
+      "homeTeam": "Sinner",
+      "awayTeam": "Tsitsipas",
+      "startTime": "2025-10-26T09:48:14.763Z",
+      "status": "upcoming",
+      "odds": {
+        "home": 3.2,
+        "away": 2.54
+      },
+      "isLive": false
+    },
+    {
+      "id": "gen-300",
+      "title": "Grand Slam Match - Zverev vs Hurkacz",
+      "description": "Historic rivalry",
+      "sport": "tennis",
+      "homeTeam": "Zverev",
+      "awayTeam": "Hurkacz",
+      "startTime": "2025-10-25T00:39:18.039Z",
+      "status": "upcoming",
+      "odds": {
+        "home": 2.45,
+        "away": 3.94
+      },
+      "isLive": false
+    },
+    {
+      "id": "072a",
+      "title": "sds",
+      "description": "dsds",
+      "sport": "football",
+      "homeTeam": "sdsd",
+      "awayTeam": "sdsds",
+      "startTime": "2025-10-06T15:09:37.235Z",
+      "status": "upcoming",
       "odds": {
         "home": 2,
         "draw": 3,
         "away": 2.5
-      },
-      "isLive": true
-    },
-    {
-      "id": "9caf",
-      "title": "hello",
-      "description": "Description",
-      "sport": "football",
-      "homeTeam": "dadadadad",
-      "awayTeam": "dddgdgdgd",
-      "startTime": "2025-10-04T18:51:11.639Z",
-      "status": "upcoming",
-      "odds": {
-        "home": 1.96,
-        "draw": 1.15,
-        "away": 3.67
       },
       "isLive": false
     }

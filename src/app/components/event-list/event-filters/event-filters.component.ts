@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component, effect, input, output } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { toSignal } from '@angular/core/rxjs-interop';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -59,6 +60,10 @@ export class EventFiltersComponent {
     dateTo: new FormControl<Date | null>(null),
   });
 
+  valueChanges = toSignal(this.filterForm.valueChanges.pipe(debounceTime(300)), {
+    initialValue: this.initialValues(),
+  });
+
   constructor() {
     // Set initial values when they change
     effect(() => {
@@ -66,8 +71,8 @@ export class EventFiltersComponent {
       this.filterForm.patchValue(values, { emitEvent: false });
     });
 
-    // Emit changes with debounce
-    this.filterForm.valueChanges.pipe(debounceTime(300)).subscribe((values) => {
+    effect(() => {
+      const values = this.valueChanges();
       this.filtersChanged.emit({
         sport: values.sport || '',
         status: values.status || '',

@@ -1,6 +1,6 @@
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component, inject, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, OnDestroy, OnInit } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
@@ -26,6 +26,8 @@ import { AddEventDialogComponent } from '../add-event-dialog/add-event-dialog.co
 import { EventCardComponent } from './event-card/event-card.component';
 import { EventFiltersComponent, FilterValues } from './event-filters/event-filters.component';
 import { EventSortingComponent } from './event-sorting/event-sorting.component';
+import { SPORTS, STATUSES } from '../../constants/const';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'sb-event-list',
@@ -47,7 +49,7 @@ import { EventSortingComponent } from './event-sorting/event-sorting.component';
   styleUrl: './event-list.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class EventListComponent implements OnInit {
+export class EventListComponent implements OnInit, OnDestroy {
   private store = inject(Store);
   private dialog = inject(MatDialog);
   private snackBar = inject(MatSnackBar);
@@ -59,8 +61,9 @@ export class EventListComponent implements OnInit {
   pagination = this.store.selectSignal(selectEventsPagination);
   sort = this.store.selectSignal(selectEventsSort);
 
-  sports = ['football', 'basketball', 'tennis', 'volleyball'];
-  statuses = ['upcoming', 'live', 'finished'];
+  sports = SPORTS;
+  statuses = STATUSES;
+
   currentFilterValues: FilterValues = {
     sport: '',
     status: '',
@@ -74,6 +77,8 @@ export class EventListComponent implements OnInit {
   useVirtualScroll = false; // Toggle between virtual scroll and pagination
 
   getStatusColor = getEventStatusColor;
+
+  dialogCloseSubscription: Subscription | null = null;
 
   ngOnInit(): void {
     this.store.dispatch(BetslipActions.loadBetslipFromStorage());
@@ -109,7 +114,6 @@ export class EventListComponent implements OnInit {
     const sortValue = this.sort();
     let paginationValue = this.pagination();
 
-    // When using virtual scroll, load more items
     if (this.useVirtualScroll) {
       paginationValue = { page: 1, pageSize: 1000 };
       this.store.dispatch(EventsActions.setPagination({ pagination: paginationValue }));
@@ -189,7 +193,7 @@ export class EventListComponent implements OnInit {
       width: '600px',
     });
 
-    dialogRef.afterClosed().subscribe((result) => {
+    this.dialogCloseSubscription = dialogRef.afterClosed().subscribe((result) => {
       if (result) {
         this.store.dispatch(EventsActions.addEvent({ event: result }));
         this.snackBar.open('Event added successfully', 'Close', {
@@ -269,5 +273,9 @@ export class EventListComponent implements OnInit {
 
   trackById(index: number, item: SportEvent): string {
     return item.id;
+  }
+
+  ngOnDestroy(): void {
+    this.dialogCloseSubscription?.unsubscribe();
   }
 }

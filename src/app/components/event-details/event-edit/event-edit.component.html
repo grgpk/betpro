@@ -2,7 +2,9 @@
   <div class="form-row">
     <mat-form-field>
       <mat-label>Title</mat-label>
-      <input matInput formControlName="title" required />
+
+      <input matInput formControlName="title" />
+
       @if (eventForm().get('title')?.hasError('required')) {
         <mat-error>Title is required</mat-error>
       }
@@ -18,7 +20,9 @@
   <div class="form-row">
     <mat-form-field>
       <mat-label>Description</mat-label>
-      <textarea matInput formControlName="description" rows="3" required></textarea>
+
+      <textarea matInput formControlName="description" rows="3"></textarea>
+
       @if (eventForm().get('description')?.hasError('required')) {
         <mat-error>Description is required</mat-error>
       }
@@ -34,7 +38,8 @@
   <div class="form-row">
     <mat-form-field>
       <mat-label>Sport</mat-label>
-      <mat-select formControlName="sport" required>
+
+      <mat-select formControlName="sport">
         @for (sport of sports(); track sport) {
           <mat-option [value]="sport">{{ sport | titlecase }}</mat-option>
         }
@@ -43,7 +48,8 @@
 
     <mat-form-field>
       <mat-label>Status</mat-label>
-      <mat-select formControlName="status" required>
+
+      <mat-select formControlName="status">
         @for (status of statuses(); track status) {
           <mat-option [value]="status">{{ status | titlecase }}</mat-option>
         }
@@ -54,7 +60,9 @@
   <div class="form-row">
     <mat-form-field>
       <mat-label>Home Team</mat-label>
-      <input matInput formControlName="homeTeam" required />
+
+      <input matInput formControlName="homeTeam" />
+
       @if (eventForm().get('homeTeam')?.hasError('required')) {
         <mat-error>Home team is required</mat-error>
       }
@@ -62,7 +70,9 @@
 
     <mat-form-field>
       <mat-label>Away Team</mat-label>
-      <input matInput formControlName="awayTeam" required />
+
+      <input matInput formControlName="awayTeam" />
+
       @if (eventForm().get('awayTeam')?.hasError('required')) {
         <mat-error>Away team is required</mat-error>
       }
@@ -72,9 +82,11 @@
   <div class="form-row">
     <mat-form-field>
       <mat-label>Start Time</mat-label>
-      <input matInput [matDatepicker]="picker" formControlName="startTime" required />
-      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-      <mat-datepicker #picker></mat-datepicker>
+
+      <input matInput [matDatepicker]="picker" formControlName="startTime" />
+
+      <mat-datepicker-toggle matSuffix [for]="picker" />
+      <mat-datepicker #picker />
     </mat-form-field>
   </div>
 
@@ -85,7 +97,9 @@
   <div class="form-row">
     <mat-form-field>
       <mat-label>Home Odds</mat-label>
-      <input matInput type="number" formControlName="homeOdds" step="0.01" required />
+
+      <input matInput type="number" formControlName="homeOdds" step="0.01" />
+
       @if (eventForm().get('homeOdds')?.hasError('min')) {
         <mat-error>Minimum odds is 1.01</mat-error>
       }
@@ -97,7 +111,9 @@
     @if (hasDraw()) {
       <mat-form-field>
         <mat-label>Draw Odds</mat-label>
+
         <input matInput type="number" formControlName="drawOdds" step="0.01" />
+
         @if (eventForm().get('drawOdds')?.hasError('min')) {
           <mat-error>Minimum odds is 1.01</mat-error>
         }
@@ -109,7 +125,9 @@
 
     <mat-form-field>
       <mat-label>Away Odds</mat-label>
-      <input matInput type="number" formControlName="awayOdds" step="0.01" required />
+
+      <input matInput type="number" formControlName="awayOdds" step="0.01" />
+
       @if (eventForm().get('awayOdds')?.hasError('min')) {
         <mat-error>Minimum odds is 1.01</mat-error>
       }

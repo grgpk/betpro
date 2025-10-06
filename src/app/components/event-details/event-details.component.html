@@ -44,9 +44,9 @@
 
   <mat-card class="event-details-card">
     @if (!isEditMode) {
-      <app-event-view [event]="event()!" (addToBetslip)="addToBetslip($event)" />
+      <sb-event-view [event]="event()!" (addToBetslip)="addToBetslip($event)" />
     } @else {
-      <app-event-edit
+      <sb-event-edit
         [eventForm]="eventForm"
         [sports]="sports"
         [statuses]="statuses"

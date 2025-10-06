@@ -10,6 +10,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { SportEvent } from '../../models/sport-event.model';
+import { SPORTS, STATUSES } from '../../constants/const';
 
 @Component({
   selector: 'sb-add-event-dialog',
@@ -33,8 +34,8 @@ export class AddEventDialogComponent {
   private dialogRef = inject(MatDialogRef<AddEventDialogComponent>);
   private fb = inject(FormBuilder);
 
-  sports = ['football', 'basketball', 'tennis', 'volleyball'];
-  statuses = ['upcoming', 'live', 'finished'];
+  sports = SPORTS;
+  statuses = STATUSES;
 
   eventForm: FormGroup = this.fb.group({
     title: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(100)]],

@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component, inject, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, effect, inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
@@ -8,6 +8,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { Store } from '@ngrx/store';
+import { SPORTS, STATUSES } from '../../constants/const';
 import { SportEvent } from '../../models/sport-event.model';
 import * as BetslipActions from '../../store/betslip/betslip.actions';
 import * as EventsActions from '../../store/events/events.actions';
@@ -16,9 +17,9 @@ import {
   selectEventsLoading,
   selectSelectedEvent,
 } from '../../store/events/events.selectors';
+import { getEventStatusColor } from '../../utils/event.utils';
 import { EventEditComponent } from './event-edit/event-edit.component';
 import { EventViewComponent } from './event-view/event-view.component';
-import { getEventStatusColor } from '../../utils/event.utils';
 
 @Component({
   selector: 'sb-event-details',
@@ -50,8 +51,10 @@ export class EventDetailsComponent implements OnInit {
 
   isEditMode = false;
 
-  sports = ['football', 'basketball', 'tennis', 'volleyball'];
-  statuses = ['upcoming', 'live', 'finished'];
+  sports = SPORTS;
+  statuses = STATUSES;
+
+  getStatusColor = getEventStatusColor;
 
   eventForm: FormGroup = this.fb.group({
     title: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(100)]],
@@ -67,14 +70,9 @@ export class EventDetailsComponent implements OnInit {
     isLive: [false],
   });
 
-  ngOnInit(): void {
-    const id = this.route.snapshot.paramMap.get('id');
-    if (id) {
-      this.store.dispatch(EventsActions.loadEvent({ id }));
-    }
-
-    // Update form when event is loaded
-    this.store.select(selectSelectedEvent).subscribe((event) => {
+  constructor() {
+    effect(() => {
+      const event = this.event();
       if (event) {
         this.eventForm.patchValue({
           title: event.title,
@@ -93,11 +91,17 @@ export class EventDetailsComponent implements OnInit {
     });
   }
 
+  ngOnInit(): void {
+    const id = this.route.snapshot.paramMap.get('id');
+    if (id) {
+      this.store.dispatch(EventsActions.loadEvent({ id }));
+    }
+  }
+
   toggleEditMode(): void {
     this.isEditMode = !this.isEditMode;
 
     if (!this.isEditMode) {
-      // Reset form if canceling edit
       const currentEvent = this.event();
       if (currentEvent) {
         this.eventForm.patchValue({
@@ -192,6 +196,4 @@ export class EventDetailsComponent implements OnInit {
     const sport = this.eventForm.get('sport')?.value;
     return sport === 'football' || sport === 'volleyball';
   }
-
-  getStatusColor = getEventStatusColor;
 }
