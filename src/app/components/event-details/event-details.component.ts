@@ -18,6 +18,7 @@ import {
 } from '../../store/events/events.selectors';
 import { EventEditComponent } from './event-edit/event-edit.component';
 import { EventViewComponent } from './event-view/event-view.component';
+import { getEventStatusColor } from '../../utils/event.utils';
 
 @Component({
   selector: 'sb-event-details',
@@ -192,16 +193,5 @@ export class EventDetailsComponent implements OnInit {
     return sport === 'football' || sport === 'volleyball';
   }
 
-  getStatusColor(status: string): string {
-    switch (status) {
-      case 'live':
-        return 'warn';
-      case 'upcoming':
-        return 'primary';
-      case 'finished':
-        return 'accent';
-      default:
-        return '';
-    }
-  }
+  getStatusColor = getEventStatusColor;
 }

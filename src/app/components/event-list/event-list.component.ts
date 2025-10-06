@@ -27,6 +27,7 @@ import { AddEventDialogComponent } from '../add-event-dialog/add-event-dialog.co
 import { EventFiltersComponent, FilterValues } from './event-filters/event-filters.component';
 import { EventSortingComponent } from './event-sorting/event-sorting.component';
 import { EventCardComponent } from './event-card/event-card.component';
+import { getEventStatusColor } from '../../utils/event.utils';
 
 @Component({
   selector: 'sb-event-list',
@@ -267,18 +268,7 @@ export class EventListComponent implements OnInit {
     window.history.replaceState({}, '', newUrl);
   }
 
-  getStatusColor(status: string): string {
-    switch (status) {
-      case 'live':
-        return 'warn';
-      case 'upcoming':
-        return 'primary';
-      case 'finished':
-        return 'accent';
-      default:
-        return '';
-    }
-  }
+  getStatusColor = getEventStatusColor;
 
   trackById(index: number, item: SportEvent): string {
     return item.id;
