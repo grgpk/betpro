@@ -1,16 +1,14 @@
+import { ScrollingModule } from '@angular/cdk/scrolling';
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, inject, OnInit } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
-import { MatChipsModule } from '@angular/material/chips';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
 import { MatPaginatorModule, PageEvent } from '@angular/material/paginator';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
-import { RouterLink } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { ScrollingModule } from '@angular/cdk/scrolling';
 import { EventFilters } from '../../models/filters.model';
 import { SportEvent } from '../../models/sport-event.model';
 import * as BetslipActions from '../../store/betslip/betslip.actions';
@@ -23,11 +21,11 @@ import {
   selectEventsSort,
   selectEventsTotal,
 } from '../../store/events/events.selectors';
+import { getEventStatusColor } from '../../utils/event.utils';
 import { AddEventDialogComponent } from '../add-event-dialog/add-event-dialog.component';
+import { EventCardComponent } from './event-card/event-card.component';
 import { EventFiltersComponent, FilterValues } from './event-filters/event-filters.component';
 import { EventSortingComponent } from './event-sorting/event-sorting.component';
-import { EventCardComponent } from './event-card/event-card.component';
-import { getEventStatusColor } from '../../utils/event.utils';
 
 @Component({
   selector: 'sb-event-list',
@@ -73,14 +71,13 @@ export class EventListComponent implements OnInit {
 
   // Virtual scrolling settings
   itemSize = 480; // Approximate height of each event card in pixels
-  useVirtualScroll = true; // Toggle between virtual scroll and pagination
-
-  constructor() {
-    this.store.dispatch(BetslipActions.loadBetslipFromStorage());
-    this.loadFiltersFromUrl();
-  }
+  useVirtualScroll = false; // Toggle between virtual scroll and pagination
 
   ngOnInit(): void {
+    this.store.dispatch(BetslipActions.loadBetslipFromStorage());
+
+    this.loadFiltersFromUrl();
+
     this.loadEvents();
   }
 
