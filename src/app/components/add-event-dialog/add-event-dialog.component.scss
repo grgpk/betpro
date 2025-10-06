@@ -2,15 +2,13 @@
   display: block;
 }
 
-// Dialog title styling
 h2[mat-dialog-title] {
-  color: var(--color-text-primary) !important;
+  color: var(--color-text-primary);
   font-size: 24px;
   font-weight: 800;
   letter-spacing: -0.5px;
 }
 
-// Dialog content
 mat-dialog-content {
   padding: 24px !important;
   min-width: 550px;
@@ -21,7 +19,6 @@ mat-dialog-content {
     flex: 1;
   }
 
-  // Form styles matching event-edit
   form {
     display: flex;
     flex-direction: column;
@@ -59,12 +56,10 @@ mat-dialog-content {
   }
 }
 
-// Dialog actions styling
 mat-dialog-actions {
-  padding: 20px 24px !important;
-  margin: 0 !important;
+  padding: 20px 24px;
+  margin: 0;
   border-top: 1px solid var(--color-border);
-  background: linear-gradient(135deg, var(--color-bg-darker) 0%, var(--color-bg-dark) 100%);
   display: flex;
   justify-content: flex-end;
   gap: 12px;
@@ -82,8 +77,8 @@ mat-dialog-actions {
           135deg,
           var(--color-primary) 0%,
           var(--color-primary-dark) 100%
-        ) !important;
-        color: var(--color-bg-darker) !important;
+        );
+        color: var(--color-bg-darker);
         box-shadow: var(--shadow-glow);
 
         &:hover:not(:disabled) {
@@ -94,22 +89,22 @@ mat-dialog-actions {
         &:disabled {
           opacity: 0.5;
           cursor: not-allowed;
-          background: var(--color-bg-hover) !important;
-          color: var(--color-text-muted) !important;
+          background: var(--color-bg-hover);
+          color: var(--color-text-muted);
           box-shadow: none;
         }
       }
     }
 
     &.mat-mdc-button {
-      background: transparent !important;
-      color: var(--color-text-secondary) !important;
+      background: transparent;
+      color: var(--color-text-secondary);
       border: 1px solid var(--color-border-light);
 
       &:hover {
-        background: var(--color-bg-hover) !important;
+        background: var(--color-bg-hover);
         border-color: var(--color-primary);
-        color: var(--color-primary) !important;
+        color: var(--color-primary);
       }
     }
   }
