@@ -1,0 +1,57 @@
+<mat-card class="sorting-card">
+  <div class="sorting-row">
+    <span class="sort-label">Sort by:</span>
+    <button
+      mat-button
+      [class.active]="currentSort().field === 'startTime'"
+      (click)="onSortClick('startTime')"
+    >
+      <mat-icon>schedule</mat-icon>
+      Date
+      @if (currentSort().field === 'startTime') {
+        <mat-icon class="sort-icon">{{
+          currentSort().direction === 'asc' ? 'arrow_upward' : 'arrow_downward'
+        }}</mat-icon>
+      }
+    </button>
+    <button
+      mat-button
+      [class.active]="currentSort().field === 'title'"
+      (click)="onSortClick('title')"
+    >
+      <mat-icon>title</mat-icon>
+      Title
+      @if (currentSort().field === 'title') {
+        <mat-icon class="sort-icon">{{
+          currentSort().direction === 'asc' ? 'arrow_upward' : 'arrow_downward'
+        }}</mat-icon>
+      }
+    </button>
+    <button
+      mat-button
+      [class.active]="currentSort().field === 'sport'"
+      (click)="onSortClick('sport')"
+    >
+      <mat-icon>sports</mat-icon>
+      Sport
+      @if (currentSort().field === 'sport') {
+        <mat-icon class="sort-icon">{{
+          currentSort().direction === 'asc' ? 'arrow_upward' : 'arrow_downward'
+        }}</mat-icon>
+      }
+    </button>
+    <button
+      mat-button
+      [class.active]="currentSort().field === 'status'"
+      (click)="onSortClick('status')"
+    >
+      <mat-icon>info</mat-icon>
+      Status
+      @if (currentSort().field === 'status') {
+        <mat-icon class="sort-icon">{{
+          currentSort().direction === 'asc' ? 'arrow_upward' : 'arrow_downward'
+        }}</mat-icon>
+      }
+    </button>
+  </div>
+</mat-card>
