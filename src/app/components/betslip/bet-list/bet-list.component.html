@@ -8,7 +8,11 @@
               [matTooltip]="bet.eventTitle.length > 25 ? bet.eventTitle : ''"
               matTooltipPosition="above"
             >
-              {{ bet.eventTitle.length > 25 ? (bet.eventTitle | slice: 0:25) + '...' : bet.eventTitle }}
+              {{
+                bet.eventTitle.length > 25
+                  ? (bet.eventTitle | slice: 0 : 25) + '...'
+                  : bet.eventTitle
+              }}
             </strong>
             <div class="selection-info">
               <span class="selection">{{ bet.selection | titlecase }}</span>

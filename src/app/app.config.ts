@@ -13,8 +13,10 @@ import { provideStoreDevtools } from '@ngrx/store-devtools';
 import { routes } from './app.routes';
 import { eventsReducer } from './store/events/events.reducer';
 import { betslipReducer } from './store/betslip/betslip.reducer';
+import { betHistoryReducer } from './store/bet-history/bet-history.reducer';
 import { EventsEffects } from './store/events/events.effects';
 import { BetslipEffects } from './store/betslip/betslip.effects';
+import { BetHistoryEffects } from './store/bet-history/bet-history.effects';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -26,8 +28,9 @@ export const appConfig: ApplicationConfig = {
     provideStore({
       events: eventsReducer,
       betslip: betslipReducer,
+      betHistory: betHistoryReducer,
     }),
-    provideEffects([EventsEffects, BetslipEffects]),
+    provideEffects([EventsEffects, BetslipEffects, BetHistoryEffects]),
     provideStoreDevtools({
       maxAge: 25,
       logOnly: false,

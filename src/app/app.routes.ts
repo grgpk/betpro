@@ -15,7 +15,12 @@ export const routes: Routes = [
     path: 'events/:id',
     loadComponent: () =>
       import('./components/event-details/event-details.component').then(
-        (m) => m.EventDetailsComponent
+        (m) => m.EventDetailsComponent,
       ),
+  },
+  {
+    path: 'bet-history',
+    loadComponent: () =>
+      import('./components/bet-history/bet-history.component').then((m) => m.BetHistoryComponent),
   },
 ];

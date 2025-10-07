@@ -3,6 +3,16 @@
     <div class="logo">⚡</div>
     <h1>BETPRO</h1>
   </div>
+  <nav class="nav-links">
+    <a routerLink="/events" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: false }">
+      <mat-icon>sports_soccer</mat-icon>
+      Events
+    </a>
+    <a routerLink="/bet-history" routerLinkActive="active">
+      <mat-icon>history</mat-icon>
+      Bet History
+    </a>
+  </nav>
 </header>
 
 <main class="main-content">
