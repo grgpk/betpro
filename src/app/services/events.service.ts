@@ -57,7 +57,6 @@ export class EventsService {
       }>(this.apiUrl, { params, observe: 'response' })
       .pipe(
         map((response) => {
-          debugger;
           const body = response.body!;
           const events = body.data || [];
 

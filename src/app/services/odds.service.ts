@@ -10,7 +10,7 @@ import { SportEvent } from '../models/sport-event.model';
 })
 export class OddsService {
   private store = inject(Store);
-  private updateInterval = 5000; // Update every 5 seconds
+  private updateInterval = 3000;
 
   startOddsSimulation(): Observable<SportEvent[]> {
     return interval(this.updateInterval).pipe(
@@ -22,7 +22,7 @@ export class OddsService {
             this.store.dispatch(updateOdds({ eventId: event.id, odds: newOdds }));
           }
         });
-      })
+      }),
     );
   }
 
