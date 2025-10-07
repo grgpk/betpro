@@ -13,7 +13,6 @@ export class App implements OnInit {
   private oddsService = inject(OddsService);
 
   ngOnInit(): void {
-    // Start real-time odds simulation
     this.oddsService.startOddsSimulation().subscribe();
   }
 }
