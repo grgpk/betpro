@@ -4659,5 +4659,281 @@
       },
       "isLive": false
     }
+  ],
+  "betHistory": [
+    {
+      "id": "bet-hist-1",
+      "bets": [
+        {
+          "id": "bet-1",
+          "eventId": "gen-1",
+          "eventTitle": "NBA Game - Bucks vs Knicks",
+          "selection": "home",
+          "odds": 2.07,
+          "stake": 50
+        },
+        {
+          "id": "bet-2",
+          "eventId": "gen-4",
+          "eventTitle": "Champions League - Bayern Munich vs Barcelona",
+          "selection": "away",
+          "odds": 2.81,
+          "stake": 30
+        }
+      ],
+      "totalStake": 80,
+      "totalOdds": 5.82,
+      "potentialWin": 465.6,
+      "actualWin": 465.6,
+      "status": "won",
+      "placedAt": "2025-10-05T14:30:00.000Z",
+      "settledAt": "2025-10-06T22:15:00.000Z"
+    },
+    {
+      "id": "bet-hist-2",
+      "bets": [
+        {
+          "id": "bet-3",
+          "eventId": "gen-11",
+          "eventTitle": "Championship Match - Murray vs Hurkacz",
+          "selection": "home",
+          "odds": 3.02,
+          "stake": 100
+        }
+      ],
+      "totalStake": 100,
+      "totalOdds": 3.02,
+      "potentialWin": 302,
+      "status": "pending",
+      "placedAt": "2025-10-06T10:00:00.000Z"
+    },
+    {
+      "id": "bet-hist-3",
+      "bets": [
+        {
+          "id": "bet-4",
+          "eventId": "gen-3",
+          "eventTitle": "Premier League Match - PSG vs Manchester United",
+          "selection": "draw",
+          "odds": 3.18,
+          "stake": 25
+        },
+        {
+          "id": "bet-5",
+          "eventId": "gen-5",
+          "eventTitle": "International Friendly - PSG vs Ajax",
+          "selection": "home",
+          "odds": 3.68,
+          "stake": 25
+        },
+        {
+          "id": "bet-6",
+          "eventId": "gen-8",
+          "eventTitle": "All-Star Game - Bulls vs Lakers",
+          "selection": "away",
+          "odds": 1.88,
+          "stake": 50
+        }
+      ],
+      "totalStake": 100,
+      "totalOdds": 21.99,
+      "potentialWin": 2199,
+      "actualWin": 0,
+      "status": "lost",
+      "placedAt": "2025-10-04T16:45:00.000Z",
+      "settledAt": "2025-10-05T20:30:00.000Z"
+    },
+    {
+      "id": "bet-hist-4",
+      "bets": [
+        {
+          "id": "bet-7",
+          "eventId": "gen-19",
+          "eventTitle": "ATP Tour - Ruud vs Tsitsipas",
+          "selection": "home",
+          "odds": 4.41,
+          "stake": 20
+        },
+        {
+          "id": "bet-8",
+          "eventId": "gen-25",
+          "eventTitle": "Olympic Qualifier - Canada vs Brazil",
+          "selection": "away",
+          "odds": 3.08,
+          "stake": 20
+        }
+      ],
+      "totalStake": 40,
+      "totalOdds": 13.58,
+      "potentialWin": 543.2,
+      "status": "pending",
+      "placedAt": "2025-10-06T18:20:00.000Z"
+    },
+    {
+      "id": "bet-hist-5",
+      "bets": [
+        {
+          "id": "bet-9",
+          "eventId": "gen-15",
+          "eventTitle": "Grand Slam Match - Sinner vs Zverev",
+          "selection": "home",
+          "odds": 2.33,
+          "stake": 150
+        }
+      ],
+      "totalStake": 150,
+      "totalOdds": 2.33,
+      "potentialWin": 349.5,
+      "actualWin": 349.5,
+      "status": "won",
+      "placedAt": "2025-10-03T12:00:00.000Z",
+      "settledAt": "2025-10-04T18:45:00.000Z"
+    },
+    {
+      "id": "bet-hist-6",
+      "bets": [
+        {
+          "id": "bet-10",
+          "eventId": "gen-23",
+          "eventTitle": "Masters 1000 - Tsitsipas vs Norrie",
+          "selection": "home",
+          "odds": 1.68,
+          "stake": 200
+        }
+      ],
+      "totalStake": 200,
+      "totalOdds": 1.68,
+      "potentialWin": 336,
+      "actualWin": 336,
+      "status": "won",
+      "placedAt": "2025-10-02T09:30:00.000Z",
+      "settledAt": "2025-10-03T15:20:00.000Z"
+    },
+    {
+      "id": "bet-hist-7",
+      "bets": [
+        {
+          "id": "bet-11",
+          "eventId": "gen-24",
+          "eventTitle": "Playoff Match - Warriors vs Lakers",
+          "selection": "away",
+          "odds": 4.44,
+          "stake": 10
+        }
+      ],
+      "totalStake": 10,
+      "totalOdds": 4.44,
+      "potentialWin": 44.4,
+      "actualWin": 0,
+      "status": "lost",
+      "placedAt": "2025-10-01T20:00:00.000Z",
+      "settledAt": "2025-10-02T23:30:00.000Z"
+    },
+    {
+      "id": "bet-hist-8",
+      "bets": [
+        {
+          "id": "bet-12",
+          "eventId": "gen-28",
+          "eventTitle": "Grand Slam Match - Norrie vs Alcaraz",
+          "selection": "away",
+          "odds": 1.88,
+          "stake": 75
+        },
+        {
+          "id": "bet-13",
+          "eventId": "gen-29",
+          "eventTitle": "NBA Game - Suns vs 76ers",
+          "selection": "home",
+          "odds": 3.55,
+          "stake": 25
+        }
+      ],
+      "totalStake": 100,
+      "totalOdds": 6.67,
+      "potentialWin": 667,
+      "actualWin": 0,
+      "status": "lost",
+      "placedAt": "2025-09-30T11:15:00.000Z",
+      "settledAt": "2025-10-01T19:00:00.000Z"
+    },
+    {
+      "id": "bet-hist-9",
+      "bets": [
+        {
+          "id": "bet-14",
+          "eventId": "gen-34",
+          "eventTitle": "Grand Slam Match - Murray vs Nadal",
+          "selection": "home",
+          "odds": 1.93,
+          "stake": 120
+        }
+      ],
+      "totalStake": 120,
+      "totalOdds": 1.93,
+      "potentialWin": 231.6,
+      "actualWin": 231.6,
+      "status": "won",
+      "placedAt": "2025-09-29T14:00:00.000Z",
+      "settledAt": "2025-09-30T20:45:00.000Z"
+    },
+    {
+      "id": "bet-hist-10",
+      "bets": [
+        {
+          "id": "bet-15",
+          "eventId": "gen-40",
+          "eventTitle": "ATP Tour - Alcaraz vs Rune",
+          "selection": "home",
+          "odds": 2.58,
+          "stake": 60
+        }
+      ],
+      "totalStake": 60,
+      "totalOdds": 2.58,
+      "potentialWin": 154.8,
+      "actualWin": 154.8,
+      "status": "won",
+      "placedAt": "2025-09-28T16:30:00.000Z",
+      "settledAt": "2025-09-29T22:00:00.000Z"
+    },
+    {
+      "id": "bet-hist-11",
+      "bets": [
+        {
+          "id": "bet-16",
+          "eventId": "gen-44",
+          "eventTitle": "Championship Match - Sinner vs Nadal",
+          "selection": "away",
+          "odds": 3.31,
+          "stake": 40
+        }
+      ],
+      "totalStake": 40,
+      "totalOdds": 3.31,
+      "potentialWin": 132.4,
+      "actualWin": 0,
+      "status": "lost",
+      "placedAt": "2025-09-27T10:00:00.000Z",
+      "settledAt": "2025-09-28T17:30:00.000Z"
+    },
+    {
+      "id": "bet-hist-12",
+      "bets": [
+        {
+          "id": "bet-17",
+          "eventId": "gen-32",
+          "eventTitle": "League Cup - Tottenham vs Borussia Dortmund",
+          "selection": "away",
+          "odds": 1.7,
+          "stake": 100
+        }
+      ],
+      "totalStake": 100,
+      "totalOdds": 1.7,
+      "potentialWin": 170,
+      "status": "pending",
+      "placedAt": "2025-10-06T08:00:00.000Z"
+    }
   ]
 }

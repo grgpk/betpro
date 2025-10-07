@@ -1,6 +1,7 @@
 import { inject, Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
-import { map, tap } from 'rxjs/operators';
+import { map, catchError, mergeMap } from 'rxjs/operators';
+import { of } from 'rxjs';
 import * as BetHistoryActions from './bet-history.actions';
 import * as BetslipActions from '../betslip/betslip.actions';
 import { Store } from '@ngrx/store';
@@ -10,61 +11,35 @@ import {
   selectBetslipTotalStake,
   selectBetslipPotentialWin,
 } from '../betslip/betslip.selectors';
-import { selectBetHistory } from './bet-history.selectors';
 import { withLatestFrom } from 'rxjs/operators';
-import { BetHistoryItem } from '../../models/bet-history.model';
+import { BetHistoryService } from '../../services/bet-history.service';
 
 @Injectable()
 export class BetHistoryEffects {
   private actions$ = inject(Actions);
   private store = inject(Store);
+  private betHistoryService = inject(BetHistoryService);
 
-  // Load bet history from localStorage on init
+  // Load bet history from API on init
   loadBetHistory$ = createEffect(() =>
     this.actions$.pipe(
       ofType(BetHistoryActions.loadBetHistory),
-      map(() => {
-        const storedHistory = localStorage.getItem('betHistory');
-        if (storedHistory) {
-          try {
-            const history = JSON.parse(storedHistory);
-            // Convert date strings back to Date objects
-            const parsedHistory = history.map((bet: Partial<BetHistoryItem>) => ({
-              ...bet,
-              placedAt: new Date(bet.placedAt!),
-              settledAt: bet.settledAt ? new Date(bet.settledAt) : undefined,
-            }));
-            return BetHistoryActions.loadBetHistorySuccess({ history: parsedHistory });
-          } catch {
-            return BetHistoryActions.loadBetHistoryFailure({
-              error: 'Failed to load bet history',
-            });
-          }
-        }
-        return BetHistoryActions.loadBetHistorySuccess({ history: [] });
-      }),
-    ),
+      mergeMap(() =>
+        this.betHistoryService.getBetHistory().pipe(
+          map((history) => BetHistoryActions.loadBetHistorySuccess({ history })),
+          catchError((error) =>
+            of(
+              BetHistoryActions.loadBetHistoryFailure({
+                error: error.message || 'Failed to load bet history',
+              })
+            )
+          )
+        )
+      )
+    )
   );
 
-  // Save to localStorage whenever history changes
-  saveBetHistory$ = createEffect(
-    () =>
-      this.actions$.pipe(
-        ofType(
-          BetHistoryActions.addBetToHistory,
-          BetHistoryActions.updateBetStatus,
-          BetHistoryActions.deleteBetFromHistory,
-          BetHistoryActions.clearBetHistory,
-        ),
-        withLatestFrom(this.store.select(selectBetHistory)),
-        tap(([, history]) => {
-          localStorage.setItem('betHistory', JSON.stringify(history));
-        }),
-      ),
-    { dispatch: false },
-  );
-
-  // When bet is placed successfully, add to history
+  // When bet is placed successfully, add to history via API
   addToHistoryOnBetPlaced$ = createEffect(() =>
     this.actions$.pipe(
       ofType(BetslipActions.placeBetSuccess),
@@ -72,9 +47,9 @@ export class BetHistoryEffects {
         this.store.select(selectBetslipBets),
         this.store.select(selectBetslipTotalStake),
         this.store.select(selectBetslipTotalOdds),
-        this.store.select(selectBetslipPotentialWin),
+        this.store.select(selectBetslipPotentialWin)
       ),
-      map(([, bets, totalStake, totalOdds, potentialWin]) => {
+      mergeMap(([, bets, totalStake, totalOdds, potentialWin]) => {
         const historyItem = {
           id: `bet-${Date.now()}`,
           bets: [...bets],
@@ -84,8 +59,40 @@ export class BetHistoryEffects {
           status: 'pending' as const,
           placedAt: new Date(),
         };
-        return BetHistoryActions.addBetToHistory({ bet: historyItem });
-      }),
-    ),
+        return this.betHistoryService.addBetHistory(historyItem).pipe(
+          map((bet) => BetHistoryActions.addBetToHistory({ bet })),
+          catchError(() => of(BetHistoryActions.addBetToHistory({ bet: historyItem })))
+        );
+      })
+    )
+  );
+
+  // Delete bet from API
+  deleteBet$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(BetHistoryActions.deleteBetFromHistory),
+      mergeMap(({ betId }) =>
+        this.betHistoryService.deleteBetHistory(betId).pipe(
+          map(() => BetHistoryActions.deleteBetFromHistory({ betId })),
+          catchError(() => of(BetHistoryActions.deleteBetFromHistory({ betId })))
+        )
+      )
+    )
+  );
+
+  // Update bet status via API
+  updateBetStatus$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(BetHistoryActions.updateBetStatus),
+      mergeMap(({ betId, status, actualWin }) => {
+        const settledAt = new Date();
+        return this.betHistoryService
+          .updateBetHistory(betId, { status, actualWin, settledAt })
+          .pipe(
+            map(() => BetHistoryActions.updateBetStatus({ betId, status, actualWin })),
+            catchError(() => of(BetHistoryActions.updateBetStatus({ betId, status, actualWin })))
+          );
+      })
+    )
   );
 }
