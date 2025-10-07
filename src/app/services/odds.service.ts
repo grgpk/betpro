@@ -1,10 +1,10 @@
 import { inject, Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { interval, Observable, switchMap, take, tap } from 'rxjs';
-import { selectAllEvents } from '../store/events/events.selectors';
-import { updateOdds } from '../store/events/events.actions';
 import { SportEvent } from '../models/sport-event.model';
 import * as BetslipActions from '../store/betslip/betslip.actions';
+import { updateOdds } from '../store/events/events.actions';
+import { selectAllEvents } from '../store/events/events.selectors';
 
 @Injectable({
   providedIn: 'root',
