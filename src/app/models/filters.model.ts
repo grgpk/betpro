@@ -3,7 +3,6 @@ export interface EventFilters {
   status?: 'upcoming' | 'live' | 'finished';
   dateFrom?: string;
   dateTo?: string;
-  search?: string;
 }
 
 export interface EventSort {

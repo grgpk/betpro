@@ -67,7 +67,6 @@ export class EventListComponent implements OnInit, OnDestroy {
   currentFilterValues: FilterValues = {
     sport: '',
     status: '',
-    search: '',
     dateFrom: null,
     dateTo: null,
   };
@@ -93,7 +92,6 @@ export class EventListComponent implements OnInit, OnDestroy {
     const filters: EventFilters = {};
     if (values.sport) filters.sport = values.sport as any;
     if (values.status) filters.status = values.status as any;
-    if (values.search) filters.search = values.search;
     if (values.dateFrom) filters.dateFrom = values.dateFrom.toISOString();
     if (values.dateTo) filters.dateTo = values.dateTo.toISOString();
 
@@ -103,7 +101,7 @@ export class EventListComponent implements OnInit, OnDestroy {
   }
 
   onClearFilters(): void {
-    this.currentFilterValues = { sport: '', status: '', search: '', dateFrom: null, dateTo: null };
+    this.currentFilterValues = { sport: '', status: '', dateFrom: null, dateTo: null };
     this.store.dispatch(EventsActions.setFilters({ filters: {} }));
     this.saveFiltersToUrl();
     this.loadEvents();
@@ -209,7 +207,6 @@ export class EventListComponent implements OnInit, OnDestroy {
 
     if (this.currentFilterValues.sport) filters.sport = this.currentFilterValues.sport as any;
     if (this.currentFilterValues.status) filters.status = this.currentFilterValues.status as any;
-    if (this.currentFilterValues.search) filters.search = this.currentFilterValues.search;
     if (this.currentFilterValues.dateFrom)
       filters.dateFrom = this.currentFilterValues.dateFrom.toISOString();
     if (this.currentFilterValues.dateTo)
@@ -223,7 +220,6 @@ export class EventListComponent implements OnInit, OnDestroy {
 
     const sport = params.get('sport') || '';
     const status = params.get('status') || '';
-    const search = params.get('search') || '';
     const dateFrom = params.get('dateFrom') ? new Date(params.get('dateFrom')!) : null;
     const dateTo = params.get('dateTo') ? new Date(params.get('dateTo')!) : null;
     const page = params.get('page');
@@ -231,7 +227,7 @@ export class EventListComponent implements OnInit, OnDestroy {
     const sortField = params.get('sortField');
     const sortDirection = params.get('sortDirection');
 
-    this.currentFilterValues = { sport, status, search, dateFrom, dateTo };
+    this.currentFilterValues = { sport, status, dateFrom, dateTo };
 
     if (page && pageSize) {
       this.store.dispatch(
@@ -259,7 +255,6 @@ export class EventListComponent implements OnInit, OnDestroy {
 
     if (filters.sport) params.set('sport', filters.sport);
     if (filters.status) params.set('status', filters.status);
-    if (filters.search) params.set('search', filters.search);
     if (filters.dateFrom) params.set('dateFrom', filters.dateFrom);
     if (filters.dateTo) params.set('dateTo', filters.dateTo);
     params.set('page', paginationValue.page.toString());

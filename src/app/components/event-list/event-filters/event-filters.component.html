@@ -22,12 +22,6 @@
       </mat-form-field>
 
       <mat-form-field>
-        <mat-label>Search</mat-label>
-        <input matInput formControlName="search" placeholder="Search events..." />
-        <mat-icon matSuffix>search</mat-icon>
-      </mat-form-field>
-
-      <mat-form-field>
         <mat-label>Date From</mat-label>
         <input matInput [matDatepicker]="pickerFrom" formControlName="dateFrom" />
         <mat-datepicker-toggle matIconSuffix [for]="pickerFrom"></mat-datepicker-toggle>

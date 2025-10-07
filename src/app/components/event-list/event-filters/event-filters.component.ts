@@ -15,7 +15,6 @@ import { debounceTime } from 'rxjs/operators';
 export interface FilterValues {
   sport: string;
   status: string;
-  search: string;
   dateFrom?: Date | null;
   dateTo?: Date | null;
 }
@@ -44,7 +43,6 @@ export class EventFiltersComponent {
   initialValues = input<FilterValues>({
     sport: '',
     status: '',
-    search: '',
     dateFrom: null,
     dateTo: null,
   });
@@ -55,7 +53,6 @@ export class EventFiltersComponent {
   filterForm = new FormGroup({
     sport: new FormControl<string>(''),
     status: new FormControl<string>(''),
-    search: new FormControl<string>(''),
     dateFrom: new FormControl<Date | null>(null),
     dateTo: new FormControl<Date | null>(null),
   });
@@ -76,7 +73,6 @@ export class EventFiltersComponent {
       this.filtersChanged.emit({
         sport: values.sport || '',
         status: values.status || '',
-        search: values.search || '',
         dateFrom: values.dateFrom,
         dateTo: values.dateTo,
       });

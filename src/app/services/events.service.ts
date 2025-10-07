@@ -26,9 +26,6 @@ export class EventsService {
     if (filters?.status) {
       params = params.set('status', filters.status);
     }
-    if (filters?.search) {
-      params = params.set('q', filters.search);
-    }
     if (filters?.dateFrom) {
       params = params.set('startTime_gte', filters.dateFrom);
     }
