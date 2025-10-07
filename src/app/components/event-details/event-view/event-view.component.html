@@ -32,8 +32,10 @@
 <div class="odds-section">
   <h3>Current Odds</h3>
   <div class="odds-display">
+    @let isFinished = event().status === 'finished';
     <sb-odd-card
       [label]="event().homeTeam"
+      [isFinished]="isFinished"
       [oddValue]="event().odds.home"
       (addToBetslip)="onAddToBetslip('home')"
     />
@@ -41,6 +43,7 @@
     @if (event().odds.draw) {
       <sb-odd-card
         label="Draw"
+        [isFinished]="isFinished"
         [oddValue]="event().odds.draw!"
         (addToBetslip)="onAddToBetslip('draw')"
       />
@@ -48,6 +51,7 @@
 
     <sb-odd-card
       [label]="event().awayTeam"
+      [isFinished]="isFinished"
       [oddValue]="event().odds.away"
       (addToBetslip)="onAddToBetslip('away')"
     />

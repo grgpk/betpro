@@ -34,18 +34,37 @@
 
     <div class="odds">
       <h4>Odds</h4>
-      <div class="odds-buttons">
-        <button mat-raised-button color="primary" (click)="onAddToBetslip('home')">
+      @let isFinished = event().status === 'finished';
+      <div
+        class="odds-buttons"
+        [matTooltip]="isFinished ? 'Cannot place bets on finished events' : ''"
+      >
+        <button
+          mat-raised-button
+          color="primary"
+          [disabled]="isFinished"
+          (click)="onAddToBetslip('home')"
+        >
           {{ event().homeTeam }}: {{ event().odds.home }}
         </button>
 
         @if (event().odds.draw) {
-          <button mat-raised-button color="primary" (click)="onAddToBetslip('draw')">
+          <button
+            mat-raised-button
+            color="primary"
+            [disabled]="isFinished"
+            (click)="onAddToBetslip('draw')"
+          >
             Draw: {{ event().odds.draw }}
           </button>
         }
 
-        <button mat-raised-button color="primary" (click)="onAddToBetslip('away')">
+        <button
+          mat-raised-button
+          color="primary"
+          [disabled]="isFinished"
+          (click)="onAddToBetslip('away')"
+        >
           {{ event().awayTeam }}: {{ event().odds.away }}
         </button>
       </div>

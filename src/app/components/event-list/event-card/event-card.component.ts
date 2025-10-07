@@ -6,6 +6,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { RouterLink } from '@angular/router';
 import { DatePipe, TitleCasePipe } from '@angular/common';
 import { SportEvent } from '../../../models/sport-event.model';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 @Component({
   selector: 'sb-event-card',
@@ -17,6 +18,7 @@ import { SportEvent } from '../../../models/sport-event.model';
     RouterLink,
     DatePipe,
     TitleCasePipe,
+    MatTooltipModule,
   ],
   templateUrl: './event-card.component.html',
   styleUrl: './event-card.component.scss',

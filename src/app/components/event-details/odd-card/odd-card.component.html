@@ -1,7 +1,9 @@
 <dl class="odd-card">
   <dt>{{ label() }}</dt>
   <dd class="odd-value">{{ oddValue() }}</dd>
-  <dd>
-    <button mat-raised-button color="primary" (click)="onAddToBetslip()">Add to Betslip</button>
+  <dd [matTooltip]="isFinished() ? 'Cannot place bets on finished events' : ''">
+    <button mat-raised-button color="primary" [disabled]="isFinished()" (click)="onAddToBetslip()">
+      Add to Betslip
+    </button>
   </dd>
 </dl>
