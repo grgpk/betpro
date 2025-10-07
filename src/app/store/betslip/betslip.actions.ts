@@ -22,3 +22,8 @@ export const placeBetFailure = createAction(
 );
 
 export const loadBetslipFromStorage = createAction('[Betslip] Load From Storage');
+
+export const updateOdds = createAction(
+  '[Betslip] Update Odds',
+  props<{ eventId: string; newOdds: { home: number; draw?: number; away: number } }>(),
+);

@@ -4,6 +4,7 @@ import { interval, Observable, switchMap, take, tap } from 'rxjs';
 import { selectAllEvents } from '../store/events/events.selectors';
 import { updateOdds } from '../store/events/events.actions';
 import { SportEvent } from '../models/sport-event.model';
+import * as BetslipActions from '../store/betslip/betslip.actions';
 
 @Injectable({
   providedIn: 'root',
@@ -20,6 +21,13 @@ export class OddsService {
           if (event.isLive) {
             const newOdds = this.generateRandomOdds(event.odds);
             this.store.dispatch(updateOdds({ eventId: event.id, odds: newOdds }));
+
+            this.store.dispatch(
+              BetslipActions.updateOdds({
+                eventId: event.id,
+                newOdds,
+              }),
+            );
           }
         });
       }),

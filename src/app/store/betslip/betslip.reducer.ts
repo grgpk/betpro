@@ -73,4 +73,11 @@ export const betslipReducer = createReducer(
     }
     return state;
   }),
+
+  on(BetslipActions.updateOdds, (state, { eventId, newOdds }) => ({
+    ...state,
+    bets: state.bets.map((bet) =>
+      bet.eventId === eventId ? { ...bet, odds: newOdds[bet.selection]! } : bet,
+    ),
+  })),
 );

@@ -17,6 +17,7 @@ export class BetslipEffects {
           BetslipActions.addToBetslip,
           BetslipActions.removeFromBetslip,
           BetslipActions.updateStake,
+          BetslipActions.updateOdds,
           BetslipActions.clearBetslip,
         ),
         switchMap(() =>
