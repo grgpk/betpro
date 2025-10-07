@@ -11,7 +11,7 @@ describe('EventsService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [HttpClientTestingModule],
-      providers: [EventsService]
+      providers: [EventsService],
     });
     service = TestBed.inject(EventsService);
     httpMock = TestBed.inject(HttpTestingController);
@@ -37,11 +37,11 @@ describe('EventsService', () => {
         startTime: new Date(),
         status: 'upcoming',
         odds: { home: 2.0, draw: 3.0, away: 2.5 },
-        isLive: false
-      }
+        isLive: false,
+      },
     ];
 
-    service.getEvents().subscribe(result => {
+    service.getEvents().subscribe((result) => {
       expect(result.events.length).toBe(1);
       expect(result.events[0].title).toBe('Test Event');
     });
@@ -61,10 +61,10 @@ describe('EventsService', () => {
       startTime: new Date(),
       status: 'upcoming',
       odds: { home: 1.8, away: 2.2 },
-      isLive: false
+      isLive: false,
     };
 
-    service.createEvent(newEvent).subscribe(event => {
+    service.createEvent(newEvent).subscribe((event) => {
       expect(event.id).toBe('2');
       expect(event.title).toBe('New Event');
     });
@@ -75,8 +75,8 @@ describe('EventsService', () => {
   });
 
   it('should throw error for invalid event data', () => {
-    const invalidEvent: any = {
-      title: 'A', // Too short
+    const invalidEvent: Omit<SportEvent, 'id'> = {
+      title: 'A',
       description: 'Valid description',
       sport: 'football',
       homeTeam: 'Team A',
@@ -84,7 +84,7 @@ describe('EventsService', () => {
       startTime: new Date(),
       status: 'upcoming',
       odds: { home: 2.0, away: 2.5 },
-      isLive: false
+      isLive: false,
     };
 
     expect(() => {

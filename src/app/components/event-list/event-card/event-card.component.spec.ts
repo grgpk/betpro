@@ -47,7 +47,7 @@ describe('EventCardComponent', () => {
   });
 
   it('should emit betslipClicked when odds button is clicked', () => {
-    let emittedEvent: any;
+    let emittedEvent: { event: SportEvent; selection: 'home' | 'draw' | 'away' } | undefined;
     component.betslipClicked.subscribe((event) => (emittedEvent = event));
 
     component.onAddToBetslip('home');
@@ -59,7 +59,7 @@ describe('EventCardComponent', () => {
   });
 
   it('should emit deleteClicked when delete button is clicked', () => {
-    let emittedEvent: any;
+    let emittedEvent: SportEvent | undefined;
     component.deleteClicked.subscribe((event) => (emittedEvent = event));
 
     component.onDelete();
