@@ -8,6 +8,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatPaginatorModule, PageEvent } from '@angular/material/paginator';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { EventFilters, EventSort } from '../../models/filters.model';
 import { SportEvent } from '../../models/sport-event.model';
@@ -54,6 +55,8 @@ export class EventListComponent implements OnInit, OnDestroy {
   private store = inject(Store);
   private dialog = inject(MatDialog);
   private snackBar = inject(MatSnackBar);
+  private router = inject(Router);
+  private route = inject(ActivatedRoute);
 
   events = this.store.selectSignal(selectAllEvents);
   loading = this.store.selectSignal(selectEventsLoading);
@@ -225,18 +228,28 @@ export class EventListComponent implements OnInit, OnDestroy {
   }
 
   private loadFiltersFromUrl(): void {
-    const params = new URLSearchParams(window.location.search);
+    const params = this.route.snapshot.queryParams;
 
-    const sport = params.get('sport') || '';
-    const status = params.get('status') || '';
-    const dateFrom = params.get('dateFrom') ? new Date(params.get('dateFrom')!) : null;
-    const dateTo = params.get('dateTo') ? new Date(params.get('dateTo')!) : null;
-    const page = params.get('page');
-    const pageSize = params.get('pageSize');
-    const sortField = params.get('sortField');
-    const sortDirection = params.get('sortDirection');
+    const sport = params['sport'] || '';
+    const status = params['status'] || '';
+    const dateFrom = params['dateFrom'] ? new Date(params['dateFrom']) : null;
+    const dateTo = params['dateTo'] ? new Date(params['dateTo']) : null;
+    const page = params['page'];
+    const pageSize = params['pageSize'];
+    const sortField = params['sortField'];
+    const sortDirection = params['sortDirection'];
 
     this.currentFilterValues = { sport, status, dateFrom, dateTo };
+
+    const filters: EventFilters = {};
+    if (sport) filters.sport = sport as Sport;
+    if (status) filters.status = status as EventStatus;
+    if (dateFrom) filters.dateFrom = dateFrom.toISOString();
+    if (dateTo) filters.dateTo = dateTo.toISOString();
+
+    if (Object.keys(filters).length > 0) {
+      this.store.dispatch(EventsActions.setFilters({ filters }));
+    }
 
     if (page && pageSize) {
       this.store.dispatch(
@@ -263,19 +276,23 @@ export class EventListComponent implements OnInit, OnDestroy {
     const paginationValue = this.pagination();
     const sortValue = this.sort();
 
-    const params = new URLSearchParams();
+    const queryParams: Record<string, string | number> = {
+      page: paginationValue.page,
+      pageSize: paginationValue.pageSize,
+      sortField: sortValue.field,
+      sortDirection: sortValue.direction,
+    };
 
-    if (filters.sport) params.set('sport', filters.sport);
-    if (filters.status) params.set('status', filters.status);
-    if (filters.dateFrom) params.set('dateFrom', filters.dateFrom);
-    if (filters.dateTo) params.set('dateTo', filters.dateTo);
-    params.set('page', paginationValue.page.toString());
-    params.set('pageSize', paginationValue.pageSize.toString());
-    params.set('sortField', sortValue.field);
-    params.set('sortDirection', sortValue.direction);
+    if (filters.sport) queryParams['sport'] = filters.sport;
+    if (filters.status) queryParams['status'] = filters.status;
+    if (filters.dateFrom) queryParams['dateFrom'] = filters.dateFrom;
+    if (filters.dateTo) queryParams['dateTo'] = filters.dateTo;
 
-    const newUrl = `${window.location.pathname}?${params.toString()}`;
-    window.history.replaceState({}, '', newUrl);
+    this.router.navigate([], {
+      relativeTo: this.route,
+      queryParams,
+      replaceUrl: true,
+    });
   }
 
   trackById(index: number, item: SportEvent): string {
