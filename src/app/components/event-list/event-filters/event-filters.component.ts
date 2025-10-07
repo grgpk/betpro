@@ -11,6 +11,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { TitleCasePipe } from '@angular/common';
 import { debounceTime } from 'rxjs/operators';
+import type { Sport, EventStatus } from '../types';
 
 export interface FilterValues {
   sport: string;
@@ -38,8 +39,8 @@ export interface FilterValues {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class EventFiltersComponent {
-  sports = input.required<string[]>();
-  statuses = input.required<string[]>();
+  sports = input.required<readonly Sport[]>();
+  statuses = input.required<readonly EventStatus[]>();
   initialValues = input<FilterValues>({
     sport: '',
     status: '',

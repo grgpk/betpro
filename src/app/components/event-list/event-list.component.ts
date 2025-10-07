@@ -9,10 +9,11 @@ import { MatPaginatorModule, PageEvent } from '@angular/material/paginator';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 import { Store } from '@ngrx/store';
-import { EventFilters } from '../../models/filters.model';
+import { EventFilters, EventSort } from '../../models/filters.model';
 import { SportEvent } from '../../models/sport-event.model';
 import * as BetslipActions from '../../store/betslip/betslip.actions';
 import * as EventsActions from '../../store/events/events.actions';
+import type { Sport, EventStatus } from './types';
 import {
   selectAllEvents,
   selectEventsError,
@@ -90,8 +91,12 @@ export class EventListComponent implements OnInit, OnDestroy {
   onFiltersChanged(values: FilterValues): void {
     this.currentFilterValues = values;
     const filters: EventFilters = {};
-    if (values.sport) filters.sport = values.sport as any;
-    if (values.status) filters.status = values.status as any;
+    if (values.sport) {
+      filters.sport = values.sport as Sport;
+    }
+    if (values.status) {
+      filters.status = values.status as EventStatus;
+    }
     if (values.dateFrom) filters.dateFrom = values.dateFrom.toISOString();
     if (values.dateTo) filters.dateTo = values.dateTo.toISOString();
 
@@ -205,8 +210,12 @@ export class EventListComponent implements OnInit, OnDestroy {
   private getFiltersFromValues(): EventFilters {
     const filters: EventFilters = {};
 
-    if (this.currentFilterValues.sport) filters.sport = this.currentFilterValues.sport as any;
-    if (this.currentFilterValues.status) filters.status = this.currentFilterValues.status as any;
+    if (this.currentFilterValues.sport) {
+      filters.sport = this.currentFilterValues.sport as Sport;
+    }
+    if (this.currentFilterValues.status) {
+      filters.status = this.currentFilterValues.status as EventStatus;
+    }
     if (this.currentFilterValues.dateFrom)
       filters.dateFrom = this.currentFilterValues.dateFrom.toISOString();
     if (this.currentFilterValues.dateTo)
@@ -240,7 +249,10 @@ export class EventListComponent implements OnInit, OnDestroy {
     if (sortField && sortDirection) {
       this.store.dispatch(
         EventsActions.setSort({
-          sort: { field: sortField as any, direction: sortDirection as any },
+          sort: {
+            field: sortField as EventSort['field'],
+            direction: sortDirection as EventSort['direction'],
+          },
         }),
       );
     }

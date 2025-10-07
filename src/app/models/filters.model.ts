@@ -1,6 +1,8 @@
+import type { Sport, EventStatus } from '../components/event-list/types';
+
 export interface EventFilters {
-  sport?: 'football' | 'basketball' | 'tennis' | 'volleyball';
-  status?: 'upcoming' | 'live' | 'finished';
+  sport?: Sport;
+  status?: EventStatus;
   dateFrom?: string;
   dateTo?: string;
 }

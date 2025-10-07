@@ -6,6 +6,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
+import type { Sport, EventStatus } from '../../event-list/types';
 
 @Component({
   selector: 'sb-event-edit',
@@ -24,7 +25,7 @@ import { MatSelectModule } from '@angular/material/select';
 })
 export class EventEditComponent {
   eventForm = input.required<FormGroup>();
-  sports = input.required<string[]>();
-  statuses = input.required<string[]>();
+  sports = input.required<readonly Sport[]>();
+  statuses = input.required<readonly EventStatus[]>();
   hasDraw = input.required<boolean>();
 }

@@ -5,6 +5,7 @@ import { map } from 'rxjs/operators';
 import { SportEvent } from '../models/sport-event.model';
 import { EventFilters, EventSort, PaginationParams } from '../models/filters.model';
 import { environment } from '../../environments/environment';
+import { SPORTS, STATUSES } from '../constants/const';
 
 @Injectable({
   providedIn: 'root',
@@ -119,7 +120,7 @@ export class EventsService {
     }
 
     // Sport validation
-    if (!['football', 'basketball', 'tennis', 'volleyball'].includes(event.sport)) {
+    if (!SPORTS.includes(event.sport)) {
       errors.push('Invalid sport type');
     }
 
@@ -139,7 +140,7 @@ export class EventsService {
     }
 
     // Status validation
-    if (!['upcoming', 'live', 'finished'].includes(event.status)) {
+    if (!STATUSES.includes(event.status)) {
       errors.push('Invalid status');
     }
 

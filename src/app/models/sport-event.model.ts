@@ -1,12 +1,14 @@
+import type { Sport, EventStatus } from '../components/event-list/types';
+
 export interface SportEvent {
   id: string;
   title: string;
   description: string;
-  sport: 'football' | 'basketball' | 'tennis' | 'volleyball';
+  sport: Sport;
   homeTeam: string;
   awayTeam: string;
   startTime: Date;
-  status: 'upcoming' | 'live' | 'finished';
+  status: EventStatus;
   odds: {
     home: number;
     draw?: number;
