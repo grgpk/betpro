@@ -10,7 +10,6 @@ export class BetslipEffects {
   private actions$ = inject(Actions);
   private store = inject(Store);
 
-  // Save to localStorage whenever betslip changes
   saveBetslip$ = createEffect(
     () =>
       this.actions$.pipe(
@@ -18,29 +17,28 @@ export class BetslipEffects {
           BetslipActions.addToBetslip,
           BetslipActions.removeFromBetslip,
           BetslipActions.updateStake,
-          BetslipActions.clearBetslip
+          BetslipActions.clearBetslip,
         ),
         switchMap(() =>
           this.store.select(selectBetslipBets).pipe(
             tap((bets) => {
               localStorage.setItem('betslip', JSON.stringify(bets));
-            })
-          )
-        )
+            }),
+          ),
+        ),
       ),
-    { dispatch: false }
+    { dispatch: false },
   );
 
   // Simulate placing bet
   placeBet$ = createEffect(() =>
     this.actions$.pipe(
       ofType(BetslipActions.placeBet),
-      delay(1000), // Simulate API call
+      delay(1000),
       map(() => {
-        // Clear localStorage
         localStorage.removeItem('betslip');
         return BetslipActions.placeBetSuccess();
-      })
-    )
+      }),
+    ),
   );
 }

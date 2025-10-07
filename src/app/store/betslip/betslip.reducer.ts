@@ -17,13 +17,10 @@ const initialState: BetslipState = {
 export const betslipReducer = createReducer(
   initialState,
 
-  // Add to Betslip
   on(BetslipActions.addToBetslip, (state, { bet }) => {
-    // Check if bet for this event already exists
     const existingBetIndex = state.bets.findIndex((b) => b.eventId === bet.eventId);
 
     if (existingBetIndex >= 0) {
-      // Replace existing bet
       const updatedBets = [...state.bets];
       updatedBets[existingBetIndex] = bet;
       return {
@@ -31,7 +28,6 @@ export const betslipReducer = createReducer(
         bets: updatedBets,
       };
     } else {
-      // Add new bet
       return {
         ...state,
         bets: [...state.bets, bet],
@@ -39,22 +35,18 @@ export const betslipReducer = createReducer(
     }
   }),
 
-  // Remove from Betslip
   on(BetslipActions.removeFromBetslip, (state, { betId }) => ({
     ...state,
     bets: state.bets.filter((b) => b.id !== betId),
   })),
 
-  // Update Stake
   on(BetslipActions.updateStake, (state, { betId, stake }) => ({
     ...state,
     bets: state.bets.map((b) => (b.id === betId ? { ...b, stake } : b)),
   })),
 
-  // Clear Betslip
   on(BetslipActions.clearBetslip, () => initialState),
 
-  // Place Bet
   on(BetslipActions.placeBet, (state) => ({
     ...state,
     loading: true,
@@ -69,7 +61,6 @@ export const betslipReducer = createReducer(
     error,
   })),
 
-  // Load from Storage
   on(BetslipActions.loadBetslipFromStorage, (state) => {
     const storedBetslip = localStorage.getItem('betslip');
     if (storedBetslip) {
@@ -81,5 +72,5 @@ export const betslipReducer = createReducer(
       }
     }
     return state;
-  })
+  }),
 );

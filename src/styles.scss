@@ -1,9 +1,5 @@
-/* You can add global styles to this file, and also import other style files */
-
-// Import Angular Material Theme
 @use './app/theme.scss';
 
-// Sportsbook Color Palette
 :root {
   --color-primary: #00d9ff;
   --color-primary-dark: #00b8d4;
@@ -56,7 +52,6 @@ body {
   overflow: auto;
 }
 
-// Custom scrollbar
 ::-webkit-scrollbar {
   width: 8px;
   height: 8px;

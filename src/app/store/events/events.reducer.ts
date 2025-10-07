@@ -28,7 +28,6 @@ const initialState: EventsState = {
 export const eventsReducer = createReducer(
   initialState,
 
-  // Load Events
   on(EventsActions.loadEvents, (state) => ({
     ...state,
     loading: true,
@@ -49,7 +48,6 @@ export const eventsReducer = createReducer(
     error,
   })),
 
-  // Load Single Event
   on(EventsActions.loadEvent, (state) => ({
     ...state,
     loading: true,
@@ -69,7 +67,6 @@ export const eventsReducer = createReducer(
     error,
   })),
 
-  // Add Event
   on(EventsActions.addEvent, (state) => ({
     ...state,
     loading: true,
@@ -90,7 +87,6 @@ export const eventsReducer = createReducer(
     error,
   })),
 
-  // Update Event
   on(EventsActions.updateEvent, (state) => ({
     ...state,
     loading: true,
@@ -111,7 +107,6 @@ export const eventsReducer = createReducer(
     error,
   })),
 
-  // Delete Event
   on(EventsActions.deleteEvent, (state) => ({
     ...state,
     loading: true,
@@ -132,7 +127,6 @@ export const eventsReducer = createReducer(
     error,
   })),
 
-  // Update Odds
   on(EventsActions.updateOdds, (state, { eventId, odds }) => ({
     ...state,
     events: state.events.map((e) => (e.id === eventId ? { ...e, odds } : e)),
@@ -140,22 +134,19 @@ export const eventsReducer = createReducer(
       state.selectedEvent?.id === eventId ? { ...state.selectedEvent, odds } : state.selectedEvent,
   })),
 
-  // Set Filters
   on(EventsActions.setFilters, (state, { filters }) => ({
     ...state,
     filters,
-    pagination: { ...state.pagination, page: 1 }, // Reset to first page on filter change
+    pagination: { ...state.pagination, page: 1 },
   })),
 
-  // Set Sort
   on(EventsActions.setSort, (state, { sort }) => ({
     ...state,
     sort,
   })),
 
-  // Set Pagination
   on(EventsActions.setPagination, (state, { pagination }) => ({
     ...state,
     pagination,
-  }))
+  })),
 );

@@ -18,10 +18,10 @@ export class EventsEffects {
       switchMap(({ filters, sort, pagination }) =>
         this.eventsService.getEvents(filters, sort, pagination).pipe(
           map(({ events, total }) => EventsActions.loadEventsSuccess({ events, total })),
-          catchError((error) => of(EventsActions.loadEventsFailure({ error: error.message })))
-        )
-      )
-    )
+          catchError((error) => of(EventsActions.loadEventsFailure({ error: error.message }))),
+        ),
+      ),
+    ),
   );
 
   loadEvent$ = createEffect(() =>
@@ -30,10 +30,10 @@ export class EventsEffects {
       switchMap(({ id }) =>
         this.eventsService.getEvent(id).pipe(
           map((event) => EventsActions.loadEventSuccess({ event })),
-          catchError((error) => of(EventsActions.loadEventFailure({ error: error.message })))
-        )
-      )
-    )
+          catchError((error) => of(EventsActions.loadEventFailure({ error: error.message }))),
+        ),
+      ),
+    ),
   );
 
   addEvent$ = createEffect(() =>
@@ -42,10 +42,10 @@ export class EventsEffects {
       switchMap(({ event }) =>
         this.eventsService.createEvent(event).pipe(
           map((createdEvent) => EventsActions.addEventSuccess({ event: createdEvent })),
-          catchError((error) => of(EventsActions.addEventFailure({ error: error.message })))
-        )
-      )
-    )
+          catchError((error) => of(EventsActions.addEventFailure({ error: error.message }))),
+        ),
+      ),
+    ),
   );
 
   addEventSuccess$ = createEffect(
@@ -54,9 +54,9 @@ export class EventsEffects {
         ofType(EventsActions.addEventSuccess),
         tap(() => {
           this.router.navigate(['/events']);
-        })
+        }),
       ),
-    { dispatch: false }
+    { dispatch: false },
   );
 
   updateEvent$ = createEffect(() =>
@@ -65,10 +65,10 @@ export class EventsEffects {
       switchMap(({ event }) =>
         this.eventsService.updateEvent(event).pipe(
           map((updatedEvent) => EventsActions.updateEventSuccess({ event: updatedEvent })),
-          catchError((error) => of(EventsActions.updateEventFailure({ error: error.message })))
-        )
-      )
-    )
+          catchError((error) => of(EventsActions.updateEventFailure({ error: error.message }))),
+        ),
+      ),
+    ),
   );
 
   deleteEvent$ = createEffect(() =>
@@ -77,21 +77,9 @@ export class EventsEffects {
       switchMap(({ id }) =>
         this.eventsService.deleteEvent(id).pipe(
           map(() => EventsActions.deleteEventSuccess({ id })),
-          catchError((error) => of(EventsActions.deleteEventFailure({ error: error.message })))
-        )
-      )
-    )
-  );
-
-  filterSortPaginationChange$ = createEffect(
-    () =>
-      this.actions$.pipe(
-        ofType(EventsActions.setFilters, EventsActions.setSort, EventsActions.setPagination),
-        switchMap(() => {
-          // This will be handled by the component, which will dispatch loadEvents
-          return of({ type: 'NO_ACTION' });
-        })
+          catchError((error) => of(EventsActions.deleteEventFailure({ error: error.message }))),
+        ),
       ),
-    { dispatch: false }
+    ),
   );
 }
