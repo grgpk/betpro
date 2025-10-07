@@ -18,8 +18,8 @@ export class BetHistoryService {
           ...item,
           placedAt: new Date(item.placedAt),
           settledAt: item.settledAt ? new Date(item.settledAt) : undefined,
-        }))
-      )
+        })),
+      ),
     );
   }
 
@@ -29,7 +29,7 @@ export class BetHistoryService {
         ...item,
         placedAt: new Date(item.placedAt),
         settledAt: item.settledAt ? new Date(item.settledAt) : undefined,
-      }))
+      })),
     );
   }
 

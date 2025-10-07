@@ -31,12 +31,12 @@ export class BetHistoryEffects {
             of(
               BetHistoryActions.loadBetHistoryFailure({
                 error: error.message || 'Failed to load bet history',
-              })
-            )
-          )
-        )
-      )
-    )
+              }),
+            ),
+          ),
+        ),
+      ),
+    ),
   );
 
   // When bet is placed successfully, add to history via API
@@ -47,7 +47,7 @@ export class BetHistoryEffects {
         this.store.select(selectBetslipBets),
         this.store.select(selectBetslipTotalStake),
         this.store.select(selectBetslipTotalOdds),
-        this.store.select(selectBetslipPotentialWin)
+        this.store.select(selectBetslipPotentialWin),
       ),
       mergeMap(([, bets, totalStake, totalOdds, potentialWin]) => {
         const historyItem = {
@@ -61,10 +61,10 @@ export class BetHistoryEffects {
         };
         return this.betHistoryService.addBetHistory(historyItem).pipe(
           map((bet) => BetHistoryActions.addBetToHistory({ bet })),
-          catchError(() => of(BetHistoryActions.addBetToHistory({ bet: historyItem })))
+          catchError(() => of(BetHistoryActions.addBetToHistory({ bet: historyItem }))),
         );
-      })
-    )
+      }),
+    ),
   );
 
   // Delete bet from API
@@ -74,10 +74,10 @@ export class BetHistoryEffects {
       mergeMap(({ betId }) =>
         this.betHistoryService.deleteBetHistory(betId).pipe(
           map(() => BetHistoryActions.deleteBetFromHistory({ betId })),
-          catchError(() => of(BetHistoryActions.deleteBetFromHistory({ betId })))
-        )
-      )
-    )
+          catchError(() => of(BetHistoryActions.deleteBetFromHistory({ betId }))),
+        ),
+      ),
+    ),
   );
 
   // Update bet status via API
@@ -90,9 +90,9 @@ export class BetHistoryEffects {
           .updateBetHistory(betId, { status, actualWin, settledAt })
           .pipe(
             map(() => BetHistoryActions.updateBetStatus({ betId, status, actualWin })),
-            catchError(() => of(BetHistoryActions.updateBetStatus({ betId, status, actualWin })))
+            catchError(() => of(BetHistoryActions.updateBetStatus({ betId, status, actualWin }))),
           );
-      })
-    )
+      }),
+    ),
   );
 }
