@@ -20,7 +20,6 @@ export class EventsService {
   ): Observable<{ events: SportEvent[]; total: number }> {
     let params = new HttpParams();
 
-    // Apply filters
     if (filters?.sport) {
       params = params.set('sport', filters.sport);
     }
@@ -43,7 +42,6 @@ export class EventsService {
       params = params.set('_sort', `${sortPrefix}${sort.field}`);
     }
 
-    // Apply pagination
     if (pagination) {
       params = params.set('_page', pagination.page.toString());
       params = params.set('_per_page', pagination.pageSize.toString());
@@ -52,22 +50,18 @@ export class EventsService {
     return this.http
       .get<{
         data?: SportEvent[];
-        items?: SportEvent[] | number;
+        items?: number;
         first?: number;
         last?: number;
         pages?: number;
       }>(this.apiUrl, { params, observe: 'response' })
       .pipe(
         map((response) => {
+          debugger;
           const body = response.body!;
-          const events = body.data || (Array.isArray(body.items) ? body.items : []);
+          const events = body.data || [];
 
-          const totalHeader = response.headers.get('X-Total-Count');
-          const total = totalHeader
-            ? parseInt(totalHeader, 10)
-            : typeof body.items === 'number'
-              ? body.items
-              : events.length;
+          const total = body.items || events.length;
 
           return {
             events: events.map((e) => ({
@@ -90,8 +84,7 @@ export class EventsService {
   }
 
   createEvent(event: Omit<SportEvent, 'id'>): Observable<SportEvent> {
-    // Validate event data
-    this.validateEvent(event as SportEvent);
+    this.validateEvent(event);
 
     return this.http.post<SportEvent>(this.apiUrl, event).pipe(
       map((createdEvent) => ({
@@ -102,7 +95,6 @@ export class EventsService {
   }
 
   updateEvent(event: SportEvent): Observable<SportEvent> {
-    // Validate event data
     this.validateEvent(event);
 
     return this.http.put<SportEvent>(`${this.apiUrl}/${event.id}`, event).pipe(
