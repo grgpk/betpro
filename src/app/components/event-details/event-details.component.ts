@@ -1,11 +1,12 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component, effect, inject, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, effect, inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatTooltipModule } from '@angular/material/tooltip';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { SPORTS, STATUSES } from '../../constants/const';
@@ -31,6 +32,7 @@ import { EventViewComponent } from './event-view/event-view.component';
     MatIconModule,
     MatProgressSpinnerModule,
     MatSnackBarModule,
+    MatTooltipModule,
     EventViewComponent,
     EventEditComponent,
   ],
@@ -50,6 +52,7 @@ export class EventDetailsComponent implements OnInit {
   error = this.store.selectSignal(selectEventsError);
 
   isEditMode = false;
+  isLive = computed(() => this.event()?.status === 'live');
 
   sports = SPORTS;
   statuses = STATUSES;

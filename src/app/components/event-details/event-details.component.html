@@ -15,10 +15,17 @@
     <h1>{{ event()!.title }}</h1>
     <div class="actions">
       @if (!isEditMode) {
-        <button mat-raised-button color="primary" (click)="toggleEditMode()">
-          <mat-icon>edit</mat-icon>
-          Edit
-        </button>
+        <div [matTooltip]="isLive() ? 'Cannot edit live events' : ''">
+          <button
+            mat-raised-button
+            color="primary"
+            (click)="toggleEditMode()"
+            [disabled]="isLive()"
+          >
+            <mat-icon>edit</mat-icon>
+            Edit
+          </button>
+        </div>
         <button mat-raised-button color="warn" (click)="deleteEvent()">
           <mat-icon>delete</mat-icon>
           Delete
