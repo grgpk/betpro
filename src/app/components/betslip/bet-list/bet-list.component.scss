@@ -34,6 +34,7 @@ mat-list {
 
         .bet-info {
           flex: 1;
+          min-width: 0; // Important for text truncation in flex container
 
           strong {
             display: block;
@@ -42,6 +43,8 @@ mat-list {
             font-size: 15px;
             font-weight: 700;
             line-height: 1.3;
+            word-break: break-word; // Break long words if needed
+            overflow-wrap: break-word; // Better word wrapping
           }
 
           .selection-info {
@@ -49,6 +52,7 @@ mat-list {
             gap: 10px;
             font-size: 13px;
             align-items: center;
+            flex-wrap: wrap; // Allow wrapping on very small screens
 
             .selection {
               background: linear-gradient(
@@ -63,12 +67,14 @@ mat-list {
               text-transform: uppercase;
               letter-spacing: 0.5px;
               border: 1px solid rgba(0, 217, 255, 0.3);
+              white-space: nowrap; // Prevent selection text from wrapping
             }
 
             .odds {
               color: var(--color-secondary);
               font-weight: 800;
               font-size: 16px;
+              white-space: nowrap; // Prevent odds from wrapping
             }
           }
         }
@@ -79,6 +85,7 @@ mat-list {
           color: var(--color-danger);
           transition: var(--transition);
           border-radius: 8px;
+          flex-shrink: 0; // Prevent button from shrinking
 
           &:hover {
             background: rgba(255, 23, 68, 0.2);

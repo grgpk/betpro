@@ -15,7 +15,7 @@
     <h1>{{ event()!.title }}</h1>
     <div class="actions">
       @if (!isEditMode) {
-        <div [matTooltip]="isLive() ? 'Cannot edit live events' : ''">
+        <div [matTooltip]="isLive() ? 'Cannot edit live events' : ''" matTooltipPosition="above">
           <button
             mat-raised-button
             color="primary"

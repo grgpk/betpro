@@ -6,8 +6,9 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatListModule } from '@angular/material/list';
+import { MatTooltipModule } from '@angular/material/tooltip';
 import { Bet } from '../../../models/bet.model';
-import { TitleCasePipe } from '@angular/common';
+import { SlicePipe, TitleCasePipe } from '@angular/common';
 
 @Component({
   selector: 'sb-bet-list',
@@ -19,6 +20,8 @@ import { TitleCasePipe } from '@angular/common';
     MatFormFieldModule,
     MatInputModule,
     MatDividerModule,
+    MatTooltipModule,
+    SlicePipe,
     TitleCasePipe,
   ],
   templateUrl: './bet-list.component.html',

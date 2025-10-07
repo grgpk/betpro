@@ -4,7 +4,12 @@
       <section class="bet-item">
         <div class="bet-header">
           <div class="bet-info">
-            <strong>{{ bet.eventTitle }}</strong>
+            <strong
+              [matTooltip]="bet.eventTitle.length > 25 ? bet.eventTitle : ''"
+              matTooltipPosition="above"
+            >
+              {{ bet.eventTitle.length > 25 ? (bet.eventTitle | slice: 0:25) + '...' : bet.eventTitle }}
+            </strong>
             <div class="selection-info">
               <span class="selection">{{ bet.selection | titlecase }}</span>
               <span class="odds">{{ bet.odds }}</span>
