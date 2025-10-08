@@ -15,6 +15,10 @@
   </nav>
 </header>
 
+@if (navigating()) {
+  <mat-progress-bar mode="indeterminate" class="route-progress-bar"></mat-progress-bar>
+}
+
 <main class="main-content">
   <div class="content-area">
     <router-outlet />

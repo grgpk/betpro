@@ -8,6 +8,19 @@
   );
   background-attachment: fixed;
 
+  .route-progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 2000;
+    height: 3px;
+
+    ::ng-deep .mdc-linear-progress__bar-inner {
+      border-color: var(--color-primary) !important;
+    }
+  }
+
   .app-header {
     background: linear-gradient(90deg, var(--color-bg-dark) 0%, #0d1635 100%);
     border-bottom: 2px solid var(--color-border);

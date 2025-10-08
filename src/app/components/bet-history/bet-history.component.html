@@ -1,29 +1,30 @@
 @if (loading()) {
   <div class="loading-container">
-    <mat-spinner></mat-spinner>
+    <mat-spinner diameter="60"></mat-spinner>
+    <p>Loading bet history...</p>
+  </div>
+} @else {
+  <div class="bet-history-container">
+    <header class="header">
+      <h1>Bet History</h1>
+      <button
+        mat-raised-button
+        color="warn"
+        (click)="clearHistory()"
+        [disabled]="allBets().length === 0"
+      >
+        <mat-icon>delete_sweep</mat-icon>
+        Clear History
+      </button>
+    </header>
+
+    <sb-bet-stats-cards [stats]="stats()" />
+
+    <sb-bet-history-tabs
+      [allBets]="allBets()"
+      [pendingBets]="pendingBets()"
+      [settledBets]="settledBets()"
+      (deleteBet)="deleteBet($event)"
+    />
   </div>
 }
-
-<div class="bet-history-container">
-  <header class="header">
-    <h1>Bet History</h1>
-    <button
-      mat-raised-button
-      color="warn"
-      (click)="clearHistory()"
-      [disabled]="allBets().length === 0"
-    >
-      <mat-icon>delete_sweep</mat-icon>
-      Clear History
-    </button>
-  </header>
-
-  <sb-bet-stats-cards [stats]="stats()" />
-
-  <sb-bet-history-tabs
-    [allBets]="allBets()"
-    [pendingBets]="pendingBets()"
-    [settledBets]="settledBets()"
-    (deleteBet)="deleteBet($event)"
-  />
-</div>

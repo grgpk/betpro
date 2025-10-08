@@ -95,3 +95,13 @@ body {
   border-color: var(--color-primary) !important;
   box-shadow: 0 0 20px rgba(0, 217, 255, 0.2) !important;
 }
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}

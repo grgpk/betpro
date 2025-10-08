@@ -69,8 +69,25 @@
 
   .loading-container {
     display: flex;
+    flex-direction: column;
     justify-content: center;
-    padding: 80px;
+    align-items: center;
+    padding: 120px 40px;
+    gap: 24px;
+
+    mat-spinner {
+      ::ng-deep circle {
+        stroke: var(--color-primary);
+      }
+    }
+
+    p {
+      color: var(--color-text-secondary);
+      font-size: 16px;
+      font-weight: 600;
+      margin: 0;
+      animation: pulse 1.5s ease-in-out infinite;
+    }
   }
 
   .error-card {
@@ -139,15 +156,5 @@
     border: 1px solid var(--color-border);
     border-radius: var(--border-radius);
     margin-top: 32px;
-  }
-}
-
-@keyframes pulse {
-  0%,
-  100% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.7;
   }
 }
