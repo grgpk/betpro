@@ -1,0 +1,68 @@
+<div class="bets-list">
+  @if (bets().length === 0) {
+    <div class="empty-state">
+      <mat-icon>{{ emptyIcon() }}</mat-icon>
+      <p>{{ emptyMessage() }}</p>
+    </div>
+  } @else {
+    @for (bet of bets(); track bet.id) {
+      <mat-card class="bet-card">
+        <mat-card-header>
+          <div class="bet-card-header">
+            <div class="bet-id-status">
+              <span class="bet-id">Bet #{{ bet.id }}</span>
+              <mat-chip [class]="getStatusClass(bet.status)">
+                {{ bet.status | uppercase }}
+              </mat-chip>
+            </div>
+            <button mat-icon-button color="warn" (click)="onDeleteBet(bet.id)">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </div>
+        </mat-card-header>
+        <mat-card-content>
+          <div class="bet-details">
+            <div class="placed-date">
+              <mat-icon>schedule</mat-icon>
+              <span>{{ bet.placedAt | date: 'short' }}</span>
+            </div>
+            
+            <section class="individual-bets">
+              @for (individualBet of bet.bets; track individualBet.id) {
+                <div class="individual-bet">
+                  <strong>{{ individualBet.eventTitle }}</strong>
+                  <div class="bet-selection">
+                    <span class="selection">{{ individualBet.selection | titlecase }}</span>
+                    <span class="odds">@ {{ individualBet.odds }}</span>
+                    <span class="stake">${{ individualBet.stake || 0 }}</span>
+                  </div>
+                </div>
+              }
+            </section>
+
+            <section class="bet-summary">
+              <div class="summary-row">
+                <span>Total Stake:</span>
+                <strong>${{ bet.totalStake.toFixed(2) }}</strong>
+              </div>
+              <div class="summary-row">
+                <span>Total Odds:</span>
+                <strong>{{ bet.totalOdds.toFixed(2) }}</strong>
+              </div>
+              <div class="summary-row">
+                <span>Potential Win:</span>
+                <strong class="potential">${{ bet.potentialWin.toFixed(2) }}</strong>
+              </div>
+              @if (bet.status === 'won' && bet.actualWin) {
+                <div class="summary-row won">
+                  <span>Actual Win:</span>
+                  <strong>${{ bet.actualWin.toFixed(2) }}</strong>
+                </div>
+              }
+            </section>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    }
+  }
+</div>
