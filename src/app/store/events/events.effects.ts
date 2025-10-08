@@ -2,7 +2,7 @@ import { inject, Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { of } from 'rxjs';
 import { map, catchError, switchMap, tap } from 'rxjs/operators';
-import { EventsService } from '../../services/events.service';
+import { EventsService } from '../../services/events/events.service';
 import * as EventsActions from './events.actions';
 import { Router } from '@angular/router';
 

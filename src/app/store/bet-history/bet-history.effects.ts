@@ -3,7 +3,7 @@ import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { map, catchError, mergeMap } from 'rxjs/operators';
 import { of } from 'rxjs';
 import * as BetHistoryActions from './bet-history.actions';
-import { BetHistoryService } from '../../services/bet-history.service';
+import { BetHistoryService } from '../../services/bet-history/bet-history.service';
 
 @Injectable()
 export class BetHistoryEffects {

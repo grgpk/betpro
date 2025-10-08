@@ -1,7 +1,7 @@
 import { TestBed } from '@angular/core/testing';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { BetHistoryService } from './bet-history.service';
-import { BetHistoryItem } from '../models/bet-history.model';
+import { BetHistoryItem } from '../../models/bet-history.model';
 
 describe('BetHistoryService', () => {
   let service: BetHistoryService;
