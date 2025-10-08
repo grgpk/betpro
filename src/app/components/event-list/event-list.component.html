@@ -46,17 +46,6 @@
           (deleteClicked)="deleteEvent($event)"
         />
       </cdk-virtual-scroll-viewport>
-
-      @if (total() > 0) {
-        <mat-paginator
-          [length]="total()"
-          [pageSize]="pagination().pageSize"
-          [pageIndex]="pagination().page - 1"
-          [pageSizeOptions]="[5, 10, 25, 50, 100]"
-          (page)="onPageChange($event)"
-        >
-        </mat-paginator>
-      }
     } @else {
       <div class="events-grid">
         @for (event of events(); track event.id) {
@@ -68,17 +57,15 @@
           />
         }
       </div>
-
-      @if (total() > 0) {
-        <mat-paginator
-          [length]="total()"
-          [pageSize]="pagination().pageSize"
-          [pageIndex]="pagination().page - 1"
-          [pageSizeOptions]="[5, 10, 25, 50, 100]"
-          (page)="onPageChange($event)"
-        >
-        </mat-paginator>
-      }
+    }
+    @if (total() > 0) {
+      <mat-paginator
+        [length]="total()"
+        [pageSize]="pagination().pageSize"
+        [pageIndex]="pagination().page - 1"
+        [pageSizeOptions]="[5, 10, 25, 50, 100]"
+        (page)="onPageChange($event)"
+      />
     }
 
     @if (events().length === 0) {

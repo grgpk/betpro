@@ -12,6 +12,14 @@ mat-list {
     background: transparent;
     transition: var(--transition);
 
+    @media (max-width: 768px) {
+      padding: 16px 20px;
+    }
+
+    @media (max-width: 480px) {
+      padding: 12px 16px;
+    }
+
     &:hover {
       background: rgba(0, 217, 255, 0.03);
     }
@@ -26,15 +34,24 @@ mat-list {
       flex-direction: column;
       gap: 16px;
 
+      @media (max-width: 480px) {
+        gap: 12px;
+      }
+
       .bet-header {
         display: flex;
         justify-content: space-between;
         align-items: flex-start;
         width: 100%;
+        gap: 12px;
+
+        @media (max-width: 480px) {
+          gap: 8px;
+        }
 
         .bet-info {
           flex: 1;
-          min-width: 0; // Important for text truncation in flex container
+          min-width: 0;
 
           strong {
             display: block;
@@ -43,8 +60,18 @@ mat-list {
             font-size: 15px;
             font-weight: 700;
             line-height: 1.3;
-            word-break: break-word; // Break long words if needed
-            overflow-wrap: break-word; // Better word wrapping
+            word-break: break-word;
+            overflow-wrap: break-word;
+
+            @media (max-width: 768px) {
+              font-size: 14px;
+              margin-bottom: 8px;
+            }
+
+            @media (max-width: 480px) {
+              font-size: 13px;
+              margin-bottom: 6px;
+            }
           }
 
           .selection-info {
@@ -52,7 +79,12 @@ mat-list {
             gap: 10px;
             font-size: 13px;
             align-items: center;
-            flex-wrap: wrap; // Allow wrapping on very small screens
+            flex-wrap: wrap;
+
+            @media (max-width: 480px) {
+              gap: 8px;
+              font-size: 12px;
+            }
 
             .selection {
               background: linear-gradient(
@@ -67,14 +99,28 @@ mat-list {
               text-transform: uppercase;
               letter-spacing: 0.5px;
               border: 1px solid rgba(0, 217, 255, 0.3);
-              white-space: nowrap; // Prevent selection text from wrapping
+              white-space: nowrap;
+
+              @media (max-width: 480px) {
+                padding: 3px 10px;
+                font-size: 11px;
+                border-radius: 4px;
+              }
             }
 
             .odds {
               color: var(--color-secondary);
               font-weight: 800;
               font-size: 16px;
-              white-space: nowrap; // Prevent odds from wrapping
+              white-space: nowrap;
+
+              @media (max-width: 768px) {
+                font-size: 15px;
+              }
+
+              @media (max-width: 480px) {
+                font-size: 14px;
+              }
             }
           }
         }
@@ -85,7 +131,20 @@ mat-list {
           color: var(--color-danger);
           transition: var(--transition);
           border-radius: 8px;
-          flex-shrink: 0; // Prevent button from shrinking
+          flex-shrink: 0;
+
+          @media (max-width: 480px) {
+            width: 36px;
+            height: 36px;
+            padding: 0;
+            border-radius: 6px;
+
+            mat-icon {
+              font-size: 20px;
+              width: 20px;
+              height: 20px;
+            }
+          }
 
           &:hover {
             background: rgba(255, 23, 68, 0.2);

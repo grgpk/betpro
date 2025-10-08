@@ -4999,6 +4999,24 @@
       "potentialWin": 546.2099999999999,
       "status": "pending",
       "placedAt": "2025-10-08T10:37:59.283Z"
+    },
+    {
+      "id": "bet-1759947655780",
+      "bets": [
+        {
+          "id": "gen-82-home",
+          "eventId": "gen-82",
+          "eventTitle": "ATP Tour - Ruud vs Hurkacz",
+          "selection": "home",
+          "odds": 3.93,
+          "stake": 10
+        }
+      ],
+      "totalStake": 10,
+      "totalOdds": 3.93,
+      "potentialWin": 39.300000000000004,
+      "status": "pending",
+      "placedAt": "2025-10-08T18:20:55.780Z"
     }
   ]
 }

@@ -38,11 +38,19 @@
     align-items: center;
     justify-content: space-between;
 
+    @media (max-width: 768px) {
+      padding: 12px 16px;
+    }
+
     .brand {
       display: flex;
       align-items: center;
       gap: 16px;
       cursor: pointer;
+
+      @media (max-width: 768px) {
+        gap: 12px;
+      }
 
       .logo {
         width: 48px;
@@ -60,6 +68,13 @@
         font-size: 24px;
         color: var(--color-bg-darker);
         box-shadow: var(--shadow-glow);
+
+        @media (max-width: 768px) {
+          width: 36px;
+          height: 36px;
+          font-size: 18px;
+          border-radius: 8px;
+        }
       }
 
       h1 {
@@ -71,12 +86,20 @@
         -webkit-text-fill-color: transparent;
         background-clip: text;
         letter-spacing: -0.5px;
+
+        @media (max-width: 768px) {
+          display: none;
+        }
       }
     }
 
     .nav-links {
       display: flex;
       gap: 8px;
+
+      @media (max-width: 768px) {
+        gap: 4px;
+      }
 
       a {
         color: var(--color-text-secondary);
@@ -92,10 +115,22 @@
         align-items: center;
         gap: 8px;
 
+        @media (max-width: 768px) {
+          padding: 8px 12px;
+          font-size: 12px;
+          gap: 6px;
+        }
+
         mat-icon {
           font-size: 20px;
           width: 20px;
           height: 20px;
+
+          @media (max-width: 768px) {
+            font-size: 18px;
+            width: 18px;
+            height: 18px;
+          }
         }
 
         &:hover {
