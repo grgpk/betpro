@@ -5,7 +5,7 @@
 }
 
 <div class="bet-history-container">
-  <div class="header">
+  <header class="header">
     <h1>Bet History</h1>
     <button
       mat-raised-button
@@ -16,165 +16,16 @@
       <mat-icon>delete_sweep</mat-icon>
       Clear History
     </button>
-  </div>
+  </header>
 
   <!-- Stats Cards -->
-  <div class="stats-grid">
-    <mat-card class="stat-card">
-      <mat-card-content>
-        <div class="stat-icon">
-          <mat-icon>receipt_long</mat-icon>
-        </div>
-        <div class="stat-info">
-          <span class="stat-label">Total Bets</span>
-          <span class="stat-value">{{ stats().totalBets }}</span>
-        </div>
-      </mat-card-content>
-    </mat-card>
-
-    <mat-card class="stat-card success">
-      <mat-card-content>
-        <div class="stat-icon">
-          <mat-icon>trending_up</mat-icon>
-        </div>
-        <div class="stat-info">
-          <span class="stat-label">Total Winnings</span>
-          <span class="stat-value">${{ stats().winnings.toFixed(2) }}</span>
-        </div>
-      </mat-card-content>
-    </mat-card>
-
-    <mat-card class="stat-card danger">
-      <mat-card-content>
-        <div class="stat-icon">
-          <mat-icon>trending_down</mat-icon>
-        </div>
-        <div class="stat-info">
-          <span class="stat-label">Total Losses</span>
-          <span class="stat-value">${{ stats().losses.toFixed(2) }}</span>
-        </div>
-      </mat-card-content>
-    </mat-card>
-
-    <mat-card class="stat-card" [class.success]="stats().netProfit >= 0" [class.danger]="stats().netProfit < 0">
-      <mat-card-content>
-        <div class="stat-icon">
-          <mat-icon>{{ stats().netProfit >= 0 ? 'arrow_upward' : 'arrow_downward' }}</mat-icon>
-        </div>
-        <div class="stat-info">
-          <span class="stat-label">Net Profit/Loss</span>
-          <span class="stat-value">${{ stats().netProfit.toFixed(2) }}</span>
-        </div>
-      </mat-card-content>
-    </mat-card>
-  </div>
+  <sb-bet-stats-cards [stats]="stats()" />
 
   <!-- Tabs for filtering -->
-  <mat-tab-group class="history-tabs">
-    <mat-tab label="All ({{ allBets().length }})">
-      <div class="bets-list">
-        @if (allBets().length === 0) {
-          <div class="empty-state">
-            <mat-icon>history</mat-icon>
-            <p>No bets in history yet</p>
-          </div>
-        } @else {
-          @for (bet of allBets(); track bet.id) {
-            <mat-card class="bet-card">
-              <mat-card-header>
-                <div class="bet-card-header">
-                  <div class="bet-id-status">
-                    <span class="bet-id">Bet #{{ bet.id }}</span>
-                    <mat-chip [class]="getStatusClass(bet.status)">
-                      {{ bet.status | uppercase }}
-                    </mat-chip>
-                  </div>
-                  <button mat-icon-button color="warn" (click)="deleteBet(bet.id)">
-                    <mat-icon>delete</mat-icon>
-                  </button>
-                </div>
-              </mat-card-header>
-              <mat-card-content>
-                <div class="bet-details">
-                  <div class="placed-date">
-                    <mat-icon>schedule</mat-icon>
-                    <span>{{ bet.placedAt | date: 'short' }}</span>
-                  </div>
-                  
-                  <!-- List of individual bets -->
-                  <div class="individual-bets">
-                    @for (individualBet of bet.bets; track individualBet.id) {
-                      <div class="individual-bet">
-                        <strong>{{ individualBet.eventTitle }}</strong>
-                        <div class="bet-selection">
-                          <span class="selection">{{ individualBet.selection | titlecase }}</span>
-                          <span class="odds">@ {{ individualBet.odds }}</span>
-                          <span class="stake">${{ individualBet.stake || 0 }}</span>
-                        </div>
-                      </div>
-                    }
-                  </div>
-
-                  <div class="bet-summary">
-                    <div class="summary-row">
-                      <span>Total Stake:</span>
-                      <strong>${{ bet.totalStake.toFixed(2) }}</strong>
-                    </div>
-                    <div class="summary-row">
-                      <span>Total Odds:</span>
-                      <strong>{{ bet.totalOdds.toFixed(2) }}</strong>
-                    </div>
-                    <div class="summary-row">
-                      <span>Potential Win:</span>
-                      <strong class="potential">${{ bet.potentialWin.toFixed(2) }}</strong>
-                    </div>
-                    @if (bet.status === 'won' && bet.actualWin) {
-                      <div class="summary-row won">
-                        <span>Actual Win:</span>
-                        <strong>${{ bet.actualWin.toFixed(2) }}</strong>
-                      </div>
-                    }
-                  </div>
-                </div>
-              </mat-card-content>
-            </mat-card>
-          }
-        }
-      </div>
-    </mat-tab>
-
-    <mat-tab label="Pending ({{ pendingBets().length }})">
-      <div class="bets-list">
-        @if (pendingBets().length === 0) {
-          <div class="empty-state">
-            <mat-icon>hourglass_empty</mat-icon>
-            <p>No pending bets</p>
-          </div>
-        } @else {
-          @for (bet of pendingBets(); track bet.id) {
-            <mat-card class="bet-card">
-              <!-- Same card structure as above -->
-            </mat-card>
-          }
-        }
-      </div>
-    </mat-tab>
-
-    <mat-tab label="Settled ({{ settledBets().length }})">
-      <div class="bets-list">
-        @if (settledBets().length === 0) {
-          <div class="empty-state">
-            <mat-icon>done_all</mat-icon>
-            <p>No settled bets</p>
-          </div>
-        } @else {
-          @for (bet of settledBets(); track bet.id) {
-            <mat-card class="bet-card">
-              <!-- Same card structure as above -->
-            </mat-card>
-          }
-        }
-      </div>
-    </mat-tab>
-  </mat-tab-group>
+  <sb-bet-history-tabs
+    [allBets]="allBets()"
+    [pendingBets]="pendingBets()"
+    [settledBets]="settledBets()"
+    (deleteBet)="deleteBet($event)"
+  />
 </div>

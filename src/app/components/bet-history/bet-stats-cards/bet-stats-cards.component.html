@@ -1,0 +1,53 @@
+<div class="stats-grid">
+  <mat-card class="stat-card">
+    <mat-card-content>
+      <div class="stat-icon">
+        <mat-icon>receipt_long</mat-icon>
+      </div>
+      <div class="stat-info">
+        <span class="stat-label">Total Bets</span>
+        <span class="stat-value">{{ stats().totalBets }}</span>
+      </div>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card class="stat-card success">
+    <mat-card-content>
+      <div class="stat-icon">
+        <mat-icon>trending_up</mat-icon>
+      </div>
+      <div class="stat-info">
+        <span class="stat-label">Total Winnings</span>
+        <span class="stat-value">${{ stats().winnings.toFixed(2) }}</span>
+      </div>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card class="stat-card danger">
+    <mat-card-content>
+      <div class="stat-icon">
+        <mat-icon>trending_down</mat-icon>
+      </div>
+      <div class="stat-info">
+        <span class="stat-label">Total Losses</span>
+        <span class="stat-value">${{ stats().losses.toFixed(2) }}</span>
+      </div>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card
+    class="stat-card"
+    [class.success]="stats().netProfit >= 0"
+    [class.danger]="stats().netProfit < 0"
+  >
+    <mat-card-content>
+      <div class="stat-icon">
+        <mat-icon>{{ stats().netProfit >= 0 ? 'arrow_upward' : 'arrow_downward' }}</mat-icon>
+      </div>
+      <div class="stat-info">
+        <span class="stat-label">Net Profit/Loss</span>
+        <span class="stat-value">${{ stats().netProfit.toFixed(2) }}</span>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>

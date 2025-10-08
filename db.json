@@ -4918,22 +4918,40 @@
       "settledAt": "2025-09-28T17:30:00.000Z"
     },
     {
-      "id": "bet-hist-12",
-      "bets": [
-        {
-          "id": "bet-17",
-          "eventId": "gen-32",
-          "eventTitle": "League Cup - Tottenham vs Borussia Dortmund",
-          "selection": "away",
-          "odds": 1.7,
-          "stake": 100
-        }
-      ],
-      "totalStake": 100,
-      "totalOdds": 1.7,
-      "potentialWin": 170,
+      "id": "bet-1759866230830",
+      "bets": [],
+      "totalStake": 0,
+      "totalOdds": 1,
+      "potentialWin": 0,
       "status": "pending",
-      "placedAt": "2025-10-06T08:00:00.000Z"
+      "placedAt": "2025-10-07T19:43:50.830Z"
+    },
+    {
+      "id": "bet-1759866649865",
+      "bets": [],
+      "totalStake": 0,
+      "totalOdds": 1,
+      "potentialWin": 0,
+      "status": "pending",
+      "placedAt": "2025-10-07T19:50:49.865Z"
+    },
+    {
+      "id": "bet-1759867165030",
+      "bets": [],
+      "totalStake": 0,
+      "totalOdds": 1,
+      "potentialWin": 0,
+      "status": "pending",
+      "placedAt": "2025-10-07T19:59:25.030Z"
+    },
+    {
+      "id": "bet-1759867289322",
+      "bets": [],
+      "totalStake": 0,
+      "totalOdds": 1,
+      "potentialWin": 0,
+      "status": "pending",
+      "placedAt": "2025-10-07T20:01:29.322Z"
     }
   ]
 }

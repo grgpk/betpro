@@ -3,8 +3,6 @@ import { CommonModule } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
-import { MatTabsModule } from '@angular/material/tabs';
-import { MatChipsModule } from '@angular/material/chips';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { Store } from '@ngrx/store';
 import * as BetHistoryActions from '../../store/bet-history/bet-history.actions';
@@ -17,6 +15,8 @@ import {
   selectNetProfit,
   selectBetHistoryLoading,
 } from '../../store/bet-history/bet-history.selectors';
+import { BetStatsCardsComponent } from './bet-stats-cards/bet-stats-cards.component';
+import { BetHistoryTabsComponent } from './bet-history-tabs/bet-history-tabs.component';
 
 @Component({
   selector: 'sb-bet-history',
@@ -25,9 +25,9 @@ import {
     MatCardModule,
     MatButtonModule,
     MatIconModule,
-    MatTabsModule,
-    MatChipsModule,
     MatProgressSpinnerModule,
+    BetStatsCardsComponent,
+    BetHistoryTabsComponent,
   ],
   templateUrl: './bet-history.component.html',
   styleUrl: './bet-history.component.scss',
@@ -55,16 +55,6 @@ export class BetHistoryComponent implements OnInit {
 
   ngOnInit(): void {
     this.store.dispatch(BetHistoryActions.loadBetHistory());
-  }
-
-  getStatusClass(status: string): string {
-    const statusMap: Record<string, string> = {
-      pending: 'status-pending',
-      won: 'status-won',
-      lost: 'status-lost',
-      void: 'status-void',
-    };
-    return statusMap[status] || '';
   }
 
   deleteBet(betId: string): void {
