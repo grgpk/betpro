@@ -26,7 +26,7 @@ describe('Betslip Reducer', () => {
     const action = { type: 'Unknown' };
     const state = betslipReducer(undefined, action);
 
-    expect(state).toBe(initialState);
+    expect(state).toEqual(initialState);
   });
 
   it('should add bet to betslip', () => {

@@ -1,8 +1,9 @@
 import { TestBed } from '@angular/core/testing';
-import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
+import { provideHttpClientTesting, HttpTestingController } from '@angular/common/http/testing';
 import { EventsService } from './events.service';
 import { SportEvent } from '../../models/sport-event.model';
 import { environment } from '../../../environments/environment';
+import { provideHttpClient } from '@angular/common/http';
 
 describe('EventsService', () => {
   let service: EventsService;
@@ -10,8 +11,7 @@ describe('EventsService', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [HttpClientTestingModule],
-      providers: [EventsService],
+      providers: [EventsService, provideHttpClient(), provideHttpClientTesting()],
     });
     service = TestBed.inject(EventsService);
     httpMock = TestBed.inject(HttpTestingController);

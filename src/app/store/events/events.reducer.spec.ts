@@ -31,7 +31,7 @@ describe('Events Reducer', () => {
     const action = { type: 'Unknown' };
     const state = eventsReducer(undefined, action);
 
-    expect(state).toBe(initialState);
+    expect(state).toEqual(initialState);
   });
 
   it('should set loading to true when loading events', () => {

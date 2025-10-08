@@ -4674,6 +4674,21 @@
         "away": 2.5
       },
       "isLive": true
+    },
+    {
+      "id": "6701",
+      "title": "New Event",
+      "description": "New Description",
+      "sport": "basketball",
+      "homeTeam": "Team C",
+      "awayTeam": "Team D",
+      "startTime": "2025-10-08T18:07:34.854Z",
+      "status": "upcoming",
+      "odds": {
+        "home": 1.8,
+        "away": 2.2
+      },
+      "isLive": false
     }
   ],
   "betHistory": [
