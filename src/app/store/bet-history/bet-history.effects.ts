@@ -20,7 +20,6 @@ export class BetHistoryEffects {
   private store = inject(Store);
   private betHistoryService = inject(BetHistoryService);
 
-  // Load bet history from API on init
   loadBetHistory$ = createEffect(() =>
     this.actions$.pipe(
       ofType(BetHistoryActions.loadBetHistory),
@@ -39,7 +38,6 @@ export class BetHistoryEffects {
     ),
   );
 
-  // When bet is placed successfully, add to history via API
   addToHistoryOnBetPlaced$ = createEffect(() =>
     this.actions$.pipe(
       ofType(BetslipActions.placeBetSuccess),
@@ -67,32 +65,22 @@ export class BetHistoryEffects {
     ),
   );
 
-  // Delete bet from API
   deleteBet$ = createEffect(() =>
     this.actions$.pipe(
       ofType(BetHistoryActions.deleteBetFromHistory),
       mergeMap(({ betId }) =>
         this.betHistoryService.deleteBetHistory(betId).pipe(
-          map(() => BetHistoryActions.deleteBetFromHistory({ betId })),
-          catchError(() => of(BetHistoryActions.deleteBetFromHistory({ betId }))),
+          map(() => BetHistoryActions.deleteBetFromHistorySuccess({ betId })),
+          catchError((error) =>
+            of(
+              BetHistoryActions.deleteBetFromHistoryFailure({
+                betId,
+                error: error.message || 'Failed to delete bet',
+              }),
+            ),
+          ),
         ),
       ),
-    ),
-  );
-
-  // Update bet status via API
-  updateBetStatus$ = createEffect(() =>
-    this.actions$.pipe(
-      ofType(BetHistoryActions.updateBetStatus),
-      mergeMap(({ betId, status, actualWin }) => {
-        const settledAt = new Date();
-        return this.betHistoryService
-          .updateBetHistory(betId, { status, actualWin, settledAt })
-          .pipe(
-            map(() => BetHistoryActions.updateBetStatus({ betId, status, actualWin })),
-            catchError(() => of(BetHistoryActions.updateBetStatus({ betId, status, actualWin }))),
-          );
-      }),
     ),
   );
 }

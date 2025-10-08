@@ -18,14 +18,19 @@ export const addBetToHistory = createAction(
   props<{ bet: BetHistoryItem }>(),
 );
 
-export const updateBetStatus = createAction(
-  '[Bet History] Update Bet Status',
-  props<{ betId: string; status: 'won' | 'lost' | 'void'; actualWin?: number }>(),
-);
-
 export const deleteBetFromHistory = createAction(
   '[Bet History] Delete Bet',
   props<{ betId: string }>(),
+);
+
+export const deleteBetFromHistorySuccess = createAction(
+  '[Bet History] Delete Bet Success',
+  props<{ betId: string }>(),
+);
+
+export const deleteBetFromHistoryFailure = createAction(
+  '[Bet History] Delete Bet Failure',
+  props<{ betId: string; error: string }>(),
 );
 
 export const clearBetHistory = createAction('[Bet History] Clear All History');

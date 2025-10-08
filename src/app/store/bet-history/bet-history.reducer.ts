@@ -41,23 +41,23 @@ export const betHistoryReducer = createReducer(
     history: [bet, ...state.history],
   })),
 
-  on(BetHistoryActions.updateBetStatus, (state, { betId, status, actualWin }) => ({
+  on(BetHistoryActions.deleteBetFromHistory, (state) => ({
     ...state,
-    history: state.history.map((bet) =>
-      bet.id === betId
-        ? {
-            ...bet,
-            status,
-            actualWin,
-            settledAt: new Date(),
-          }
-        : bet,
-    ),
+    loading: true,
+    error: null,
   })),
 
-  on(BetHistoryActions.deleteBetFromHistory, (state, { betId }) => ({
+  on(BetHistoryActions.deleteBetFromHistorySuccess, (state, { betId }) => ({
     ...state,
     history: state.history.filter((bet) => bet.id !== betId),
+    loading: false,
+    error: null,
+  })),
+
+  on(BetHistoryActions.deleteBetFromHistoryFailure, (state, { error }) => ({
+    ...state,
+    loading: false,
+    error,
   })),
 
   on(BetHistoryActions.clearBetHistory, (state) => ({
