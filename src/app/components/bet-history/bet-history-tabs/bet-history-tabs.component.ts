@@ -1,11 +1,11 @@
 import { ChangeDetectionStrategy, Component, input, output } from '@angular/core';
 import { MatTabsModule } from '@angular/material/tabs';
 import { BetHistoryItem } from '../../../models/bet-history.model';
-import { BetListComponent } from '../bet-list/bet-list.component';
+import { BetHistoryListComponent } from '../bet-history-list/bet-history-list.component';
 
 @Component({
   selector: 'sb-bet-history-tabs',
-  imports: [MatTabsModule, BetListComponent],
+  imports: [MatTabsModule, BetHistoryListComponent],
   templateUrl: './bet-history-tabs.component.html',
   styleUrl: './bet-history-tabs.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

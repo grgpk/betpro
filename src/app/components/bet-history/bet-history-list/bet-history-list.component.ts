@@ -7,7 +7,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { BetHistoryItem } from '../../../models/bet-history.model';
 
 @Component({
-  selector: 'sb-bet-list',
+  selector: 'sb-bet-history-list',
   imports: [
     MatCardModule,
     MatChipsModule,
@@ -17,11 +17,11 @@ import { BetHistoryItem } from '../../../models/bet-history.model';
     TitleCasePipe,
     UpperCasePipe,
   ],
-  templateUrl: './bet-list.component.html',
-  styleUrl: './bet-list.component.scss',
+  templateUrl: './bet-history-list.component.html',
+  styleUrl: './bet-history-list.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class BetListComponent {
+export class BetHistoryListComponent {
   bets = input.required<BetHistoryItem[]>();
   emptyIcon = input<string>('history');
   emptyMessage = input<string>('No bets in history yet');

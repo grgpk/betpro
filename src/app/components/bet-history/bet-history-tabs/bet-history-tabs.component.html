@@ -1,6 +1,6 @@
 <mat-tab-group class="history-tabs">
   <mat-tab label="All ({{ allBets().length }})">
-    <sb-bet-list
+    <sb-bet-history-list
       [bets]="allBets()"
       emptyIcon="history"
       emptyMessage="No bets in history yet"
@@ -9,7 +9,7 @@
   </mat-tab>
 
   <mat-tab label="Pending ({{ pendingBets().length }})">
-    <sb-bet-list
+    <sb-bet-history-list
       [bets]="pendingBets()"
       emptyIcon="hourglass_empty"
       emptyMessage="No pending bets"
@@ -18,7 +18,7 @@
   </mat-tab>
 
   <mat-tab label="Settled ({{ settledBets().length }})">
-    <sb-bet-list
+    <sb-bet-history-list
       [bets]="settledBets()"
       emptyIcon="done_all"
       emptyMessage="No settled bets"
