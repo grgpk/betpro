@@ -2,10 +2,6 @@
   <div class="header">
     <h1>Sports Events</h1>
     <div class="header-actions">
-      <button mat-stroked-button (click)="useVirtualScroll = !useVirtualScroll; loadEvents()">
-        <mat-icon>{{ useVirtualScroll ? 'view_list' : 'view_module' }}</mat-icon>
-        {{ useVirtualScroll ? 'Switch to Pagination' : 'Switch to Virtual Scroll' }}
-      </button>
       <button mat-raised-button color="primary" (click)="openAddEventDialog()">
         <mat-icon>add</mat-icon>
         Add Event
@@ -40,7 +36,7 @@
   }
 
   @if (!loading() && !error()) {
-    @if (useVirtualScroll) {
+    @if (useVirtualScroll()) {
       <cdk-virtual-scroll-viewport [itemSize]="itemSize" class="virtual-scroll-viewport">
         <sb-event-card
           *cdkVirtualFor="let event of events(); trackBy: trackById"
@@ -50,6 +46,17 @@
           (deleteClicked)="deleteEvent($event)"
         />
       </cdk-virtual-scroll-viewport>
+
+      @if (total() > 0) {
+        <mat-paginator
+          [length]="total()"
+          [pageSize]="pagination().pageSize"
+          [pageIndex]="pagination().page - 1"
+          [pageSizeOptions]="[5, 10, 25, 50, 100]"
+          (page)="onPageChange($event)"
+        >
+        </mat-paginator>
+      }
     } @else {
       <div class="events-grid">
         @for (event of events(); track event.id) {
@@ -67,7 +74,7 @@
           [length]="total()"
           [pageSize]="pagination().pageSize"
           [pageIndex]="pagination().page - 1"
-          [pageSizeOptions]="[5, 10, 25, 50]"
+          [pageSizeOptions]="[5, 10, 25, 50, 100]"
           (page)="onPageChange($event)"
         >
         </mat-paginator>

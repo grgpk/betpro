@@ -1,6 +1,13 @@
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component, inject, OnDestroy, OnInit } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  computed,
+  inject,
+  OnDestroy,
+  OnInit,
+} from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
@@ -10,11 +17,12 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
+import { Subscription } from 'rxjs';
+import { SPORTS, STATUSES } from '../../constants/const';
 import { EventFilters, EventSort } from '../../models/filters.model';
 import { SportEvent } from '../../models/sport-event.model';
 import * as BetslipActions from '../../store/betslip/betslip.actions';
 import * as EventsActions from '../../store/events/events.actions';
-import type { Sport, EventStatus } from './types';
 import {
   selectAllEvents,
   selectEventsError,
@@ -28,8 +36,7 @@ import { AddEventDialogComponent } from '../add-event-dialog/add-event-dialog.co
 import { EventCardComponent } from './event-card/event-card.component';
 import { EventFiltersComponent, FilterValues } from './event-filters/event-filters.component';
 import { EventSortingComponent } from './event-sorting/event-sorting.component';
-import { SPORTS, STATUSES } from '../../constants/const';
-import { Subscription } from 'rxjs';
+import type { EventStatus, Sport } from './types';
 
 @Component({
   selector: 'sb-event-list',
@@ -77,7 +84,9 @@ export class EventListComponent implements OnInit, OnDestroy {
 
   // Virtual scrolling settings
   itemSize = 480; // Approximate height of each event card in pixels
-  useVirtualScroll = false; // Toggle between virtual scroll and pagination
+
+  // Automatically use virtual scroll when page size > 50
+  useVirtualScroll = computed(() => this.pagination().pageSize > 50);
 
   getStatusColor = getEventStatusColor;
 
@@ -118,12 +127,7 @@ export class EventListComponent implements OnInit, OnDestroy {
   loadEvents(): void {
     const filters = this.getFiltersFromValues();
     const sortValue = this.sort();
-    let paginationValue = this.pagination();
-
-    if (this.useVirtualScroll) {
-      paginationValue = { page: 1, pageSize: 1000 };
-      this.store.dispatch(EventsActions.setPagination({ pagination: paginationValue }));
-    }
+    const paginationValue = this.pagination();
 
     this.store.dispatch(
       EventsActions.loadEvents({
