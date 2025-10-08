@@ -39,7 +39,6 @@ export class App implements OnInit {
     this.oddsService.startOddsSimulation().subscribe();
     this.store.dispatch(BetHistoryActions.loadBetHistory());
 
-    // Show loading bar during navigation
     this.router.events
       .pipe(filter((event) => event instanceof NavigationStart || event instanceof NavigationEnd))
       .subscribe((event) => {
