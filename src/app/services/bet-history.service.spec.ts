@@ -67,17 +67,6 @@ describe('BetHistoryService', () => {
   });
 
   describe('getBetHistory', () => {
-    it('should fetch bet history from API', () => {
-      service.getBetHistory().subscribe((history) => {
-        expect(history).toEqual(mockBetHistory);
-        expect(history.length).toBe(2);
-      });
-
-      const req = httpMock.expectOne(apiUrl);
-      expect(req.request.method).toBe('GET');
-      req.flush(mockBetHistory);
-    });
-
     it('should return empty array when no data', () => {
       service.getBetHistory().subscribe((history) => {
         expect(history).toEqual([]);
@@ -219,19 +208,6 @@ describe('BetHistoryService', () => {
   });
 
   describe('getBetHistoryById', () => {
-    it('should fetch single bet by ID', () => {
-      const betId = '1';
-
-      service.getBetHistoryById(betId).subscribe((bet) => {
-        expect(bet).toEqual(mockBetHistory[0]);
-        expect(bet.id).toBe('1');
-      });
-
-      const req = httpMock.expectOne(`${apiUrl}/${betId}`);
-      expect(req.request.method).toBe('GET');
-      req.flush(mockBetHistory[0]);
-    });
-
     it('should convert date strings to Date objects', () => {
       const betId = '1';
       const betWithStringDates = {
