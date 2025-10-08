@@ -1,9 +1,15 @@
 import { inject, Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { Store } from '@ngrx/store';
-import { delay, map, switchMap, tap } from 'rxjs/operators';
+import { delay, switchMap, tap, withLatestFrom, mergeMap } from 'rxjs/operators';
 import * as BetslipActions from './betslip.actions';
-import { selectBetslipBets } from './betslip.selectors';
+import * as BetHistoryActions from '../bet-history/bet-history.actions';
+import {
+  selectBetslipBets,
+  selectBetslipTotalStake,
+  selectBetslipTotalOdds,
+  selectBetslipPotentialWin,
+} from './betslip.selectors';
 
 @Injectable()
 export class BetslipEffects {
@@ -35,10 +41,30 @@ export class BetslipEffects {
   placeBet$ = createEffect(() =>
     this.actions$.pipe(
       ofType(BetslipActions.placeBet),
+      withLatestFrom(
+        this.store.select(selectBetslipBets),
+        this.store.select(selectBetslipTotalStake),
+        this.store.select(selectBetslipTotalOdds),
+        this.store.select(selectBetslipPotentialWin),
+      ),
       delay(1000),
-      map(() => {
+      mergeMap(([, bets, totalStake, totalOdds, potentialWin]) => {
         localStorage.removeItem('betslip');
-        return BetslipActions.placeBetSuccess();
+
+        const historyItem = {
+          id: `bet-${Date.now()}`,
+          bets: [...bets],
+          totalStake,
+          totalOdds,
+          potentialWin,
+          status: 'pending' as const,
+          placedAt: new Date(),
+        };
+
+        return [
+          BetHistoryActions.addBetToHistory({ bet: historyItem }),
+          BetslipActions.placeBetSuccess(),
+        ];
       }),
     ),
   );

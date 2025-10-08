@@ -4916,6 +4916,58 @@
       "status": "lost",
       "placedAt": "2025-09-27T10:00:00.000Z",
       "settledAt": "2025-09-28T17:30:00.000Z"
+    },
+    {
+      "id": "bet-1759919803995",
+      "bets": [
+        {
+          "id": "gen-180-home",
+          "eventId": "gen-180",
+          "eventTitle": "Finals Game - Celtics vs Warriors",
+          "selection": "home",
+          "odds": 2.43,
+          "stake": 20
+        },
+        {
+          "id": "gen-82-home",
+          "eventId": "gen-82",
+          "eventTitle": "ATP Tour - Ruud vs Hurkacz",
+          "selection": "home",
+          "odds": 3.93,
+          "stake": 10
+        }
+      ],
+      "totalStake": 30,
+      "totalOdds": 9.549900000000001,
+      "potentialWin": 286.497,
+      "status": "pending",
+      "placedAt": "2025-10-08T10:36:43.995Z"
+    },
+    {
+      "id": "bet-1759919879283",
+      "bets": [
+        {
+          "id": "gen-151-draw",
+          "eventId": "gen-151",
+          "eventTitle": "Continental Cup - Argentina vs China",
+          "selection": "draw",
+          "odds": 2.89,
+          "stake": 30
+        },
+        {
+          "id": "gen-50-draw",
+          "eventId": "gen-50",
+          "eventTitle": "Olympic Qualifier - Italy vs Serbia",
+          "selection": "draw",
+          "odds": 3.78,
+          "stake": 20
+        }
+      ],
+      "totalStake": 50,
+      "totalOdds": 10.924199999999999,
+      "potentialWin": 546.2099999999999,
+      "status": "pending",
+      "placedAt": "2025-10-08T10:37:59.283Z"
     }
   ]
 }

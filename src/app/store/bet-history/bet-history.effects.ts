@@ -3,21 +3,11 @@ import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { map, catchError, mergeMap } from 'rxjs/operators';
 import { of } from 'rxjs';
 import * as BetHistoryActions from './bet-history.actions';
-import * as BetslipActions from '../betslip/betslip.actions';
-import { Store } from '@ngrx/store';
-import {
-  selectBetslipBets,
-  selectBetslipTotalOdds,
-  selectBetslipTotalStake,
-  selectBetslipPotentialWin,
-} from '../betslip/betslip.selectors';
-import { withLatestFrom } from 'rxjs/operators';
 import { BetHistoryService } from '../../services/bet-history.service';
 
 @Injectable()
 export class BetHistoryEffects {
   private actions$ = inject(Actions);
-  private store = inject(Store);
   private betHistoryService = inject(BetHistoryService);
 
   loadBetHistory$ = createEffect(() =>
@@ -38,31 +28,13 @@ export class BetHistoryEffects {
     ),
   );
 
-  addToHistoryOnBetPlaced$ = createEffect(() =>
-    this.actions$.pipe(
-      ofType(BetslipActions.placeBetSuccess),
-      withLatestFrom(
-        this.store.select(selectBetslipBets),
-        this.store.select(selectBetslipTotalStake),
-        this.store.select(selectBetslipTotalOdds),
-        this.store.select(selectBetslipPotentialWin),
+  addBetToHistory$ = createEffect(
+    () =>
+      this.actions$.pipe(
+        ofType(BetHistoryActions.addBetToHistory),
+        mergeMap(({ bet }) => this.betHistoryService.addBetHistory(bet)),
       ),
-      mergeMap(([, bets, totalStake, totalOdds, potentialWin]) => {
-        const historyItem = {
-          id: `bet-${Date.now()}`,
-          bets: [...bets],
-          totalStake,
-          totalOdds,
-          potentialWin,
-          status: 'pending' as const,
-          placedAt: new Date(),
-        };
-        return this.betHistoryService.addBetHistory(historyItem).pipe(
-          map((bet) => BetHistoryActions.addBetToHistory({ bet })),
-          catchError(() => of(BetHistoryActions.addBetToHistory({ bet: historyItem }))),
-        );
-      }),
-    ),
+    { dispatch: false },
   );
 
   deleteBet$ = createEffect(() =>
