@@ -4916,42 +4916,6 @@
       "status": "lost",
       "placedAt": "2025-09-27T10:00:00.000Z",
       "settledAt": "2025-09-28T17:30:00.000Z"
-    },
-    {
-      "id": "bet-1759866230830",
-      "bets": [],
-      "totalStake": 0,
-      "totalOdds": 1,
-      "potentialWin": 0,
-      "status": "pending",
-      "placedAt": "2025-10-07T19:43:50.830Z"
-    },
-    {
-      "id": "bet-1759866649865",
-      "bets": [],
-      "totalStake": 0,
-      "totalOdds": 1,
-      "potentialWin": 0,
-      "status": "pending",
-      "placedAt": "2025-10-07T19:50:49.865Z"
-    },
-    {
-      "id": "bet-1759867165030",
-      "bets": [],
-      "totalStake": 0,
-      "totalOdds": 1,
-      "potentialWin": 0,
-      "status": "pending",
-      "placedAt": "2025-10-07T19:59:25.030Z"
-    },
-    {
-      "id": "bet-1759867289322",
-      "bets": [],
-      "totalStake": 0,
-      "totalOdds": 1,
-      "potentialWin": 0,
-      "status": "pending",
-      "placedAt": "2025-10-07T20:01:29.322Z"
     }
   ]
 }
