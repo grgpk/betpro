@@ -1,0 +1,31 @@
+version: "3.8"
+
+services:
+  # JSON Server API
+  api:
+    image: node:20-alpine
+    container_name: betpro-api
+    working_dir: /app
+    command: npx json-server --watch db.json --host 0.0.0.0 --port 3000
+    volumes:
+      - ./db.json:/app/db.json
+    ports:
+      - "3000:3000"
+    networks:
+      - betpro-network
+
+  # Angular Application
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: betpro-app
+    ports:
+      - "8080:80"
+    networks:
+      - betpro-network
+    depends_on: [api]
+
+networks:
+  betpro-network:
+    driver: bridge

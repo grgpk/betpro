@@ -61,6 +61,49 @@ A comprehensive Angular application for managing sports events with real-time od
    ```
    Navigate to `http://localhost:4200`
 
+# Run With Docker Compose
+
+```bash
+# Start the application in detached mode
+docker-compose up -d
+
+# Stop the application
+docker-compose down
+```
+
+## 📋 Services
+
+| Service | Port | Description                         |
+| ------- | ---- | ----------------------------------- |
+| **app** | 8080 | Angular application served by nginx |
+| **api** | 3000 | JSON Server REST API                |
+
+## 🌐 Access URLs
+
+- **Application**: http://localhost:8080
+- **API**: http://localhost:3000
+
+## 📁 Docker Compose Config Files
+
+```
+.
+├── docker-compose.yml       # Development configuration
+├── Dockerfile              # Angular app build & serve
+├── nginx.conf             # Nginx configuration
+├── db.json               # JSON Server data (mounted as volume)
+└── .env.example         # Environment variables template
+```
+
+## 🗄️ Data Persistence
+
+The `db.json` file is mounted as a volume, so all data changes persist even when containers are restarted or recreated.
+
+**To reset data:**
+
+1. Stop the services: `docker-compose down`
+2. Reset `db.json` to its original state
+3. Restart: `docker-compose up -d`
+
 ## Project Structure
 
 ```
