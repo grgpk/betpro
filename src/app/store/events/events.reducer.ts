@@ -4,23 +4,21 @@ import { EventFilters, EventSort, PaginationParams } from '../../models/filters.
 import * as EventsActions from './events.actions';
 
 export interface EventsState {
-  events: SportEvent[];
+  allEvents: SportEvent[]; // All events from API (unfiltered)
   selectedEvent: SportEvent | null;
   filters: EventFilters;
   sort: EventSort;
   pagination: PaginationParams;
-  total: number;
   loading: boolean;
   error: string | null;
 }
 
 const initialState: EventsState = {
-  events: [],
+  allEvents: [],
   selectedEvent: null,
   filters: {},
   sort: { field: 'startTime', direction: 'asc' },
   pagination: { page: 1, pageSize: 10 },
-  total: 0,
   loading: false,
   error: null,
 };
@@ -34,10 +32,9 @@ export const eventsReducer = createReducer(
     error: null,
   })),
 
-  on(EventsActions.loadEventsSuccess, (state, { events, total }) => ({
+  on(EventsActions.loadEventsSuccess, (state, { events }) => ({
     ...state,
-    events,
-    total,
+    allEvents: events,
     loading: false,
     error: null,
   })),
@@ -75,8 +72,7 @@ export const eventsReducer = createReducer(
 
   on(EventsActions.addEventSuccess, (state, { event }) => ({
     ...state,
-    events: [...state.events, event],
-    total: state.total + 1,
+    allEvents: [...state.allEvents, event],
     loading: false,
     error: null,
   })),
@@ -95,7 +91,7 @@ export const eventsReducer = createReducer(
 
   on(EventsActions.updateEventSuccess, (state, { event }) => ({
     ...state,
-    events: state.events.map((e) => (e.id === event.id ? event : e)),
+    allEvents: state.allEvents.map((e) => (e.id === event.id ? event : e)),
     selectedEvent: state.selectedEvent?.id === event.id ? event : state.selectedEvent,
     loading: false,
     error: null,
@@ -115,8 +111,7 @@ export const eventsReducer = createReducer(
 
   on(EventsActions.deleteEventSuccess, (state, { id }) => ({
     ...state,
-    events: state.events.filter((e) => e.id !== id),
-    total: state.total - 1,
+    allEvents: state.allEvents.filter((e) => e.id !== id),
     loading: false,
     error: null,
   })),
@@ -129,7 +124,7 @@ export const eventsReducer = createReducer(
 
   on(EventsActions.updateOdds, (state, { eventId, odds }) => ({
     ...state,
-    events: state.events.map((e) => (e.id === eventId ? { ...e, odds } : e)),
+    allEvents: state.allEvents.map((e) => (e.id === eventId ? { ...e, odds } : e)),
     selectedEvent:
       state.selectedEvent?.id === eventId ? { ...state.selectedEvent, odds } : state.selectedEvent,
   })),

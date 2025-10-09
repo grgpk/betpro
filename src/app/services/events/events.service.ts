@@ -1,9 +1,8 @@
 import { inject, Injectable } from '@angular/core';
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { SportEvent } from '../../models/sport-event.model';
-import { EventFilters, EventSort, PaginationParams } from '../../models/filters.model';
 import { environment } from '../../../environments/environment';
 import { SPORTS, STATUSES } from '../../constants/const';
 
@@ -14,61 +13,15 @@ export class EventsService {
   private http = inject(HttpClient);
   private apiUrl = `${environment.apiUrl}/events`;
 
-  getEvents(
-    filters?: EventFilters,
-    sort?: EventSort,
-    pagination?: PaginationParams,
-  ): Observable<{ events: SportEvent[]; total: number }> {
-    let params = new HttpParams();
-
-    if (filters?.sport) {
-      params = params.set('sport', filters.sport);
-    }
-    if (filters?.status) {
-      params = params.set('status', filters.status);
-    }
-    if (filters?.dateFrom) {
-      params = params.set('startTime_gte', filters.dateFrom);
-    }
-    if (filters?.dateTo) {
-      params = params.set('startTime_lte', filters.dateTo);
-    }
-
-    // Apply sorting - json-server 1.x uses _sort with +/- prefix for direction
-    if (sort) {
-      const sortPrefix = sort.direction === 'desc' ? '-' : '';
-      params = params.set('_sort', `${sortPrefix}${sort.field}`);
-    }
-
-    if (pagination) {
-      params = params.set('_page', pagination.page.toString());
-      params = params.set('_per_page', pagination.pageSize.toString());
-    }
-
-    return this.http
-      .get<{
-        data?: SportEvent[];
-        items?: number;
-        first?: number;
-        last?: number;
-        pages?: number;
-      }>(this.apiUrl, { params, observe: 'response' })
-      .pipe(
-        map((response) => {
-          const body = response.body!;
-          const events = body.data || [];
-
-          const total = body.items || events.length;
-
-          return {
-            events: events.map((e) => ({
-              ...e,
-              startTime: new Date(e.startTime),
-            })),
-            total,
-          };
-        }),
-      );
+  getEvents(): Observable<SportEvent[]> {
+    return this.http.get<SportEvent[]>(this.apiUrl).pipe(
+      map((events) =>
+        events.map((e) => ({
+          ...e,
+          startTime: new Date(e.startTime),
+        })),
+      ),
+    );
   }
 
   getEvent(id: string): Observable<SportEvent> {

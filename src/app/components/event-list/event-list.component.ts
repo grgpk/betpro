@@ -97,7 +97,7 @@ export class EventListComponent implements OnInit, OnDestroy {
 
     this.loadFiltersFromUrl();
 
-    this.loadEvents();
+    this.store.dispatch(EventsActions.loadEvents());
   }
 
   onFiltersChanged(values: FilterValues): void {
@@ -114,28 +114,12 @@ export class EventListComponent implements OnInit, OnDestroy {
 
     this.store.dispatch(EventsActions.setFilters({ filters }));
     this.saveFiltersToUrl();
-    this.loadEvents();
   }
 
   onClearFilters(): void {
     this.currentFilterValues = { sport: '', status: '', dateFrom: null, dateTo: null };
     this.store.dispatch(EventsActions.setFilters({ filters: {} }));
     this.saveFiltersToUrl();
-    this.loadEvents();
-  }
-
-  loadEvents(): void {
-    const filters = this.getFiltersFromValues();
-    const sortValue = this.sort();
-    const paginationValue = this.pagination();
-
-    this.store.dispatch(
-      EventsActions.loadEvents({
-        filters,
-        sort: sortValue,
-        pagination: paginationValue,
-      }),
-    );
   }
 
   onPageChange(event: PageEvent): void {
@@ -145,7 +129,6 @@ export class EventListComponent implements OnInit, OnDestroy {
       }),
     );
     this.saveFiltersToUrl();
-    this.loadEvents();
   }
 
   onSortChange(field: 'title' | 'startTime' | 'sport' | 'status'): void {
@@ -159,7 +142,6 @@ export class EventListComponent implements OnInit, OnDestroy {
       }),
     );
     this.saveFiltersToUrl();
-    this.loadEvents();
   }
 
   addToBetslip(event: SportEvent, selection: 'home' | 'draw' | 'away'): void {

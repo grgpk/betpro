@@ -42,13 +42,13 @@ describe('EventsService', () => {
     ];
 
     service.getEvents().subscribe((result) => {
-      expect(result.events.length).toBe(1);
-      expect(result.events[0].title).toBe('Test Event');
+      expect(result.length).toBe(1);
+      expect(result[0].title).toBe('Test Event');
     });
 
     const req = httpMock.expectOne(`${environment.apiUrl}/events`);
     expect(req.request.method).toBe('GET');
-    req.flush({ data: mockEvents, total: 1 });
+    req.flush(mockEvents);
   });
 
   it('should create an event', () => {

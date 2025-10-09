@@ -15,9 +15,9 @@ export class EventsEffects {
   loadEvents$ = createEffect(() =>
     this.actions$.pipe(
       ofType(EventsActions.loadEvents),
-      switchMap(({ filters, sort, pagination }) =>
-        this.eventsService.getEvents(filters, sort, pagination).pipe(
-          map(({ events, total }) => EventsActions.loadEventsSuccess({ events, total })),
+      switchMap(() =>
+        this.eventsService.getEvents().pipe(
+          map((events) => EventsActions.loadEventsSuccess({ events })),
           catchError((error) => of(EventsActions.loadEventsFailure({ error: error.message }))),
         ),
       ),

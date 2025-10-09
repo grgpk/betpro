@@ -2,14 +2,11 @@ import { createAction, props } from '@ngrx/store';
 import { SportEvent } from '../../models/sport-event.model';
 import { EventFilters, EventSort, PaginationParams } from '../../models/filters.model';
 
-export const loadEvents = createAction(
-  '[Events] Load Events',
-  props<{ filters?: EventFilters; sort?: EventSort; pagination?: PaginationParams }>(),
-);
+export const loadEvents = createAction('[Events] Load Events');
 
 export const loadEventsSuccess = createAction(
   '[Events] Load Events Success',
-  props<{ events: SportEvent[]; total: number }>(),
+  props<{ events: SportEvent[] }>(),
 );
 
 export const loadEventsFailure = createAction(

@@ -44,10 +44,9 @@ describe('EventListComponent', () => {
         provideMockStore({
           initialState: {
             events: {
-              events: [],
+              allEvents: [],
               loading: false,
               error: null,
-              total: 0,
               pagination: { page: 1, pageSize: 10 },
               sort: { field: 'startTime', direction: 'asc' },
             },
