@@ -4,7 +4,7 @@ import { EventFilters, EventSort, PaginationParams } from '../../models/filters.
 import * as EventsActions from './events.actions';
 
 export interface EventsState {
-  allEvents: SportEvent[]; // All events from API (unfiltered)
+  allEvents: SportEvent[];
   selectedEvent: SportEvent | null;
   filters: EventFilters;
   sort: EventSort;

@@ -3,7 +3,6 @@ import { EventsState } from './events.reducer';
 
 export const selectEventsState = createFeatureSelector<EventsState>('events');
 
-// Select all events (unfiltered)
 export const selectAllEventsRaw = createSelector(selectEventsState, (state) => state.allEvents);
 
 export const selectSelectedEvent = createSelector(
@@ -24,24 +23,20 @@ export const selectEventsPagination = createSelector(
   (state) => state.pagination,
 );
 
-// Client-side filtered events
 export const selectFilteredEvents = createSelector(
   selectAllEventsRaw,
   selectEventsFilters,
   (events, filters) => {
     let filtered = [...events];
 
-    // Filter by sport
     if (filters.sport) {
       filtered = filtered.filter((event) => event.sport === filters.sport);
     }
 
-    // Filter by status
     if (filters.status) {
       filtered = filtered.filter((event) => event.status === filters.status);
     }
 
-    // Filter by date range
     if (filters.dateFrom) {
       const dateFrom = new Date(filters.dateFrom);
       filtered = filtered.filter((event) => event.startTime >= dateFrom);
@@ -56,7 +51,6 @@ export const selectFilteredEvents = createSelector(
   },
 );
 
-// Client-side sorted events
 export const selectSortedEvents = createSelector(
   selectFilteredEvents,
   selectEventsSort,
@@ -90,10 +84,8 @@ export const selectSortedEvents = createSelector(
   },
 );
 
-// Total count of filtered events (for pagination)
 export const selectEventsTotal = createSelector(selectFilteredEvents, (events) => events.length);
 
-// Client-side paginated events
 export const selectAllEvents = createSelector(
   selectSortedEvents,
   selectEventsPagination,
