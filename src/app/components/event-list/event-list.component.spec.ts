@@ -12,8 +12,6 @@ describe('EventListComponent', () => {
   let component: EventListComponent;
   let fixture: ComponentFixture<EventListComponent>;
   let store: MockStore;
-  let dialog: jasmine.SpyObj<MatDialog>;
-  let snackBar: jasmine.SpyObj<MatSnackBar>;
 
   const mockEvent: SportEvent = {
     id: '1',
@@ -69,8 +67,6 @@ describe('EventListComponent', () => {
     fixture = TestBed.createComponent(EventListComponent);
     component = fixture.componentInstance;
     store = TestBed.inject(MockStore);
-    dialog = TestBed.inject(MatDialog) as jasmine.SpyObj<MatDialog>;
-    snackBar = TestBed.inject(MatSnackBar) as jasmine.SpyObj<MatSnackBar>;
     spyOn(store, 'dispatch');
   });
 
