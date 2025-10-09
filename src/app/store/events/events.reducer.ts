@@ -2,6 +2,9 @@ import { createReducer, on } from '@ngrx/store';
 import { SportEvent } from '../../models/sport-event.model';
 import { EventFilters, EventSort, PaginationParams } from '../../models/filters.model';
 import * as EventsActions from './events.actions';
+import { loadFromLocalStorage, saveToLocalStorage } from './utils';
+
+const EVENTS_STORAGE_KEY = 'betpro_events_state';
 
 export interface EventsState {
   allEvents: SportEvent[];
@@ -13,12 +16,14 @@ export interface EventsState {
   error: string | null;
 }
 
+const storedState = loadFromLocalStorage(EVENTS_STORAGE_KEY);
+
 const initialState: EventsState = {
   allEvents: [],
   selectedEvent: null,
-  filters: {},
-  sort: { field: 'startTime', direction: 'asc' },
-  pagination: { page: 1, pageSize: 10 },
+  filters: storedState.filters || {},
+  sort: storedState.sort || { field: 'startTime', direction: 'asc' },
+  pagination: storedState.pagination || { page: 1, pageSize: 10 },
   loading: false,
   error: null,
 };
@@ -129,19 +134,31 @@ export const eventsReducer = createReducer(
       state.selectedEvent?.id === eventId ? { ...state.selectedEvent, odds } : state.selectedEvent,
   })),
 
-  on(EventsActions.setFilters, (state, { filters }) => ({
-    ...state,
-    filters,
-    pagination: { ...state.pagination, page: 1 },
-  })),
+  on(EventsActions.setFilters, (state, { filters }) => {
+    const newState = {
+      ...state,
+      filters,
+      pagination: { ...state.pagination, page: 1 },
+    };
+    saveToLocalStorage(EVENTS_STORAGE_KEY, newState);
+    return newState;
+  }),
 
-  on(EventsActions.setSort, (state, { sort }) => ({
-    ...state,
-    sort,
-  })),
+  on(EventsActions.setSort, (state, { sort }) => {
+    const newState = {
+      ...state,
+      sort,
+    };
+    saveToLocalStorage(EVENTS_STORAGE_KEY, newState);
+    return newState;
+  }),
 
-  on(EventsActions.setPagination, (state, { pagination }) => ({
-    ...state,
-    pagination,
-  })),
+  on(EventsActions.setPagination, (state, { pagination }) => {
+    const newState = {
+      ...state,
+      pagination,
+    };
+    saveToLocalStorage(EVENTS_STORAGE_KEY, newState);
+    return newState;
+  }),
 );

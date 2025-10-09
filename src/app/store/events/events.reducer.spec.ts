@@ -3,6 +3,29 @@ import * as EventsActions from './events.actions';
 import { SportEvent } from '../../models/sport-event.model';
 
 describe('Events Reducer', () => {
+  // Mock localStorage
+  let localStorageMock: Record<string, string> = {};
+
+  beforeEach(() => {
+    localStorageMock = {};
+
+    spyOn(localStorage, 'getItem').and.callFake((key: string) => {
+      return localStorageMock[key] || null;
+    });
+
+    spyOn(localStorage, 'setItem').and.callFake((key: string, value: string) => {
+      localStorageMock[key] = value;
+    });
+
+    spyOn(localStorage, 'removeItem').and.callFake((key: string) => {
+      delete localStorageMock[key];
+    });
+
+    spyOn(localStorage, 'clear').and.callFake(() => {
+      localStorageMock = {};
+    });
+  });
+
   const initialState: EventsState = {
     allEvents: [],
     selectedEvent: null,
@@ -114,6 +137,6 @@ describe('Events Reducer', () => {
     const state = eventsReducer(initialState, action);
 
     expect(state.filters.sport).toBe('football');
-    expect(state.pagination.page).toBe(1); // Should reset to first page
+    expect(state.pagination.page).toBe(1);
   });
 });

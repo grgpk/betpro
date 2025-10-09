@@ -12,7 +12,7 @@
   <sb-event-filters
     [sports]="sports"
     [statuses]="statuses"
-    [initialValues]="currentFilterValues"
+    [initialValues]="currentFilterValues()"
     (filtersChanged)="onFiltersChanged($event)"
     (clearFiltersClicked)="onClearFilters()"
   />

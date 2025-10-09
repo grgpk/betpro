@@ -19,13 +19,14 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Subscription } from 'rxjs';
 import { SPORTS, STATUSES } from '../../constants/const';
-import { EventFilters, EventSort } from '../../models/filters.model';
+import { EventFilters } from '../../models/filters.model';
 import { SportEvent } from '../../models/sport-event.model';
 import * as BetslipActions from '../../store/betslip/betslip.actions';
 import * as EventsActions from '../../store/events/events.actions';
 import {
   selectAllEvents,
   selectEventsError,
+  selectEventsFilters,
   selectEventsLoading,
   selectEventsPagination,
   selectEventsSort,
@@ -71,16 +72,21 @@ export class EventListComponent implements OnInit, OnDestroy {
   total = this.store.selectSignal(selectEventsTotal);
   pagination = this.store.selectSignal(selectEventsPagination);
   sort = this.store.selectSignal(selectEventsSort);
+  filters = this.store.selectSignal(selectEventsFilters);
 
   sports = SPORTS;
   statuses = STATUSES;
 
-  currentFilterValues: FilterValues = {
-    sport: '',
-    status: '',
-    dateFrom: null,
-    dateTo: null,
-  };
+  // Compute filter values from store for the filter component
+  currentFilterValues = computed(() => {
+    const storeFilters = this.filters();
+    return {
+      sport: storeFilters.sport || '',
+      status: storeFilters.status || '',
+      dateFrom: storeFilters.dateFrom ? new Date(storeFilters.dateFrom) : null,
+      dateTo: storeFilters.dateTo ? new Date(storeFilters.dateTo) : null,
+    };
+  });
 
   // Virtual scrolling settings
   itemSize = 480; // Approximate height of each event card in pixels
@@ -95,13 +101,11 @@ export class EventListComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.store.dispatch(BetslipActions.loadBetslipFromStorage());
 
-    this.loadFiltersFromUrl();
-
+    // Load events once - filters/sort/pagination are loaded from localStorage in reducer
     this.store.dispatch(EventsActions.loadEvents());
   }
 
   onFiltersChanged(values: FilterValues): void {
-    this.currentFilterValues = values;
     const filters: EventFilters = {};
     if (values.sport) {
       filters.sport = values.sport as Sport;
@@ -113,13 +117,10 @@ export class EventListComponent implements OnInit, OnDestroy {
     if (values.dateTo) filters.dateTo = values.dateTo.toISOString();
 
     this.store.dispatch(EventsActions.setFilters({ filters }));
-    this.saveFiltersToUrl();
   }
 
   onClearFilters(): void {
-    this.currentFilterValues = { sport: '', status: '', dateFrom: null, dateTo: null };
     this.store.dispatch(EventsActions.setFilters({ filters: {} }));
-    this.saveFiltersToUrl();
   }
 
   onPageChange(event: PageEvent): void {
@@ -128,7 +129,6 @@ export class EventListComponent implements OnInit, OnDestroy {
         pagination: { page: event.pageIndex + 1, pageSize: event.pageSize },
       }),
     );
-    this.saveFiltersToUrl();
   }
 
   onSortChange(field: 'title' | 'startTime' | 'sport' | 'status'): void {
@@ -141,7 +141,6 @@ export class EventListComponent implements OnInit, OnDestroy {
         sort: { field, direction },
       }),
     );
-    this.saveFiltersToUrl();
   }
 
   addToBetslip(event: SportEvent, selection: 'home' | 'draw' | 'away'): void {
@@ -193,91 +192,6 @@ export class EventListComponent implements OnInit, OnDestroy {
           panelClass: ['success-snackbar'],
         });
       }
-    });
-  }
-
-  private getFiltersFromValues(): EventFilters {
-    const filters: EventFilters = {};
-
-    if (this.currentFilterValues.sport) {
-      filters.sport = this.currentFilterValues.sport as Sport;
-    }
-    if (this.currentFilterValues.status) {
-      filters.status = this.currentFilterValues.status as EventStatus;
-    }
-    if (this.currentFilterValues.dateFrom)
-      filters.dateFrom = this.currentFilterValues.dateFrom.toISOString();
-    if (this.currentFilterValues.dateTo)
-      filters.dateTo = this.currentFilterValues.dateTo.toISOString();
-
-    return filters;
-  }
-
-  private loadFiltersFromUrl(): void {
-    const params = this.route.snapshot.queryParams;
-
-    const sport = params['sport'] || '';
-    const status = params['status'] || '';
-    const dateFrom = params['dateFrom'] ? new Date(params['dateFrom']) : null;
-    const dateTo = params['dateTo'] ? new Date(params['dateTo']) : null;
-    const page = params['page'];
-    const pageSize = params['pageSize'];
-    const sortField = params['sortField'];
-    const sortDirection = params['sortDirection'];
-
-    this.currentFilterValues = { sport, status, dateFrom, dateTo };
-
-    const filters: EventFilters = {};
-    if (sport) filters.sport = sport as Sport;
-    if (status) filters.status = status as EventStatus;
-    if (dateFrom) filters.dateFrom = dateFrom.toISOString();
-    if (dateTo) filters.dateTo = dateTo.toISOString();
-
-    if (Object.keys(filters).length > 0) {
-      this.store.dispatch(EventsActions.setFilters({ filters }));
-    }
-
-    if (page && pageSize) {
-      this.store.dispatch(
-        EventsActions.setPagination({
-          pagination: { page: parseInt(page), pageSize: parseInt(pageSize) },
-        }),
-      );
-    }
-
-    if (sortField && sortDirection) {
-      this.store.dispatch(
-        EventsActions.setSort({
-          sort: {
-            field: sortField as EventSort['field'],
-            direction: sortDirection as EventSort['direction'],
-          },
-        }),
-      );
-    }
-  }
-
-  private saveFiltersToUrl(): void {
-    const filters = this.getFiltersFromValues();
-    const paginationValue = this.pagination();
-    const sortValue = this.sort();
-
-    const queryParams: Record<string, string | number> = {
-      page: paginationValue.page,
-      pageSize: paginationValue.pageSize,
-      sortField: sortValue.field,
-      sortDirection: sortValue.direction,
-    };
-
-    if (filters.sport) queryParams['sport'] = filters.sport;
-    if (filters.status) queryParams['status'] = filters.status;
-    if (filters.dateFrom) queryParams['dateFrom'] = filters.dateFrom;
-    if (filters.dateTo) queryParams['dateTo'] = filters.dateTo;
-
-    this.router.navigate([], {
-      relativeTo: this.route,
-      queryParams,
-      replaceUrl: true,
     });
   }
 
