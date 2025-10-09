@@ -1,283 +1,147 @@
-# Sports Event Management Application
+# Sports Betting Platform
 
-A comprehensive Angular application for managing sports events with real-time odds updates and betting functionality.
+An Angular application for managing sports events with real-time odds updates and betting functionality.
 
 ## Features
 
-### Core Functionality
+- **Event Management** - Browse, filter, sort, and manage sports events
+- **Betslip** - Add selections and place bets with potential winnings calculation
+- **Bet History** - Track all placed bets with statistics
+- **Real-time Odds** - Live odds updates every 5 seconds
+- **Filtering & Sorting** - Client-side filtering by sport, status, date range
+- **Virtual Scroll** - Toggle between scroll view and paginated view
+- **State Persistence** - Filters and preferences saved to localStorage
 
-- ✅ **Event List Page** - View all sports events with filtering, sorting, and pagination
-- ✅ **Add Events** - Create new events via modal dialog with full validation
-- ✅ **Delete Events** - Remove events with confirmation
-- ✅ **Event Details Page** - View and edit complete event information
-- ✅ **Betslip** - Shopping cart for selected betting options
-- ✅ **Real-time Odds** - Live odds updates every 5 seconds for active events
-- ✅ **Data Validation** - Comprehensive validation for all operations
-- ✅ **Backend Integration** - Full HTTP API integration with JSON Server
+## Tech Stack
 
-### Advanced Features
-
-- ✅ **NgRx State Management** - Centralized state with actions, reducers, and effects
-- ✅ **Pagination** - Efficient data loading with configurable page sizes
-- ✅ **Filtering** - Filter by sport type, status, and search term
-- ✅ **Sorting** - Sort by title, date, sport, or status
-- ✅ **URL Persistence** - Filters, sorting, and pagination preserved in URL
-- ✅ **LocalStorage** - Betslip persisted across sessions
-- ✅ **Real-time Updates** - Odds simulation via intervals
-- ✅ **Reactive Forms** - All forms built using Reactive Forms
-- ✅ **Angular Material** - Professional UI components
-- ✅ **Standalone Components** - Modern Angular architecture
-- ✅ **Unit Tests** - Test coverage for services and state management
-
-## Technology Stack
-
-- **Angular 20.3.0** - Latest Angular framework
-- **NgRx** - State management (Store, Effects, DevTools)
-- **Angular Material** - UI component library
+- **Angular 20.3.0** - Standalone components, signals, OnPush
+- **NgRx** - State management with effects
+- **Angular Material** - UI components
+- **CDK Virtual Scroll** - Performance optimization
 - **RxJS** - Reactive programming
-- **JSON Server** - Mock REST API backend
-- **TypeScript** - Type-safe development
-- **Jasmine/Karma** - Unit testing
+- **JSON Server** - Mock REST API
+- **TypeScript** - Type safety
 
-## Installation
+## Quick Start
 
-1. **Install dependencies:**
-
-   ```bash
-   npm install
-   ```
-
-2. **Start the JSON Server (in one terminal):**
-
-   ```bash
-   npm run start:api
-   ```
-
-   This will start the backend API at `http://localhost:3000`
-
-3. **Start the Angular application (in another terminal):**
-   ```bash
-   npm start
-   ```
-   Navigate to `http://localhost:4200`
-
-# Run With Docker Compose
+### Using Docker Compose (Recommended)
 
 ```bash
-# Start the application in detached mode
-docker-compose up -d
+# Start services
+docker compose up -d
 
-# Stop the application
-docker-compose down
+# Stop services
+docker compose down
 ```
 
-## 📋 Services
+**Access:**
 
-| Service | Port | Description                         |
-| ------- | ---- | ----------------------------------- |
-| **app** | 8080 | Angular application served by nginx |
-| **api** | 3000 | JSON Server REST API                |
+- App: http://localhost:8080
+- API: http://localhost:3000
 
-## 🌐 Access URLs
+### Manual Setup
 
-- **Application**: http://localhost:8080
-- **API**: http://localhost:3000
+```bash
+# Install dependencies
+npm install
 
-## 📁 Docker Compose Config Files
+# Start API (terminal 1)
+npm run start:api
 
-```
-.
-├── docker-compose.yml       # Development configuration
-├── Dockerfile              # Angular app build & serve
-├── nginx.conf             # Nginx configuration
-├── db.json               # JSON Server data (mounted as volume)
-└── .env.example         # Environment variables template
+# Start app (terminal 2)
+npm start
 ```
 
-## 🗄️ Data Persistence
-
-The `db.json` file is mounted as a volume, so all data changes persist even when containers are restarted or recreated.
-
-**To reset data:**
-
-1. Stop the services: `docker-compose down`
-2. Reset `db.json` to its original state
-3. Restart: `docker-compose up -d`
+Navigate to http://localhost:4200
 
 ## Project Structure
 
 ```
 src/app/
 ├── components/
-│   ├── event-list/              # Main events list page
-│   ├── event-details/           # Event details and edit page
-│   ├── add-event-dialog/        # Add new event modal
-│   └── betslip/                 # Betslip sidebar
-├── models/
-│   ├── sport-event.model.ts     # SportEvent interface
-│   ├── bet.model.ts             # Bet interface
-│   └── filters.model.ts         # Filter/Sort/Pagination interfaces
+│   ├── event-list/           # Main events page with filters
+│   ├── event-details/        # Event details & edit
+│   ├── betslip/             # Betslip sidebar
+│   └── bet-history/         # Bet history page
+├── store/
+│   ├── events/              # Events state (NgRx)
+│   ├── betslip/            # Betslip state (NgRx)
+│   └── bet-history/        # Bet history state (NgRx)
 ├── services/
-│   ├── events.service.ts        # HTTP API service
-│   └── odds.service.ts          # Real-time odds simulation
-└── store/
-    ├── events/                  # Events state management
-    │   ├── events.actions.ts
-    │   ├── events.reducer.ts
-    │   ├── events.effects.ts
-    │   └── events.selectors.ts
-    └── betslip/                 # Betslip state management
-        ├── betslip.actions.ts
-        ├── betslip.reducer.ts
-        ├── betslip.effects.ts
-        └── betslip.selectors.ts
+│   ├── events.service.ts    # Events API
+│   ├── odds.service.ts      # Real-time odds simulation
+│   └── bet-history.service.ts
+└── models/                  # TypeScript interfaces
 ```
 
-## Data Models
+## Key Features
 
-### SportEvent
+### Event List
 
-```typescript
-interface SportEvent {
-  id: string;
-  title: string; // 2-100 characters
-  description: string; // 2-200 characters
-  sport: 'football' | 'basketball' | 'tennis' | 'volleyball';
-  homeTeam: string; // 2-50 characters
-  awayTeam: string; // 2-50 characters
-  startTime: Date;
-  status: 'upcoming' | 'live' | 'finished';
-  odds: {
-    home: number; // 1.01-100
-    draw?: number; // 1.01-100 (optional)
-    away: number; // 1.01-100
-  };
-  isLive: boolean;
-}
-```
+- Grid layout with event cards
+- Client-side filtering (sport, status, date range)
+- Client-side sorting (title, date, sport, status)
+- Toggle between scroll view and page view
+- Add to betslip from cards
+- Delete events with confirmation
 
-### Bet
+### Betslip
 
-```typescript
-interface Bet {
-  id: string;
-  eventId: string;
-  eventTitle: string;
-  selection: 'home' | 'draw' | 'away';
-  odds: number;
-  stake?: number;
-}
-```
+- Sticky sidebar on all pages
+- Calculate total odds and potential winnings
+- Adjust stake amounts
+- Place bets (saved to history)
+- Persists to localStorage
+
+### Bet History
+
+- View all placed bets
+- Filter by status (pending/won/lost)
+- Statistics cards (total bets, win rate, profit/loss)
+- Tabbed interface (all/pending/settled)
+
+### State Management
+
+- NgRx for centralized state
+- Client-side filtering and sorting (no API params)
+- localStorage persistence for filters and betslip
+- Effects for async operations
 
 ## Configuration
 
-API endpoint is configured in `src/environments/environment.ts`:
+Environment file: `src/environments/environment.ts`
 
 ```typescript
 export const environment = {
-  production: false,
   apiUrl: 'http://localhost:3000',
-  wsUrl: 'ws://localhost:3000',
 };
 ```
 
-## Features in Detail
-
-### 1. Event List
-
-- Grid layout with Material cards
-- Real-time odds display
-- Quick add to betslip buttons
-- Filter by sport, status, search
-- Sort by multiple fields
-- Pagination with configurable page size
-- Delete events with confirmation
-
-### 2. Add Event
-
-- Modal dialog form
-- Reactive Forms with validation
-- Real-time error messages
-- Conditional draw odds (football/volleyball only)
-- Date picker for start time
-
-### 3. Event Details
-
-- View mode with formatted display
-- Edit mode with inline form
-- Save/cancel functionality
-- Add to betslip options
-- Delete event option
-- Real-time odds updates
-
-### 4. Betslip
-
-- Sticky sidebar
-- Add/remove bets
-- Update stake amounts
-- Calculate total odds and potential winnings
-- Persist to localStorage
-- Place bet functionality
-- Clear all option
-
-### 5. Real-time Odds
-
-- Automatic odds updates every 5 seconds
-- Only for live events
-- ±10% variation
-- Updates reflected everywhere instantly
-
-### 6. State Management (NgRx)
-
-- Centralized application state
-- Immutable state updates
-- Side effects handling
-- Redux DevTools integration
-- Time-travel debugging
-
-### 7. URL Persistence
-
-- Filters saved to URL query params
-- Sorting preferences preserved
-- Pagination state maintained
-- Refresh page maintains state
-
-## Running Tests
+## Testing
 
 ```bash
+# Run tests
 npm test
+
+# Run tests with coverage
+npm test -- --code-coverage
 ```
-
-Tests include:
-
-- Service unit tests
-- Reducer unit tests
-- Component tests (can be extended)
 
 ## API Endpoints
 
-JSON Server automatically creates these endpoints:
-
-- `GET /events` - List events (with pagination, filtering, sorting)
-- `GET /events/:id` - Get single event
+- `GET /events` - Get all events
+- `GET /events/:id` - Get event by ID
 - `POST /events` - Create event
 - `PUT /events/:id` - Update event
 - `DELETE /events/:id` - Delete event
+- `GET /bet-history` - Get bet history
+- `POST /bet-history` - Create bet
 
-Query parameters:
+## Docker
 
-- `_page`, `_per_page` - Pagination
-- `_sort`, `_order` - Sorting
-- `sport`, `status` - Filtering
-- `q` - Full-text search
+Services:
 
-## Browser Support
+- **app** (port 8080) - Angular app with nginx
+- **api** (port 3000) - JSON Server
 
-- Chrome (latest)
-- Firefox (latest)
-- Safari (latest)
-- Edge (latest)
-
-## License
-
-MIT
+Data persists in `db.json` volume.
