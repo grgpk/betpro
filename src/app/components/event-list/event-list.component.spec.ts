@@ -43,10 +43,12 @@ describe('EventListComponent', () => {
           initialState: {
             events: {
               allEvents: [],
+              selectedEvent: null,
+              filters: {},
+              sort: { field: 'startTime', direction: 'asc' },
+              pagination: { page: 1, pageSize: 10 },
               loading: false,
               error: null,
-              pagination: { page: 1, pageSize: 10 },
-              sort: { field: 'startTime', direction: 'asc' },
             },
           },
         }),

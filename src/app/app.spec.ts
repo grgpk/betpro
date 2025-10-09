@@ -19,7 +19,29 @@ describe('App', () => {
     await TestBed.configureTestingModule({
       imports: [App],
       providers: [
-        provideMockStore(),
+        provideMockStore({
+          initialState: {
+            betslip: {
+              bets: [],
+              loading: false,
+              error: null,
+            },
+            betHistory: {
+              history: [],
+              loading: false,
+              error: null,
+            },
+            events: {
+              allEvents: [],
+              selectedEvent: null,
+              filters: {},
+              sort: { field: 'startTime', direction: 'asc' },
+              pagination: { page: 1, pageSize: 10 },
+              loading: false,
+              error: null,
+            },
+          },
+        }),
         provideRouter([]),
         { provide: OddsService, useValue: oddsServiceSpy },
       ],
