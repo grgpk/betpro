@@ -1,0 +1,7 @@
+services:
+  - type: web
+    name: betpro-api
+    runtime: node
+    plan: free
+    buildCommand: npm install --omit=dev
+    startCommand: npx json-server db.json --host 0.0.0.0 --port $PORT
