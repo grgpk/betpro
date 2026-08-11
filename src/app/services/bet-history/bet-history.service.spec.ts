@@ -3,11 +3,12 @@ import { provideHttpClient } from '@angular/common/http';
 import { HttpTestingController, provideHttpClientTesting } from '@angular/common/http/testing';
 import { BetHistoryService } from './bet-history.service';
 import { BetHistoryItem } from '../../models/bet-history.model';
+import { environment } from '../../../environments/environment';
 
 describe('BetHistoryService', () => {
   let service: BetHistoryService;
   let httpMock: HttpTestingController;
-  const apiUrl = 'http://localhost:3000/betHistory';
+  const apiUrl = `${environment.apiUrl}/betHistory`;
 
   const mockBetHistory: BetHistoryItem[] = [
     {

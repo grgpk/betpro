@@ -3,13 +3,14 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { BetHistoryItem } from '../../models/bet-history.model';
+import { environment } from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class BetHistoryService {
   private readonly http = inject(HttpClient);
-  private readonly apiUrl = 'http://localhost:3000/betHistory';
+  private readonly apiUrl = `${environment.apiUrl}/betHistory`;
 
   getBetHistory(): Observable<BetHistoryItem[]> {
     return this.http.get<BetHistoryItem[]>(this.apiUrl).pipe(
